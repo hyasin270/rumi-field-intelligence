@@ -3,264 +3,301 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>We stopped asking teachers "how did it go?" | Taleemabad Field Intelligence</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+<title>We stopped asking teachers "how did it go?" · Field Intelligence 06</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F0E8D0; --paper-edge:#e8dfc8; --ink:#1A1A1A; --ink-soft:#5b5546;
-    --rust:#C84B31; --gold:#E8C547; --night:#0d0d0d;
+    --ink:#0E1116; --ink2:#161B22; --paper:#F4F1EA; --paper2:#ECE7DB;
+    --emerald:#15B886; --emerald-d:#0E8E68; --coral:#FF5A47; --amber:#F5C249;
+    --muted:#7d8893; --line:#262d36;
   }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--paper-edge);font-family:'Space Grotesk',sans-serif;color:var(--ink);
-    -webkit-font-smoothing:antialiased;}
-  .wrapper{max-width:640px;margin:0 auto;background:var(--paper);overflow:hidden;}
-  .mono{font-family:'JetBrains Mono',monospace;}
-  .urdu{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;line-height:2.4;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#cdd2cf;font-family:'Inter',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:660px;margin:0 auto;background:var(--paper);overflow:hidden}
+  .mono{font-family:'JetBrains Mono',monospace}
+  .arch{font-family:'Archivo',sans-serif}
+  .urdu{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;line-height:2.5}
+  section{padding:44px 36px}
+  .kick{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase}
 
-  /* ── HERO ───────────────────────────── */
-  .hero{position:relative;background:var(--night);padding:54px 34px 60px;overflow:hidden;}
-  .hero-halftone{position:absolute;inset:0;
-    background-image:radial-gradient(circle, var(--rust) 1.1px, transparent 1.1px);
-    background-size:7px 7px;opacity:.30;mix-blend-mode:screen;
-    animation:drift 18s linear infinite;}
-  @keyframes drift{from{background-position:0 0}to{background-position:140px 0}}
-  .kicker{position:relative;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2.5px;
-    text-transform:uppercase;color:var(--gold);margin-bottom:26px;}
-  .hero h1{position:relative;color:#fdf6e3;font-weight:300;font-size:34px;line-height:1.22;letter-spacing:-.5px;}
-  .hero h1 b{font-weight:600;color:#fff;}
-  .hero .sub{position:relative;margin-top:18px;color:#cbb98f;font-size:16px;font-weight:400;line-height:1.5;max-width:90%;}
-  .hero .rule{position:relative;width:48px;height:3px;background:var(--rust);margin-top:26px;}
+  /* reveal-on-scroll */
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+  .rv.in{opacity:1;transform:none}
 
-  section{padding:38px 34px;}
-  .lede{font-size:18px;line-height:1.65;color:var(--ink);font-weight:400;}
-  .lede .drop{float:left;font-size:58px;line-height:.82;font-weight:600;color:var(--rust);margin:6px 12px 0 0;font-family:'Space Grotesk';}
-  p+p{margin-top:16px;}
-  .body{font-size:15.5px;line-height:1.7;color:#2c281f;}
-  .label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;
-    color:var(--rust);margin-bottom:14px;display:block;}
+  /* ── HERO ── */
+  .hero{background:var(--ink);color:var(--paper);padding:0;position:relative;overflow:hidden}
+  .wavewrap{height:150px;display:flex;align-items:flex-end;gap:4px;padding:0 36px;opacity:.9}
+  .wave{flex:1;background:linear-gradient(180deg,var(--emerald),var(--emerald-d));border-radius:3px 3px 0 0;height:12%;
+    animation:eq 1.5s ease-in-out infinite}
+  @keyframes eq{0%,100%{height:14%}50%{height:var(--h,70%)}}
+  .herobody{padding:30px 36px 50px}
+  .kick.gold{color:var(--amber);margin-bottom:24px;display:block}
+  h1.title{font-family:'Archivo';font-weight:900;font-size:43px;line-height:1.02;letter-spacing:-1.2px;text-transform:uppercase}
+  h1.title em{font-style:normal;color:var(--emerald)}
+  .standfirst{margin-top:22px;color:#c7cdd3;font-size:16.5px;line-height:1.55;max-width:94%;font-weight:400}
+  .ticker{margin-top:26px;display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--emerald)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--emerald);animation:blink 1.4s ease-in-out infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
 
-  /* ── PULL QUOTE ─────────────────────── */
-  .pull{background:var(--night);color:#fdf6e3;padding:46px 34px;text-align:center;}
-  .pull q{font-size:23px;font-weight:300;line-height:1.45;font-style:italic;quotes:none;}
-  .pull .cite{display:block;margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:12px;
-    letter-spacing:1px;color:var(--gold);font-style:normal;}
+  /* ── OPENER ── */
+  .lede{font-size:19px;line-height:1.62;font-weight:400}
+  .lede .drop{float:left;font-family:'Archivo';font-weight:900;font-size:70px;line-height:.74;color:var(--coral);margin:8px 14px 0 0}
+  .body{font-size:15.5px;line-height:1.72;color:#2b3138}.body+.body{margin-top:15px}
+  .body b{color:var(--ink)}
+  .tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--emerald-d);display:block;margin-bottom:14px;font-weight:700}
 
-  /* ── THREE-COACHES PANEL ────────────── */
-  .three{background:#1A1A1A;color:#f3ecd8;padding:40px 30px;}
-  .three .label{color:var(--gold);}
-  .three h2{font-weight:300;font-size:25px;line-height:1.3;margin-bottom:8px;}
-  .three .setup{color:#b9ad8c;font-size:14px;line-height:1.6;margin-bottom:26px;}
-  .qcard{border:1px solid #3a352a;border-left:3px solid var(--rust);border-radius:7px;
-    padding:18px 20px;margin-bottom:16px;background:#13110c;
-    opacity:0;transform:translateY(14px);animation:rise .7s ease forwards;}
-  .qcard:nth-child(3){animation-delay:.15s}.qcard:nth-child(4){animation-delay:.3s}.qcard:nth-child(5){animation-delay:.45s}
-  @keyframes rise{to{opacity:1;transform:none}}
-  .qtag{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:1.5px;color:var(--gold);text-transform:uppercase;}
-  .qcard .urdu{font-size:16.5px;color:#fdf6e3;margin:10px 0 12px;}
-  .gloss{font-size:13px;color:#a59a78;line-height:1.55;font-style:italic;}
-  .three .foot{margin-top:18px;font-size:13.5px;color:#cbbf9c;line-height:1.6;}
-  .three .foot b{color:var(--gold);font-weight:600;}
+  /* ── PULL ── */
+  .pull{background:var(--coral);color:#1a0a06}
+  .pull q{quotes:none;font-family:'Archivo';font-weight:800;font-size:27px;line-height:1.25;letter-spacing:-.5px}
+  .pull .c{display:block;margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.5px}
 
-  /* ── ANIMATED BAR CHART (cost) ──────── */
-  .chart{background:var(--paper);}
-  .chart h2{font-weight:600;font-size:21px;margin-bottom:4px;}
-  .chart .csub{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft);margin-bottom:30px;}
-  .bars{display:flex;flex-direction:column;gap:22px;}
-  .barrow{}
-  .barrow .bl{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;
-    font-size:12.5px;margin-bottom:7px;color:#2c281f;}
-  .track{height:38px;background:#e2d8ba;border-radius:5px;overflow:hidden;position:relative;}
-  .fill{height:100%;border-radius:5px;width:0;display:flex;align-items:center;justify-content:flex-end;
-    padding-right:12px;color:#fff;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:500;
-    white-space:nowrap;}
-  .fill.old{background:#8a8472;animation:gOld 1.3s cubic-bezier(.2,.7,.3,1) .2s forwards;}
-  .fill.new{background:var(--rust);animation:gNew 1.3s cubic-bezier(.2,.7,.3,1) .55s forwards;}
-  @keyframes gOld{to{width:100%}}
-  @keyframes gNew{to{width:3.5%}}
-  .chart .note{margin-top:22px;font-size:13.5px;line-height:1.6;color:#2c281f;border-top:1px dashed #c3b896;padding-top:16px;}
-  .chart .note b{color:var(--rust);}
+  /* ── WHATSAPP VOICE BUBBLES ── */
+  .wa{background:var(--ink2);color:var(--paper)}
+  .wa .tag{color:var(--amber)}
+  .wa h2{font-family:'Archivo';font-weight:800;font-size:25px;line-height:1.18;margin-bottom:8px}
+  .wa .setup{color:#aeb6bf;font-size:14px;line-height:1.6;margin-bottom:26px}
+  .wa .setup b{color:var(--emerald)}
+  .bub{background:#0b3a30;border-radius:4px 14px 14px 14px;padding:14px 15px;margin-bottom:14px;border:1px solid #145043}
+  .bub .vtag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--amber);text-transform:uppercase}
+  .vn{display:flex;align-items:center;gap:11px;margin:11px 0 6px}
+  .play{width:30px;height:30px;flex:none;border-radius:50%;background:var(--emerald);display:flex;align-items:center;justify-content:center}
+  .play:after{content:"";border-left:10px solid var(--ink);border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:3px}
+  .vbars{flex:1;display:flex;align-items:center;gap:2px;height:24px}
+  .vbars i{width:2px;background:#5fe0bd;border-radius:2px;height:20%;display:block}
+  .vn.in .vbars i{animation:vb 1.1s ease-in-out infinite}
+  @keyframes vb{0%,100%{height:18%}50%{height:90%}}
+  .vt{font-family:'JetBrains Mono',monospace;font-size:11px;color:#7fb8a8}
+  .bub .urdu{font-size:16px;color:#eafff7;margin:6px 0 8px}
+  .gl{font-size:12.5px;color:#9fb0ad;line-height:1.5;font-style:italic}
+  .wa .foot{margin-top:16px;font-size:13.5px;color:#c3ccd2;line-height:1.6}.wa .foot b{color:var(--amber)}
 
-  /* ── STAT GRID ──────────────────────── */
-  .stats{background:var(--night);color:#fdf6e3;display:grid;grid-template-columns:1fr 1fr;gap:0;}
-  .stat{padding:30px 26px;border-right:1px solid #241f17;border-bottom:1px solid #241f17;}
-  .stat:nth-child(2n){border-right:none;}
-  .stat .n{font-size:38px;font-weight:600;color:var(--gold);line-height:1;letter-spacing:-1px;}
-  .stat .n.rust{color:#ff7a5c;}
-  .stat .k{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.5px;color:#b9ad8c;margin-top:10px;line-height:1.5;}
+  /* ── COST CHART ── */
+  .sec h2{font-family:'Archivo';font-weight:800;font-size:23px;line-height:1.12;margin-bottom:5px}
+  .csub{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:30px}
+  .bar{margin-bottom:24px}
+  .bl{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:12.5px;margin-bottom:8px;color:#2b3138}
+  .track{height:42px;background:var(--paper2);border-radius:6px;overflow:hidden}
+  .fill{height:100%;width:0;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:13px;
+    color:#fff;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;white-space:nowrap;transition:width 1.4s cubic-bezier(.2,.7,.25,1)}
+  .fill.old{background:#9aa3ad}.fill.new{background:var(--emerald)}
+  .save{margin-top:18px;background:var(--ink);color:var(--paper);border-radius:10px;padding:20px 22px;display:flex;align-items:baseline;gap:14px}
+  .save .pct{font-family:'Archivo';font-weight:900;font-size:46px;color:var(--emerald);line-height:1;letter-spacing:-1.5px}
+  .save .pl{font-size:13.5px;line-height:1.45;color:#c7cdd3}
 
-  /* ── ANCHOR TIMELINE (svg) ──────────── */
-  .anchor{background:var(--paper);}
-  .anchor h2{font-weight:600;font-size:21px;margin-bottom:6px;}
-  .anchor .csub{font-size:14px;color:var(--ink-soft);line-height:1.6;margin-bottom:26px;}
-  .tl{position:relative;padding:8px 0 4px;}
-  svg .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:dash 2s ease forwards .3s;}
+  /* ── TIMELINE ── */
+  .tlsec{background:var(--paper2)}
+  .tlsvg{width:100%;height:56px;margin:6px 0 4px}
+  .tlsvg path,.tlsvg line{stroke-dasharray:1;stroke-dashoffset:1}
+  .tlsec.in .tlsvg .draw{animation:dash 1.8s ease forwards .2s}
   @keyframes dash{to{stroke-dashoffset:0}}
-  .tlmoment{display:flex;gap:14px;align-items:flex-start;margin-top:18px;}
-  .tldot{flex:none;width:14px;height:14px;border-radius:50%;margin-top:4px;}
-  .tldot.a{background:var(--gold);}.tldot.b{background:var(--rust);}
-  .tlt{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--ink-soft);}
-  .tlx{font-size:15px;line-height:1.5;color:#2c281f;}
+  .mom{display:flex;gap:13px;align-items:flex-start;margin-top:16px}
+  .md{flex:none;width:15px;height:15px;border-radius:50%;margin-top:3px;transform:scale(0)}
+  .tlsec.in .md{animation:pop .5s cubic-bezier(.2,1.4,.4,1) forwards}
+  .tlsec.in .md.b{animation-delay:.9s}
+  @keyframes pop{to{transform:scale(1)}}
+  .md.a{background:var(--amber)}.md.b{background:var(--coral)}
+  .mt{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)}
+  .mx{font-size:15px;line-height:1.5;color:#2b3138}
 
-  /* ── FLOW ───────────────────────────── */
-  .flow{background:var(--paper-edge);}
-  .flow h2{font-weight:600;font-size:21px;margin-bottom:24px;}
-  .step{display:flex;gap:16px;align-items:flex-start;margin-bottom:4px;}
-  .stepn{flex:none;width:30px;height:30px;border-radius:50%;background:var(--night);color:var(--gold);
-    font-family:'JetBrains Mono',monospace;font-size:13px;display:flex;align-items:center;justify-content:center;font-weight:500;}
-  .stepb{font-size:14.5px;line-height:1.55;color:#2c281f;padding-bottom:8px;}
-  .stepb b{color:var(--ink);}
-  .stepline{width:2px;height:18px;background:#c3b896;margin-left:14px;}
+  /* ── STAT GRID ── */
+  .stats{background:var(--ink);color:var(--paper);display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0}
+  .st{padding:32px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .st:nth-child(2n){border-right:none}
+  .st .n{font-family:'Archivo';font-weight:900;font-size:42px;line-height:1;letter-spacing:-1.5px;color:var(--emerald)}
+  .st:nth-child(2) .n,.st:nth-child(3) .n{color:var(--amber)}
+  .st .k{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#aeb6bf;margin-top:11px;line-height:1.5}
 
-  /* ── GUARDRAILS ─────────────────────── */
-  .guards{background:var(--paper);}
-  .guards h2{font-weight:600;font-size:21px;margin-bottom:6px;}
-  .guards .csub{font-size:14px;color:var(--ink-soft);margin-bottom:22px;line-height:1.6;}
-  .grow{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #ddd0ad;font-size:14px;line-height:1.5;}
-  .grow:last-child{border-bottom:none;}
-  .gx{flex:none;color:var(--rust);font-family:'JetBrains Mono',monospace;font-weight:500;}
+  /* ── FLOW ── */
+  .flow{background:var(--paper)}
+  .stp{display:flex;gap:15px;align-items:flex-start}
+  .sn{flex:none;width:32px;height:32px;border-radius:9px;background:var(--ink);color:var(--emerald);font-family:'JetBrains Mono';font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .sb{font-size:14.5px;line-height:1.55;color:#2b3138;padding-bottom:6px}.sb b{color:var(--ink)}
+  .sl{width:2px;height:16px;background:#cdc6b6;margin:2px 0 2px 15px}
 
-  /* ── CLOSE / FOOTER ─────────────────── */
-  .close{background:var(--night);color:#fdf6e3;padding:44px 34px;}
-  .close h2{font-weight:300;font-size:24px;line-height:1.35;margin-bottom:16px;}
-  .close p{color:#cbbf9c;font-size:15px;line-height:1.65;}
-  .close .badge{display:inline-block;margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:12px;
-    letter-spacing:1px;color:var(--night);background:var(--gold);padding:8px 16px;border-radius:4px;font-weight:500;}
-  footer{background:#080808;color:#6f6a5b;padding:26px 34px;font-family:'JetBrains Mono',monospace;
-    font-size:11.5px;letter-spacing:.5px;text-align:center;line-height:1.8;}
-  footer a{color:#a59a78;text-decoration:none;}
+  /* ── GUARDRAILS ── */
+  .grd{background:var(--paper2)}
+  .gr{display:flex;gap:13px;padding:13px 0;border-bottom:1px solid #d9d2c2;font-size:14px;line-height:1.5;align-items:flex-start}
+  .gr:last-child{border:none}
+  .gx{flex:none;font-family:'JetBrains Mono';font-weight:700;color:var(--coral);min-width:34px}
+  .gr .ck{flex:none;width:18px;height:18px;border-radius:50%;background:var(--emerald);position:relative;margin-top:1px}
+  .gr .ck:after{content:"";position:absolute;left:5px;top:3px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) scale(0)}
+  .grd.in .gr .ck:after{animation:tick .4s ease forwards}
+  .grd.in .gr:nth-child(2) .ck:after{animation-delay:.1s}.grd.in .gr:nth-child(3) .ck:after{animation-delay:.2s}
+  .grd.in .gr:nth-child(4) .ck:after{animation-delay:.3s}.grd.in .gr:nth-child(5) .ck:after{animation-delay:.4s}
+  .grd.in .gr:nth-child(6) .ck:after{animation-delay:.5s}.grd.in .gr:nth-child(7) .ck:after{animation-delay:.6s}.grd.in .gr:nth-child(8) .ck:after{animation-delay:.7s}
+  @keyframes tick{to{transform:rotate(45deg) scale(1)}}
+
+  /* ── CLOSE ── */
+  .close{background:var(--ink);color:var(--paper)}
+  .close h2{font-family:'Archivo';font-weight:800;font-size:25px;line-height:1.2;margin-bottom:15px}
+  .close h2 em{font-style:normal;color:var(--emerald)}
+  .close p{color:#c7cdd3;font-size:15px;line-height:1.65}
+  .badge{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:'JetBrains Mono';font-size:12px;letter-spacing:1px;
+    color:var(--ink);background:var(--emerald);padding:9px 16px;border-radius:6px;font-weight:700}
+  footer{background:#070a0d;color:#5d6770;padding:26px 36px;font-family:'JetBrains Mono';font-size:11.5px;letter-spacing:.5px;text-align:center;line-height:1.9}
+  footer a{color:var(--emerald);text-decoration:none}
 </style>
 </head>
 <body>
-<div class="wrapper">
+<div class="wrap">
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-halftone"></div>
-    <div class="kicker">Taleemabad Field Intelligence · Issue 06 · May 2026</div>
-    <h1>We stopped asking teachers <b>"how did it go?"</b></h1>
-    <div class="sub">Then we taught the AI to quote their own classroom back to them — to the second.</div>
-    <div class="rule"></div>
+  <section class="hero" style="padding:0">
+    <div class="wavewrap" id="hwave"></div>
+    <div class="herobody">
+      <span class="kick gold">Taleemabad Field Intelligence · Issue 06 · May 2026</span>
+      <h1 class="title">We stopped asking teachers <em>"how did it go?"</em></h1>
+      <p class="standfirst">Good coaching is the highest-leverage thing that can happen in a classroom — and the rarest. Most teachers on Earth are observed once every few years, if ever. So we gave every teacher a coach in their pocket. The hard part wasn't the listening. It was the asking.</p>
+      <span class="ticker"><span class="dot"></span> LIVE IN PRODUCTION · PK · TZ</span>
+    </div>
   </section>
 
   <!-- OPENER -->
   <section>
-    <p class="lede"><span class="drop">R</span>umi coaches teachers by listening to a recording of their lesson and then asking a few reflective questions over WhatsApp. For months those questions were polite and generic — the kind a teacher learns to pattern-match by her third session. <em>How did the lesson go? What would you change?</em></p>
-    <p class="body">The answers told the story. They were getting shorter. The share of teachers who walked away with a concrete "next time I will…" plan was sliding. A good coach never asks the same question twice — and never asks one a teacher can answer on autopilot. Our AI coach was doing both.</p>
-    <p class="body">So in May 2026 we rebuilt the question engine from scratch. The rule for the new version was simple: <b>never ask a question the teacher could have answered without having taught that exact lesson.</b></p>
+    <p class="lede rv"><span class="drop">A</span> great coach never asks a question you can answer on autopilot. For months, ours did. It listened to a recording of a teacher's lesson and then asked the safe, generic things — <em>How did the lesson go? What would you change next time?</em> — questions a teacher learns to pattern-match by her third session.</p>
+    <p class="body rv">The answers showed it. They were getting shorter. The share of teachers who walked away with a concrete <b>"next time I will…"</b> plan was sliding. A coach that asks forgettable questions gets forgettable answers — at any scale.</p>
+    <p class="body rv">So in May 2026 we rebuilt the question engine from the ground up, around a single rule: <b>never ask a question the teacher could have answered without having taught that exact lesson.</b></p>
   </section>
 
-  <!-- PULL QUOTE -->
-  <section class="pull">
+  <!-- PULL -->
+  <section class="pull rv">
     <q>A generic question gets a generic answer. We wanted the AI to put the teacher back inside the one minute of her lesson that actually mattered.</q>
-    <span class="cite">— Design principle, Coaching v12</span>
+    <span class="c">— Design principle · Coaching v12</span>
   </section>
 
-  <!-- THREE COACHES -->
-  <section class="three">
-    <span class="label">One classroom · one question · three ways</span>
-    <h2>The same moment, asked three different ways</h2>
-    <p class="setup">Ehtisham's maths lesson, 20 May. The AI noticed a contradiction: at <b>05:00</b> the children were counting with their own hands; by <b>11:20</b> he had handed them a rule — "always start from the unit." Asked to write a reflective question about that turn, the engine produced three genuinely different ones. None is a template.</p>
+  <!-- WHATSAPP VOICE BUBBLES -->
+  <section class="wa">
+    <span class="tag rv">One moment · three ways · zero templates</span>
+    <h2 class="rv">The same 30 seconds, asked three different ways</h2>
+    <p class="setup rv">Ehtisham's maths lesson, 20 May. The AI noticed a contradiction in his own teaching: at <b>05:00</b> the children were counting on their fingers — discovering it themselves. By <b>11:20</b> he'd handed them a rule: "always start from the unit." Asked to write a reflective question about that turn, the engine wrote three genuinely different ones. Each arrives as a WhatsApp voice note, in Urdu.</p>
 
-    <div class="qcard">
-      <span class="qtag">Variation A — the counterfactual</span>
+    <div class="bub rv">
+      <span class="vtag">Variation A · the counterfactual</span>
+      <div class="vn"><div class="play"></div><div class="vbars"></div><span class="vt">0:18</span></div>
       <div class="urdu">05:00 پر بچے لائنز کھینچ کے گن رہے تھے — اپنے ہاتھوں سے سمجھ رہے تھے۔ پھر 11:20 پر اچانک ایک رول آیا کہ ہمیشہ یونٹ سے سٹارٹ کرو۔ ان دو لمحوں کے بیچ میں کیا ہوا جو آپ نے رخ بدلا؟</div>
-      <div class="gloss">"At 05:00 the children were counting with their hands — understanding it themselves. Then at 11:20 a rule appeared: always start from the unit. What happened between those two moments that made you change direction?"</div>
+      <div class="gl">"At 05:00 the children were counting with their hands — understanding it themselves. Then at 11:20 a rule appeared: always start from the unit. What happened between those two moments that made you change direction?"</div>
     </div>
-
-    <div class="qcard">
-      <span class="qtag">Variation B — the learner's mind</span>
+    <div class="bub rv">
+      <span class="vtag">Variation B · the learner's mind</span>
+      <div class="vn"><div class="play"></div><div class="vbars"></div><span class="vt">0:15</span></div>
       <div class="urdu">ایک ہی لیسن میں دو الگ طریقے — 05:00 پر "خود گنو" اور 11:20 پر "رول یاد رکھو"۔ آپ کے خیال میں بچے کے ذہن میں یہ شفٹ کیسی محسوس ہوئی ہو گی؟</div>
-      <div class="gloss">"Two different methods in one lesson — 'count it yourself' at 05:00 and 'remember the rule' at 11:20. How do you think that shift felt inside the child's mind?"</div>
+      <div class="gl">"Two methods in one lesson — 'count it yourself' at 05:00 and 'remember the rule' at 11:20. How do you think that shift felt inside the child's mind?"</div>
     </div>
-
-    <div class="qcard">
-      <span class="qtag">Variation C — the hypothetical student</span>
+    <div class="bub rv">
+      <span class="vtag">Variation C · the hypothetical student</span>
+      <div class="vn"><div class="play"></div><div class="vbars"></div><span class="vt">0:21</span></div>
       <div class="urdu">آپ نے 11:20 پر بچوں سے کہا "ہمیشہ رائٹ سے۔" 05:00 پر آپ نے انہیں خود ایڈیشن دریافت کرنے دیا تھا۔ اگر کوئی بچہ پوچھے کہ "میں نے تو خود گن کر کر لیا تھا، رول کیوں؟" — تو آپ کیسے بتائیں گی؟</div>
-      <div class="gloss">"At 11:20 you told them 'always from the right.' At 05:00 you'd let them discover addition themselves. If a child asked, 'but I worked it out on my own — why the rule?' — how would you answer?"</div>
+      <div class="gl">"At 11:20 you told them 'always from the right.' At 05:00 you'd let them discover addition themselves. If a child asked, 'but I worked it out on my own — why the rule?' — how would you answer?"</div>
     </div>
-
-    <p class="foot">All three cite the <b>real timestamps</b> from her actual lesson, surface the <b>same teaching moment</b>, and avoid advice or judgement entirely. But they read like three different thoughtful coaches. Variation C even invents a student's voice — something a fill-in-the-blank template <b>categorically cannot do</b>.</p>
+    <p class="foot rv">All three cite the <b>real timestamps</b> from her lesson, surface the <b>same teaching moment</b>, and contain no advice and no judgement. But they read like three different thoughtful coaches. Variation C even invents a student's voice — something a fill-in-the-blank template <b>categorically cannot do.</b></p>
   </section>
 
-  <!-- COST CHART -->
-  <section class="chart">
-    <h2>Better questions, for a fraction of the cost</h2>
-    <p class="csub">Cost to generate one teacher's reflective-question set</p>
-    <div class="bars">
-      <div class="barrow">
-        <div class="bl"><span>Old engine (GPT-4o chain)</span><span>$0.086</span></div>
-        <div class="track"><div class="fill old">$0.086 / session</div></div>
-      </div>
-      <div class="barrow">
-        <div class="bl"><span>New engine (DeepSeek V3.2)</span><span>$0.003</span></div>
-        <div class="track"><div class="fill new"></div></div>
-      </div>
-    </div>
-    <p class="note">A <b>~96% drop</b> in the question-generation cost — and because it also folds in the lesson analysis, the total cost of a full classroom observation falls <b>24–32%</b>. The quality went <em>up</em>, not down: in a head-to-head across eight frontier models on real Pakistani and Tanzanian lessons, this one tied for best.</p>
+  <!-- COST -->
+  <section class="sec chart" data-anim="cost">
+    <h2 class="rv">Better questions, for a fraction of the cost</h2>
+    <p class="csub rv">Cost to generate one teacher's reflective-question set</p>
+    <div class="bar rv"><div class="bl"><span>Old engine · GPT-4o chain</span><span>$0.086</span></div><div class="track"><div class="fill old" data-w="100" style="">$0.086 / session</div></div></div>
+    <div class="bar rv"><div class="bl"><span>New engine · DeepSeek V3.2</span><span>$0.003</span></div><div class="track"><div class="fill new" data-w="3.5"></div></div></div>
+    <div class="save rv"><span class="pct" data-count="96" data-suffix="%">0%</span><span class="pl">cheaper to ask — and because it folds in the lesson analysis too, the full cost of a classroom observation drops <b>24–32%</b>. In a head-to-head across eight frontier models on real Pakistani and Tanzanian lessons, this one tied for best.</span></div>
   </section>
 
-  <!-- STAT GRID -->
-  <section class="stats">
-    <div class="stat"><div class="n">8</div><div class="k">programmatic guardrails every question must pass before it's sent</div></div>
-    <div class="stat"><div class="n rust">5</div><div class="k">observation frameworks supported — incl. Tanzania's MEWAKA</div></div>
-    <div class="stat"><div class="n">~4,200</div><div class="k">reflective questions generated for teachers each month</div></div>
-    <div class="stat"><div class="n rust">≤65</div><div class="k">word ceiling — depth is structural, never padding</div></div>
+  <!-- TIMELINE -->
+  <section class="tlsec" data-anim="tl">
+    <h2 class="rv">How the AI finds the moment</h2>
+    <p class="csub rv">Before it writes anything, it reads the whole transcript looking for a <em>contradiction</em> — two moments on the same thread where the teaching changed. That tension becomes the question.</p>
+    <svg class="tlsvg" viewBox="0 0 580 56" preserveAspectRatio="none" aria-hidden="true">
+      <line class="draw" x1="24" y1="28" x2="556" y2="28" stroke="#FF5A47" stroke-width="2.5" pathLength="1"/>
+    </svg>
+    <div class="mom"><div class="md a"></div><div><div class="mt">05:00</div><div class="mx">Children counting on their fingers — discovering addition themselves.</div></div></div>
+    <div class="mom"><div class="md b"></div><div><div class="mt">11:20</div><div class="mx">A procedural rule arrives: "always start from the unit."</div></div></div>
   </section>
 
-  <!-- ANCHOR TIMELINE -->
-  <section class="anchor">
-    <h2>How the AI finds the moment</h2>
-    <p class="csub">Before writing anything, the engine reads the whole transcript and looks for a <em>contradiction</em> — two moments on the same thread where the teaching changed. That tension becomes the question.</p>
-    <div class="tl">
-      <svg width="100%" height="64" viewBox="0 0 560 64" preserveAspectRatio="none" aria-hidden="true">
-        <line class="draw" x1="20" y1="32" x2="540" y2="32" stroke="#C84B31" stroke-width="2.5" pathLength="1"/>
-        <circle cx="120" cy="32" r="7" fill="#E8C547"/>
-        <circle cx="420" cy="32" r="7" fill="#C84B31"/>
-      </svg>
-      <div class="tlmoment"><div class="tldot a"></div><div><div class="tlt">05:00</div><div class="tlx">Children counting with their hands — discovering it themselves.</div></div></div>
-      <div class="tlmoment"><div class="tldot b"></div><div><div class="tlt">11:20</div><div class="tlx">A procedural rule arrives: "always start from the unit."</div></div></div>
-    </div>
+  <!-- STATS -->
+  <section class="stats" data-anim="stats">
+    <div class="st"><div class="n" data-count="8">0</div><div class="k">guardrails every question must pass before it's sent</div></div>
+    <div class="st"><div class="n" data-count="5">0</div><div class="k">frameworks supported — including Tanzania's MEWAKA</div></div>
+    <div class="st"><div class="n" data-count="4200" data-prefix="~">0</div><div class="k">reflective questions generated for teachers / month</div></div>
+    <div class="st"><div class="n">≤65</div><div class="k">word ceiling — depth is structural, never padding</div></div>
   </section>
 
   <!-- FLOW -->
   <section class="flow">
-    <h2>What happens after the recording</h2>
-    <div class="step"><div class="stepn">1</div><div class="stepb"><b>Read the whole lesson.</b> One pass extracts the through-line, the significant moments, and the moments where a child's answer revealed their thinking.</div></div>
-    <div class="stepline"></div>
-    <div class="step"><div class="stepn">2</div><div class="stepb"><b>Notice (Q1).</b> Quote one real moment back to the teacher, naming the child if we can verify the name, and place her inside it.</div></div>
-    <div class="stepline"></div>
-    <div class="step"><div class="stepn">3</div><div class="stepb"><b>Listen, then adapt (Q2).</b> The next question reacts to what she <em>actually answered</em> — not a script — moving to a different moment on the same thread.</div></div>
-    <div class="stepline"></div>
-    <div class="step"><div class="stepn">4</div><div class="stepb"><b>Commit (Q3).</b> It closes on her own first thought for next time she meets that <em>specific</em> kind of moment — a plan, in her words.</div></div>
+    <h2 class="rv" style="font-family:'Archivo';font-weight:800;font-size:23px;margin-bottom:24px">What happens after the recording</h2>
+    <div class="stp rv"><div class="sn">1</div><div class="sb"><b>Read the whole lesson.</b> One pass pulls out the through-line, the key moments, and the moments a child's answer revealed their thinking.</div></div>
+    <div class="sl rv"></div>
+    <div class="stp rv"><div class="sn">2</div><div class="sb"><b>Notice (Q1).</b> Quote one real moment back, name the child if we can verify it, and place her inside it.</div></div>
+    <div class="sl rv"></div>
+    <div class="stp rv"><div class="sn">3</div><div class="sb"><b>Listen, then adapt (Q2).</b> The next question reacts to what she <em>actually said</em> — not a script — moving to a different moment on the same thread.</div></div>
+    <div class="sl rv"></div>
+    <div class="stp rv"><div class="sn">4</div><div class="sb"><b>Commit (Q3).</b> It closes on her own first thought for the next time she meets that <em>specific</em> kind of moment — a plan, in her words.</div></div>
   </section>
 
   <!-- GUARDRAILS -->
-  <section class="guards">
-    <h2>The rules a question must survive</h2>
-    <p class="csub">Eight checks run automatically after the AI writes each question. Fail one, and it's rewritten — up to three times — before a teacher ever sees it.</p>
-    <div class="grow"><span class="gx">01</span><div>Must stay under the cognitive-load ceiling — no rambling.</div></div>
-    <div class="grow"><span class="gx">02</span><div>Cannot open with a yes/no stem (<span class="mono">did / was / can / کیا</span>) — open inquiry only.</div></div>
-    <div class="grow"><span class="gx">03</span><div>No advice wearing a question mark — no <em>should</em>, <em>try</em>, <em>chahiye</em>.</div></div>
-    <div class="grow"><span class="gx">04</span><div>Must be anchored to real evidence — a timestamp or the teacher's own words.</div></div>
-    <div class="grow"><span class="gx">05</span><div>Must reference what was <em>done</em>, never who the teacher <em>is</em> — no character judgement.</div></div>
-    <div class="grow"><span class="gx">06</span><div>The closing question must name a cue, a moment, and an observable action.</div></div>
-    <div class="grow"><span class="gx">07 · 08</span><div>Must be genuinely new — checked against the teacher's last sessions by fingerprint <em>and</em> meaning.</div></div>
+  <section class="grd" data-anim="grd">
+    <h2 class="rv" style="font-family:'Archivo';font-weight:800;font-size:23px;margin-bottom:5px">The rules a question must survive</h2>
+    <p class="csub rv">Eight checks run automatically after each question is written. Fail one, and it's rewritten — up to three times — before a teacher ever sees it.</p>
+    <div class="gr"><span class="ck"></span><span class="gx">01</span><div>Stays under the cognitive-load ceiling — no rambling.</div></div>
+    <div class="gr"><span class="ck"></span><span class="gx">02</span><div>Cannot open with a yes/no stem (<span class="mono">did · was · can · کیا</span>) — open inquiry only.</div></div>
+    <div class="gr"><span class="ck"></span><span class="gx">03</span><div>No advice wearing a question mark — no <em>should</em>, <em>try</em>, <em>chahiye</em>.</div></div>
+    <div class="gr"><span class="ck"></span><span class="gx">04</span><div>Anchored to real evidence — a timestamp or the teacher's own words.</div></div>
+    <div class="gr"><span class="ck"></span><span class="gx">05</span><div>References what was <em>done</em>, never who the teacher <em>is</em>.</div></div>
+    <div class="gr"><span class="ck"></span><span class="gx">06</span><div>The closing question names a cue, a moment, and an observable action.</div></div>
+    <div class="gr"><span class="ck"></span><span class="gx">07·08</span><div>Genuinely new — checked against her last sessions by fingerprint <em>and</em> meaning.</div></div>
   </section>
 
   <!-- CLOSE -->
   <section class="close">
-    <h2>The question is now a voice note — and it speaks Arabic without being taught.</h2>
-    <p>Reflective questions now arrive as native WhatsApp voice notes, in the teacher's own language. And because the language layer is built on <em>principles</em> rather than hard-coded rules, when we pointed it at a real Arabic lesson with no Arabic-specific code, it wrote natural, gender-neutral Arabic — and switched to English for the subject terms — on the first try.</p>
-    <span class="badge">● LIVE in production · May 2026</span>
+    <h2 class="rv">The question is a voice note now — and it speaks <em>Arabic</em> without being taught.</h2>
+    <p class="rv">Reflective questions arrive as native WhatsApp voice notes, in the teacher's own language. And because the language layer runs on <em>principles</em> rather than hard-coded rules, when we pointed it at a real Arabic lesson with no Arabic-specific code, it wrote natural, gender-neutral Arabic — switching to English for the subject terms — on the first try.</p>
+    <span class="badge rv"><span class="dot" style="background:var(--ink)"></span> LIVE in production · May 2026</span>
   </section>
 
   <footer>
-    TALEEMABAD · FIELD INTELLIGENCE<br>
+    TALEEMABAD · FIELD INTELLIGENCE · No. 06<br>
     <a href="https://taleemabad.com">taleemabad.com</a> &nbsp;·&nbsp; <a href="https://hellorumi.ai">hellorumi.ai</a>
   </footer>
 
 </div>
+
+<script>
+  // hero waveform bars
+  (function(){
+    var w=document.getElementById('hwave');
+    var hs=[40,68,30,82,52,90,38,72,48,86,34,64,44,78,30,70,50,88,36,60,46,80,32,74,42,66,52,84,38,68];
+    hs.concat(hs).forEach(function(h,i){var b=document.createElement('div');b.className='wave';
+      b.style.setProperty('--h',h+'%');b.style.animationDelay=(i*0.05)+'s';w.appendChild(b);});
+  })();
+  // voice-note mini bars
+  document.querySelectorAll('.vbars').forEach(function(c){
+    var p=[30,60,40,80,55,90,45,70,35,85,50,75,30,65,45,88,40,60,70,50,80,35,60,42];
+    p.forEach(function(h,i){var s=document.createElement('i');s.style.height=h+'%';s.style.animationDelay=(i*0.06)+'s';c.appendChild(s);});
+  });
+  // count-up
+  function countUp(el){
+    var target=+el.dataset.count, pre=el.dataset.prefix||'', suf=el.dataset.suffix||'', t0=null, dur=1300;
+    function step(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/dur,1); var e=1-Math.pow(1-p,3);
+      var v=Math.round(target*e); el.textContent=pre+v.toLocaleString()+suf; if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  }
+  // trigger logic (shared by observer + failsafe)
+  function fire(t){
+    if(t.dataset.fired)return; t.dataset.fired=1;
+    if(t.classList.contains('rv'))t.classList.add('in');
+    var a=t.dataset.anim;
+    if(a==='cost'){ t.querySelectorAll('.fill').forEach(function(f){f.style.width=f.dataset.w+'%';});
+      var pc=t.querySelector('.pct'); if(pc&&!pc.dataset.done){pc.dataset.done=1;countUp(pc);} }
+    if(a==='tl'||a==='grd'){ t.classList.add('in'); }
+    if(a==='stats'){ t.querySelectorAll('[data-count]').forEach(function(n){if(!n.dataset.done){n.dataset.done=1;countUp(n);}}); }
+    t.querySelectorAll('.vn').forEach(function(v){v.classList.add('in');});
+  }
+  var els=document.querySelectorAll('.rv,[data-anim]');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fire(e.target);io.unobserve(e.target);}});},{threshold:.15});
+    els.forEach(function(el){io.observe(el);});
+  }
+  // failsafe: if the embed never scrolls / IO misfires, reveal + animate everything after 2.6s
+  setTimeout(function(){els.forEach(fire);},2600);
+</script>
 </body>
 </html>
