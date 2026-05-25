@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How do you make an AI remember a person? · Field Intelligence 08</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#EFF1F7;--bg2:#E2E6F0;--ink:#27303F;--soft:#7e879a;--blue:#6B84B0;--blued:#4C6796;--sand:#D9B98A;--sandd:#BE9A66;--deep:#2B3A52;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#d3d8e3;font-family:'Inter',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:660px;margin:0 auto;background:var(--bg);overflow:hidden}
+  .mono{font-family:'JetBrains Mono',monospace}
+  section{padding:46px 36px}
+  .gif{display:block;width:100%;height:auto;background:var(--bg)}.giffull{padding:0}
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+  .rv.in{opacity:1;transform:none}
+  .kick{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase}
+  .hero{background:linear-gradient(180deg,#F8F9FC,var(--bg));border-bottom:1px solid #dde2ed;padding:48px 36px 50px}
+  .thread{display:flex;align-items:center;gap:0;margin-bottom:30px}
+  .thread .ln{height:2px;background:var(--blue);flex:1;opacity:.5}
+  .thread .nd{width:11px;height:11px;border-radius:50%;background:var(--blue);animation:pulse 1.8s ease-in-out infinite}
+  .thread .nd:nth-child(4){animation-delay:.3s}.thread .nd:nth-child(6){animation-delay:.6s}.thread .nd:nth-child(8){animation-delay:.9s}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
+  .kick.k{color:var(--sandd);margin-bottom:20px;display:block}
+  h1{font-family:'Fraunces';font-weight:900;font-size:42px;line-height:1.05;letter-spacing:-1px}
+  h1 em{font-style:italic;color:var(--blued)}
+  .standfirst{margin-top:22px;color:#515a6c;font-size:16.5px;line-height:1.58;max-width:95%}
+  .lede{font-size:19px;line-height:1.62}
+  .lede .drop{float:left;font-family:'Fraunces';font-weight:900;font-size:72px;line-height:.72;color:var(--blued);margin:9px 14px 0 0}
+  .body{font-size:15.5px;line-height:1.72;color:#3a4252}.body+.body{margin-top:15px}
+  .body b,.lede b{color:var(--ink)}
+  h2{font-family:'Fraunces';font-weight:600;font-size:25px;line-height:1.14;margin-bottom:6px}
+  .csub{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--soft);margin-bottom:26px}
+  .pull{background:var(--deep)}
+  .pull q{quotes:none;font-family:'Fraunces';font-weight:600;font-size:25px;line-height:1.3;color:#fff}
+  .pull .c{display:block;margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sand)}
+  .stp{display:flex;gap:15px;align-items:flex-start}
+  .sn{flex:none;width:32px;height:32px;border-radius:10px;background:var(--blue);color:#fff;font-family:'JetBrains Mono';font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .sb{font-size:14.5px;line-height:1.55;color:#3a4252;padding-bottom:6px}.sb b{color:var(--ink)}
+  .sl{width:2px;height:16px;background:#cdd5e3;margin:2px 0 2px 15px}
+  .close{background:var(--deep);color:#e9eef6}
+  .close h2{font-family:'Fraunces';font-weight:600;font-size:26px;line-height:1.2;margin-bottom:15px;color:#fff}
+  .close h2 em{font-style:italic;color:var(--sand)}
+  .close p{color:#c6d0e0;font-size:15px;line-height:1.65}
+  .badge{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:'JetBrains Mono';font-size:12px;letter-spacing:1px;color:var(--deep);background:var(--sand);padding:9px 16px;border-radius:7px;font-weight:700}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--deep)}
+  footer{background:#1f2a3c;color:#8c98b0;padding:26px 36px;font-family:'JetBrains Mono';font-size:11.5px;letter-spacing:.5px;text-align:center;line-height:1.9}
+  footer a{color:var(--sand);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <div class="thread"><span class="nd"></span><span class="ln"></span><span class="nd"></span><span class="ln"></span><span class="nd"></span><span class="ln"></span><span class="nd"></span><span class="ln"></span><span class="nd"></span></div>
+    <span class="kick k">Taleemabad Field Intelligence · Issue 08 · May 2026</span>
+    <h1>How do you make an AI <em>remember</em> a person?</h1>
+    <p class="standfirst">Every AI assistant on Earth has the same amnesia: it forgets you the moment the conversation ends. The standard cure is a thing called a <em>vector database</em>. Rumi serves thousands of teachers and never built one. Here's why.</p>
+  </section>
+
+  <section>
+    <p class="lede rv"><span class="drop">A</span>n AI language model is, by default, forgetful. It reads your message, answers, and remembers nothing. Each conversation starts from zero. And it can only hold so much at once — a fixed "window" of text — so even within a chat, the oldest things slide out and are gone.</p>
+    <p class="body rv">The industry's answer is nearly universal: take everything a user has ever said, convert it into thousands of numbers, store those in a <b>vector database</b>, and at each turn search for the "most similar" past snippets to paste back in. It's called retrieval-augmented generation, and as of 2026 it's the default plumbing of almost every AI product.</p>
+    <p class="body rv">It works. But it's a whole second system to run, and it <em>guesses</em> — it fetches what looks similar, not necessarily what's true. For a teacher, "looks similar" isn't good enough. She doesn't want the lesson plan that resembles hers. She wants <b>hers.</b></p>
+  </section>
+
+  <section class="pull rv">
+    <q>Most AI products try to remember everything, fuzzily. We chose to remember the right thing, exactly — and only when she asks.</q>
+    <span class="c">— How Rumi handles memory</span>
+  </section>
+
+  <section style="background:var(--bg2)">
+    <h2 class="rv">Two ways to make an AI remember</h2>
+    <p class="csub rv" style="color:#6a7488">The default the whole field reaches for — and the one Rumi chose instead.</p>
+    <img class="gif rv" data-src="assets/08/versus.gif" width="1240" height="640" alt="The usual way: a vector database that embeds everything and searches by similarity. Rumi: just ask the records — fetch the exact lesson, only when the teacher refers to it.">
+  </section>
+
+  <section>
+    <h2 class="rv">Memory that's opt-in and exact</h2>
+    <p class="csub rv">No vector database. Just three honest rules.</p>
+    <div class="stp rv"><div class="sn">1</div><div class="sb"><b>Only when she refers to it.</b> Rumi watches for a teacher pointing at her own past — "my last lesson plan", "change that one", "how did my class score?" Until then, it stays out of the way.</div></div>
+    <div class="sl rv"></div>
+    <div class="stp rv"><div class="sn">2</div><div class="sb"><b>Then it fetches the exact record.</b> Not a fuzzy match — the actual lesson, the actual coaching report, pulled straight from an ordinary database by who she is and what she made.</div></div>
+    <div class="sl rv"></div>
+    <div class="stp rv"><div class="sn">3</div><div class="sb"><b>"Start fresh" wipes the slate.</b> A teacher can always tell Rumi to forget the past and begin clean. Memory she controls, not memory imposed on her.</div></div>
+  </section>
+
+  <section class="giffull">
+    <img class="gif rv" data-src="assets/08/remember.gif" width="1240" height="580" alt="What Rumi remembers without a vector database: 6,349 teachers, 20,834 lesson plans, 3,579 coaching reports">
+  </section>
+
+  <section class="close">
+    <h2 class="rv">Sometimes the simpler thing is the smarter thing — <em>exact</em> beats fuzzy.</h2>
+    <p class="rv">Across 6,349 teachers and more than 20,000 lesson plans, Rumi's memory is just their real history, fetched precisely when they reach for it. No embeddings, no similarity search, no second system to keep alive. Easier to trust. Easier to debug. And it never hands a teacher someone else's lesson by mistake.</p>
+    <span class="badge rv"><span class="dot"></span> LIVE in production · May 2026</span>
+  </section>
+  <footer>TALEEMABAD · FIELD INTELLIGENCE · No. 08<br><a href="https://taleemabad.com">taleemabad.com</a> &nbsp;·&nbsp; <a href="https://hellorumi.ai">hellorumi.ai</a></footer>
+</div>
+<script>
+  function fire(t){if(t.dataset.fired)return;t.dataset.fired=1;if(t.classList.contains('rv'))t.classList.add('in');
+    if(t.tagName==='IMG'&&t.dataset.src){t.src=t.dataset.src+'?p='+Date.now();}}
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fire(e.target);io.unobserve(e.target);}});},{threshold:.2,rootMargin:'0px 0px -8% 0px'});els.forEach(function(el){io.observe(el);});}else{els.forEach(fire);}
+  setTimeout(function(){els.forEach(function(el){if(!el.dataset.fired){el.classList.add('in');if(el.tagName==='IMG'&&el.dataset.src){el.src=el.dataset.src;}}});},6000);
+</script>
+</body>
+</html>

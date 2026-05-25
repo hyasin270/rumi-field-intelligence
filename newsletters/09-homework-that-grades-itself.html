@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What if homework could grade itself? · Field Intelligence 09</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F7F0E6;--bg2:#EFE5D5;--ink:#332B23;--soft:#8d8170;--mint:#6FB394;--mintd:#4F9577;--peach:#E89A6B;--peachd:#CE7E4F;--deep:#39514A;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#e2d8c6;font-family:'Inter',sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:660px;margin:0 auto;background:var(--bg);overflow:hidden}
+  .mono{font-family:'JetBrains Mono',monospace}
+  section{padding:46px 36px}
+  .gif{display:block;width:100%;height:auto;background:var(--bg)}.giffull{padding:0}
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+  .rv.in{opacity:1;transform:none}
+  .kick{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase}
+  .hero{background:linear-gradient(180deg,#FBF6EE,var(--bg));border-bottom:1px solid #e6dac6;padding:48px 36px 50px}
+  .pill{display:inline-block;font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;color:#fff;background:var(--peach);padding:5px 12px;border-radius:20px;margin-bottom:20px}
+  .kick.k{color:var(--peachd);margin-bottom:18px;display:block}
+  h1{font-family:'Fraunces';font-weight:900;font-size:43px;line-height:1.04;letter-spacing:-1px}
+  h1 em{font-style:italic;color:var(--mintd)}
+  .standfirst{margin-top:22px;color:#5e5346;font-size:16.5px;line-height:1.58;max-width:95%}
+  .lede{font-size:19px;line-height:1.62}
+  .lede .drop{float:left;font-family:'Fraunces';font-weight:900;font-size:72px;line-height:.72;color:var(--peachd);margin:9px 14px 0 0}
+  .body{font-size:15.5px;line-height:1.72;color:#473d31}.body+.body{margin-top:15px}
+  .body b,.lede b{color:var(--ink)}
+  h2{font-family:'Fraunces';font-weight:600;font-size:25px;line-height:1.14;margin-bottom:6px}
+  .csub{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--soft);margin-bottom:26px}
+  .pull{background:var(--mint)}
+  .pull q{quotes:none;font-family:'Fraunces';font-weight:600;font-size:25px;line-height:1.3;color:#10241c}
+  .pull .c{display:block;margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#13362a}
+  .close{background:var(--deep);color:#eef5f1}
+  .close h2{font-family:'Fraunces';font-weight:600;font-size:26px;line-height:1.2;margin-bottom:15px;color:#fff}
+  .close h2 em{font-style:italic;color:var(--peach)}
+  .close p{color:#cdddd5;font-size:15px;line-height:1.65}
+  .badge{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:'JetBrains Mono';font-size:12px;letter-spacing:1px;color:var(--deep);background:var(--peach);padding:9px 16px;border-radius:7px;font-weight:700}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--deep)}
+  footer{background:#2b3b35;color:#8fa89e;padding:26px 36px;font-family:'JetBrains Mono';font-size:11.5px;letter-spacing:.5px;text-align:center;line-height:1.9}
+  footer a{color:var(--peach);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <span class="pill">An idea we're testing</span>
+    <span class="kick k">Taleemabad Field Intelligence · Issue 09 · May 2026</span>
+    <h1>What if homework could <em>grade itself?</em></h1>
+    <p class="standfirst">A teacher with forty children cannot mark forty worksheets every night — so in most classrooms, homework goes home and feedback never comes back. What if the whole circle could close on the one device everyone already has?</p>
+  </section>
+
+  <section>
+    <p class="lede rv"><span class="drop">H</span>omework only works if someone looks at it. But marking is the quiet, invisible labour that buries teachers — and in large, under-resourced classrooms it simply doesn't happen. The child does the work; no one ever tells them what they got right. The loop stays open.</p>
+    <p class="body rv">So we asked a different question: what if Rumi didn't just <em>set</em> homework, but closed the loop on it? Rumi builds a print-ready worksheet matched to the chapter a teacher actually taught. The child completes it on paper. Then someone photographs the finished sheet and sends it back — and feedback comes in seconds, not next week.</p>
+    <p class="body rv">It's early. But the first version is already in teachers' hands, and the signal is encouraging.</p>
+  </section>
+
+  <section class="pull rv">
+    <q>The point was never to generate homework. Anyone can do that. The point was to close the circle — so a child's effort actually gets seen.</q>
+    <span class="c">— The idea behind self-grading homework</span>
+  </section>
+
+  <section>
+    <h2 class="rv">A loop that closes itself</h2>
+    <p class="csub rv">Five steps, all on WhatsApp — no app, no scanner, no special device.</p>
+    <img class="gif rv" data-src="assets/09/loop.gif" width="1240" height="680" alt="The loop: generate, print, child solves, photo back, feedback">
+  </section>
+
+  <section style="background:var(--bg2)">
+    <h2 class="rv">Day one looked like this</h2>
+    <p class="csub rv" style="color:#7a6f5d">An early build, a real cohort — and a rating teachers don't give lightly.</p>
+    <img class="gif rv" data-src="assets/09/adopt.gif" width="1240" height="580" alt="Day one: 349 teachers, 75 ready worksheets, 94% rated useful">
+  </section>
+
+  <section class="close">
+    <h2 class="rv">An idea, still taking shape — but the circle already <em>closes.</em></h2>
+    <p class="rv">75 worksheets across early grades, 349 teachers in the first day, 94% calling it useful. The marking burden hasn't been automated away yet — but a child photographing their finished sheet and getting an answer back, in seconds, on a borrowed phone, is the shape of something worth building all the way.</p>
+    <span class="badge rv"><span class="dot"></span> Early build · in teachers' hands</span>
+  </section>
+  <footer>TALEEMABAD · FIELD INTELLIGENCE · No. 09<br><a href="https://taleemabad.com">taleemabad.com</a> &nbsp;·&nbsp; <a href="https://hellorumi.ai">hellorumi.ai</a></footer>
+</div>
+<script>
+  function fire(t){if(t.dataset.fired)return;t.dataset.fired=1;if(t.classList.contains('rv'))t.classList.add('in');
+    if(t.tagName==='IMG'&&t.dataset.src){t.src=t.dataset.src+'?p='+Date.now();}}
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fire(e.target);io.unobserve(e.target);}});},{threshold:.2,rootMargin:'0px 0px -8% 0px'});els.forEach(function(el){io.observe(el);});}else{els.forEach(fire);}
+  setTimeout(function(){els.forEach(function(el){if(!el.dataset.fired){el.classList.add('in');if(el.tagName==='IMG'&&el.dataset.src){el.src=el.dataset.src;}}});},6000);
+</script>
+</body>
+</html>
