@@ -20,6 +20,9 @@
   .mono{font-family:'JetBrains Mono',monospace}
   .urdu{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;line-height:2.5}
   section{padding:46px 36px}
+  .gif{display:block;width:100%;height:auto;background:var(--cream)}
+  .giffull{padding:0}
+  .charthead{padding:46px 36px 0}
   .kick{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:2.5px;text-transform:uppercase}
   .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
   .rv.in{opacity:1;transform:none}
@@ -117,7 +120,7 @@
   .gr:last-child{border:none}
   .gx{flex:none;font-family:'JetBrains Mono';font-weight:700;color:var(--clay-d);min-width:34px}
   .ck{flex:none;width:18px;height:18px;border-radius:50%;background:var(--sage);position:relative;margin-top:1px}
-  .ck:after{content:"";position:absolute;left:5px;top:3px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) scale(0)}
+  .ck:after{content:"";position:absolute;left:5px;top:3px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) scale(1)}
   .grd.in .gr .ck:after{animation:tick .4s ease forwards}
   .grd.in .gr:nth-child(3) .ck:after{animation-delay:.1s}.grd.in .gr:nth-child(4) .ck:after{animation-delay:.2s}
   .grd.in .gr:nth-child(5) .ck:after{animation-delay:.3s}.grd.in .gr:nth-child(6) .ck:after{animation-delay:.4s}
@@ -185,29 +188,20 @@
     <p class="foot rv">All three cite the <b>real timestamps</b> from her lesson, surface the <b>same teaching moment</b>, and contain no advice and no judgement. But they read like three different thoughtful coaches. Variation C even invents a student's voice — something a fill-in-the-blank template <b>categorically cannot do.</b></p>
   </section>
 
-  <section class="sec" data-anim="cost">
+  <section class="sec">
     <h2 class="rv">Better questions, for a fraction of the cost</h2>
-    <p class="csub rv">Cost to generate one teacher's reflective-question set</p>
-    <div class="bar rv"><div class="bl"><span>Old engine · GPT-4o chain</span><span>$0.086</span></div><div class="track"><div class="fill old" data-w="100">$0.086 / session</div></div></div>
-    <div class="bar rv"><div class="bl"><span>New engine · DeepSeek V3.2</span><span>$0.003</span></div><div class="track"><div class="fill new" data-w="3.5"></div></div></div>
-    <div class="save rv"><span class="pct" data-count="96" data-suffix="%">0%</span><span class="pl">cheaper to ask — and because it folds in the lesson analysis too, the full cost of a classroom observation drops <b>24–32%</b>. In a head-to-head across eight frontier models on real Pakistani and Tanzanian lessons, this one tied for best.</span></div>
+    <p class="csub rv">It folds the lesson analysis and the questions into one cheaper, better model.</p>
+    <img class="gif rv" data-src="assets/06/cost.gif" width="1240" height="600" alt="Cost to ask one teacher's questions: old GPT-4o chain $0.086, new DeepSeek V3.2 $0.003 — 96% cheaper; full observation cost drops 24–32%">
   </section>
 
-  <section class="tlsec" data-anim="tl">
+  <section class="tlsec">
     <h2 class="rv">How the AI finds the moment</h2>
-    <p class="csub rv">Before it writes anything, it reads the whole transcript looking for a <em>contradiction</em> — two moments on the same thread where the teaching changed. That tension becomes the question.</p>
-    <svg class="tlsvg" viewBox="0 0 580 56" preserveAspectRatio="none" aria-hidden="true">
-      <line class="draw" x1="24" y1="28" x2="556" y2="28" stroke="#CC8E72" stroke-width="2.5" pathLength="1"/>
-    </svg>
-    <div class="mom"><div class="md a"></div><div><div class="mt">05:00</div><div class="mx">Children counting on their fingers — discovering addition themselves.</div></div></div>
-    <div class="mom"><div class="md b"></div><div><div class="mt">11:20</div><div class="mx">A procedural rule arrives: "always start from the unit."</div></div></div>
+    <p class="csub rv">It reads the whole transcript looking for a <em>contradiction</em> — two moments where the teaching changed. That tension becomes the question.</p>
+    <img class="gif rv" data-src="assets/06/timeline.gif" width="1240" height="500" alt="Timeline — 05:00 children count on their fingers; 11:20 a rule arrives: always start from the unit">
   </section>
 
-  <section class="stats" data-anim="stats">
-    <div class="st"><div class="n" data-count="8">0</div><div class="k">guardrails every question must pass before it's sent</div></div>
-    <div class="st"><div class="n" data-count="5">0</div><div class="k">frameworks supported — including Tanzania's MEWAKA</div></div>
-    <div class="st"><div class="n" data-count="4200" data-prefix="~">0</div><div class="k">reflective questions generated for teachers / month</div></div>
-    <div class="st"><div class="n">≤65</div><div class="k">word ceiling — depth is structural, never padding</div></div>
+  <section class="giffull">
+    <img class="gif rv" data-src="assets/06/stats.gif" width="1240" height="680" alt="8 guardrails every question must pass; 5 frameworks supported including MEWAKA; ~4,200 reflective questions per month; ≤65 word ceiling">
   </section>
 
   <section class="flow">
@@ -249,19 +243,20 @@
     hs.concat(hs).forEach(function(h,i){var b=document.createElement('div');b.className='wave';b.style.setProperty('--h',h+'%');b.style.animationDelay=(i*0.05)+'s';w.appendChild(b);});})();
   document.querySelectorAll('.vbars').forEach(function(c){var p=[30,60,40,80,55,90,45,70,35,85,50,75,30,65,45,88,40,60,70,50,80,35,60,42];
     p.forEach(function(h,i){var s=document.createElement('i');s.style.height=h+'%';s.style.animationDelay=(i*0.06)+'s';c.appendChild(s);});});
-  function countUp(el){var target=+el.dataset.count,pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',t0=null,dur=1300;
-    function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/dur,1);var e=1-Math.pow(1-p,3);var v=Math.round(target*e);
-      el.textContent=pre+v.toLocaleString()+suf;if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
-  function fire(t){if(t.dataset.fired)return;t.dataset.fired=1;
-    if(t.classList.contains('rv'))t.classList.add('in');var a=t.dataset.anim;
-    if(a==='cost'){t.querySelectorAll('.fill').forEach(function(f){f.style.width=f.dataset.w+'%';});var pc=t.querySelector('.pct');if(pc&&!pc.dataset.done){pc.dataset.done=1;countUp(pc);}}
-    if(a==='tl'||a==='grd'){t.classList.add('in');}
-    if(a==='stats'){t.querySelectorAll('[data-count]').forEach(function(n){if(!n.dataset.done){n.dataset.done=1;countUp(n);}});}
-    t.querySelectorAll('.vn').forEach(function(v){v.classList.add('in');});}
-  var els=document.querySelectorAll('.rv,[data-anim]');
-  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fire(e.target);io.unobserve(e.target);}});},{threshold:.15});
-    els.forEach(function(el){io.observe(el);});}
-  setTimeout(function(){els.forEach(fire);},2600);
+  // reveal text + play each data-viz GIF ONCE, the moment it scrolls into view (no looping)
+  function fire(t){
+    if(t.dataset.fired)return; t.dataset.fired=1;
+    if(t.classList.contains('rv'))t.classList.add('in');
+    if(t.tagName==='IMG'&&t.dataset.src){ t.src=t.dataset.src+'?p='+Date.now(); }   // load+play once on scroll
+    if(t.querySelectorAll){ t.querySelectorAll('.vn').forEach(function(v){v.classList.add('in');}); }
+  }
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){fire(e.target);io.unobserve(e.target);}});},{threshold:.2,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(el){io.observe(el);});
+  } else { els.forEach(fire); }
+  // safety: only reveals TEXT if the observer never ran; GIFs still load so nothing is blank
+  setTimeout(function(){els.forEach(function(el){ if(!el.dataset.fired){ el.classList.add('in'); if(el.tagName==='IMG'&&el.dataset.src){el.src=el.dataset.src;} } });},6000);
 </script>
 </body>
 </html>
