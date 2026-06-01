@@ -79,13 +79,14 @@ body{background:#0e0c09;color:var(--ink);font-family:'Space Grotesk',sans-serif;
 .rail a{display:block;text-decoration:none;font-family:'JetBrains Mono',monospace;
   padding:7px 0;color:var(--mut2);transition:color .25s}
 .rail a .n{font-size:12px;font-weight:600;letter-spacing:.05em}
-.rail a .t{display:block;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;margin-top:1px;
-  max-width:64px;line-height:1.25;opacity:.0;transition:opacity .25s}
+.rail a .t{display:block;font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;margin-top:2px;
+  max-width:66px;line-height:1.25;opacity:.42;transform:translateX(-3px);
+  transition:opacity .35s ease,transform .35s ease}
 .rail a::before{content:'';display:inline-block;width:0;height:1px;background:var(--red);
   vertical-align:middle;margin-right:0;transition:width .3s,margin .3s}
 .rail a.active{color:var(--ink)}
 .rail a.active .n{color:var(--red)}
-.rail a.active .t{opacity:.9}
+.rail a.active .t{opacity:1;transform:translateX(0)}
 .rail a.active::before{width:12px;margin-right:8px}
 .content{flex:1 1 auto;min-width:0}
 
@@ -186,9 +187,10 @@ h2.head{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-wei
 .mz-center circle{fill:none;stroke:var(--gold);stroke-width:2}
 .mz-center text{font-family:'Archivo Black',sans-serif;fill:#fff;text-anchor:middle;text-transform:uppercase}
 .maze-side{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.maze-11{font-family:'Archivo Black',sans-serif;font-size:128px;line-height:.85;color:var(--gold)}
+.maze-11{font-family:'Archivo Black',sans-serif;font-size:128px;line-height:.85;color:var(--gold);
+  display:flex;flex-direction:column;align-items:center}
 .maze-11 .l{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--mut2);letter-spacing:.1em;
-  text-transform:uppercase;display:block;margin-top:6px;max-width:200px;line-height:1.5}
+  text-transform:uppercase;display:block;margin-top:12px;max-width:340px;line-height:1.6;text-align:center}
 .maze-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-top:30px}
 .maze-grid div{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.62);
   border-left:2px solid var(--red);padding:3px 0 3px 10px;line-height:1.35}
@@ -264,7 +266,7 @@ h2.head{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-wei
 .talk .tt{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
 .talk .tbar{height:40px;background:#e2d6bd;border-radius:6px;position:relative;overflow:hidden}
 .talk .tstu{position:absolute;left:0;top:0;height:100%;width:0;background:var(--red);transition:width 1.4s cubic-bezier(.3,.9,.2,1) .2s}
-.in .talk .tstu{width:7%}
+.talk.in .tstu{width:7.5%}
 .talk .tlabels{display:flex;justify-content:space-between;margin-top:10px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--mut)}
 .talk .tlabels b{color:var(--red);font-weight:600}
 .cb-stats{display:flex;gap:30px;justify-content:center;margin:30px 0 4px;flex-wrap:wrap}
@@ -706,15 +708,14 @@ footer a{color:rgba(255,255,255,.6)}
   },{threshold:0.16, rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.rv,.map-reveal,.maze-reveal,.cancel-reveal,.data-reveal').forEach(function(e){io.observe(e);});
 
-  // ---- active rail ----
+  // ---- active rail (thin mid-viewport activation band → reliable for tall sections) ----
   var rail=document.querySelectorAll('.rail a');
   var secs=[].slice.call(document.querySelectorAll('main section[id]'));
+  function setActive(id){ rail.forEach(function(a){a.classList.toggle('active', a.dataset.sec===id);}); }
+  if(rail[0]) rail[0].classList.add('active'); // no empty rail before first crossing
   var spy=new IntersectionObserver(function(es){
-    es.forEach(function(en){ if(en.isIntersecting){
-      var id=en.target.id;
-      rail.forEach(function(a){a.classList.toggle('active', a.dataset.sec===id);});
-    }});
-  },{threshold:0.5});
+    es.forEach(function(en){ if(en.isIntersecting){ setActive(en.target.id); } });
+  },{rootMargin:'-45% 0px -50% 0px', threshold:0});
   secs.forEach(function(s){spy.observe(s);});
 })();
 </script>
