@@ -21,8 +21,10 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:#0e0c09;color:var(--ink);font-family:'Space Grotesk',sans-serif;-webkit-font-smoothing:antialiased}
-.paper{max-width:1180px;margin:0 auto;background:var(--paper);position:relative;overflow:hidden;
+.paper{max-width:1180px;margin:0 auto;background:var(--paper);position:relative;
   box-shadow:0 0 120px rgba(0,0,0,.5)}
+/* NOTE: never put overflow:hidden/auto/scroll on .paper or any ancestor of .rail-inner —
+   it silently disables position:sticky on the rail. Clip stray transforms locally instead. */
 
 /* ============ MASTHEAD ============ */
 .masthead{display:flex;justify-content:space-between;align-items:center;
@@ -484,7 +486,7 @@ footer a{color:rgba(255,255,255,.6)}
       </section>
 
       <!-- CANCELLED -->
-      <section class="sec sec-dark" style="padding-top:64px;padding-bottom:64px">
+      <section class="sec sec-dark" style="padding-top:64px;padding-bottom:64px;overflow:hidden">
         <div class="col">
           <div class="letter-wrap rv cancel-reveal">
             <div class="letter">
@@ -708,15 +710,24 @@ footer a{color:rgba(255,255,255,.6)}
   },{threshold:0.16, rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.rv,.map-reveal,.maze-reveal,.cancel-reveal,.data-reveal').forEach(function(e){io.observe(e);});
 
-  // ---- active rail (thin mid-viewport activation band → reliable for tall sections) ----
+  // ---- active rail: pick the section currently under a line ~38% down the viewport.
+  // Plain scroll math — bulletproof for tall sections (IO thresholds are flaky for those).
   var rail=document.querySelectorAll('.rail a');
   var secs=[].slice.call(document.querySelectorAll('main section[id]'));
   function setActive(id){ rail.forEach(function(a){a.classList.toggle('active', a.dataset.sec===id);}); }
-  if(rail[0]) rail[0].classList.add('active'); // no empty rail before first crossing
-  var spy=new IntersectionObserver(function(es){
-    es.forEach(function(en){ if(en.isIntersecting){ setActive(en.target.id); } });
-  },{rootMargin:'-45% 0px -50% 0px', threshold:0});
-  secs.forEach(function(s){spy.observe(s);});
+  var ticking=false;
+  function updateRail(){
+    ticking=false;
+    var line=window.innerHeight*0.38, current=secs[0];
+    for(var i=0;i<secs.length;i++){
+      if(secs[i].getBoundingClientRect().top<=line) current=secs[i];
+    }
+    if(current) setActive(current.id);
+  }
+  function onScroll(){ if(!ticking){ ticking=true; requestAnimationFrame(updateRail); } }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll, {passive:true});
+  updateRail();
 })();
 </script>
 </body>
