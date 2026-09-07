@@ -1,0 +1,1659 @@
+<title>Did the children get it?</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap">
+<style>
+:root {
+  --ground:#F5F7F5; --surface:#FFFFFF; --sunk:#EDF1EE;
+  --ink:#333748; --ink-2:#5C6172; --ink-3:#878DA0; --rule:#DFE4E0;
+  --green:#47BA7D; --green-ink:#256F49; --amber:#D89B2A; --red:#C0392F;
+  --shadow:0 1px 2px rgba(51,55,72,.06), 0 8px 24px -16px rgba(51,55,72,.28);
+  --maxw:1080px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:#1E212A; --surface:#272B36; --sunk:#2E3340;
+    --ink:#E9EBF0; --ink-2:#B2B8C6; --ink-3:#858C9D; --rule:#3A3F4E;
+    --green:#5FCB92; --green-ink:#8FE0B4; --amber:#E5B75C; --red:#E3796E;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -16px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"] {
+  --ground:#1E212A; --surface:#272B36; --sunk:#2E3340;
+  --ink:#E9EBF0; --ink-2:#B2B8C6; --ink-3:#858C9D; --rule:#3A3F4E;
+  --green:#5FCB92; --green-ink:#8FE0B4; --amber:#E5B75C; --red:#E3796E;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -16px rgba(0,0,0,.6);
+}
+* { box-sizing:border-box; }
+body { background:var(--ground); color:var(--ink); margin:0;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+.wrap { max-width:var(--maxw); margin:0 auto; padding:0 24px 96px; }
+.prose { max-width:64ch; }
+h1,h2,h3 { text-wrap:balance; line-height:1.2; margin:0; }
+h1 { font-size:clamp(30px,4.4vw,46px); font-weight:700; letter-spacing:-.02em; }
+h2 { font-size:24px; font-weight:600; letter-spacing:-.01em; }
+h3 { font-size:17px; font-weight:600; }
+p { margin:0; }
+.ur { font-family:"Noto Nastaliq Urdu",serif; line-height:2; }
+.eyebrow { font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--green-ink); }
+header.top { border-bottom:1px solid var(--rule); padding:56px 0 32px; margin-bottom:44px;
+  display:flex; flex-direction:column; gap:14px; }
+.stand { font-size:19px; color:var(--ink-2); max-width:60ch; }
+.pop { display:flex; flex-wrap:wrap; gap:8px 28px; font-size:14px; color:var(--ink-2);
+  font-variant-numeric:tabular-nums; }
+.pop b { color:var(--ink); font-weight:600; }
+section { display:flex; flex-direction:column; gap:18px; margin-bottom:64px; }
+.answer { display:flex; flex-wrap:wrap; align-items:baseline; gap:0 20px;
+  border-left:4px solid var(--green); padding:4px 0 4px 22px; }
+.answer .big { font-size:clamp(56px,9vw,88px); font-weight:700; letter-spacing:-.04em;
+  line-height:1; font-variant-numeric:tabular-nums; }
+.answer .def { max-width:44ch; color:var(--ink-2); font-size:15px; }
+figure.chart { margin:0; background:var(--surface); border:1px solid var(--rule);
+  border-radius:6px; padding:10px; box-shadow:var(--shadow); }
+figure.chart img { display:block; width:100%; height:auto; border-radius:3px; }
+.tablewrap { overflow-x:auto; }
+table { border-collapse:collapse; width:100%; font-size:14.5px; }
+th, td { text-align:left; padding:9px 14px; border-bottom:1px solid var(--rule);
+  vertical-align:top; }
+thead th { font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3);
+  font-weight:600; border-bottom:1px solid var(--ink-3); }
+td.num, th.num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+td.dim { color:var(--ink-2); }
+.strong { color:var(--green-ink); } .mixed { color:var(--amber); } .weak { color:var(--red); }
+.lessons { display:grid; gap:18px; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); }
+.lesson { background:var(--surface); border:1px solid var(--rule); border-radius:8px;
+  padding:18px 20px 20px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:12px; }
+.lesson h3 { margin-bottom:2px; }
+.lesson .meta { font-size:13px; color:var(--ink-2); }
+.lesson-score { font-size:14px; color:var(--ink-2); }
+.lesson-score b { font-size:22px; font-weight:700; font-variant-numeric:tabular-nums;
+  margin-right:6px; }
+.lesson-score.strong b { color:var(--green-ink); }
+.lesson-score.mixed b { color:var(--amber); }
+.lesson-score.weak b { color:var(--red); }
+ul.objs { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px; }
+.obj { display:flex; flex-direction:column; gap:5px; }
+.obj-head { display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+.lvl { font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; font-weight:600;
+  color:var(--ink-3); }
+.obj-n { font-size:13px; font-weight:600; font-variant-numeric:tabular-nums; }
+.obj-n .of { color:var(--ink-3); font-weight:400; }
+.obj-text { font-size:13.5px; color:var(--ink-2); }
+.meter { height:5px; background:var(--sunk); border-radius:3px; overflow:hidden; }
+.meter span { display:block; height:100%; background:var(--green); }
+.obj.mixed .meter span { background:var(--amber); }
+.obj.weak .meter span { background:var(--red); }
+.obj.mixed .obj-n { color:var(--amber); } .obj.weak .obj-n { color:var(--red); }
+h3.sub { margin-top:14px; font-size:19px; font-weight:600; }
+.tiny { font-size:11px; color:var(--ink-3); font-weight:400; }
+p.small { font-size:14px; color:var(--ink-2); }
+.caveats { background:var(--sunk); border-radius:8px; padding:22px 26px; }
+.caveats ul { margin:10px 0 0; padding-left:20px; display:flex; flex-direction:column; gap:9px;
+  color:var(--ink-2); font-size:15px; }
+footer { border-top:1px solid var(--rule); padding-top:20px; color:var(--ink-3); font-size:13px; }
+@media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; } }
+</style>
+
+<div class="wrap">
+<header class="top">
+  <p class="eyebrow">NIETE · Islamabad · day one</p>
+  <h1>Did the children get what their teachers taught?</h1>
+  <p class="stand">Every quiz here was written from a real lesson recording: the teacher taught,
+     the system read the transcript back, listed the objectives the lesson actually covered, and
+     asked the children about those objectives — not about a syllabus.</p>
+  <p class="pop">
+    <span><b>135</b> quizzes sent to teachers</span>
+    <span><b>68</b> reached a child</span>
+    <span><b>534</b> children answered</span>
+    <span><b>414</b> finished all eight questions</span>
+    <span>7 September 2026</span>
+  </p>
+</header>
+
+<section>
+  <div class="answer">
+    <p class="big">78.6%</p>
+    <p class="def">of the objectives children were asked about, they mastered — meaning they got
+      <em>every</em> question on that objective right. Across 1938 child-and-objective
+      pairs from 414 finished quizzes.</p>
+  </div>
+  <p class="prose">Question by question the figure is higher — 85.9% of
+    individual questions were answered correctly, and the median child scored
+    88.0%. The stricter reading is the useful one: a child who misses one of
+    the two questions on <em>fractions as parts of a whole</em> has not mastered it, even though
+    their score still looks good.</p>
+</section>
+
+<section>
+  <h2>Apply questions are the ones children lose</h2>
+  <p class="prose">Every question is written at a level — remembering a fact, understanding an
+    idea, or applying it to something new. Questions that ask a child to <em>apply</em> come back
+    six points below the rest.</p>
+  <figure class="chart"><img src="charts/02_by_taught_level.png" alt="Mastery by the level the question was asked at"></figure>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Level the question was asked at</th><th class="num">Child × objective pairs</th>
+      <th class="num">Mastered</th><th class="num">Questions correct</th></tr></thead>
+    <tbody><tr><th>Recall</th><td>768</td><td class="num mixed">77.1%</td><td class="num">85.3%</td></tr><tr><th>Understand</th><td>1190</td><td class="num mixed">79.2%</td><td class="num">87.0%</td></tr><tr><th>Apply</th><td>660</td><td class="num mixed">73.8%</td><td class="num">84.5%</td></tr></tbody></table></div>
+  <p class="prose">Sorted by the level the <em>teacher</em> taught at, the picture is flatter and
+    less tidy: apply is still last, but recall sits just below understand rather than above it.
+    The level a question is pitched at predicts how children do; the level the lesson reached
+    does not, at least not on one day of data.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Level the teacher taught at</th><th class="num">Pairs</th>
+      <th class="num">Mastered</th><th class="num">Questions correct</th></tr></thead>
+    <tbody><tr><th>Recall</th><td>598</td><td class="num mixed">79.1%</td><td class="num">85.2%</td></tr><tr><th>Understand</th><td>674</td><td class="num strong">80.7%</td><td class="num">87.9%</td></tr><tr><th>Apply</th><td>666</td><td class="num mixed">76.0%</td><td class="num">84.3%</td></tr></tbody></table></div>
+</section>
+
+<section>
+  <h2>Two children in five mastered everything their teacher taught</h2>
+  <p class="prose">And only two children out of 414 mastered none of it. The
+    shape is a class doing well with a tail that needs another pass — not a class that missed the
+    lesson.</p>
+  <figure class="chart"><img src="charts/03_per_child.png" alt="How many objectives each child mastered"></figure>
+</section>
+
+<section>
+  <h2>Lesson by lesson</h2>
+  <p class="prose">The spread between classrooms is far wider than any subject or language
+    difference. The chart shows every lesson where seven or more children finished; the cards
+    below cover every lesson three or more finished.</p>
+  <figure class="chart"><img src="charts/04_by_lesson.png" alt="Mastery by lesson"></figure>
+</section>
+
+<section>
+  <h2>What each class was taught, and how they did</h2>
+  <p class="prose">Every lesson that reached a child, with the objectives the system read out of
+    that lesson's recording. The bar under each objective is the share of that class who got every
+    question on it right.</p>
+  <div class="lessons">
+    <article class="lesson">
+      <header>
+        <h3>Real-World Problems with Fractions</h3>
+        <p class="meta">Maths · grade 5 ·
+           quiz in English ·
+           <strong>29</strong> children finished</p>
+      </header>
+      <p class="lesson-score mixed"><b>77.6%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">26<span class="of">/29</span></span></div>
+          <p class="obj-text">Identify the numerator and denominator in a fraction</p>
+          <div class="meter" role="img" aria-label="89.7% mastered"><span style="width:89.7%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">23<span class="of">/29</span></span></div>
+          <p class="obj-text">Explain the method for multiplying fractions</p>
+          <div class="meter" role="img" aria-label="79.3% mastered"><span style="width:79.3%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">19<span class="of">/29</span></span></div>
+          <p class="obj-text">Find a fraction of a given quantity</p>
+          <div class="meter" role="img" aria-label="65.5% mastered"><span style="width:65.5%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">26<span class="of">/29</span></span></div>
+          <p class="obj-text">Use LCM to add fractions</p>
+          <div class="meter" role="img" aria-label="89.7% mastered"><span style="width:89.7%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">20<span class="of">/29</span></span></div>
+          <p class="obj-text">Convert an Improper Fraction to a Mixed Fraction</p>
+          <div class="meter" role="img" aria-label="69.0% mastered"><span style="width:69.0%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">21<span class="of">/29</span></span></div>
+          <p class="obj-text">Apply addition and multiplication of fractions to solve real-world problems</p>
+          <div class="meter" role="img" aria-label="72.4% mastered"><span style="width:72.4%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Combating Contagious Diseases</h3>
+        <p class="meta">Science · grade 3-5 ·
+           quiz in English ·
+           <strong>27</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>85.2%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">25<span class="of">/27</span></span></div>
+          <p class="obj-text">Identify COVID-19 and Polio as contagious diseases.</p>
+          <div class="meter" role="img" aria-label="92.6% mastered"><span style="width:92.6%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">23<span class="of">/27</span></span></div>
+          <p class="obj-text">Explain how COVID-19 and Polio spread.</p>
+          <div class="meter" role="img" aria-label="85.2% mastered"><span style="width:85.2%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">18<span class="of">/27</span></span></div>
+          <p class="obj-text">Describe preventive measures against COVID-19 and Polio.</p>
+          <div class="meter" role="img" aria-label="66.7% mastered"><span style="width:66.7%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">24<span class="of">/27</span></span></div>
+          <p class="obj-text">Define &#x27;vaccine&#x27; and explain its role in preventing diseases.</p>
+          <div class="meter" role="img" aria-label="88.9% mastered"><span style="width:88.9%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">25<span class="of">/27</span></span></div>
+          <p class="obj-text">Define &#x27;pathogen&#x27; as a microorganism that causes disease.</p>
+          <div class="meter" role="img" aria-label="92.6% mastered"><span style="width:92.6%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Convert fractions to decimals and decimals to fractions</h3>
+        <p class="meta">Maths · grade 3-5 ·
+           quiz in English ·
+           <strong>24</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>83.3%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">12<span class="of">/24</span></span></div>
+          <p class="obj-text">Convert a fraction to a decimal</p>
+          <div class="meter" role="img" aria-label="50.0% mastered"><span style="width:50.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">23<span class="of">/24</span></span></div>
+          <p class="obj-text">Convert a decimal to a fraction</p>
+          <div class="meter" role="img" aria-label="95.8% mastered"><span style="width:95.8%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">20<span class="of">/24</span></span></div>
+          <p class="obj-text">Convert a fraction to a decimal by changing its denominator to 10, 100, or 1000</p>
+          <div class="meter" role="img" aria-label="83.3% mastered"><span style="width:83.3%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">22<span class="of">/24</span></span></div>
+          <p class="obj-text">Write a decimal as a fraction according to its place value (10th, 100th)</p>
+          <div class="meter" role="img" aria-label="91.7% mastered"><span style="width:91.7%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">23<span class="of">/24</span></span></div>
+          <p class="obj-text">Simplify a fraction</p>
+          <div class="meter" role="img" aria-label="95.8% mastered"><span style="width:95.8%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Solving addition word problems using the CUBES strategy</h3>
+        <p class="meta">Maths · grade 3-5 ·
+           quiz in English ·
+           <strong>22</strong> children finished</p>
+      </header>
+      <p class="lesson-score mixed"><b>70.0%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">10<span class="of">/22</span></span></div>
+          <p class="obj-text">Identify the numbers in a word problem by circling them.</p>
+          <div class="meter" role="img" aria-label="45.5% mastered"><span style="width:45.5%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">19<span class="of">/22</span></span></div>
+          <p class="obj-text">Identify the question in a word problem by underlining it.</p>
+          <div class="meter" role="img" aria-label="86.4% mastered"><span style="width:86.4%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">17<span class="of">/22</span></span></div>
+          <p class="obj-text">Identify the action word in a word problem by boxing it to determine the operation (e.g., &#x27;total&#x27; means addition).</p>
+          <div class="meter" role="img" aria-label="77.3% mastered"><span style="width:77.3%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">13<span class="of">/22</span></span></div>
+          <p class="obj-text">Evaluate the word problem by extracting relevant information and organizing it for solving.</p>
+          <div class="meter" role="img" aria-label="59.1% mastered"><span style="width:59.1%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">18<span class="of">/22</span></span></div>
+          <p class="obj-text">Solve addition word problems by applying the CUBES strategy and performing addition with carrying over tens and hundreds.</p>
+          <div class="meter" role="img" aria-label="81.8% mastered"><span style="width:81.8%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Multiply and Divide Fractions</h3>
+        <p class="meta">Maths · grade 3-5 ·
+           quiz in English ·
+           <strong>21</strong> children finished</p>
+      </header>
+      <p class="lesson-score mixed"><b>77.1%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">21<span class="of">/21</span></span></div>
+          <p class="obj-text">Students will be able to recall the rules for multiplying fractions.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">18<span class="of">/21</span></span></div>
+          <p class="obj-text">Students will be able to understand the use of reciprocal for dividing fractions.</p>
+          <div class="meter" role="img" aria-label="85.7% mastered"><span style="width:85.7%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">12<span class="of">/21</span></span></div>
+          <p class="obj-text">Students will be able to convert mixed fractions into improper fractions.</p>
+          <div class="meter" role="img" aria-label="57.1% mastered"><span style="width:57.1%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">11<span class="of">/21</span></span></div>
+          <p class="obj-text">Students will be able to solve problems involving division of fractions.</p>
+          <div class="meter" role="img" aria-label="52.4% mastered"><span style="width:52.4%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">19<span class="of">/21</span></span></div>
+          <p class="obj-text">Students will be able to simplify fractions to their simplest form.</p>
+          <div class="meter" role="img" aria-label="90.5% mastered"><span style="width:90.5%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Types of Nouns</h3>
+        <p class="meta">English · grade 5 ·
+           quiz in English ·
+           <strong>20</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>86.0%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">15<span class="of">/20</span></span></div>
+          <p class="obj-text">Define and give examples of Proper Nouns</p>
+          <div class="meter" role="img" aria-label="75.0% mastered"><span style="width:75.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">17<span class="of">/20</span></span></div>
+          <p class="obj-text">Define and give examples of Common Nouns</p>
+          <div class="meter" role="img" aria-label="85.0% mastered"><span style="width:85.0%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">15<span class="of">/20</span></span></div>
+          <p class="obj-text">Define and give examples of Countable Nouns</p>
+          <div class="meter" role="img" aria-label="75.0% mastered"><span style="width:75.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">20<span class="of">/20</span></span></div>
+          <p class="obj-text">Define and give examples of Uncountable Nouns</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">19<span class="of">/20</span></span></div>
+          <p class="obj-text">Define and give examples of Collective Nouns</p>
+          <div class="meter" role="img" aria-label="95.0% mastered"><span style="width:95.0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3><span class="ur">اردو گرامر اور الفاظ </span>(<span class="ur">نظر ثانی</span>)</h3>
+        <p class="meta">Urdu · grade 4 ·
+           quiz in Urdu ·
+           <strong>18</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>86.7%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">15<span class="of">/18</span></span></div>
+          <p class="obj-text">Students can recall the definition of &#x27;folk tale&#x27; and provide an example.</p>
+          <div class="meter" role="img" aria-label="83.3% mastered"><span style="width:83.3%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">17<span class="of">/18</span></span></div>
+          <p class="obj-text">Students can understand the meanings of key vocabulary words from the &#x27;Chinese Folk Tale&#x27; lesson and construct sentences using them.</p>
+          <div class="meter" role="img" aria-label="94.4% mastered"><span style="width:94.4%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">16<span class="of">/18</span></span></div>
+          <p class="obj-text">Students can understand the rules of syllable division (arkan sazi) and break down difficult words to read them.</p>
+          <div class="meter" role="img" aria-label="88.9% mastered"><span style="width:88.9%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">15<span class="of">/18</span></span></div>
+          <p class="obj-text">Students can differentiate between simple and compound sentences and provide examples of both.</p>
+          <div class="meter" role="img" aria-label="83.3% mastered"><span style="width:83.3%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">15<span class="of">/18</span></span></div>
+          <p class="obj-text">Students can understand the definition of &#x27;related words&#x27; (grohi alfaaz / mutalazim alfaaz) and list words associated with a given term.</p>
+          <div class="meter" role="img" aria-label="83.3% mastered"><span style="width:83.3%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3><span class="ur">حفاظتی اور احتیاطی تدابیر</span></h3>
+        <p class="meta">Sst · grade 3-5 ·
+           quiz in Urdu ·
+           <strong>15</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>86.7%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">14<span class="of">/15</span></span></div>
+          <p class="obj-text">Identify traffic signal colors and their meanings.</p>
+          <div class="meter" role="img" aria-label="93.3% mastered"><span style="width:93.3%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">14<span class="of">/15</span></span></div>
+          <p class="obj-text">Explain the importance of using a footpath while walking on the road.</p>
+          <div class="meter" role="img" aria-label="93.3% mastered"><span style="width:93.3%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">8<span class="of">/15</span></span></div>
+          <p class="obj-text">Describe the correct procedure for crossing a road using Zebra Crossing.</p>
+          <div class="meter" role="img" aria-label="53.3% mastered"><span style="width:53.3%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">15<span class="of">/15</span></span></div>
+          <p class="obj-text">Identify safety measures to be taken while traveling in a vehicle.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">14<span class="of">/15</span></span></div>
+          <p class="obj-text">Recall the emergency call number for traffic assistance.</p>
+          <div class="meter" role="img" aria-label="93.3% mastered"><span style="width:93.3%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Mangroves and their importance</h3>
+        <p class="meta">English · grade 3 ·
+           quiz in English ·
+           <strong>15</strong> children finished</p>
+      </header>
+      <p class="lesson-score mixed"><b>76.7%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">13<span class="of">/15</span></span></div>
+          <p class="obj-text">Identify the characteristics of mangrove trees.</p>
+          <div class="meter" role="img" aria-label="86.7% mastered"><span style="width:86.7%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">6<span class="of">/15</span></span></div>
+          <p class="obj-text">Explain the importance of mangrove trees for the environment and living beings.</p>
+          <div class="meter" role="img" aria-label="40.0% mastered"><span style="width:40.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">12<span class="of">/15</span></span></div>
+          <p class="obj-text">Discuss the threats to mangrove trees and ways to protect them.</p>
+          <div class="meter" role="img" aria-label="80.0% mastered"><span style="width:80.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">15<span class="of">/15</span></span></div>
+          <p class="obj-text">Commit to protecting all trees, not just mangroves, for a healthy environment.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Types of Magnets</h3>
+        <p class="meta">Science · grade 5 ·
+           quiz in English ·
+           <strong>14</strong> children finished</p>
+      </header>
+      <p class="lesson-score weak"><b>60.7%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">7<span class="of">/14</span></span></div>
+          <p class="obj-text">Students will be able to define Permanent Magnet and Temporary Magnet.</p>
+          <div class="meter" role="img" aria-label="50.0% mastered"><span style="width:50.0%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">9<span class="of">/14</span></span></div>
+          <p class="obj-text">Students will be able to describe the difference between Permanent Magnet and Temporary Magnet.</p>
+          <div class="meter" role="img" aria-label="64.3% mastered"><span style="width:64.3%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">8<span class="of">/14</span></span></div>
+          <p class="obj-text">Students will be able to give an example of a Temporary Magnet.</p>
+          <div class="meter" role="img" aria-label="57.1% mastered"><span style="width:57.1%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">10<span class="of">/14</span></span></div>
+          <p class="obj-text">Students will be able to state the direction of a magnetic compass needle.</p>
+          <div class="meter" role="img" aria-label="71.4% mastered"><span style="width:71.4%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Basic English Sentence Structure</h3>
+        <p class="meta">English · grade 2 ·
+           quiz in English ·
+           <strong>13</strong> children finished</p>
+      </header>
+      <p class="lesson-score weak"><b>64.6%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">9<span class="of">/13</span></span></div>
+          <p class="obj-text">Identify the subject, verb, and object in a given English sentence.</p>
+          <div class="meter" role="img" aria-label="69.2% mastered"><span style="width:69.2%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">3<span class="of">/13</span></span></div>
+          <p class="obj-text">Define subject as the doer of the action in a sentence.</p>
+          <div class="meter" role="img" aria-label="23.1% mastered"><span style="width:23.1%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">8<span class="of">/13</span></span></div>
+          <p class="obj-text">Define verb as the action in a sentence.</p>
+          <div class="meter" role="img" aria-label="61.5% mastered"><span style="width:61.5%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">10<span class="of">/13</span></span></div>
+          <p class="obj-text">Define object as the receiver of the action in a sentence.</p>
+          <div class="meter" role="img" aria-label="76.9% mastered"><span style="width:76.9%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">12<span class="of">/13</span></span></div>
+          <p class="obj-text">Construct a grammatically correct English sentence by arranging jumbled subject, verb, and object.</p>
+          <div class="meter" role="img" aria-label="92.3% mastered"><span style="width:92.3%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>subtraction (Subtraction) <span class="ur">ادھار لے کر</span></h3>
+        <p class="meta">Maths · grade 3-5 ·
+           quiz in Urdu ·
+           <strong>12</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>85.4%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">11<span class="of">/12</span></span></div>
+          <p class="obj-text">Subtracting a smaller number from a larger number</p>
+          <div class="meter" role="img" aria-label="91.7% mastered"><span style="width:91.7%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">9<span class="of">/12</span></span></div>
+          <p class="obj-text">Borrowing to subtract a larger digit from a smaller digit</p>
+          <div class="meter" role="img" aria-label="75.0% mastered"><span style="width:75.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">11<span class="of">/12</span></span></div>
+          <p class="obj-text">Solving subtraction problems by arranging numbers in 1s, 10s, 100s, 1000s order</p>
+          <div class="meter" role="img" aria-label="91.7% mastered"><span style="width:91.7%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">10<span class="of">/12</span></span></div>
+          <p class="obj-text">Decreasing the previous digit after borrowing</p>
+          <div class="meter" role="img" aria-label="83.3% mastered"><span style="width:83.3%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Light Travel in a Straight Line</h3>
+        <p class="meta">Science · grade 4 ·
+           quiz in English ·
+           <strong>12</strong> children finished</p>
+      </header>
+      <p class="lesson-score mixed"><b>75.0%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">10<span class="of">/12</span></span></div>
+          <p class="obj-text">Explain that light travels in a straight line.</p>
+          <div class="meter" role="img" aria-label="83.3% mastered"><span style="width:83.3%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">9<span class="of">/12</span></span></div>
+          <p class="obj-text">Describe the formation of a shadow and the effect of object position on its size.</p>
+          <div class="meter" role="img" aria-label="75.0% mastered"><span style="width:75.0%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">8<span class="of">/12</span></span></div>
+          <p class="obj-text">State the definition of energy and identify its various forms.</p>
+          <div class="meter" role="img" aria-label="66.7% mastered"><span style="width:66.7%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3><span class="ur">حروف اضافت</span></h3>
+        <p class="meta">Urdu · grade 1 ·
+           quiz in Urdu ·
+           <strong>12</strong> children finished</p>
+      </header>
+      <p class="lesson-score mixed"><b>72.9%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">8<span class="of">/12</span></span></div>
+          <p class="obj-text">Identify <span class="ur">حروف اضافت </span>(ka, ki, ke) in sentences.</p>
+          <div class="meter" role="img" aria-label="66.7% mastered"><span style="width:66.7%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">11<span class="of">/12</span></span></div>
+          <p class="obj-text">Differentiate the usage of <span class="ur">کا </span>and <span class="ur">کی </span>based on gender (<span class="ur">مذکر</span>/<span class="ur">مونث</span>) of the noun.</p>
+          <div class="meter" role="img" aria-label="91.7% mastered"><span style="width:91.7%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">7<span class="of">/12</span></span></div>
+          <p class="obj-text">Apply the correct <span class="ur">حروف اضافت </span>(<span class="ur">کا</span>, ki, ke) in given sentences.</p>
+          <div class="meter" role="img" aria-label="58.3% mastered"><span style="width:58.3%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">9<span class="of">/12</span></span></div>
+          <p class="obj-text">Use <span class="ur">کے </span>as <span class="ur">حروف اضافت </span>for plural nouns (<span class="ur">جمع</span>).</p>
+          <div class="meter" role="img" aria-label="75.0% mastered"><span style="width:75.0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3><span class="ur">ماحولیاتی آگاہی اور صفائی</span></h3>
+        <p class="meta">Urdu · grade 3-5 ·
+           quiz in Urdu ·
+           <strong>10</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>98.0%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">10<span class="of">/10</span></span></div>
+          <p class="obj-text">Understand the effects of river cleanliness on human health and the environment.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">10<span class="of">/10</span></span></div>
+          <p class="obj-text">Understand the feelings expressed by the poet through the river&#x27;s lament.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">9<span class="of">/10</span></span></div>
+          <p class="obj-text">Identify practical steps to save the environment.</p>
+          <div class="meter" role="img" aria-label="90.0% mastered"><span style="width:90.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">10<span class="of">/10</span></span></div>
+          <p class="obj-text">Describe methods of water and energy conservation to save the environment.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">10<span class="of">/10</span></span></div>
+          <p class="obj-text">Understand the importance of spreading environmental awareness.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Historical Personalities of Pakistan</h3>
+        <p class="meta">Sst · grade 3-5 ·
+           quiz in English ·
+           <strong>10</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>95.0%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">9<span class="of">/10</span></span></div>
+          <p class="obj-text">Define historical personalities</p>
+          <div class="meter" role="img" aria-label="90.0% mastered"><span style="width:90.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">10<span class="of">/10</span></span></div>
+          <p class="obj-text">Describe the key achievements of Sir Syed Ahmed Khan</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">10<span class="of">/10</span></span></div>
+          <p class="obj-text">Describe the key achievements of Begum Ra&#x27;ana Liaquat Ali Khan</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">9<span class="of">/10</span></span></div>
+          <p class="obj-text">Explain the Two Nation Theory</p>
+          <div class="meter" role="img" aria-label="90.0% mastered"><span style="width:90.0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3><span class="ur">چینی لوک داستان</span></h3>
+        <p class="meta">Urdu · grade 4 ·
+           quiz in Urdu ·
+           <strong>10</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>90.0%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">8<span class="of">/10</span></span></div>
+          <p class="obj-text">Can state the meanings of difficult words.</p>
+          <div class="meter" role="img" aria-label="80.0% mastered"><span style="width:80.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">9<span class="of">/10</span></span></div>
+          <p class="obj-text">Can create sentences using given words.</p>
+          <div class="meter" role="img" aria-label="90.0% mastered"><span style="width:90.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">10<span class="of">/10</span></span></div>
+          <p class="obj-text">Can derive moral lessons from the story.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">9<span class="of">/10</span></span></div>
+          <p class="obj-text">Can understand the main idea of the story.</p>
+          <div class="meter" role="img" aria-label="90.0% mastered"><span style="width:90.0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3><span class="ur">آگاہی مہم</span></h3>
+        <p class="meta">Urdu · grade 3 ·
+           quiz in Urdu ·
+           <strong>9</strong> children finished</p>
+      </header>
+      <p class="lesson-score mixed"><b>72.2%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">6<span class="of">/9</span></span></div>
+          <p class="obj-text">Children will be able to state the meanings of given words.</p>
+          <div class="meter" role="img" aria-label="66.7% mastered"><span style="width:66.7%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">4<span class="of">/9</span></span></div>
+          <p class="obj-text">Children will be able to perform syllabification of given words.</p>
+          <div class="meter" role="img" aria-label="44.4% mastered"><span style="width:44.4%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">8<span class="of">/9</span></span></div>
+          <p class="obj-text">Children will be able to make sentences using given words.</p>
+          <div class="meter" role="img" aria-label="88.9% mastered"><span style="width:88.9%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">8<span class="of">/9</span></span></div>
+          <p class="obj-text">Children will be able to understand the harms of environmental pollution.</p>
+          <div class="meter" role="img" aria-label="88.9% mastered"><span style="width:88.9%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Multiplication Concepts</h3>
+        <p class="meta">Maths · grade 3 ·
+           quiz in English ·
+           <strong>8</strong> children finished</p>
+      </header>
+      <p class="lesson-score mixed"><b>75.0%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">8<span class="of">/8</span></span></div>
+          <p class="obj-text">Students will be able to find the total number of items given in groups using multiplication without counting each item individually.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">4<span class="of">/8</span></span></div>
+          <p class="obj-text">Students will be able to understand multiplication as continuous addition.</p>
+          <div class="meter" role="img" aria-label="50.0% mastered"><span style="width:50.0%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">6<span class="of">/8</span></span></div>
+          <p class="obj-text">Students will be able to use different methods to solve two-digit and three-digit multiplication problems.</p>
+          <div class="meter" role="img" aria-label="75.0% mastered"><span style="width:75.0%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">6<span class="of">/8</span></span></div>
+          <p class="obj-text">Students will be able to differentiate between multiplication and division, specifically that multiplication increases the quantity while division decreases it.</p>
+          <div class="meter" role="img" aria-label="75.0% mastered"><span style="width:75.0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Types of Fractions</h3>
+        <p class="meta">Maths · grade 4 ·
+           quiz in English ·
+           <strong>7</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>88.1%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">7<span class="of">/7</span></span></div>
+          <p class="obj-text">Define a fraction as &#x27;a part of a whole&#x27;.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">6<span class="of">/7</span></span></div>
+          <p class="obj-text">Identify the components of a fraction: numerator and denominator.</p>
+          <div class="meter" role="img" aria-label="85.7% mastered"><span style="width:85.7%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">7<span class="of">/7</span></span></div>
+          <p class="obj-text">Define a Proper Fraction as one where the numerator is smaller than the denominator.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">7<span class="of">/7</span></span></div>
+          <p class="obj-text">Define an Improper Fraction as one where the numerator is greater than or equal to the denominator.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">6<span class="of">/7</span></span></div>
+          <p class="obj-text">Define a Mixed Fraction as a combination of a whole number and a proper fraction.</p>
+          <div class="meter" role="img" aria-label="85.7% mastered"><span style="width:85.7%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">4<span class="of">/7</span></span></div>
+          <p class="obj-text">Identify the type of a given fraction (Proper, Improper, or Mixed).</p>
+          <div class="meter" role="img" aria-label="57.1% mastered"><span style="width:57.1%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3><span class="ur">چینی لوک داستان</span></h3>
+        <p class="meta">Urdu · grade 3-5 ·
+           quiz in Urdu ·
+           <strong>7</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>85.7%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">7<span class="of">/7</span></span></div>
+          <p class="obj-text">Identify the main characters of the story.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">7<span class="of">/7</span></span></div>
+          <p class="obj-text">Describe key events in the story&#x27;s plot.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">4<span class="of">/7</span></span></div>
+          <p class="obj-text">Extract the moral lesson from the story.</p>
+          <div class="meter" role="img" aria-label="57.1% mastered"><span style="width:57.1%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">7<span class="of">/7</span></span></div>
+          <p class="obj-text">Define simple sentences and provide examples.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">5<span class="of">/7</span></span></div>
+          <p class="obj-text">Define compound sentences and identify them.</p>
+          <div class="meter" role="img" aria-label="71.4% mastered"><span style="width:71.4%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">6<span class="of">/7</span></span></div>
+          <p class="obj-text">Identify related concepts from given words.</p>
+          <div class="meter" role="img" aria-label="85.7% mastered"><span style="width:85.7%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3><span class="ur">حروف جار اور حروف عطف</span></h3>
+        <p class="meta">Urdu · grade 3 ·
+           quiz in Urdu ·
+           <strong>6</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>88.9%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">6<span class="of">/6</span></span></div>
+          <p class="obj-text">Identify Huroof Jar (prepositions).</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">5<span class="of">/6</span></span></div>
+          <p class="obj-text">Identify Huroof Aatif (conjunctions).</p>
+          <div class="meter" role="img" aria-label="83.3% mastered"><span style="width:83.3%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">6<span class="of">/6</span></span></div>
+          <p class="obj-text">Use Huroof Jar (prepositions) in sentences.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">5<span class="of">/6</span></span></div>
+          <p class="obj-text">Use Huroof Aatif (conjunctions) in sentences.</p>
+          <div class="meter" role="img" aria-label="83.3% mastered"><span style="width:83.3%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">5<span class="of">/6</span></span></div>
+          <p class="obj-text">Define Huroof Jar (prepositions).</p>
+          <div class="meter" role="img" aria-label="83.3% mastered"><span style="width:83.3%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">5<span class="of">/6</span></span></div>
+          <p class="obj-text">Define Huroof Aatif (conjunctions).</p>
+          <div class="meter" role="img" aria-label="83.3% mastered"><span style="width:83.3%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3><span class="ur">الفاظ کے معنی اور مرکب الفاظ</span></h3>
+        <p class="meta">Urdu · grade 3-5 ·
+           quiz in Urdu ·
+           <strong>6</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>87.5%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">5<span class="of">/6</span></span></div>
+          <p class="obj-text">Explain the meanings of words such as &#x27;khala&#x27; (space), &#x27;wadi&#x27; (valley), &#x27;sayyara&#x27; (planet), &#x27;shehar basana&#x27; (to settle a city), &#x27;biaban&#x27; (wilderness), and &#x27;atish fishan&#x27; (volcano).</p>
+          <div class="meter" role="img" aria-label="83.3% mastered"><span style="width:83.3%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">6<span class="of">/6</span></span></div>
+          <p class="obj-text">Define compound words and provide examples.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">6<span class="of">/6</span></span></div>
+          <p class="obj-text">Form sentences using words such as &#x27;khala&#x27;, &#x27;baz&#x27;, &#x27;wadi&#x27;, &#x27;sayyara&#x27;, &#x27;shehar basana&#x27;, &#x27;biaban&#x27;, and &#x27;atish fishan&#x27;.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">4<span class="of">/6</span></span></div>
+          <p class="obj-text">Explain the Earth&#x27;s rotation around the sun and its effect on day and night.</p>
+          <div class="meter" role="img" aria-label="66.7% mastered"><span style="width:66.7%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Word Jumble Challenge and Demonstrative Pronouns (This, That, These, Those)</h3>
+        <p class="meta">English · grade 5 ·
+           quiz in English ·
+           <strong>6</strong> children finished</p>
+      </header>
+      <p class="lesson-score weak"><b>54.2%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">2<span class="of">/6</span></span></div>
+          <p class="obj-text">Identify and create anagrams by rearranging letters of a given word to form a new word without adding or changing letters.</p>
+          <div class="meter" role="img" aria-label="33.3% mastered"><span style="width:33.3%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">4<span class="of">/6</span></span></div>
+          <p class="obj-text">Differentiate between &#x27;this&#x27; and &#x27;that&#x27; based on the proximity of a single object.</p>
+          <div class="meter" role="img" aria-label="66.7% mastered"><span style="width:66.7%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">2<span class="of">/6</span></span></div>
+          <p class="obj-text">Differentiate between &#x27;these&#x27; and &#x27;those&#x27; based on the proximity of multiple objects.</p>
+          <div class="meter" role="img" aria-label="33.3% mastered"><span style="width:33.3%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">5<span class="of">/6</span></span></div>
+          <p class="obj-text">Identify the plural forms of &#x27;this&#x27; (these) and &#x27;that&#x27; (those).</p>
+          <div class="meter" role="img" aria-label="83.3% mastered"><span style="width:83.3%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3><span class="ur">بیج سے پودا کیسے بنتا</span></h3>
+        <p class="meta">Science · grade 1-2 ·
+           quiz in Urdu ·
+           <strong>5</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>88.0%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">4<span class="of">/5</span></span></div>
+          <p class="obj-text">Students will be able to describe the process of a seed growing into a plant.</p>
+          <div class="meter" role="img" aria-label="80.0% mastered"><span style="width:80.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">5<span class="of">/5</span></span></div>
+          <p class="obj-text">Students will be able to identify the necessary factors for growing a plant.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">4<span class="of">/5</span></span></div>
+          <p class="obj-text">Students will be able to describe the characteristics of a sunflower plant.</p>
+          <div class="meter" role="img" aria-label="80.0% mastered"><span style="width:80.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">4<span class="of">/5</span></span></div>
+          <p class="obj-text">Students will be able to list the benefits of plants.</p>
+          <div class="meter" role="img" aria-label="80.0% mastered"><span style="width:80.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">5<span class="of">/5</span></span></div>
+          <p class="obj-text">Students will be able to practically demonstrate how to grow a plant from a seed at home.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Boys and Girls Can Do It All</h3>
+        <p class="meta">English · grade 3-5 ·
+           quiz in English ·
+           <strong>5</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>85.0%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">4<span class="of">/5</span></span></div>
+          <p class="obj-text">Identify the meanings of new vocabulary words from the text.</p>
+          <div class="meter" role="img" aria-label="80.0% mastered"><span style="width:80.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">5<span class="of">/5</span></span></div>
+          <p class="obj-text">Match vocabulary words with corresponding pictures.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">4<span class="of">/5</span></span></div>
+          <p class="obj-text">Answer comprehension questions based on the story &#x27;Boys and Girls Can Do It All&#x27;.</p>
+          <div class="meter" role="img" aria-label="80.0% mastered"><span style="width:80.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">4<span class="of">/5</span></span></div>
+          <p class="obj-text">Identify and apply adjectives to describe objects and their colors.</p>
+          <div class="meter" role="img" aria-label="80.0% mastered"><span style="width:80.0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Namira Saleem: Pakistani Astronaut</h3>
+        <p class="meta">Science · grade 3-5 ·
+           quiz in English ·
+           <strong>5</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>80.0%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">5<span class="of">/5</span></span></div>
+          <p class="obj-text">Identify Namira Saleem as the first Pakistani female astronaut.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">3<span class="of">/5</span></span></div>
+          <p class="obj-text">Explain why Pinky joined Namira&#x27;s classes.</p>
+          <div class="meter" role="img" aria-label="60.0% mastered"><span style="width:60.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">5<span class="of">/5</span></span></div>
+          <p class="obj-text">Explain the importance of labels on a spacecraft.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">2<span class="of">/5</span></span></div>
+          <p class="obj-text">Identify areas of life improved by space mission technology.</p>
+          <div class="meter" role="img" aria-label="40.0% mastered"><span style="width:40.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">5<span class="of">/5</span></span></div>
+          <p class="obj-text">Describe the function of an oxygen tank and main engine start in a spacecraft.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Multiplication Word Problems</h3>
+        <p class="meta">Maths · grade 3-5 ·
+           quiz in English ·
+           <strong>5</strong> children finished</p>
+      </header>
+      <p class="lesson-score mixed"><b>70.0%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">4<span class="of">/5</span></span></div>
+          <p class="obj-text">Identify a word problem by recognizing its story-telling format.</p>
+          <div class="meter" role="img" aria-label="80.0% mastered"><span style="width:80.0%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">3<span class="of">/5</span></span></div>
+          <p class="obj-text">Solve multiplication word problems by identifying given information, what needs to be found, and applying multiplication as repeated addition.</p>
+          <div class="meter" role="img" aria-label="60.0% mastered"><span style="width:60.0%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">3<span class="of">/5</span></span></div>
+          <p class="obj-text">Perform multiplication of 3-digit numbers by 1-digit numbers.</p>
+          <div class="meter" role="img" aria-label="60.0% mastered"><span style="width:60.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">4<span class="of">/5</span></span></div>
+          <p class="obj-text">Perform multiplication of 4-digit numbers by 1-digit numbers.</p>
+          <div class="meter" role="img" aria-label="80.0% mastered"><span style="width:80.0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Fractions</h3>
+        <p class="meta">Maths · grade 3-5 ·
+           quiz in English ·
+           <strong>5</strong> children finished</p>
+      </header>
+      <p class="lesson-score weak"><b>56.0%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">2<span class="of">/5</span></span></div>
+          <p class="obj-text">Students will be able to write the first four equivalent fractions of a given fraction.</p>
+          <div class="meter" role="img" aria-label="40.0% mastered"><span style="width:40.0%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">1<span class="of">/5</span></span></div>
+          <p class="obj-text">Students will be able to simplify fractions to their lowest form.</p>
+          <div class="meter" role="img" aria-label="20.0% mastered"><span style="width:20.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">4<span class="of">/5</span></span></div>
+          <p class="obj-text">Students will be able to compare two fractions when their denominators are the same.</p>
+          <div class="meter" role="img" aria-label="80.0% mastered"><span style="width:80.0%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">2<span class="of">/5</span></span></div>
+          <p class="obj-text">Students will be able to identify the numerator and denominator.</p>
+          <div class="meter" role="img" aria-label="40.0% mastered"><span style="width:40.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">5<span class="of">/5</span></span></div>
+          <p class="obj-text">Students will be able to differentiate between proper and improper fractions.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Addition Word Problems</h3>
+        <p class="meta">Maths · grade 2 ·
+           quiz in English ·
+           <strong>4</strong> children finished</p>
+      </header>
+      <p class="lesson-score weak"><b>62.5%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">4<span class="of">/4</span></span></div>
+          <p class="obj-text">Students will be able to solve addition word problems using given clue words.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">2<span class="of">/4</span></span></div>
+          <p class="obj-text">Students will be able to perform addition of two or three-digit numbers, including problems with carrying over.</p>
+          <div class="meter" role="img" aria-label="50.0% mastered"><span style="width:50.0%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">2<span class="of">/4</span></span></div>
+          <p class="obj-text">Students will be able to identify the clue word &#x27;Total&#x27; in addition word problems.</p>
+          <div class="meter" role="img" aria-label="50.0% mastered"><span style="width:50.0%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">2<span class="of">/4</span></span></div>
+          <p class="obj-text">Students will be able to identify key data in addition word problems by underlining the given information.</p>
+          <div class="meter" role="img" aria-label="50.0% mastered"><span style="width:50.0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3><span class="ur">نظام شمسی کے الفاظ</span></h3>
+        <p class="meta">Urdu · grade 3-5 ·
+           quiz in Urdu ·
+           <strong>4</strong> children finished</p>
+      </header>
+      <p class="lesson-score weak"><b>62.5%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">2<span class="of">/4</span></span></div>
+          <p class="obj-text">Identify new vocabulary related to the solar system and state their meanings</p>
+          <div class="meter" role="img" aria-label="50.0% mastered"><span style="width:50.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">4<span class="of">/4</span></span></div>
+          <p class="obj-text">Read Urdu text with correct pronunciation and fluency</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">1<span class="of">/4</span></span></div>
+          <p class="obj-text">Name the planets of the solar system</p>
+          <div class="meter" role="img" aria-label="25.0% mastered"><span style="width:25.0%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">3<span class="of">/4</span></span></div>
+          <p class="obj-text">Identify the planet closest to the sun</p>
+          <div class="meter" role="img" aria-label="75.0% mastered"><span style="width:75.0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Division of Three-Digit Numbers</h3>
+        <p class="meta">Maths · grade 3 ·
+           quiz in English ·
+           <strong>4</strong> children finished</p>
+      </header>
+      <p class="lesson-score weak"><b>58.3%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">1<span class="of">/4</span></span></div>
+          <p class="obj-text">Identify the terms &#x27;divisor&#x27; and &#x27;remainder&#x27; in a division problem.</p>
+          <div class="meter" role="img" aria-label="25.0% mastered"><span style="width:25.0%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">3<span class="of">/4</span></span></div>
+          <p class="obj-text">Understand that the remainder must always be smaller than the divisor.</p>
+          <div class="meter" role="img" aria-label="75.0% mastered"><span style="width:75.0%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">3<span class="of">/4</span></span></div>
+          <p class="obj-text">Apply the concept of division to solve problems involving three-digit numbers divided by one-digit numbers.</p>
+          <div class="meter" role="img" aria-label="75.0% mastered"><span style="width:75.0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Fossil Fuels and Pollution</h3>
+        <p class="meta">Science · grade 6-8 ·
+           quiz in English ·
+           <strong>4</strong> children finished</p>
+      </header>
+      <p class="lesson-score weak"><b>37.5%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">2<span class="of">/4</span></span></div>
+          <p class="obj-text">Define fossil fuels and provide examples.</p>
+          <div class="meter" role="img" aria-label="50.0% mastered"><span style="width:50.0%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">3<span class="of">/4</span></span></div>
+          <p class="obj-text">Identify the main gas released from burning fossil fuels.</p>
+          <div class="meter" role="img" aria-label="75.0% mastered"><span style="width:75.0%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">1<span class="of">/4</span></span></div>
+          <p class="obj-text">Explain the Greenhouse Effect.</p>
+          <div class="meter" role="img" aria-label="25.0% mastered"><span style="width:25.0%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">0<span class="of">/4</span></span></div>
+          <p class="obj-text">Define global warming and explain its relation to greenhouse gases.</p>
+          <div class="meter" role="img" aria-label="0% mastered"><span style="width:0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Profit and Loss Word Problems</h3>
+        <p class="meta">Maths · grade 3 ·
+           quiz in English ·
+           <strong>3</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>83.3%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">1<span class="of">/3</span></span></div>
+          <p class="obj-text">Identify important numbers and questions in a word problem by circling numbers and underlining questions.</p>
+          <div class="meter" role="img" aria-label="33.3% mastered"><span style="width:33.3%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">3<span class="of">/3</span></span></div>
+          <p class="obj-text">Calculate the total cost of items when given the number of items and the cost per item.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">3<span class="of">/3</span></span></div>
+          <p class="obj-text">Define &#x27;profit&#x27; as &#x27;<span class="ur">منافع</span>&#x27; (gain).</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">3<span class="of">/3</span></span></div>
+          <p class="obj-text">Calculate the profit by subtracting the total cost from the selling price.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3><span class="ur">حروفِ جار اور حروفِ عطف</span></h3>
+        <p class="meta">Urdu · grade 3-5 ·
+           quiz in Urdu ·
+           <strong>3</strong> children finished</p>
+      </header>
+      <p class="lesson-score strong"><b>80.0%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">1<span class="of">/3</span></span></div>
+          <p class="obj-text">Define Haroof-e-Jarr (prepositions) and identify them.</p>
+          <div class="meter" role="img" aria-label="33.3% mastered"><span style="width:33.3%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">3<span class="of">/3</span></span></div>
+          <p class="obj-text">Identify Haroof-e-Jarr (prepositions) in sentences.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">3<span class="of">/3</span></span></div>
+          <p class="obj-text">Define Haroof-e-Atf (conjunctions) and identify them.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj strong">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">3<span class="of">/3</span></span></div>
+          <p class="obj-text">Identify Haroof-e-Atf (conjunctions) in sentences.</p>
+          <div class="meter" role="img" aria-label="100.0% mastered"><span style="width:100.0%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">2<span class="of">/3</span></span></div>
+          <p class="obj-text">Define Ism (noun) and Fail (verb).</p>
+          <div class="meter" role="img" aria-label="66.7% mastered"><span style="width:66.7%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3><span class="ur">گفتگو اور میٹنگ کے آداب</span></h3>
+        <p class="meta">Urdu · grade 2 ·
+           quiz in Urdu ·
+           <strong>3</strong> children finished</p>
+      </header>
+      <p class="lesson-score mixed"><b>66.7%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">2<span class="of">/3</span></span></div>
+          <p class="obj-text">Students will be able to recall the meanings of words.</p>
+          <div class="meter" role="img" aria-label="66.7% mastered"><span style="width:66.7%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">2<span class="of">/3</span></span></div>
+          <p class="obj-text">Students will be able to understand the etiquettes of conversation.</p>
+          <div class="meter" role="img" aria-label="66.7% mastered"><span style="width:66.7%"></span></div>
+        </li>
+        <li class="obj mixed">
+          <div class="obj-head"><span class="lvl">apply</span>
+            <span class="obj-n">2<span class="of">/3</span></span></div>
+          <p class="obj-text">Students will be able to form words by joining syllables.</p>
+          <div class="meter" role="img" aria-label="66.7% mastered"><span style="width:66.7%"></span></div>
+        </li></ul>
+    </article>
+    <article class="lesson">
+      <header>
+        <h3>Parts of Speech: Noun, Verb, Adjective</h3>
+        <p class="meta">English · grade 3-5 ·
+           quiz in English ·
+           <strong>3</strong> children finished</p>
+      </header>
+      <p class="lesson-score weak"><b>25.0%</b> of objectives mastered</p>
+      <ul class="objs">
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">1<span class="of">/3</span></span></div>
+          <p class="obj-text">Identify nouns in a given sentence by asking &#x27;Who is doing the action?&#x27; or &#x27;What is it?&#x27;</p>
+          <div class="meter" role="img" aria-label="33.3% mastered"><span style="width:33.3%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">1<span class="of">/3</span></span></div>
+          <p class="obj-text">Identify verbs in a given sentence by asking &#x27;What is happening?&#x27; or &#x27;What is the action?&#x27;</p>
+          <div class="meter" role="img" aria-label="33.3% mastered"><span style="width:33.3%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">recall</span>
+            <span class="obj-n">0<span class="of">/3</span></span></div>
+          <p class="obj-text">Identify adjectives in a given sentence by asking &#x27;What kind?&#x27; or &#x27;What type?&#x27;</p>
+          <div class="meter" role="img" aria-label="0% mastered"><span style="width:0%"></span></div>
+        </li>
+        <li class="obj weak">
+          <div class="obj-head"><span class="lvl">understand</span>
+            <span class="obj-n">1<span class="of">/3</span></span></div>
+          <p class="obj-text">Differentiate between nouns, verbs, and adjectives in simple English sentences.</p>
+          <div class="meter" role="img" aria-label="33.3% mastered"><span style="width:33.3%"></span></div>
+        </li></ul>
+    </article></div>
+  <h3 class="sub">And 23 more lessons that one or two children opened</h3>
+  <p class="prose">Too few answers each to read on their own, but they are part of every figure
+     above.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Lesson</th><th>Class</th><th class="num">Children</th>
+      <th class="num">Objectives mastered</th></tr></thead>
+    <tbody><tr><td>Computational Thinking and Problem Solving</td><td class="dim">Science · grade 9-10</td>
+      <td class="num dim">1</td><td class="num strong">100.0%</td></tr><tr><td>Converting Fractions to Decimals</td><td class="dim">Maths · grade 5</td>
+      <td class="num dim">1</td><td class="num strong">100.0%</td></tr><tr><td>How to prevent the spread of germs / How to prevent</td><td class="dim">Science · grade 3-5</td>
+      <td class="num dim">1</td><td class="num strong">100.0%</td></tr><tr><td><span class="ur">اسم کی اقسام</span></td><td class="dim">Urdu · grade 5</td>
+      <td class="num dim">1</td><td class="num strong">100.0%</td></tr><tr><td><span class="ur">ویک ڈیز</span></td><td class="dim">Science · grade 1-2</td>
+      <td class="num dim">1</td><td class="num strong">100.0%</td></tr><tr><td><span class="ur">پیغام رسانی کے ذرائع</span></td><td class="dim">Urdu · grade 3-5</td>
+      <td class="num dim">1</td><td class="num strong">100.0%</td></tr><tr><td><span class="ur">محترمہ فاطمہ جناح</span></td><td class="dim">Sst · grade 3-5</td>
+      <td class="num dim">2</td><td class="num strong">90.0%</td></tr><tr><td>Daily Routine and Good Manners</td><td class="dim">English · grade 1</td>
+      <td class="num dim">1</td><td class="num strong">80.0%</td></tr><tr><td>Digital Learning Tools</td><td class="dim">English · grade 3-5</td>
+      <td class="num dim">1</td><td class="num strong">80.0%</td></tr><tr><td>Rethink, Reuse, Recycle</td><td class="dim">Science · grade 3-5</td>
+      <td class="num dim">1</td><td class="num strong">80.0%</td></tr><tr><td><span class="ur">چوہے کا روزنامچہ</span></td><td class="dim">Urdu · grade 3-5</td>
+      <td class="num dim">1</td><td class="num strong">80.0%</td></tr><tr><td>Parts of Speech and Verb Tenses</td><td class="dim">English · grade 5</td>
+      <td class="num dim">2</td><td class="num mixed">75.0%</td></tr><tr><td><span class="ur">ارکان سازی</span></td><td class="dim">Urdu · grade 2</td>
+      <td class="num dim">2</td><td class="num mixed">75.0%</td></tr><tr><td>Fractions</td><td class="dim">Maths · grade 4</td>
+      <td class="num dim">1</td><td class="num mixed">75.0%</td></tr><tr><td>Separating Mixtures</td><td class="dim">Science · grade 6-8</td>
+      <td class="num dim">1</td><td class="num mixed">75.0%</td></tr><tr><td><span class="ur">قدرتی وسائل اور صفائی</span>; <span class="ur">ارکان سازی</span></td><td class="dim">Urdu · grade 5</td>
+      <td class="num dim">1</td><td class="num mixed">75.0%</td></tr><tr><td><span class="ur">نظم کا مرکزی خیال</span></td><td class="dim">Urdu · grade 3-5</td>
+      <td class="num dim">1</td><td class="num mixed">75.0%</td></tr><tr><td><span class="ur">گروہی الفاظ اور مائنڈ میپ</span></td><td class="dim">Urdu · grade 4</td>
+      <td class="num dim">1</td><td class="num mixed">75.0%</td></tr><tr><td>Story Elements and Vocabulary</td><td class="dim">English · grade 3-5</td>
+      <td class="num dim">2</td><td class="num weak">62.5%</td></tr><tr><td>Word Opposites and Synonyms</td><td class="dim">English · grade 3</td>
+      <td class="num dim">2</td><td class="num weak">62.5%</td></tr><tr><td><span class="ur">ویک ڈیز</span></td><td class="dim">Science · grade 1-2</td>
+      <td class="num dim">1</td><td class="num weak">60.0%</td></tr><tr><td>Vocabulary and Sentence Construction</td><td class="dim">English · grade 4</td>
+      <td class="num dim">1</td><td class="num weak">33.3%</td></tr><tr><td><span class="ur">ڈیوائیڈ</span></td><td class="dim">Maths · grade 3</td>
+      <td class="num dim">1</td><td class="num weak">33.3%</td></tr></tbody></table></div>
+</section>
+
+<section>
+  <h2>Where a class did not land it</h2>
+  <p class="prose">The weakest objectives, of those at least five children were asked about.
+    Two are worth a teacher's attention on their own: <em>simplify fractions to their lowest
+    terms</em>, where one child in five got there, and <em>define the subject as the doer of the
+    action</em>, which thirteen children were asked and three answered — a definition, not a
+    difficult idea, which usually means the class heard it once at the end.</p>
+  <figure class="chart"><img src="charts/05_weakest_objectives.png" alt="The weakest learning objectives"></figure>
+  <div class="tablewrap"><table>
+    <thead><tr><th class="num">Mastered</th><th>Objective</th><th>Taught at</th><th>Lesson</th>
+      <th class="num">Children</th></tr></thead>
+    <tbody><tr><td class="num weak">20%</td><td>Students will be able to simplify fractions to their lowest form.</td>
+      <td class="dim">apply</td><td class="dim">Fractions</td><td class="num dim">5</td></tr><tr><td class="num weak">23%</td><td>Define subject as the doer of the action in a sentence.</td>
+      <td class="dim">recall</td><td class="dim">Basic English Sentence Structure</td><td class="num dim">13</td></tr><tr><td class="num weak">33%</td><td>Identify and create anagrams by rearranging letters of a given word to form a new word without adding or changing letters.</td>
+      <td class="dim">apply</td><td class="dim">Word Jumble Challenge and Demonstrative Pronouns (This, That, These, Those)</td><td class="num dim">6</td></tr><tr><td class="num weak">33%</td><td>Differentiate between &#x27;these&#x27; and &#x27;those&#x27; based on the proximity of multiple objects.</td>
+      <td class="dim">understand</td><td class="dim">Word Jumble Challenge and Demonstrative Pronouns (This, That, These, Those)</td><td class="num dim">6</td></tr><tr><td class="num weak">40%</td><td>Explain the importance of mangrove trees for the environment and living beings.</td>
+      <td class="dim">understand</td><td class="dim">Mangroves and their importance</td><td class="num dim">15</td></tr><tr><td class="num weak">40%</td><td>Identify areas of life improved by space mission technology.</td>
+      <td class="dim">recall</td><td class="dim">Namira Saleem: Pakistani Astronaut</td><td class="num dim">5</td></tr><tr><td class="num weak">40%</td><td>Students will be able to identify the numerator and denominator.</td>
+      <td class="dim">recall</td><td class="dim">Fractions</td><td class="num dim">5</td></tr><tr><td class="num weak">40%</td><td>Students will be able to write the first four equivalent fractions of a given fraction.</td>
+      <td class="dim">apply</td><td class="dim">Fractions</td><td class="num dim">5</td></tr></tbody></table></div>
+</section>
+
+<section>
+  <h2>Grade by grade</h2>
+  <p class="prose">Every child types their own class when they join, so this is the grade the
+    child gave — not the band the system guessed from the recording. Sections (4B, 5 Green) are
+    discarded; only the grade compares across classrooms. Readable for
+    377 of the 414 children who finished.</p>
+  <figure class="chart"><img src="charts/08_by_child_grade.png" alt="Objectives mastered by the grade the child gave"></figure>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Grade</th><th class="num">Child × objective pairs</th>
+      <th class="num">Mastered</th><th class="num">Questions correct</th></tr></thead>
+    <tbody><tr><th>Grade 1</th><td class="num">83</td><td class="num mixed">74.7%</td><td class="num">85.6%</td></tr><tr><th>Grade 2</th><td class="num">259</td><td class="num mixed">75.3%</td><td class="num">84.3%</td></tr><tr><th>Grade 3</th><td class="num">217</td><td class="num mixed">72.8%</td><td class="num">83.6%</td></tr><tr><th>Grade 4</th><td class="num">328</td><td class="num strong">80.8%</td><td class="num">87.5%</td></tr><tr><th>Grade 5</th><td class="num">880</td><td class="num mixed">79.1%</td><td class="num">85.3%</td></tr></tbody></table></div>
+  <p class="prose">Splitting each year by the level its questions were pitched at shows the years
+    are not weak in the same way. Grade 1 holds up on remembering and understanding and falls off a
+    cliff on <em>apply</em>. Grade 3 is flat and low across all three — nothing in particular is
+    going wrong, which usually means something general is. Grade 4 is the only year that holds
+    near 80% at every level.</p>
+  <figure class="chart"><img src="charts/09_grade_by_level.png" alt="Grade against the level the question was asked at"></figure>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Grade</th><th class="num">Recall</th><th class="num">Understand</th><th class="num">Apply</th></tr></thead>
+    <tbody><tr><th>Grade 1</th><td class="num mixed">76.7%<span class="tiny"> n=30</span></td><td class="num mixed">76.1%<span class="tiny"> n=46</span></td><td class="num mixed">65.4%<span class="tiny"> n=26</span></td></tr><tr><th>Grade 2</th><td class="num mixed">72.7%<span class="tiny"> n=132</span></td><td class="num mixed">79.5%<span class="tiny"> n=166</span></td><td class="num mixed">71.6%<span class="tiny"> n=81</span></td></tr><tr><th>Grade 3</th><td class="num mixed">70.7%<span class="tiny"> n=75</span></td><td class="num mixed">71.8%<span class="tiny"> n=103</span></td><td class="num mixed">72.6%<span class="tiny"> n=73</span></td></tr><tr><th>Grade 4</th><td class="num mixed">76.6%<span class="tiny"> n=124</span></td><td class="num strong">80.5%<span class="tiny"> n=205</span></td><td class="num mixed">79.3%<span class="tiny"> n=92</span></td></tr><tr><th>Grade 5</th><td class="num mixed">79.6%<span class="tiny"> n=334</span></td><td class="num mixed">78.5%<span class="tiny"> n=567</span></td><td class="num mixed">72.1%<span class="tiny"> n=330</span></td></tr></tbody></table></div>
+  <p class="prose small">One thing worth fixing in the product rather than the analysis: 37 of the
+    children who finished typed something into the class box that is not a class — their own name,
+    mostly (“Wahaj”, “Name Meerab Fatima”). The field takes free text and never checks it.</p>
+</section>
+
+<section>
+  <h2>Subject and language</h2>
+  <p class="prose">Urdu quizzes came back nine points above English ones, a gap that widened as
+    the evening's numbers came in. Worth watching rather than concluding from: the Urdu quizzes sit
+    in different grades and subjects, so language and content are not separable yet. Social studies
+    and Urdu lead by subject; English trails.</p>
+  <figure class="chart"><img src="charts/07_by_language.png" alt="Mastery by quiz language"></figure>
+  <figure class="chart"><img src="charts/06_by_subject.png" alt="Mastery by subject"></figure>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Subject</th><th class="num">Pairs</th><th class="num">Mastered</th>
+      <th class="num">Questions correct</th></tr></thead>
+    <tbody><tr><th>Maths</th><td>731</td><td class="num mixed">76.6%</td><td class="num">84.0%</td></tr><tr><th>Urdu</th><td>438</td><td class="num strong">83.8%</td><td class="num">90.4%</td></tr><tr><th>English</th><td>322</td><td class="num mixed">73.0%</td><td class="num">82.2%</td></tr><tr><th>Science</th><td>322</td><td class="num mixed">77.3%</td><td class="num">84.4%</td></tr><tr><th>Sst</th><td>125</td><td class="num strong">89.6%</td><td class="num">94.0%</td></tr></tbody></table></div>
+</section>
+
+<section>
+  <div class="caveats">
+    <h2>How much weight this carries</h2>
+    <ul>
+      <li><strong>One day, 414 children, 68 lessons.</strong>
+        The headline held at 79% as the sample grew from 103 children to 414,
+        which is a good sign. Per-lesson figures still rest on a handful of children each — treat a
+        single lesson's number as a conversation starter with that teacher, not a measurement.</li>
+      <li><strong>The children are self-selected.</strong> They are the ones whose parents opened
+        a WhatsApp link on the day. Nothing here says what the rest of the class knows.</li>
+      <li><strong>Nobody was watching them answer.</strong> A quiz taken at home can be taken with
+        help.</li>
+      <li><strong>The objectives are the machine's reading of the lesson</strong>, taken from the
+        transcript — an accurate summary of what was said, not a curriculum document the teacher
+        signed off.</li>
+      <li><strong>85% of questions correct is a high ceiling.</strong> If it holds as numbers grow,
+        the questions may be pitched slightly easy — that is a tuning question for the next week of
+        data, and it would push the mastery figure down, not up.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>Source: NIETE production, read replica, 7 September 2026. Objectives from each lesson's
+  transcript digest; mastery computed from every child answer recorded that day. Charts follow the
+  house style. Analysis rebuilt by <code>pull.py</code> → <code>analyze.py</code> →
+  <code>charts.py</code> → <code>build_report.py</code>.</footer>
+</div>
