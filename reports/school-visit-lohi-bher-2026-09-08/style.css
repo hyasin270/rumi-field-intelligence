@@ -78,7 +78,7 @@ hr.gold { border: 0; height: 3px; width: 64px; background: var(--gold); margin: 
 .page { display: grid; grid-template-columns: 1fr; }
 .rail { display: none; position: sticky; top: 0; height: 100vh; padding: 40px 0 40px 28px; }
 .rail-line { position: absolute; left: 34px; top: 56px; bottom: 56px; width: 2px; background: var(--rule); }
-.rail-fill { position: absolute; left: 34px; top: 56px; width: 2px; background: var(--gold); height: 0; transition: height .25s linear; }
+.rail-fill { position: absolute; left: 34px; top: 56px; width: 2px; background: var(--gold); height: 0; transition: height .12s linear; }
 .rail-stops { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 8px 0; }
 .stop { display: flex; align-items: center; gap: 12px; color: var(--ink-3); font-size: 12px; text-decoration: none; letter-spacing: .04em; }
 .stop i { width: 10px; height: 10px; border-radius: 50%; background: var(--paper); border: 2px solid var(--rule); flex: none; transform: translateX(1px); transition: all .25s; }
@@ -334,3 +334,23 @@ abbr.ind { text-decoration: none; border-bottom: 1.5px dotted var(--gold-ink); c
 /* charts container (interactive, PNG fallback in noscript) */
 .chart { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r); padding: 16px 18px 12px; box-shadow: var(--shadow); min-height: 240px; }
 .chart noscript img { border-radius: 8px; }
+
+
+/* per-step groups (built by app.js from the flat timeline) */
+.split.grouped { display: block; }
+.split.grouped > .timeline { display: block; border-left: 0; margin-left: 0; }
+.seg-group { display: grid; grid-template-columns: minmax(300px, 420px) minmax(0, 1fr); gap: 22px; align-items: start; }
+.seg-group + .seg-group { margin-top: 0; }
+.seg-group .tl-col { padding-bottom: 6px; }
+.seg-group .plan-col { position: sticky; top: 12px; z-index: 2; }
+.seg-group.no-plan .plan-col { display: none; }
+.seg-group.no-plan { grid-template-columns: 1fr; }
+.seg-group .tl-col { border-left: 2px solid var(--rule); margin-left: 8px; display: grid; gap: 0; }
+.seg-group .tl-col > .callout { margin: 10px 0 10px 18px; }
+.plan-col .seg { display: block; margin: 0; }
+.plan-col .seg img, .plan-col .seg picture img { max-height: min(58vh, 540px); width: auto; max-width: 100%; }
+@media (max-width: 959px) {
+  .seg-group { display: block; }
+  .seg-group .plan-col { position: sticky; top: 0; background: var(--paper); padding: 8px 0 10px; margin: 0 0 12px; border-bottom: 1px solid var(--rule); }
+  .seg-group.no-plan .plan-col { display: none; }
+}

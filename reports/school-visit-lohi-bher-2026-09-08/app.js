@@ -20,25 +20,27 @@
     map.addEventListener('mouseenter', function () { if (t0) clearInterval(t0); });
   }
 
-  /* ---- rail: which chapter is on screen, and how far through the day ---- */
-  var chapters = Array.prototype.slice.call(document.querySelectorAll('.chapter[id]'));
+  /* ---- rail: the gold line fills to the active stop's dot and advances toward the next one in step with the chapter ---- */
   var stops = Array.prototype.slice.call(document.querySelectorAll('.rail .stop'));
-  var fill = document.querySelector('.rail-fill');
-  function setActive(id) { stops.forEach(function (s) { s.classList.toggle('on', s.getAttribute('href') === '#' + id); }); }
-  if (chapters.length && 'IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) setActive(e.target.id); });
-    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-    chapters.forEach(function (c) { io.observe(c); });
-  }
+  var fill = document.querySelector('.rail-fill'), lineEl = document.querySelector('.rail-line');
+  var items = stops.map(function (s) {
+    var c = document.getElementById(s.getAttribute('href').slice(1)); return c ? { s: s, c: c, dot: s.querySelector('i') } : null;
+  }).filter(Boolean);
   function railFill() {
-    if (!fill || !chapters.length) return;
-    var first = chapters[0].getBoundingClientRect().top + window.scrollY;
-    var last = chapters[chapters.length - 1].getBoundingClientRect().top + window.scrollY;
-    var p = (window.scrollY + window.innerHeight * 0.5 - first) / (last - first);
-    p = Math.max(0, Math.min(1, p));
-    var line = document.querySelector('.rail-line');
-    if (line) fill.style.height = (p * line.getBoundingClientRect().height) + 'px';
+    if (!fill || !lineEl || !items.length) return;
+    var lineTop = lineEl.getBoundingClientRect().top;
+    var y = window.scrollY + window.innerHeight * 0.45, idx = -1, tops = [];
+    for (var i = 0; i < items.length; i++) { tops[i] = items[i].c.getBoundingClientRect().top + window.scrollY; if (y >= tops[i]) idx = i; }
+    var h = 0;
+    if (idx >= 0) {
+      var dy = function (k) { var r = items[k].dot.getBoundingClientRect(); return r.top + r.height / 2 - lineTop; };
+      var next = items[idx + 1], end = next ? tops[idx + 1] : tops[idx] + items[idx].c.offsetHeight;
+      var p = Math.max(0, Math.min(1, (y - tops[idx]) / Math.max(1, end - tops[idx])));
+      var a = dy(idx), b = next ? dy(idx + 1) : lineEl.getBoundingClientRect().height;
+      h = a + p * (b - a);
+    }
+    fill.style.height = Math.max(0, h) + 'px';
+    items.forEach(function (it, i) { it.s.classList.toggle('on', i === idx || (idx < 0 && i === 0)); });
   }
 
   /* ---- reveal (opacity only; from a visible resting state) ---- */
@@ -62,39 +64,61 @@
   window.addEventListener('hashchange', function () { openFoldFor(location.hash); });
   document.querySelectorAll('.fold').forEach(function (d) { d.addEventListener('toggle', function () { syncAll(); railFill(); }); });
 
-  /* ---- the plan beside the room: one picture at a time, chosen by the entry at the reading line ---- */
-  var splits = Array.prototype.slice.call(document.querySelectorAll('.split'));
-  var syncers = splits.map(function (split) {
-    var plan = split.querySelector('.plan'); if (!plan) return null;
-    var segs = Array.prototype.slice.call(plan.querySelectorAll('.seg')); if (!segs.length) return null;
-    var entries = Array.prototype.slice.call(split.querySelectorAll('.tl[data-seg]'));
-    var head = document.createElement('div'); head.className = 'plan-head'; head.innerHTML = '<b></b><span class="min"></span>';
-    var status = document.createElement('div'); status.className = 'plan-status';
-    plan.insertBefore(head, plan.firstChild); plan.appendChild(status);
-    var cur = null;
-    function apply(seg, planState, note) {
-      var key = seg + '|' + planState + '|' + (note || '');
-      if (key === cur) return; cur = key;
-      var fig = null;
-      segs.forEach(function (f) { var on = f.dataset.seg === seg; f.classList.toggle('on', on); if (on) fig = f; });
-      if (!fig) { fig = segs[0]; fig.classList.add('on'); }
-      head.querySelector('b').textContent = fig.dataset.title || '';
-      head.querySelector('.min').textContent = fig.dataset.min ? 'plan: ' + fig.dataset.min : '';
+  /* ---- the plan beside the room: each step's picture travels with its own stretch of the timeline ----
+     Authoring stays flat: .split > .plan (one .seg per step) + .timeline (.tl entries with data-seg).
+     Here the flat timeline is regrouped by step. Each group is a two-column block whose picture is
+     sticky only inside that group, so it arrives with the step's first entry and leaves with its last. */
+  var syncers = [];
+  Array.prototype.slice.call(document.querySelectorAll('.split')).forEach(function (split) {
+    var plan = split.querySelector(':scope > .plan'), tl = split.querySelector(':scope > .timeline');
+    if (!plan || !tl) return;
+    var segs = {}; plan.querySelectorAll('.seg').forEach(function (f) { segs[f.dataset.seg] = f; });
+    var groups = [], cur = null;
+    Array.prototype.slice.call(tl.children).forEach(function (ch) {
+      var isEntry = ch.classList.contains('tl') && ch.dataset.seg;
+      if (isEntry && (!cur || cur.seg !== ch.dataset.seg)) { cur = { seg: ch.dataset.seg, nodes: [] }; groups.push(cur); }
+      if (!cur) { cur = { seg: null, nodes: [] }; groups.push(cur); }
+      cur.nodes.push(ch);
+    });
+    var frag = document.createDocumentFragment(), used = {};
+    groups.forEach(function (g) {
+      var wrap = document.createElement('div'); wrap.className = 'seg-group';
+      var pc = document.createElement('div'); pc.className = 'plan-col';
+      var fig = g.seg && segs[g.seg];
+      if (fig) {
+        var node = used[g.seg] ? fig.cloneNode(true) : fig; used[g.seg] = 1; node.classList.add('on');
+        var head = document.createElement('div'); head.className = 'plan-head';
+        head.innerHTML = '<b></b><span class="min"></span>';
+        head.querySelector('b').textContent = node.dataset.title || '';
+        head.querySelector('.min').textContent = node.dataset.min ? 'plan: ' + node.dataset.min : '';
+        pc.appendChild(head); pc.appendChild(node);
+        g.status = document.createElement('div'); g.status.className = 'plan-status'; pc.appendChild(g.status);
+      } else { wrap.classList.add('no-plan'); }
+      var tc = document.createElement('div'); tc.className = 'tl-col';
+      g.nodes.forEach(function (n) { tc.appendChild(n); });
+      wrap.appendChild(pc); wrap.appendChild(tc); frag.appendChild(wrap);
+      g.entries = g.nodes.filter(function (n) { return n.classList.contains('tl'); });
+      g.cur = null;
+    });
+    tl.innerHTML = ''; tl.appendChild(frag); plan.remove(); split.classList.add('grouped');
+    function setStatus(g, planState, note) {
+      var key = planState + '|' + (note || ''); if (key === g.cur) return; g.cur = key;
       var label = { missed: 'Skipped', tangent: 'Not in the plan', over: 'Running long', changed: 'Done differently', on: '' }[planState] || '';
-      status.className = 'plan-status' + (label ? ' show ' + planState : '');
-      status.innerHTML = label ? '<b>' + label + '</b>' + (note || '') : '';
+      g.status.className = 'plan-status' + (label ? ' show ' + planState : '');
+      g.status.innerHTML = label ? '<b>' + label + '</b>' + (note || '') : '';
     }
-    function sync() {
-      if (!entries.length) { apply(segs[0].dataset.seg, 'on', ''); return; }
+    syncers.push(function () {
       var line = window.innerHeight * (window.innerWidth < 960 ? 0.5 : 0.42);
-      var pick = entries[0];
-      for (var i = 0; i < entries.length; i++) { if (entries[i].getBoundingClientRect().top <= line) pick = entries[i]; else break; }
-      apply(pick.dataset.seg, pick.dataset.plan || 'on', pick.dataset.planNote || '');
-    }
-    sync();
-    return sync;
-  }).filter(Boolean);
+      groups.forEach(function (g) {
+        if (!g.status || !g.entries.length) return;
+        var pick = g.entries[0];
+        for (var i = 0; i < g.entries.length; i++) { if (g.entries[i].getBoundingClientRect().top <= line) pick = g.entries[i]; else break; }
+        setStatus(g, pick.dataset.plan || 'on', pick.dataset.planNote || '');
+      });
+    });
+  });
   function syncAll() { syncers.forEach(function (s) { s(); }); }
+  syncAll();
   var onScroll = raf(function () { railFill(); syncAll(); });
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
