@@ -5,20 +5,23 @@
 <title>Lohi Bher, 8 September</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="One school, one day: two lessons watched against their lesson plans, a staff room that told us what the numbers could not, and the decisions taken by 4 pm.">
+<meta name="description" content="One school, one day. Two lessons watched beside their plans, a staff room that spoke its mind, the scores opened after lunch, and the decisions taken by four o'clock.">
 <meta property="og:title" content="Lohi Bher, 8 September">
-<meta property="og:description" content="A school visit as an investigation: the data before, the classrooms during, the staff room after, and the decisions the same afternoon.">
+<meta property="og:description" content="A school visit told as a story: the numbers before, the classrooms, the staff room, the scores, and what we decided the same afternoon.">
 <meta property="og:image" content="img/field_board.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="charts.css">
 
 
 
 
+<script>window.RUMI_NOTES={"url": "https://wctbbjtzxlgjsyiunmaz.supabase.co", "key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndjdGJianR6eGxnanN5aXVubWF6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY1MjIyNTYsImV4cCI6MjEwMjA5ODI1Nn0.UH44ITlOuOwX_Ng02nV5cwYHVK0Exd4VkB5m2KSjhIU", "report": "school-visit-lohi-bher-2026-09-08"};</script>
 </head>
 <body>
+<canvas id="bg" aria-hidden="true"></canvas>
 <div class="page">
   <nav class="rail" aria-label="The day">
     <div class="rail-line"></div><div class="rail-fill"></div>
@@ -28,9 +31,10 @@
       <a class="stop" href="#raheela"><i></i><span><b>10:20</b><br>Grade 3</span></a>
       <a class="stop" href="#saima"><i></i><span><b>10:55</b><br>Grade 2</span></a>
       <a class="stop" href="#staffroom"><i></i><span><b>12:08</b><br>Staff room</span></a>
-      <a class="stop" href="#fidelity"><i></i><span><b>Afternoon</b><br>The scores</span></a>
+      <a class="stop" href="#fidelity"><i></i><span><b>After lunch</b><br>The scores</span></a>
       <a class="stop" href="#decisions"><i></i><span><b>15:15</b><br>Decisions</span></a>
-      <a class="stop" href="#next"><i></i><span><b>Next</b><br>Where to</span></a>
+      <a class="stop" href="#next"><i></i><span><b>Next</b><br>Eight moves</span></a>
+      <a class="stop" href="#notes"><i></i><span><b>You</b><br>Notes</span></a>
     </div>
   </nav>
 
@@ -39,525 +43,631 @@
   <!-- ============================================================ HERO -->
   <section class="hero" id="top">
     <div class="chapter-head">
-      <span class="eyebrow">A school visit as an investigation · Sihala sector, Islamabad</span>
+      <span class="eyebrow">A school visit, told as a story · Islamabad</span>
       <h1>Lohi Bher, 8 September</h1>
-      <p class="lede">Two lessons watched against their lesson plans, a staff room that said what the numbers could not, and the decisions taken by four o'clock the same afternoon.</p>
+      <p class="lede">We spent one day at one school. We watched two lessons beside their lesson plans. We sat in the staff room. After lunch we opened the scores. By four o'clock the team had decided what to change.</p>
     </div>
+    
     <div class="hero-map" aria-label="Map of the school's location">
       <picture><source type="image/webp" srcset="img/map_pakistan_context.webp"><img src="img/map_pakistan_context.jpg" alt="Pakistan, with Islamabad marked" width="1024" height="1024" loading="lazy" decoding="async" class='far'></picture>
       <picture><source type="image/webp" srcset="img/map_islamabad_context.webp"><img src="img/map_islamabad_context.jpg" alt="Islamabad, with IMCG Lohi Bher marked south-east of the city" width="1280" height="1024" loading="lazy" decoding="async" class='mid'></picture>
       <picture><source type="image/webp" srcset="img/map_school_close.webp"><img src="img/map_school_close.jpg" alt="The lanes around IMCG Lohi Bher" width="1280" height="1024" loading="lazy" decoding="async" class='near'></picture>
-      <div class="coord">33°35′04.6″N 73°09′49.4″E · EMIS 508</div>
+      <div class="coord">33°35′04.6″N 73°09′49.4″E · school 508</div>
       <div class="zoom"><button type="button" data-zoom="far" class="on">Pakistan</button><button type="button" data-zoom="mid">Islamabad</button><button type="button" data-zoom="near">The school</button></div>
     </div>
     <div class="day">
-      <a href="#before"><b>Mon eve</b> · before</a><a href="#principal"><b>09:24</b> · principal</a><a href="#raheela"><b>10:20</b> · Grade 3</a><a href="#saima"><b>10:55</b> · Grade 2</a><a href="#staffroom"><b>12:08</b> · staff room</a><a href="#fidelity"><b>pm</b> · scores</a><a href="#decisions"><b>15:15</b> · decisions</a><a href="#next"><b>next</b></a>
+      <a href="#before"><b>Mon eve</b> · before</a><a href="#principal"><b>09:24</b> · principal</a><a href="#raheela"><b>10:20</b> · Grade 3</a><a href="#saima"><b>10:55</b> · Grade 2</a><a href="#staffroom"><b>12:08</b> · staff room</a><a href="#fidelity"><b>pm</b> · the scores</a><a href="#decisions"><b>15:15</b> · decisions</a><a href="#next"><b>next</b> · eight moves</a><a href="#notes"><b>you</b> · notes</a>
     </div>
     <div class="stats reveal">
-      <div class="stat"><b class="num">1–12</b><span>grades taught. A girls' college with an early-years section, two principal accounts and 29 teacher accounts.</span></div>
-      <div class="stat"><b class="num">276</b><span>lesson plans pulled in the six weeks before the visit. 3.7× the median Sihala school.</span></div>
-      <div class="stat"><b class="num">13 <small style="font-size:.5em;color:inherit;opacity:.6">of 29</small></b><span>teachers who made any of them. Below the sector's share.</span></div>
-      <div class="stat"><b class="num">2 × 2</b><span>lessons observed, each recorded on two phones, so the machine scored each lesson twice.</span></div>
+      <div class="stat"><b class="num">1–12</b><span>grades taught. A girls' college with 29 teacher accounts.</span></div>
+      <div class="stat"><b class="num">276</b><span>lesson plans pulled in six weeks. Almost four times a typical school nearby.</span></div>
+      <div class="stat"><b class="num">13 <small style="font-size:.5em;color:inherit;opacity:.6">of 29</small></b><span>teachers made any of them. Fewer than half.</span></div>
+      <div class="stat"><b class="num">2 × 2</b><span>lessons watched, each recorded on two phones. So the machine scored each lesson twice.</span></div>
+    </div>
+    <div class="card-navy reveal" style="margin-top:8px">
+      <svg class="constellation" viewBox="0 0 340 260" aria-hidden="true"><g fill="#F5B301"><circle cx="40" cy="60" r="3"/><circle cx="120" cy="30" r="2.5"/><circle cx="210" cy="70" r="3"/><circle cx="290" cy="40" r="2"/><circle cx="170" cy="150" r="2.5"/><circle cx="260" cy="180" r="3"/><circle cx="80" cy="200" r="2"/></g><g fill="none" stroke="#F5B301" stroke-width="1.2" opacity=".7"><path d="M40 60 Q 80 95 120 30"/><path d="M210 70 Q 250 120 290 40"/><path d="M170 150 Q 215 215 260 180"/></g></svg>
+      <span class="eyebrow">The story in one minute</span>
+      <ol class="story">
+        <li><b>The night before,</b> the numbers said this school was a star. They also said fewer than half its teachers had ever used a plan.</li>
+        <li><b>At 09:24</b> the principal said the plans leave no room for a teacher's own ideas.</li>
+        <li><b>At 10:20</b> Raheela taught five new words. The best moment of the lesson was not in the plan.</li>
+        <li><b>At 10:55</b> Saima followed her plan step by step. The children spoke five words in every hundred.</li>
+        <li><b>At 12:08</b> the staff room told us the score punishes a better idea. Nobody could prove it either way.</li>
+        <li><b>After lunch</b> we opened the four scored records. What we found is the heart of this report.</li>
+        <li><b>At 15:15</b> we sat with the regional team and turned it into eight moves, each with a number to check.</li>
+      </ol>
+      <p class="small">Every chapter opens short. Tap <b style="color:#fff">Open</b> inside a chapter for the minute-by-minute detail and the audio. Hover or tap any code like <abbr class="ind" data-ind="B6">B6</abbr> to see what it means. Leave a sticky note at the end.</p>
     </div>
   </section>
 
   <!-- ============================================================ CH 1: BEFORE -->
   <section class="chapter" id="before">
     <div class="chapter-head">
-      <span class="eyebrow">Monday evening</span>
+      <span class="eyebrow">Monday evening · the data pull</span>
       <div class="t"><span class="clock">The night before</span><h2>What the database already knew</h2></div>
-      <p class="lede">Before anyone drove to Sihala, one query against the governed data layer produced the shape of the school. It set the questions for the day, and it named the people we hoped to sit with.</p>
+      <p class="lede">Before we set foot in the school, one query told us who to sit with and what to ask. It also gave us a guess to test.</p>
+      <p class="playbook"><b>Playbook</b> Step 0, trigger · Layer 1, product analytics review · Layer 2, a written hypothesis</p>
     </div>
 
-    <div class="two reveal">
-      <figure class="figure"><img src="img/charts/04_grade_gap.png" alt="Curriculum-menu lesson plans by grade: grades 1 to 5 only, grades 6 to 12 zero" width="1600" height="874" loading="lazy" decoding="async"><figcaption><b>The question that mattered most.</b> Every curriculum lesson plan pulled at this school was grade 1–5, in a school where 21 of 29 teachers teach middle or high. The 6–12 lane had gone live 30 hours earlier and this school had not touched it.</figcaption></figure>
-      <figure class="figure"><img src="img/charts/02_teacher_volume.png" alt="Lesson plans per teacher, six weeks" width="1600" height="874" loading="lazy" decoding="async"><figcaption><b>Three people carry the number.</b> Samina Saleem alone made 102 of 276. Sixteen teachers made none, and seven of the eight primary-only teachers were among them.</figcaption></figure>
-    </div>
-
-    <div class="two reveal" style="margin-top:28px">
-      <figure class="figure"><img src="img/charts/03_dormant_by_level.png" alt="Teachers by level taught, split by whether they made any plan" width="1600" height="874" loading="lazy" decoding="async"><figcaption><b>The dormant segment is primary-only</b>, the opposite of what a primary content library predicts. Every teacher tagged "both" was active.</figcaption></figure>
-      <figure class="figure"><img src="img/charts/05_benchmark.png" alt="Median lesson plans per school: IMCG Lohi Bher 276, Sihala 74, ICT 49" width="1600" height="873" loading="lazy" decoding="async"><figcaption><b>Volume is exceptional; breadth is average.</b> 44.8% of teachers active against 50.4% across Sihala. Either number alone is a lie by omission.</figcaption></figure>
-    </div>
-
-    <div class="two wide-left" style="margin-top:36px">
-      <div class="prose reveal">
-        <h3>The plan we walked in with</h3>
-        <p>The brief named three teachers to observe: <b>Samina Saleem</b>, because 102 plans in six weeks and a 7.5% lesson-plan-fidelity score on her one human observation cannot both be the whole story; <b>Naheed Akhter</b>, the only active teacher who had never recorded a lesson for the AI coach, and exactly who the new grade 6–12 science plans were built for; and <b>one teacher who had never started</b>, because fifteen minutes with a non-starter beats a fourth conversation with an enthusiast.</p>
-        <p>It also carried three things to check in the room: that middle/high teachers were pulling grade 2–5 material (tag wrong, or making do?); that a call-centre account was sitting on the teacher roster; and that the coach listed beside the school on the visit sheet was, in the data, a teacher who had never messaged the bot.</p>
-        <p>The day, as days do, chose its own teachers. We saw <b>Raheela Safdar</b> and <b>Saima Sajida</b>, both of whom had been near the middle of the list.</p>
+    <div class="open">
+      <div class="two">
+        <div class="prose reveal">
+          <p><b>The school makes a lot of plans.</b> 276 lesson plans in six weeks. A typical school in this sector makes about 74.</p>
+          <p><b>But most teachers never start.</b> Only 13 of 29 teachers made any plan. Three of them made 60 percent of the total. One teacher, Samina, made 102 alone.</p>
+          <p><b>And every plan was for grades 1 to 5.</b> In a school where 21 of 29 teachers teach grades 6 to 12. The new grade 6 to 12 plans had gone live 30 hours earlier. Nobody here had touched them.</p>
+          <p><b>Our written guess going in:</b> the primary plans are used by a few keen teachers, and the plan itself is too long for one period. The staff room would have to confirm or overturn that.</p>
+        </div>
+        <figure class="figure reveal"><div class="chart" data-chart="04_grade_gap" role="figure" aria-label="Lesson plans by grade: grades 1 to 5 only, grades 6 to 12 zero"><noscript><img src="img/charts/04_grade_gap.png" alt="Lesson plans by grade: grades 1 to 5 only, grades 6 to 12 zero" width="1600" height="874" loading="lazy" decoding="async"></noscript></div><figcaption><b>The chart that decided the day.</b> Every plan pulled here was for grades 1 to 5. Grades 6 to 12: zero.</figcaption></figure>
       </div>
-      <div class="callout reveal">
-        <b>How to build this for any school</b>
-        The pull is one governed query through the <span class="kbd">taleemabad-data</span> MCP, wrapped in the <span class="kbd">school-visits</span> skill: give it an EMIS code the evening before and it returns the roster, the six-week history, who has observed whom, the weakest FICO indicators, and a ranked list of who to sit with. The coach who accompanied us asked for the same thing before every visit. A one-page version for coaches is at the end of this report.
-      </div>
+      <figure class="figure reveal" style="margin-top:22px"><div class="chart" data-chart="02_teacher_volume" role="figure" aria-label="Lesson plans per teacher over six weeks"><noscript><img src="img/charts/02_teacher_volume.png" alt="Lesson plans per teacher over six weeks" width="1600" height="874" loading="lazy" decoding="async"></noscript></div><figcaption><b>Three people carry the number.</b> Tap a bar to see what it counts.</figcaption></figure>
     </div>
+
+    <details class="fold">
+      <summary><b>Open the rest of the numbers</b><span>six more charts, and the plan we walked in with</span></summary>
+      <div class="two" style="margin-top:18px">
+        <figure class="figure"><div class="chart" data-chart="01_weekly_trend" role="figure" aria-label="Lesson plans made per week; the school switched on in mid-August"><noscript><img src="img/charts/01_weekly_trend.png" alt="Lesson plans made per week; the school switched on in mid-August" width="1600" height="874" loading="lazy" decoding="async"></noscript></div><figcaption>The school switched on in mid-August, when the curriculum menu arrived in the app.</figcaption></figure>
+        <figure class="figure"><div class="chart" data-chart="03_dormant_by_level" role="figure" aria-label="Teachers by level taught, split by whether they made any plan"><noscript><img src="img/charts/03_dormant_by_level.png" alt="Teachers by level taught, split by whether they made any plan" width="1600" height="874" loading="lazy" decoding="async"></noscript></div><figcaption>The teachers who never started are the primary-only ones. That is the opposite of what a primary library predicts.</figcaption></figure>
+        <figure class="figure"><div class="chart" data-chart="05_benchmark" role="figure" aria-label="Median lesson plans per school: this school 276, Sihala 74, ICT 49"><noscript><img src="img/charts/05_benchmark.png" alt="Median lesson plans per school: this school 276, Sihala 74, ICT 49" width="1600" height="873" loading="lazy" decoding="async"></noscript></div><figcaption>On volume this school is an outlier. On the share of teachers taking part, it is average.</figcaption></figure>
+        <figure class="figure"><div class="chart" data-chart="06_coaching" role="figure" aria-label="Coaching sessions: AI coach versus human coach"><noscript><img src="img/charts/06_coaching.png" alt="Coaching sessions: AI coach versus human coach" width="1600" height="848" loading="lazy" decoding="async"></noscript></div><figcaption>The AI coach is used a lot. The human coach has reached six teachers.</figcaption></figure>
+        <figure class="figure"><div class="chart" data-chart="07_fico_gaps" role="figure" aria-label="The school's weakest FICO indicators against the ICT average"><noscript><img src="img/charts/07_fico_gaps.png" alt="The school's weakest FICO indicators against the ICT average" width="1600" height="727" loading="lazy" decoding="async"></noscript></div><figcaption>The school's six weakest scores are below the Islamabad average on every one. Tap a bar for what each code means.</figcaption></figure>
+        <figure class="figure"><div class="chart" data-chart="08_feedback" role="figure" aria-label="Teachers say the plans are useful; only a third say they taught one"><noscript><img src="img/charts/08_feedback.png" alt="Teachers say the plans are useful; only a third say they taught one" width="1600" height="874" loading="lazy" decoding="async"></noscript></div><figcaption>Teachers rate the plans useful. Only a third say they actually taught one.</figcaption></figure>
+      </div>
+      <div class="two" style="margin-top:28px">
+        <div class="prose">
+          <h3>The plan we walked in with</h3>
+          <p>We named three teachers to sit with. <b>Samina</b>, because 102 plans and a very low fidelity score on her one observation cannot both be the whole story. <b>Naheed</b>, the only active teacher who had never recorded a lesson, and exactly who the new grade 6 to 12 science plans were built for. And <b>one teacher who had never started</b>, because fifteen minutes with a non-starter teaches more than a fourth chat with a fan.</p>
+          <p>The day picked its own teachers, as days do. We saw <b>Raheela</b> and <b>Saima</b>.</p>
+        </div>
+        <div class="callout">
+          <b>How to do this for any school</b>
+          Give the school-visits playbook a school code the evening before. It returns the roster, six weeks of history, who has coached whom, the weakest scores, and a ranked list of who to sit with. The numbers come from the governed data connection, so anyone on the team can re-run them.
+        </div>
+      </div>
+    </details>
+    <p class="tease">The numbers said "star school, few users". The principal was about to tell us why.</p>
   </section>
 
   <!-- ============================================================ CH 2: PRINCIPAL -->
   <section class="chapter" id="principal">
     <div class="chapter-head">
-      <span class="eyebrow">Tuesday · the office</span>
-      <div class="t"><span class="clock">09:24</span><h2>Fourteen minutes with the principal</h2></div>
-      <p class="lede">She has taught grades one to twelve, was vice-principal here, and reads the lesson plans herself. Three things she said set up everything that followed.</p>
+      <span class="eyebrow">Tuesday · the principal's office · 14 minutes</span>
+      <div class="t"><span class="clock">09:24</span><h2>The principal, in three sentences</h2></div>
+      <p class="lede">They have taught every grade from one to twelve and read the lesson plans themselves. Three things they said set up the whole day.</p>
+      <p class="playbook"><b>Playbook</b> Layer 3, interview · the school-leadership view · root cause to watch: leadership pressure</p>
     </div>
 
-    <div class="two wide-left">
-      <figure class="figure reveal"><picture><source type="image/webp" srcset="img/field_courtyard.webp"><img src="img/field_courtyard.jpg" alt="The school courtyard at IMCG Lohi Bher, two students crossing" width="1201" height="1600" loading="lazy" decoding="async"></picture><figcaption>IMCG Lohi Bher, mid-morning. The mural, the transformer, the maize field behind the wall.</figcaption></figure>
-      <div style="display:grid;gap:26px">
-        <blockquote class="quote reveal">"The teacher's margin for creativity has shrunk. When the same thing is repeated again and again, the teacher gets bored. That's my personal view."<span class="who">The principal, on the lesson plans · 04:23</span></blockquote>
-        <div class="clip" data-src="audio/principal_creativity.mp3"><button type="button" aria-label="Play: "The teacher's creativity margin has shrunk"">▶</button><div class="meta"><b>"The teacher's creativity margin has shrunk"</b><span>Principal · 04:23–04:56 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
-        <blockquote class="quote reveal">"If I know I'm being recorded, I'm not quite as natural. You can say what you like; that's one thing."<span class="who">On the AI coach recordings · 05:23</span></blockquote>
-        <div class="clip" data-src="audio/principal_recording.mp3"><button type="button" aria-label="Play: "If I know I'm being recorded, I'm not as natural"">▶</button><div class="meta"><b>"If I know I'm being recorded, I'm not as natural"</b><span>Principal · 05:23–05:55 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
+    <div class="open">
+      <div class="two wide-left">
+        <figure class="figure reveal"><picture><source type="image/webp" srcset="img/field_courtyard.webp"><img src="img/field_courtyard.jpg" alt="The school courtyard at IMCG Lohi Bher, two students crossing" width="1201" height="1600" loading="lazy" decoding="async"></picture><figcaption>IMCG Lohi Bher, mid-morning.</figcaption></figure>
+        <div style="display:grid;gap:22px">
+          <blockquote class="quote reveal">"The teacher's room for creativity has shrunk. When the same thing repeats again and again, the teacher gets bored."<span class="who">The principal, on the lesson plans · 04:23</span></blockquote>
+          <div class="clip" data-src="audio/principal_creativity.mp3"><button type="button" aria-label="Play: "The teacher's creativity margin has shrunk"">▶</button><div class="meta"><b>"The teacher's creativity margin has shrunk"</b><span>Principal · 04:23 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
+          <blockquote class="quote reveal">"If I know I'm being recorded, I'm not quite as natural."<span class="who">On the AI coach recordings · 05:23</span></blockquote>
+          <div class="clip" data-src="audio/principal_recording.mp3"><button type="button" aria-label="Play: "If I know I'm being recorded"">▶</button><div class="meta"><b>"If I know I'm being recorded"</b><span>Principal · 05:23 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
+        </div>
       </div>
-    </div>
-
-    <div class="card-navy reveal" style="margin-top:36px">
-      <svg class="constellation" viewBox="0 0 340 260" aria-hidden="true"><g fill="#F5B301"><circle cx="40" cy="60" r="3"/><circle cx="120" cy="30" r="2.5"/><circle cx="210" cy="70" r="3"/><circle cx="290" cy="40" r="2"/><circle cx="170" cy="150" r="2.5"/><circle cx="260" cy="180" r="3"/><circle cx="80" cy="200" r="2"/></g><g fill="none" stroke="#F5B301" stroke-width="1.2" opacity=".7"><path d="M40 60 Q 80 95 120 30"/><path d="M210 70 Q 250 120 290 40"/><path d="M170 150 Q 215 215 260 180"/></g></svg>
-      <span class="eyebrow">What the calendar does to a lesson plan</span>
-      <h3 style="color:#fff;margin:10px 0 18px;font-family:var(--display);font-weight:500;font-size:clamp(24px,3vw,34px)">The grade-5 exam is in February. The course has to finish by December.</h3>
-      <div class="two">
-        <div class="prose"><p class="small">"Our lesson plan isn't built so that the paper leaves things out. The whole book comes. Whoever teaches Fifth has to prepare the whole thing, so we try to finish the course by December and then revise." Mid-term in October; annual from around 7 February. The Federal Directorate sends its own model papers and its own SLOs; FLN-based papers are promised alongside; NIETE's plans are a third pattern. "A teacher doesn't have one thing to follow. She has to build the paper two or three ways to cover every criterion."</p></div>
-        <div style="display:grid;gap:14px">
-          <div class="clip" data-src="audio/principal_calendar.mp3"><button type="button" aria-label="Play: "The whole book comes in the exam"">▶</button><div class="meta"><b>"The whole book comes in the exam"</b><span>Principal · 07:11–08:02 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
-          <div class="clip" data-src="audio/principal_three_papers.mp3"><button type="button" aria-label="Play: "Three patterns to prepare for"">▶</button><div class="meta"><b>"Three patterns to prepare for"</b><span>Principal · 11:11–12:02 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
-          <p class="small">Asked what would actually help the grade-5 teacher: <b style="color:#fff">"Give them sample tests."</b> She also said teachers are over-burdened by portal data entry for the Directorate, and that one of her staff is starting a PhD and three or four hold M.Phils. This is not a school short of qualified teachers.</p>
+      <div class="card-navy reveal" style="margin-top:28px">
+        <span class="eyebrow">The third thing: the calendar</span>
+        <h3 class="navy-h">The grade 5 exam is in February. The course has to finish by December.</h3>
+        <div class="two">
+          <div class="prose"><p class="small">"The whole book comes in the exam." So grade 5 teachers race to finish by December and then revise. The Directorate sends its own model papers and its own learning goals. A second set of papers is promised. Our plans are a third pattern. "A teacher doesn't have one thing to follow. She has to build the paper two or three ways."</p><p class="small">Asked what would help most: <b style="color:#fff">"Give them sample tests."</b></p></div>
+          <div style="display:grid;gap:12px">
+            <div class="clip" data-src="audio/principal_calendar.mp3"><button type="button" aria-label="Play: "The whole book comes in the exam"">▶</button><div class="meta"><b>"The whole book comes in the exam"</b><span>Principal · 07:11 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
+            <div class="clip" data-src="audio/principal_three_papers.mp3"><button type="button" aria-label="Play: "Three patterns to prepare for"">▶</button><div class="meta"><b>"Three patterns to prepare for"</b><span>Principal · 11:11 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
+          </div>
         </div>
       </div>
     </div>
+    <p class="tease">Then the bell went, and we walked into a Grade 3 English class with two phones recording.</p>
   </section>
 
     <!-- ============================================================ CH 3: RAHEELA -->
   <section class="chapter" id="raheela">
     <div class="chapter-head">
-      <span class="eyebrow">Tuesday · Grade 3 English · Unit 6 "Game On!", page 65 · 60-plus children</span>
-      <div class="t"><span class="clock">10:20</span><h2>Five new words, thirty minutes, and where the ninth minute went</h2></div>
-      <p class="lede">Raheela Safdar taught the day-one vocabulary lesson: wobble, whoosh, chilly, tiptoe, exclaim. Two phones recorded her, one in each observer's hand. What follows is the plan she was given, laid beside the lesson as it actually ran, to the minute.</p>
+      <span class="eyebrow">Tuesday · Grade 3 English · Unit 6 "Game On!"</span>
+      <div class="t"><span class="clock">10:20</span><h2>Five new words, and the nine minutes that vanished</h2></div>
+      <p class="lede">Raheela Safdar taught five new words to sixty-plus children, and taught them well. The plan's nine minutes of writing never came, and a game nobody planned was the best part of the morning.</p>
+      <p class="playbook"><b>Playbook</b> Layer 3 · Teacher interview · Track B, delivery. Layer 2 hypothesis "the plan is too long for one period" confirmed in the room.</p>
     </div>
 
-    <div class="two wide-left">
-      <figure class="figure reveal"><picture><source type="image/webp" srcset="img/field_board.webp"><img src="img/field_board.jpg" alt="Raheela's whiteboard at the end of the lesson: the five words with meanings and sentences, sticky-note word cards, and coach Moiz Khan at the front" width="1400" height="1051" loading="lazy" decoding="async"></picture><figcaption><b>The board at the end.</b> All five words, each with a meaning and a sentence; five sticky-note word cards; the SLO in the corner; the coach checking his tablet. The plan asked for exactly this board, "before the lesson". She built it live, in two silences of twenty and twenty-five seconds.</figcaption></figure>
-      <div style="display:grid;gap:18px">
-        <div class="stats">
-          <div class="stat"><b class="num">33:13</b><span>the lesson, against a 30-minute plan</span></div>
-          <div class="stat"><b class="num">11:50</b><span>spent on the explanation block the plan gives six minutes</span></div>
-          <div class="stat"><b class="num">0:00</b><span>independent practice. The plan's nine minutes of children writing never began.</span></div>
-          <div class="stat"><b class="num">4:26</b><span>on an act-and-guess game that is in no plan, and was the best thing in the room</span></div>
+    <div class="open">
+      <figure class="figure reveal"><picture><source type="image/webp" srcset="img/field_board.webp"><img src="img/field_board.jpg" alt="Raheela's whiteboard at the end of the lesson: the five words with meanings and sentences, the sticky-note word cards, the learning goal, and coach Moiz at the front" width="1400" height="799" loading="lazy" decoding="async"></picture><figcaption><b>The board at the end.</b> Five words, five sticky-note cards, and the learning goal, which the plan calls the <abbr class="ind" data-ind="SLO">SLO</abbr>. Raheela built it live.</figcaption></figure>
+      <div class="stats">
+        <div class="stat"><b class="num">33:13</b><span>the lesson ran, against a 30-minute plan</span></div>
+        <div class="stat"><b class="num">11:50</b><span>explaining the words. The plan gives six minutes.</span></div>
+        <div class="stat"><b class="num">0:00</b><span>children writing alone. The plan gives nine minutes.</span></div>
+        <div class="stat"><b class="num">4:26</b><span>on an act-and-guess game that is in no plan</span></div>
+      </div>
+      <p>Two phones recorded the lesson, Haroon's and Moiz's. Raheela pulled the plan the night before, at 21:49.</p>
+      <p>She opened with a whisper game, then the plan's question: when something is hard, do you give up? She taught wobble beautifully. She wobbled her hand, then a table. Then she taught the other four words the same slow way, hearing every raised hand.</p>
+      <p>By minute twenty the children should have been writing alone. They were still on the second word. At minute 27 she called children to the front for a game. At 32:06 she said "that's it". No child wrote a new sentence.</p>
+      <p>In the debrief Raheela gave the reason. With sixty-plus children she does the writing in a second period. Today there was none.</p>
+      <div class="callout good"><b>The best moment was not in the plan.</b> A child at the front shivers, and sixty children shout "chilly". A second child acts, and the class lands on "exclaim". A strong check that the meanings had landed. Not the nine minutes of writing the plan and the exam want. Both things are true.</div>
+    </div>
+
+    <details class="fold">
+      <summary><b>Open the full lesson, minute by minute</b><span>the plan beside the room, with the audio</span></summary>
+      <p class="small">The plan has eight steps, called moves, <abbr class="ind" data-ind="m1">m1</abbr> to <abbr class="ind" data-ind="m8">m8</abbr>. A move is a step the plan asks for. Green is on plan, amber ran long, red is missing, gold is not in the plan.</p>
+
+      <div class="split">
+        <div class="plan">
+          <figure class="seg" data-seg="r_warmup" data-title="Warm up" data-min="3 min"><picture><source type="image/webp" srcset="img/r_warmup.webp"><img src="img/r_warmup.jpg" alt="Lesson plan, warm-up box: partners recite First Letter Fun, Word Hunt, Treasure Unlocked" width="1135" height="1200" loading="lazy" decoding="async"></picture></figure>
+          <figure class="seg" data-seg="r_opening" data-title="Opening, the hook" data-min="2 min"><picture><source type="image/webp" srcset="img/r_opening.webp"><img src="img/r_opening.jpg" alt="Lesson plan, opening: have you ever felt like giving up on something tough?" width="1400" height="969" loading="lazy" decoding="async"></picture></figure>
+          <figure class="seg" data-seg="r_explain" data-title="Explain one word: wobble" data-min="6 min"><picture><source type="image/webp" srcset="img/r_explain.webp"><img src="img/r_explain.jpg" alt="Lesson plan, explanation: model the word-bank routine on wobble, write the entry on the board" width="1400" height="757" loading="lazy" decoding="async"></picture></figure>
+          <figure class="seg" data-seg="r_keyfact" data-title="The rule to say and check" data-min="in the 6"><picture><source type="image/webp" srcset="img/r_keyfact.webp"><img src="img/r_keyfact.jpg" alt="Key fact: a word-bank entry has three parts, the word, its meaning, and your own sentence" width="1400" height="239" loading="lazy" decoding="async"></picture></figure>
+          <figure class="seg" data-seg="r_guided" data-title="Guided practice, in pairs" data-min="9 min"><picture><source type="image/webp" srcset="img/r_guided.webp"><img src="img/r_guided.jpg" alt="Lesson plan, guided practice: match whoosh and tiptoe to pictures, pairs complete I felt or I heard sentence frames" width="1400" height="1037" loading="lazy" decoding="async"></picture></figure>
+          <figure class="seg" data-seg="r_independent" data-title="Independent practice, alone" data-min="9 min"><picture><source type="image/webp" srcset="img/r_independent.webp"><img src="img/r_independent.jpg" alt="Lesson plan, independent practice: match exclaim, check your word bank, write one new sentence with chilly" width="1400" height="638" loading="lazy" decoding="async"></picture></figure>
+          <figure class="seg" data-seg="r_exit" data-title="Exit ticket and homework" data-min="2 to 5 min"><picture><source type="image/webp" srcset="img/r_exit.webp"><img src="img/r_exit.jpg" alt="Lesson plan, conclusion: exit ticket, pick one of three, and homework" width="1400" height="2267" loading="lazy" decoding="async"></picture></figure>
         </div>
-        <p class="small">The plan was pulled the evening before at 21:49; the lesson began at 10:20 the next morning. Her voicenote for it, 47 seconds in Urdu, told her the word-bank entry has three parts, to cover the book's sentence and ask for the child's own. She did the second of those.</p>
-      </div>
-    </div>
+        <div class="timeline">
+          <div class="tl over" data-seg="r_warmup" data-plan="over"><div class="t"><b>00:04</b>to 01:05</div><div class="body"><h4>A warm-up before the warm-up <span class="tag">not in plan</span></h4><p>"Who is physically and mentally active?" Children jump at their desks.</p></div></div>
+          <div class="tl miss" data-seg="r_warmup"><div class="t"><b>01:05</b>to 03:55</div><div class="body"><h4>Partners, then a different game <span class="tag miss"><abbr class="ind" data-ind="m1">m1</abbr> swapped</span></h4><p>Partners formed as written. Then a whisper chain down the rows: "fun", then "say your underdog". Not the book's method the plan wanted.</p><div class="clip" data-src="audio/raheela_c01.mp3"><button type="button" aria-label="Play: The whisper chain">▶</button><div class="meta"><b>The whisper chain</b><span>01:38 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
+          <div class="tl plan" data-seg="r_opening"><div class="t"><b>03:55</b>to 06:15</div><div class="body"><h4>The hook, as written <span class="tag plan"><abbr class="ind" data-ind="m2">m2</abbr> done</span></h4><p>"Open page 65." Ever found something hard? Give up, or keep going? Children answer. Then a full minute on cheating.</p><div class="clip" data-src="audio/raheela_c02.mp3"><button type="button" aria-label="Play: "Give up, or keep going?"">▶</button><div class="meta"><b>"Give up, or keep going?"</b><span>04:05 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
+          <div class="callout"><b>Six minutes forty-six, against five.</b> Not dramatic yet.</div>
 
-    <!-- plan | room -->
-    <h3 style="margin:48px 0 6px">The plan beside the room</h3>
-    <p class="small" style="margin-bottom:22px;max-width:70ch">Left: the page of the lesson plan for each phase, as the teacher's phone shows it. Right: what happened at that point of the lesson, on Haroon's recording, with the moves the fidelity engine checks. Green is on plan, amber is over time, red is missing, gold is something the plan did not ask for.</p>
+          <div class="tl plan" data-seg="r_explain"><div class="t"><b>06:50</b>to 10:11</div><div class="body"><h4>Wobble, taught beautifully <span class="tag plan"><abbr class="ind" data-ind="m4">m4</abbr> mostly</span></h4><p>Children read it, spell it, guess the meaning. She wobbles her hand, then a table. Missing: she never said "an entry has three parts", and never asked a child to name them.</p><div class="clip" data-src="audio/raheela_c04.mp3"><button type="button" aria-label="Play: Wobble: meaning, gesture, the table">▶</button><div class="meta"><b>Wobble: meaning, gesture, the table</b><span>08:40 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
+          <div class="tl over" data-seg="r_keyfact" data-plan="over" data-plan-note="The plan wants one rule said and checked here: an entry has three parts. It was never said. The next two words were for the class to build, the last two for children alone."><div class="t"><b>10:11</b>to 18:40</div><div class="body"><h4>The other four words, the same way <span class="tag over">+5:50</span></h4><p>The plan models one word. She modelled all five. Badminton for whoosh, a thief for tiptoe, birthdays for exclaim. Good teaching, and it cost the writing at the end.</p><div class="clip" data-src="audio/raheela_c05.mp3"><button type="button" aria-label="Play: Whoosh: badminton, the hand through the air">▶</button><div class="meta"><b>Whoosh: badminton, the hand through the air</b><span>11:13 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
+          <div class="callout bad"><b>Eleven minutes fifty on a six-minute block.</b> By 18:40 the lesson was eight minutes behind.</div>
 
-    <div class="split reveal">
-      <div class="plan"><div class="plan-crop"><picture><source type="image/webp" srcset="img/r_warmup.webp"><img src="img/r_warmup.jpg" alt="Lesson plan, warm-up box: partners recite First Letter Fun, Word Hunt, Treasure Unlocked" width="1135" height="1200" loading="lazy" decoding="async"></picture></div><div class="plan-label"><b>Warm up</b><span class="min">3 min</span></div>
-        <div class="plan-crop" style="margin-top:12px"><picture><source type="image/webp" srcset="img/r_opening.webp"><img src="img/r_opening.jpg" alt="Lesson plan, opening: have you ever felt like giving up on something tough?" width="1400" height="969" loading="lazy" decoding="async"></picture></div><div class="plan-label"><b>Opening</b><span class="min">~2 min</span></div></div>
-      <div class="timeline">
-        <div class="tl over"><div class="t"><b>00:04</b>to 01:05</div><div class="body"><h4>A warm-up before the warm-up <span class="tag">not in plan</span></h4><p>"Who is physically and mentally active?" Children jump at their desks. "What is <i>game on</i>?"</p></div></div>
-        <div class="tl miss"><div class="t"><b>01:05</b>to 03:55</div><div class="body"><h4>Partners formed, then a different game <span class="tag miss">m1 substituted</span></h4><p>Partner A and Partner B exactly as written, then a whisper-chain down the rows: "fun", then "say your underdog". Fun, and nothing to do with the book's three-step method the day was meant to recall.</p><p class="q"><span class="ur">فرسٹ ورڈ جو ہے، آپ نے اس کو بالکل سائلنٹلی بولنا ہے… "فن"</span>The first word, you say it completely silently: "fun."</p><div class="clip" data-src="audio/raheela_c01.mp3"><button type="button" aria-label="Play: The whisper chain">▶</button><div class="meta"><b>The whisper chain</b><span>01:38 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
-        <div class="tl plan"><div class="t"><b>03:55</b>to 06:15</div><div class="body"><h4>The hook, as written <span class="tag plan">m2 done</span></h4><p>"Open page 65." Ever found something hard? Give up, or keep going? Several children answer. Then a full minute on what cheating is.</p><p class="q"><span class="ur">جب کبھی کوئی کام مشکل لگتا ہے تو کیا آپ اس کو کنٹینیو کرتے ہو؟ آپ گیو اپ کر دیتے ہو، یا اس کو آپ چیلنج سمجھ کے کرتے ہیں؟</span>When something feels hard, do you continue? Give up? Or take it as a challenge?</p><div class="clip" data-src="audio/raheela_c02.mp3"><button type="button" aria-label="Play: "Give up, or keep going?"">▶</button><div class="meta"><b>"Give up, or keep going?"</b><span>04:05 · <span class="time"></span></span><div class="bar"><i></i></div></div></div><div class="clip" data-src="audio/raheela_c03.mp3"><button type="button" aria-label="Play: The cheating tangent">▶</button><div class="meta"><b>The cheating tangent</b><span>05:12 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
-        <div class="callout"><b>Six minutes forty-six, against five.</b> The warm-up ran 3:51 against 3, the hook 2:55 against 2. Not dramatic. The drama is downstream.</div>
-      </div>
-    </div>
+          <div class="tl over" data-seg="r_guided" data-plan="over" data-plan-note="Nine minutes, the plan's full budget. But on five words, not two, and whole class, not pairs."><div class="t"><b>18:40</b>to 27:40</div><div class="body"><h4>Sentences for all five words, whole class <span class="tag over"><abbr class="ind" data-ind="m5">m5</abbr> partly</span></h4><p>The plan's two sentence frames appear word for word. She said them, the class repeated. No pairs, no pictures.</p><div class="clip" data-src="audio/raheela_c08.mp3"><button type="button" aria-label="Play: "I felt chilly when the fan is moving fast"">▶</button><div class="meta"><b>"I felt chilly when the fan is moving fast"</b><span>24:46 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
+          <div class="callout"><b>20:04 is when children should have started writing alone.</b> At 20:05 she was on the second word's sentences.</div>
 
-    <div class="split reveal" style="margin-top:36px">
-      <div class="plan"><div class="plan-crop"><picture><source type="image/webp" srcset="img/r_explain.webp"><img src="img/r_explain.jpg" alt="Lesson plan, explanation: model the word-bank routine on wobble, write the entry on the board" width="1400" height="757" loading="lazy" decoding="async"></picture></div><div class="plan-label"><b>Explanation · one word, wobble</b><span class="min">6 min</span></div>
-        <div class="plan-crop" style="margin-top:12px"><picture><source type="image/webp" srcset="img/r_keyfact.webp"><img src="img/r_keyfact.jpg" alt="Key fact: a word-bank entry has three parts, the word, its meaning, and your own sentence" width="1400" height="239" loading="lazy" decoding="async"></picture></div><div class="plan-label"><b>The rule to state, and to check</b><span class="min">in the 6</span></div></div>
-      <div class="timeline">
-        <div class="tl plan"><div class="t"><b>06:50</b>to 10:11</div><div class="body"><h4>Wobble, modelled beautifully <span class="tag plan">m4 mostly</span></h4><p>Children try to read it, spell it, "two syllables", chorus it, guess the meaning. She explains, wobbles her hand, wobbles a table, "this is fixed". Board entry written. Two things missing: she never said "an entry has three parts", and never asked anyone to name them.</p><p class="q"><span class="ur">جب کوئی چیز اپنی جگہ پہ نہیں رہتی، سٹڈی نہیں رہتی، فکس نہیں رہتی، اسے کہتے ہیں wobble۔ آپ کا ٹیبل ہے، یہ wobble ہو رہا ہے</span>When a thing doesn't stay in place, isn't steady, isn't fixed, that's wobble. Your table, it's wobbling.</p><div class="clip" data-src="audio/raheela_c04.mp3"><button type="button" aria-label="Play: Wobble: meaning, gesture, the table">▶</button><div class="meta"><b>Wobble: meaning, gesture, the table</b><span>08:40 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
-        <div class="tl over"><div class="t"><b>10:11</b>to 18:40</div><div class="body"><h4>Then whoosh, chilly, tiptoe and exclaim, all the same way <span class="tag over">+5:50</span></h4><p>The plan models one word and hands the next two to the class and the last two to the children alone. She taught all five as the model: badminton for whoosh, a kitten and a thief for tiptoe, birthdays for exclaim. Every child who raised a hand was heard. It was good teaching of vocabulary and it cost the nine minutes of writing at the end.</p><p class="q"><span class="ur">جب ہم بیڈمنٹن کھیلتے ہیں تو ایک ساؤنڈ ہوتی ہے، اسے کہتے ہیں whoosh</span>When we play badminton there is a sound. That's called whoosh.</p><div class="clip" data-src="audio/raheela_c05.mp3"><button type="button" aria-label="Play: Whoosh: badminton, the hand through the air">▶</button><div class="meta"><b>Whoosh: badminton, the hand through the air</b><span>11:13 · <span class="time"></span></span><div class="bar"><i></i></div></div></div><div class="clip" data-src="audio/raheela_c06.mp3"><button type="button" aria-label="Play: Tiptoe: the kitten, the horse, the thief">▶</button><div class="meta"><b>Tiptoe: the kitten, the horse, the thief</b><span>15:26 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
-        <div class="callout bad"><b>Eleven minutes fifty on a six-minute block.</b> By 18:40 the lesson was eight minutes behind the plan, and the block it was behind on had not started.</div>
-      </div>
-    </div>
+          <div class="tl extra" data-seg="r_guided" data-plan="tangent" data-plan-note="The plan says: independent practice, 9 minutes. It has not started."><div class="t"><b>27:40</b>to 30:04</div><div class="body"><h4>"Now the activity" <span class="tag extra">not in plan</span></h4><p>Children at the front match the sticky-note cards, word by word. The child holding <i>chilly</i> shivers. She notices.</p><p class="q"><span class="ur">چلی۔ او، ویری گڈ۔ یہ شیور کر رہا ہے۔ یہ ایسے نہیں کہ کھڑا ہوا، یہ شیور کر رہا ہے</span>Chilly. Oh, very good. This one is shivering. Not just standing there, shivering.</p><div class="clip" data-src="audio/raheela_c09.mp3"><button type="button" aria-label="Play: "Now the activity"">▶</button><div class="meta"><b>"Now the activity"</b><span>27:40 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
+          <div class="tl extra" data-seg="r_guided" data-plan="tangent" data-plan-note="The plan still says: independent practice, 9 minutes. It has not started."><div class="t"><b>30:04</b>to 31:35</div><div class="body"><h4>Act and guess <span class="tag extra">the moment</span></h4><p>A child acts, the class guesses. A shiver: <i>chilly</i>. "Go back. Very good. Next." A second child acts: <i>exclaim</i>. Haroon saw tiptoe walked too. On audio, walking is silent.</p><div class="clip" data-src="audio/raheela_c11.mp3"><button type="button" aria-label="Play: A child shivers, the class guesses">▶</button><div class="meta"><b>A child shivers, the class guesses</b><span>30:35 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
 
-    <div class="split reveal" style="margin-top:36px">
-      <div class="plan"><div class="plan-crop"><picture><source type="image/webp" srcset="img/r_guided.webp"><img src="img/r_guided.jpg" alt="Lesson plan, guided practice: match whoosh and tiptoe to pictures, pairs complete I felt or I heard sentence frames" width="1400" height="1037" loading="lazy" decoding="async"></picture></div><div class="plan-label"><b>Guided practice · in pairs</b><span class="min">9 min</span></div></div>
-      <div class="timeline">
-        <div class="tl over"><div class="t"><b>18:40</b>to 27:40</div><div class="body"><h4>Sentences for all five words, whole class, teacher-led <span class="tag over">m5 partly</span></h4><p>The plan's two sentence frames appear word for word. She supplied them; the class repeated. No pair turn, no circulating, no picture matched. Nine minutes exactly, on five words instead of two.</p><p class="q"><span class="ur">I felt chilly when the fan is moving fast</span>The plan's own frame, from the teacher's mouth, at 24:46.</p><div class="clip" data-src="audio/raheela_c07.mp3"><button type="button" aria-label="Play: "I heard the whoosh of the fan"">▶</button><div class="meta"><b>"I heard the whoosh of the fan"</b><span>21:36 · <span class="time"></span></span><div class="bar"><i></i></div></div></div><div class="clip" data-src="audio/raheela_c08.mp3"><button type="button" aria-label="Play: "I felt chilly when the fan…"">▶</button><div class="meta"><b>"I felt chilly when the fan…"</b><span>24:46 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
-        <div class="callout"><b>20:04 is the minute independent practice should have started.</b> At 20:05 she was beginning the whoosh sentences, the second of five words.</div>
-      </div>
-    </div>
-
-    <div class="split reveal" style="margin-top:36px">
-      <div class="plan"><div class="plan-crop"><picture><source type="image/webp" srcset="img/r_independent.webp"><img src="img/r_independent.jpg" alt="Lesson plan, independent practice: match exclaim, check your word bank, write one new sentence with chilly" width="1400" height="638" loading="lazy" decoding="async"></picture></div><div class="plan-label"><b>Independent practice · on your own</b><span class="min">9 min</span></div>
-        <div class="plan-crop" style="margin-top:12px"><picture><source type="image/webp" srcset="img/r_exit.webp"><img src="img/r_exit.jpg" alt="Lesson plan, conclusion: exit ticket, pick one of three; homework" width="1400" height="2267" loading="lazy" decoding="async"></picture></div><div class="plan-label"><b>Exit ticket, homework</b><span class="min">2–5 min</span></div></div>
-      <div class="timeline">
-        <div class="tl extra"><div class="t"><b>27:40</b>to 30:04</div><div class="body"><h4>"Now the activity": children to the front <span class="tag extra">not in plan</span></h4><p>The sticky-note cards on the board are matched word by word with children standing at the front. The boy holding <i>chilly</i> shivers. She notices.</p><p class="q"><span class="ur">چلی۔ او، ویری گڈ۔ یہ شیور کر رہا ہے۔ یہ ایسے نہیں کہ کھڑا ہوا، یہ شیور کر رہا ہے</span>Chilly. Oh, very good. He's shivering. He's not just standing there, he's shivering.</p><div class="clip" data-src="audio/raheela_c09.mp3"><button type="button" aria-label="Play: "Now the activity"">▶</button><div class="meta"><b>"Now the activity"</b><span>27:40 · <span class="time"></span></span><div class="bar"><i></i></div></div></div><div class="clip" data-src="audio/raheela_c10.mp3"><button type="button" aria-label="Play: The boy with the chilly card shivers">▶</button><div class="meta"><b>The boy with the chilly card shivers</b><span>29:33 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
-        <div class="tl extra"><div class="t"><b>30:04</b>to 31:35</div><div class="body"><h4>Act and guess <span class="tag extra">the moment</span></h4><p>"This girl will do the gesture and you guess the word." She shivers; the class shouts <i>chilly</i>. "She is feeling chilly, she is shivering. Go back. Very good. Next." A second child gestures; the class lands on <i>exclaim</i>. Tiptoe was walked, Haroon saw it; on audio, walking is silent.</p><p class="q"><span class="ur">شی از فیلنگ چلی۔ شی از شمرنگ۔ یہ آپ نے ورڈ کو گیس کرنا ہے۔ اوکے، گو بیک، ویری گڈ، نیکسٹ</span>She is feeling chilly. She is shivering. You have to guess the word. OK, go back. Very good. Next.</p><div class="clip" data-src="audio/raheela_c11.mp3"><button type="button" aria-label="Play: A girl shivers, the class guesses">▶</button><div class="meta"><b>A girl shivers, the class guesses</b><span>30:35 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
-        <div class="tl miss"><div class="t"><b>32:06</b>to 33:17</div><div class="body"><h4>"That's it." <span class="tag miss">m6, m7 not done</span></h4><p>No child wrote a new sentence. No one checked a word bank. No exit ticket. Homework: make daily-life sentences at home, explain them to your family. A minute and eleven seconds.</p><p class="q"><span class="ur">اب ہم کام اوپر کے۔ بس ختم۔ ان ورڈز کے آپ نے ڈیلی لائف کے سینٹینسز بنانے ہیں</span>Now we wrap up. That's it. Make daily-life sentences with these words.</p><div class="clip" data-src="audio/raheela_c12.mp3"><button type="button" aria-label="Play: The close">▶</button><div class="meta"><b>The close</b><span>32:06 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
-        <div class="callout good"><b>What the game was.</b> A strong oral check of meaning for the four or five children at the front, and for the sixty watching. Better than the plan's gesture step for meaning. Not a replacement for nine minutes of every child writing, which is what the plan and the exam both want. Both things are true, and the scoring has to be able to say both.</div>
-      </div>
-    </div>
-
-    <!-- what the machine saw -->
-    <div class="card-navy reveal" style="margin-top:48px">
-      <span class="eyebrow">What the fidelity engine saw · same lesson, two phones, before any coach touched it</span>
-      <h3 style="color:#fff;margin:10px 0 20px;font-family:var(--display);font-weight:500;font-size:clamp(24px,3vw,34px)">13 out of 40 on one phone. 10 on the other. 26 after the coach.</h3>
-      <div class="two">
-        <div class="prose"><p class="small">On Haroon's recording the machine gave the hook full credit, wobble and the sentences half, and the warm-up, independent practice and exit ticket nothing: two of six scorable moves, a third, "band: low". It had half-noticed the game: its notes say she "drifted into performance activities" and "used gesture guessing". It gave those no credit and could not timestamp them, because the bot's transcript folds the last ten minutes of the lesson into one undated block.</p><p class="small">On Moiz's recording it also marked the hook not done. That was correct for the audio it had: Moiz's phone missed four minutes fifty of the lesson, the whisper game and the entire hook, a gap in the file that nothing in the pipeline checks for. Then Moiz corrected: six of eight verdicts flipped, the board move to "executed" from his photograph, the hook and the homework and the exit to "substituted better". His indicator scores did not move. The 13-point rise came entirely from the moves.</p></div>
-        <div style="display:grid;gap:14px">
-          <div class="scroll"><table class="table" style="color:#fff">
-            <thead><tr><th style="color:rgba(255,255,255,.6)">Move</th><th style="color:rgba(255,255,255,.6)">Machine, Haroon's phone</th><th style="color:rgba(255,255,255,.6)">Machine, Moiz's phone</th><th style="color:rgba(255,255,255,.6)">After Moiz</th><th style="color:rgba(255,255,255,.6)">In the room</th></tr></thead>
-            <tbody>
-              <tr><td>m1 warm-up</td><td class="v-not_done">not done</td><td class="v-not_done">not done</td><td class="v-not_done">not done</td><td>a different game</td></tr>
-              <tr><td>m2 hook</td><td class="v-executed">done</td><td class="v-not_done">not done*</td><td class="v-substituted_better">better</td><td>done, over length</td></tr>
-              <tr><td>m3 board</td><td class="v-not_adjudicable">can't judge</td><td class="v-not_adjudicable">can't judge</td><td class="v-executed">done</td><td>done; it's in the photo</td></tr>
-              <tr><td>m4 wobble</td><td class="v-partial">partial</td><td class="v-partial">partial</td><td class="v-executed">done</td><td>4 of 6 parts</td></tr>
-              <tr><td>m5 guided</td><td class="v-partial">partial</td><td class="v-not_done">not done</td><td class="v-not_done">not done</td><td>partly, whole class</td></tr>
-              <tr><td>m6 independent</td><td class="v-not_done">not done</td><td class="v-partial">partial†</td><td class="v-partial">partial</td><td>not done; the game instead</td></tr>
-              <tr><td>m7 exit</td><td class="v-not_done">not done</td><td class="v-not_done">not done</td><td class="v-substituted_better">better</td><td>not done</td></tr>
-              <tr><td>m8 homework</td><td class="v-partial">partial</td><td class="v-not_done">not done</td><td class="v-substituted_better">better</td><td>a vaguer one</td></tr>
-            </tbody></table></div>
-          <p class="small">* Moiz's file has no hook on it. † The "partial" cites the homework sentence at 32:06 as in-class work. Coach edits change verdicts but not the machine's written reasons, so the record for m7 now reads "substituted better" beside "no identifiable exit check".</p>
+          <div class="tl miss" data-seg="r_independent" data-plan="missed" data-plan-note="Never started. The plan gave it 9 minutes: match exclaim, check your word bank, write one new sentence with chilly."><div class="t"><b>32:06</b>to 33:17</div><div class="body"><h4>"That's it." <span class="tag miss"><abbr class="ind" data-ind="m6">m6</abbr> not done</span></h4><p>No child wrote a new sentence. No one checked a word bank. Homework: make sentences at home, explain them to your family.</p><p class="q"><span class="ur">اب ہم کام اوپر کے۔ بس ختم۔ ان ورڈز کے آپ نے ڈیلی لائف کے سینٹینسز بنانے ہیں</span>Now we wrap up. That's it. Make daily-life sentences with these words.</p><div class="clip" data-src="audio/raheela_c12.mp3"><button type="button" aria-label="Play: The close">▶</button><div class="meta"><b>The close</b><span>32:06 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
+          <div class="tl miss" data-seg="r_exit" data-plan="missed" data-plan-note="Never happened. The plan gave it 1 to 2 minutes: one small check from every child before they leave."><div class="t"><b>32:06</b>same minute</div><div class="body"><h4>No exit ticket <span class="tag miss"><abbr class="ind" data-ind="m7">m7</abbr> not done</span></h4><p>Nothing written, nothing collected. The game was three children, not everyone.</p></div></div>
         </div>
       </div>
-      <div class="two" style="margin-top:22px">
-        <div class="prose"><p class="small"><b style="color:#fff">Moiz's spoken debrief was the most accurate account of the lesson anywhere in the system.</b> He named the enactment and the modelling as strengths, named the time sink, asking every child one by one during the explanation, and asked for guided and independent practice. Her answer explains the whole morning: with sixty-plus children, she normally does the writing in a second consecutive period. Today there wasn't one.</p></div>
-        <blockquote class="quote" style="color:#fff"><span class="ur" style="font-style:normal;font-family:var(--urdu);font-size:.85em">سو، لیٹس سپوز آپ کہتی کہ ایک ایک سے نہ پوچھتی، آپ سب کو کہتی کہ سارے ایک ایک لکھ لو، اور ان میں سے کچھ سے پھر آپ پروناؤنس کرواتی۔ سو دیٹ وڈ ہیو سیوڈ یور ٹائم</span><span class="who">Moiz, in the debrief: suppose you hadn't asked one by one; suppose everyone wrote one, and you took the pronunciation from a few. That would have saved your time.</span></blockquote>
+
+      <!-- what the machine saw -->
+      <div class="card-navy reveal" style="margin-top:48px">
+        <span class="eyebrow">What the machine saw · same lesson, two phones</span>
+        <h3 style="color:#fff;margin:10px 0 20px;font-family:var(--display);font-weight:500;font-size:clamp(24px,3vw,34px)">13 out of 40 on Haroon's phone. 10 on Moiz's. 26 after Moiz corrected it.</h3>
+        <div class="two">
+          <div class="prose"><p class="small">The machine scores fidelity, which means how closely the lesson followed its plan, as part of <abbr class="ind" data-ind="FICO">FICO</abbr>, our teaching scorecard. It half-saw the game, called it "performance activities", and gave it no credit. Moiz flipped six of eight verdicts. His indicator scores, <abbr class="ind" data-ind="B1">B1</abbr> to <abbr class="ind" data-ind="B10">B10</abbr>, did not move.</p></div>
+          <div style="display:grid;gap:14px">
+            <div class="scroll"><table class="table" style="color:#fff">
+              <thead><tr><th style="color:rgba(255,255,255,.6)">Move</th><th style="color:rgba(255,255,255,.6)">Haroon's phone</th><th style="color:rgba(255,255,255,.6)">Moiz's phone</th><th style="color:rgba(255,255,255,.6)">After Moiz</th><th style="color:rgba(255,255,255,.6)">In the room</th></tr></thead>
+              <tbody>
+                <tr><td><abbr class="ind" data-ind="m1">m1</abbr> warm-up</td><td class="v-not_done">not done</td><td class="v-not_done">not done</td><td class="v-not_done">not done</td><td>a different game</td></tr>
+                <tr><td><abbr class="ind" data-ind="m2">m2</abbr> hook</td><td class="v-executed">done</td><td class="v-not_done">not done*</td><td class="v-substituted_better">better</td><td>done, ran long</td></tr>
+                <tr><td><abbr class="ind" data-ind="m3">m3</abbr> board</td><td class="v-not_adjudicable">can't judge</td><td class="v-not_adjudicable">can't judge</td><td class="v-executed">done</td><td>done, in the photo</td></tr>
+                <tr><td><abbr class="ind" data-ind="m4">m4</abbr> wobble</td><td class="v-partial">partly</td><td class="v-partial">partly</td><td class="v-executed">done</td><td>4 of 6 parts</td></tr>
+                <tr><td><abbr class="ind" data-ind="m5">m5</abbr> guided</td><td class="v-partial">partly</td><td class="v-not_done">not done</td><td class="v-not_done">not done</td><td>partly, whole class</td></tr>
+                <tr><td><abbr class="ind" data-ind="m6">m6</abbr> alone</td><td class="v-not_done">not done</td><td class="v-partial">partly†</td><td class="v-partial">partly</td><td>the game instead</td></tr>
+                <tr><td><abbr class="ind" data-ind="m7">m7</abbr> exit</td><td class="v-not_done">not done</td><td class="v-not_done">not done</td><td class="v-substituted_better">better</td><td>not done</td></tr>
+                <tr><td><abbr class="ind" data-ind="m8">m8</abbr> homework</td><td class="v-partial">partly</td><td class="v-not_done">not done</td><td class="v-substituted_better">better</td><td>a vaguer one</td></tr>
+              </tbody></table></div>
+            <p class="small">* Moiz's recording is missing 4:50, the whisper game and the whole hook. Nothing checks for a gap like that. † This "partly" mistakes the 32:06 homework for class work. A coach's flip changes the verdict, not the machine's written reasons. So <abbr class="ind" data-ind="m7">m7</abbr> reads "better" beside "no identifiable exit check".</p>
+          </div>
+        </div>
+        <blockquote class="quote" style="color:#fff;margin-top:22px"><span class="ur" style="font-style:normal;font-family:var(--urdu);font-size:.85em">سو، لیٹس سپوز آپ کہتی کہ ایک ایک سے نہ پوچھتی، آپ سب کو کہتی کہ سارے ایک ایک لکھ لو، اور ان میں سے کچھ سے پھر آپ پروناؤنس کرواتی۔ سو دیٹ وڈ ہیو سیوڈ یور ٹائم</span><span class="who">Moiz, in the debrief: suppose you had not asked one by one. Suppose everyone wrote one, and you had a few say theirs aloud. That would have saved your time. His debrief was the truest account of the lesson anywhere in the system.</span></blockquote>
       </div>
-    </div>
+    </details>
+
+    <p class="tease">Next door, Saima followed the plan almost step by step, and still lost the children.</p>
   </section>
 
-    <!-- ============================================================ CH 4: SAIMA -->
+    <!-- ============================================================ CH 4: SAIMA (v2) -->
   <section class="chapter" id="saima">
     <div class="chapter-head">
-      <span class="eyebrow">Tuesday · Grade 2 English · Chapter 4, day 2 · "Heroes of History", pages 42–43</span>
-      <div class="t"><span class="clock">10:55</span><h2>A lesson that followed the plan's topics and lost the plan's children</h2></div>
-      <p class="lede">Saima Sajida read "Heroes of History" with a Grade 2 class and taught WHO, WHERE and WHY. She did what the plan asked, in the order it asked, at the level of topics. At the level of who was talking, the transcript says something the machine did not.</p>
+      <span class="eyebrow">Tuesday · Grade 2 English · Chapter 4, day 2 · "Heroes of History", pages 42 to 43</span>
+      <div class="t"><span class="clock">10:55</span><h2>The plan was followed. The children did not speak.</h2></div>
+      <p class="lede">Saima Sajida read "Heroes of History" with Grade 2 and taught WHO, WHERE and WHY, just as the plan asked. For every 100 words said in the room, children said about 5.</p>
+      <p class="playbook"><b>Playbook</b> Layer 3 · Teacher interview · Track D, application · root cause: coaching feedback quality</p>
     </div>
 
-    <div class="two wide-left">
-      <figure class="figure reveal"><picture><source type="image/webp" srcset="img/cls_saima_haroon_2.webp"><img src="img/cls_saima_haroon_2.jpg" alt="Saima's whiteboard: Grade 2 English, Heroes of History; WHO hunt for a name, WHERE hunt for a place, WHY you must reason; -an Sunny Pakistan Pink; the word wall and three portraits" width="899" height="1599" loading="lazy" decoding="async"></picture><figcaption><b>The board, before the class came in.</b> WHO, WHERE, WHY with their meanings; the -an word family with Sunny, Pakistan and Pink already worked; the word wall from day one; and the three portraits the plan asks the teacher to show. Every "before class" instruction in the plan is on this wall.</figcaption></figure>
-      <div style="display:grid;gap:18px">
-        <div class="stats">
-          <div class="stat"><b class="num">28:05</b><span>the lesson, against a 30-minute plan. Under, not over.</span></div>
-          <div class="stat"><b class="num">5.3%</b><span>of all words spoken in the room were spoken by children: 160 words against the teacher's 2,839</span></div>
-          <div class="stat"><b class="num">10 <small style="font-size:.5em;color:inherit;opacity:.6">of 24</small></b><span>substantive questions the teacher answered herself, in the same breath</span></div>
-          <div class="stat"><b class="num">0:00</b><span>of independent practice that was independent. The three problems were asked aloud, one child each.</span></div>
+    <div class="open">
+      <figure class="figure"><picture><source type="image/webp" srcset="img/cls_saima_haroon_2.webp"><img src="img/cls_saima_haroon_2.jpg" alt="Saima's whiteboard before the class: WHO, WHERE, WHY with their meanings, the -an word family, the word wall and three portraits" width="899" height="1599" loading="lazy" decoding="async"></picture><figcaption><b>The board, before the class came in.</b> WHO, WHERE and WHY, the -an words, the word wall, three portraits. Every "before class" step in the plan is here.</figcaption></figure>
+      <div class="stats">
+        <div class="stat"><b class="num">28:05</b><span>the lesson, against a 30 minute plan</span></div>
+        <div class="stat"><b class="num">5.3%</b><span>of the words came from children. For every 100 words said in the room, children said about 5.</span></div>
+        <div class="stat"><b class="num">10 <small style="font-size:.5em;color:inherit;opacity:.6">of 24</small></b><span>real questions the teacher answered herself</span></div>
+        <div class="stat"><b class="num">0:00</b><span>of practice done alone. The problems were asked out loud.</span></div>
+      </div>
+      <p>Saima was ready. She read the story aloud, taught WHO, WHERE and WHY, and found the -an words, as the plan said.</p>
+      <p>Then she asked for a Pakistani hero. Three names came, then a long quiet. She asked for a reason. The answer was "Miss". She waited ten seconds, then gave the names herself.</p>
+      <p>The practice problems were asked out loud, one child each. Nobody wrote. The exit question she asked, and answered, herself.</p>
+      <p>Her last words were to us: "there are a lot of problems here, with the little ones."</p>
+      <div class="callout"><b>The simple thing nobody said.</b> Ask, then wait, then let a child answer. Saima asked 24 real questions and answered 10 of them before a child could.</div>
+    </div>
+
+    <details class="fold">
+      <summary><b>Open the full lesson, minute by minute</b><span>the plan beside the room, with the audio</span></summary>
+      <p class="small">Times are from Haroon's phone, which started 3:22 after Moiz's. A tag like <abbr class="ind" data-ind="m1">m1</abbr> is a step the plan asks for.</p>
+      <div class="split">
+        <div class="plan">
+          <figure class="seg" data-seg="s_warmup" data-title="Warm up" data-min="3 min"><picture><source type="image/webp" srcset="img/s_warmup.webp"><img src="img/s_warmup.jpg" alt="Lesson plan, warm up: recall yesterday's heroes and the word wall, a partner explains "whispered"" width="986" height="1200" loading="lazy" decoding="async"></picture></figure>
+          <figure class="seg" data-seg="s_opening" data-title="Opening, the hook" data-min="2 min"><picture><source type="image/webp" srcset="img/s_opening.webp"><img src="img/s_opening.jpg" alt="Lesson plan, opening: the shiny door, three real people from Pakistan's history, why did the visitors look confused" width="1400" height="892" loading="lazy" decoding="async"></picture></figure>
+          <figure class="seg" data-seg="s_explain" data-title="Read, then think aloud" data-min="6 min"><picture><source type="image/webp" srcset="img/s_explain.webp"><img src="img/s_explain.jpg" alt="Lesson plan, explanation: read page 42 aloud once with expression, then think aloud to answer WHO" width="1400" height="741" loading="lazy" decoding="async"></picture></figure>
+          <figure class="seg" data-seg="s_guided" data-title="Guided practice, pairs" data-min="9 min"><picture><source type="image/webp" srcset="img/s_guided.webp"><img src="img/s_guided.jpg" alt="Lesson plan, guided practice: Pakistan ends in -an, pairs share one more Pakistani hero, why did Pinky whisper" width="1400" height="977" loading="lazy" decoding="async"></picture></figure>
+          <figure class="seg" data-seg="s_independent" data-title="Independent practice" data-min="10 min"><picture><source type="image/webp" srcset="img/s_independent.webp"><img src="img/s_independent.jpg" alt="Lesson plan, independent practice: three problems, with help for children who are behind and an extension for those ahead" width="1400" height="737" loading="lazy" decoding="async"></picture></figure>
+          <figure class="seg" data-seg="s_exit" data-title="Exit ticket" data-min="2 min"><picture><source type="image/webp" srcset="img/s_exit.webp"><img src="img/s_exit.jpg" alt="Lesson plan, exit ticket: one of three questions, every child answers before leaving" width="1400" height="2261" loading="lazy" decoding="async"></picture></figure>
         </div>
-        <p class="small">The plan for day two was pulled the morning before. Its voicenote, 45 seconds in Urdu: WHO is a name, WHERE is a place, WHY you must reason, not find; and a warning that children think every question can be answered by finding one word on the page.</p>
-      </div>
-    </div>
-
-    <div class="split reveal" style="margin-top:44px">
-      <div class="plan"><div class="plan-crop"><picture><source type="image/webp" srcset="img/s_opening.webp"><img src="img/s_opening.jpg" alt="Lesson plan, opening: yesterday we predicted who stepped out of the shiny door; three real people from Pakistan's history; why did the visitors look confused?" width="1400" height="892" loading="lazy" decoding="async"></picture></div><div class="plan-label"><b>Opening · the hook</b><span class="min">~2 min</span></div>
-        <div class="plan-crop" style="margin-top:12px"><picture><source type="image/webp" srcset="img/s_explain.webp"><img src="img/s_explain.jpg" alt="Lesson plan, explanation: read page 42 aloud once with expression; think aloud to answer WHO" width="1400" height="741" loading="lazy" decoding="async"></picture></div><div class="plan-label"><b>Explanation · read, then think aloud</b><span class="min">6 min</span></div></div>
-      <div class="timeline">
-        <div class="tl plan"><div class="t"><b>−2:58</b>to 00:26</div><div class="body"><h4>Warm-up, on the coach's phone only <span class="tag plan">m1 partly</span></h4><p>Haroon's recording began three minutes and twenty-two seconds after Moiz's, mid-warm-up. On Moiz's: yesterday's heroes, the word wall, "whispered" defined for the class rather than by a partner.</p><p class="q"><span class="ur">بہت دھیمے سے، جو ہم آپس میں سرگوشی کرتے ہیں، نرمی سے، تاکہ کوئی دوسرا نہ سنے</span>Very softly, whispering to each other, gently, so nobody else hears.</p><div class="clip" data-src="audio/saima_s01.mp3"><button type="button" aria-label="Play: "Whisper" defined; "today, page 41"">▶</button><div class="meta"><b>"Whisper" defined; "today, page 41"</b><span>00:10 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
-        <div class="tl miss"><div class="t"><b>00:26</b>to 02:11</div><div class="body"><h4>"Page 41. First I read, you listen." <span class="tag miss">m2 substituted</span></h4><p>The hook the plan wrote, the shiny door, the three portraits, "why did they look confused?", was replaced by an announcement: three people from Pakistan's history are coming. WHO, WHERE and WHY arrived after the reading, not before it as listening guides.</p><p class="q"><span class="ur">آج ہمارا 41واں پیج ہے، آج ہم نے ریڈنگ کرنی ہے۔ پہلے میں ریڈنگ کروں گی، آپ سب نے غور سے سننا ہے</span>Today it's our page 41. Today we read. First I'll read; all of you listen carefully.</p></div></div>
-        <div class="tl plan"><div class="t"><b>02:11</b>to 05:23</div><div class="body"><h4>The whole passage, read once <span class="tag plan">m4 done</span></h4><p>Verbatim the plan's page-42 text, "One sunny day, Pinky and Jojo found a shiny door", through the three names. Fingers on the page. She said "page 41" six times; the words she read are on pages 42 and 43. Both machine runs docked confidence for a "page mismatch" that was a label, not a lesson.</p><div class="clip" data-src="audio/saima_s02.mp3"><button type="button" aria-label="Play: "Don't read. Listen." The three names">▶</button><div class="meta"><b>"Don't read. Listen." The three names</b><span>02:22 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
-        <div class="tl over"><div class="t"><b>05:23</b>to 11:13</div><div class="body"><h4>The retelling, and the questions she answered herself <span class="tag over">+3:02</span></h4><p>"What is a sunny day? When there's sun, no clouds." "Why did they look confused? Because when they came they saw…" and a minute on litter in the playground and children who don't read books. WHO is a name, WHERE a place, WHY a reason. "Who was Fatima Jinnah?" A child: "the Quaid's friend." "His sister. Mother of the Nation."</p><p class="q"><span class="ur">تین لوگ تھے جو کہ بہت کنفیوزڈ لگ رہے تھے۔ کیوں لگ رہے تھے؟ کیونکہ جب وہ آئے، انہوں نے دیکھا…</span>Three people who looked very confused. Why? Because when they came, they saw…</p><div class="clip" data-src="audio/saima_s04.mp3"><button type="button" aria-label="Play: "Why confused?" asked and answered">▶</button><div class="meta"><b>"Why confused?" asked and answered</b><span>06:13 · <span class="time"></span></span><div class="bar"><i></i></div></div></div><div class="clip" data-src="audio/saima_s05.mp3"><button type="button" aria-label="Play: WHO, WHERE, WHY; "Who was Fatima Jinnah?"">▶</button><div class="meta"><b>WHO, WHERE, WHY; "Who was Fatima Jinnah?"</b><span>08:34 · <span class="time"></span></span><div class="bar"><i></i></div></div></div><div class="clip" data-src="audio/saima_s06.mp3"><button type="button" aria-label="Play: A country ending in -an">▶</button><div class="meta"><b>A country ending in -an</b><span>10:05 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
-      </div>
-    </div>
-
-    <div class="split reveal" style="margin-top:36px">
-      <div class="plan"><div class="plan-crop"><picture><source type="image/webp" srcset="img/s_guided.webp"><img src="img/s_guided.jpg" alt="Lesson plan, guided practice: Pakistan ends in -an; pairs share one more Pakistani hero; CFU why did Pinky whisper" width="1400" height="977" loading="lazy" decoding="async"></picture></div><div class="plan-label"><b>Guided practice · pairs</b><span class="min">9 min</span></div>
-        <div class="plan-crop" style="margin-top:12px"><picture><source type="image/webp" srcset="img/s_independent.webp"><img src="img/s_independent.jpg" alt="Lesson plan, independent practice: three problems, with support for children who are behind and an extension for those ahead" width="1400" height="737" loading="lazy" decoding="async"></picture></div><div class="plan-label"><b>Independent practice</b><span class="min">10 min</span></div></div>
-      <div class="timeline">
-        <div class="tl over"><div class="t"><b>11:13</b>to 15:48</div><div class="body"><h4>"Think with your partner of a Pakistani hero" <span class="tag over">m7 partly · −4:25</span></h4><p>Announced as pair talk, run as hands-up. Babar Azam from Simran, the Quaid, Allama Iqbal from Hooreen. Then forty seconds of "nobody thought of anyone? not even a sportsperson?" and "Miss, Miss." No child gave a reason. Every "because" in the room was the teacher's. The plan's "why did Pinky whisper?" was never asked; the echo-reread never happened.</p><p class="q"><span class="ur">آپ نے کوئی بھی نہیں سوچا؟ ہیں؟ کسی آپ کو سپورٹ پرسن کا نام بھی نہیں آتا؟</span>Nobody thought of anyone? Hm? You can't even name a sportsperson?</p><div class="clip" data-src="audio/saima_s07.mp3"><button type="button" aria-label="Play: Hero share: Babar Azam, the Quaid">▶</button><div class="meta"><b>Hero share: Babar Azam, the Quaid</b><span>13:11 · <span class="time"></span></span><div class="bar"><i></i></div></div></div><div class="clip" data-src="audio/saima_s08.mp3"><button type="button" aria-label="Play: "Nobody thought of anyone?"">▶</button><div class="meta"><b>"Nobody thought of anyone?"</b><span>14:26 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
-        <div class="tl miss"><div class="t"><b>15:48</b>to 18:49</div><div class="body"><h4>The three problems, asked aloud <span class="tag miss">m8 substituted</span></h4><p>"No help, answer by yourselves." Who writes poems? Hooreen: Sufi Tabassum. The -an country? Momina: Pakistan. The colour hiding in a name? Four tries of "pilly" before "pink". Three children answered; nobody wrote; no version for the child who was behind or ahead.</p></div></div>
-        <div class="tl miss"><div class="t"><b>18:49</b>to 22:52</div><div class="body"><h4>"Another real hero, and why" <span class="tag miss">m9 not done</span></h4><p>The answer was "Miss." Twice. A ten-and-a-half-second silence. "Miss watched a cartoon. You don't even know a player. You only know about cartoons." She supplied Noor Jehan, Imran Khan, Edhi herself. The exit MCQ, "which word tells you to hunt for a name?", she asked and answered: "WHO."</p><p class="q"><span class="ur">میم نے کارٹون دیکھا۔ کھلاڑی بھی نہیں پتا۔ آپ کو بس کارٹونوں کے بارے میں پتہ ہے۔ قومی ہیرو نہیں پتا؟</span>Miss watched a cartoon. You don't even know a player. You only know about cartoons. Don't you know a national hero?</p><div class="clip" data-src="audio/saima_s09.mp3"><button type="button" aria-label="Play: The ten-second wait">▶</button><div class="meta"><b>The ten-second wait</b><span>19:41 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
-        <div class="tl extra"><div class="t"><b>22:52</b>to 25:07</div><div class="body"><h4>Silent reading, then homework <span class="tag extra">not in plan</span></h4><p>Where the plan wanted a choral echo-read, she asked for quiet reading, "your voice isn't loud", Simran for a few lines. Homework: two lines about a role model. Then, to the observers: "There are a lot of problems here, with the little ones."</p><div class="clip" data-src="audio/saima_s10.mp3"><button type="button" aria-label="Play: The close">▶</button><div class="meta"><b>The close</b><span>24:40 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
-        <div class="callout"><b>What "self-talk" was.</b> She never used the phrase. What the transcript holds is "think among yourselves" seven times with no structure, and quiet reading where the plan wanted the class reading aloud together. Whispering, thinking to yourself and reading silently took the place of the plan's out-loud pair and choral work. In a room where children spoke five words in a hundred, that is the lever.</div>
-      </div>
-    </div>
-
-    <div class="card-navy reveal" style="margin-top:48px">
-      <span class="eyebrow">What the machine saw, and what the coach in the room corrected</span>
-      <h3 style="color:#fff;margin:10px 0 20px;font-family:var(--display);font-weight:500;font-size:clamp(24px,3vw,34px)">"Steady student participation," said the machine, of a class that spoke five words in a hundred</h3>
-      <div class="two">
-        <div class="prose">
-          <p class="small">The scorer was fair on what she followed: reading, WHO/WHERE/WHY, the word family, the homework. It caught the big omissions, no independent work, no exit ticket, no family interview, and scored her questioning honestly at 2 of 4, "closed, recall". Then it gave active participation 3 of 4 on both recordings and wrote "well-paced" and "steady participation" in its summaries. On Haroon's phone it did this from a transcript in which one teacher turn runs for twenty-two minutes and children produced thirty-six words. It noticed that collapse in its own notes, cited timestamps that do not exist in that transcript anyway, and passed the session as fully covered.</p>
-          <p class="small">Moiz, who was in the room, rescored fourteen indicators. He cut every engagement indicator the machine had at 3 down to 2. His overall fell from 58.8% to 55.4%; the fidelity score, derived from moves, rose. Two humans editing four verdicts each landed on the same 5.5 of 9. The machine, on two phones, had said 62.5% and 50%.</p>
-        </div>
-        <div style="display:grid;gap:14px">
-          <div class="scroll"><table class="table" style="color:#fff">
-            <thead><tr><th style="color:rgba(255,255,255,.6)">Engagement, D</th><th style="color:rgba(255,255,255,.6)">Machine</th><th style="color:rgba(255,255,255,.6)">Moiz</th></tr></thead>
-            <tbody>
-              <tr><td>D1 active participation</td><td class="n">3</td><td class="n">2</td></tr>
-              <tr><td>D2 cognitive engagement</td><td class="n">3</td><td class="n">2</td></tr>
-              <tr><td>D4 confidence, risk-taking</td><td class="n">3</td><td class="n">2</td></tr>
-              <tr><td>D5 on-task in independent work</td><td class="n">3</td><td class="n">2</td></tr>
-              <tr><td>D6 use of materials</td><td class="n">3</td><td class="n">2</td></tr>
-              <tr><td>C1 quality questioning</td><td class="n">2</td><td class="n">2</td></tr>
-            </tbody></table></div>
-          <blockquote class="quote" style="color:#fff;font-size:22px"><span class="ur" style="font-style:normal;font-size:.9em">چھوٹے بچوں کے ساتھ ہم دو پیریڈ ہوتے ہیں۔ ایک میں ہم پڑھاتے ہیں، تو ایک میں ہم ان کو پریکٹس کرواتے ہیں</span><span class="who">Saima, in the debrief: with the little ones we run two periods. In one we teach; in the other they practise. Reading the whole page at once "felt hard".</span></blockquote>
+        <div class="timeline">
+          <div class="tl plan" data-seg="s_warmup"><div class="t"><b>−2:58</b>to 00:26</div><div class="body"><h4>Warm-up, on Moiz's phone only <span class="tag plan"><abbr class="ind" data-ind="m1">m1</abbr> partly</span></h4><p>Yesterday's heroes, the word wall, and what "whispered" means. The plan asks a partner to explain the word. Saima explained it herself.</p><div class="clip" data-src="audio/saima_s01.mp3"><button type="button" aria-label="Play: "Whisper" explained. "Today, page 41"">▶</button><div class="meta"><b>"Whisper" explained. "Today, page 41"</b><span>00:10 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
+          <div class="tl miss" data-seg="s_opening"><div class="t"><b>00:26</b>to 02:11</div><div class="body"><h4>"Page 41. First I read, you listen." <span class="tag miss"><abbr class="ind" data-ind="m2">m2</abbr> replaced</span></h4><p>The plan's hook was a shiny door, three portraits and "why did they look confused?". Instead: three people from Pakistan's history are coming. WHO, WHERE and WHY came after the reading, not before.</p></div></div>
+          <div class="tl plan" data-seg="s_explain"><div class="t"><b>02:11</b>to 05:23</div><div class="body"><h4>The whole story, read once <span class="tag plan"><abbr class="ind" data-ind="m4">m4</abbr> done</span></h4><p>Word for word, the plan's page 42 text. Saima said "page 41" six times, but the words she read are on pages 42 and 43. Both machine runs marked her down for that. It was a label, not a lesson.</p><div class="clip" data-src="audio/saima_s02.mp3"><button type="button" aria-label="Play: "Don't read. Listen." The three names">▶</button><div class="meta"><b>"Don't read. Listen." The three names</b><span>02:22 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
+          <div class="tl over" data-seg="s_explain" data-plan="over" data-plan-note="The plan gave this 6 minutes. It took 9."><div class="t"><b>05:23</b>to 11:13</div><div class="body"><h4>The retelling, and the questions she answered herself <span class="tag over">+3:02</span></h4><p>"What is a sunny day? When there is sun, no clouds." "Why did they look confused? Because…" Then a minute about litter in the playground. "Who was Fatima Jinnah?" A child: the Quaid's friend. "His sister. Mother of the Nation."</p><p class="q"><span class="ur">تین لوگ تھے جو کہ بہت کنفیوزڈ لگ رہے تھے۔ کیوں لگ رہے تھے؟ کیونکہ جب وہ آئے، انہوں نے دیکھا…</span>Three people who looked very confused. Why? Because when they came, they saw…</p><div class="clip" data-src="audio/saima_s04.mp3"><button type="button" aria-label="Play: "Why confused?" asked and answered">▶</button><div class="meta"><b>"Why confused?" asked and answered</b><span>06:13 · <span class="time"></span></span><div class="bar"><i></i></div></div></div><div class="clip" data-src="audio/saima_s05.mp3"><button type="button" aria-label="Play: WHO, WHERE, WHY. "Who was Fatima Jinnah?"">▶</button><div class="meta"><b>WHO, WHERE, WHY. "Who was Fatima Jinnah?"</b><span>08:34 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
+          <div class="tl over" data-seg="s_guided"><div class="t"><b>11:13</b>to 15:48</div><div class="body"><h4>"Think with your partner of a Pakistani hero" <span class="tag over"><abbr class="ind" data-ind="m7">m7</abbr> partly · −4:25</span></h4><p>Said as pair talk, run as hands up. Babar Azam, the Quaid, Allama Iqbal, one child each. Then forty seconds of "nobody thought of anyone?" No child gave a reason. The plan's "why did Pinky whisper?" was never asked.</p><div class="clip" data-src="audio/saima_s07.mp3"><button type="button" aria-label="Play: Hero share: Babar Azam, the Quaid">▶</button><div class="meta"><b>Hero share: Babar Azam, the Quaid</b><span>13:11 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
+          <div class="callout bad"><b>"Think among yourselves."</b> Saima said it seven times. No pairs, no roles, no timer. The plan wanted one partner talk, with a sentence to start from. That is the lever.</div>
+          <div class="tl miss" data-seg="s_independent" data-plan="changed" data-plan-note="Nobody wrote. The plan gave this 10 minutes of quiet work. It got 3 minutes, out loud."><div class="t"><b>15:48</b>to 18:49</div><div class="body"><h4>The three problems, asked out loud <span class="tag miss"><abbr class="ind" data-ind="m8">m8</abbr> replaced</span></h4><p>Who writes poems? Sufi Tabassum. The -an country? Pakistan. The colour hiding in a name? Four tries before "pink". Three children answered. Nobody wrote. No easier or harder version for anyone.</p></div></div>
+          <div class="tl miss" data-seg="s_exit" data-plan="missed" data-plan-note="The exit ticket never happened. The plan wanted every child to answer one question before leaving."><div class="t"><b>18:49</b>to 22:52</div><div class="body"><h4>"Another real hero, and why" <span class="tag miss"><abbr class="ind" data-ind="m9">m9</abbr> not done</span></h4><p>The answer was "Miss". Twice. Then ten seconds of silence. Saima gave Noor Jehan, Imran Khan and Edhi herself. The exit question, "which word tells you to hunt for a name?", she asked and answered: WHO.</p><p class="q"><span class="ur">میم نے کارٹون دیکھا۔ کھلاڑی بھی نہیں پتا۔ آپ کو بس کارٹونوں کے بارے میں پتہ ہے</span>Miss watched a cartoon. You don't even know a player. You only know about cartoons.</p><div class="clip" data-src="audio/saima_s09.mp3"><button type="button" aria-label="Play: The ten second wait">▶</button><div class="meta"><b>The ten second wait</b><span>19:41 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
+          <div class="tl extra" data-seg="s_exit" data-plan="tangent" data-plan-note="Not in the plan. The plan wanted the class to read aloud together. This was quiet reading."><div class="t"><b>22:52</b>to 25:07</div><div class="body"><h4>Silent reading, then homework <span class="tag extra">not in plan</span></h4><p>The plan wanted the class to read aloud together. Saima asked for quiet reading. Homework: two lines about a role model. Then, to us: "There are a lot of problems here, with the little ones."</p><div class="clip" data-src="audio/saima_s10.mp3"><button type="button" aria-label="Play: The close">▶</button><div class="meta"><b>The close</b><span>24:40 · <span class="time"></span></span><div class="bar"><i></i></div></div></div></div></div>
         </div>
       </div>
-      <p class="small" style="margin-top:22px;max-width:70ch">Both coaches, in both debriefs, arrived at the same "try": slow the transitions and give one line of instruction before each switch, "now we've done this, now we're going there". Neither the machine nor the coaches named the thing the numbers name: ask, then wait, then let a child answer.</p>
-    </div>
+    </details>
+
+    <details class="fold">
+      <summary><b>Open what the machine scored</b><span>and what the coach in the room corrected</span></summary>
+      <div class="card-navy">
+        <span class="eyebrow">What the machine saw</span>
+        <h3 style="color:#fff;margin:10px 0 20px;font-family:var(--display);font-weight:500;font-size:clamp(24px,3vw,34px)">"Steady participation," said the machine, of a class that said 5 words in 100</h3>
+        <div class="two">
+          <div class="prose">
+            <p class="small">The machine caught the big misses: no independent work, no exit ticket. Then it scored participation 3 of 4 and wrote "steady participation". Moiz was in the room. He cut every engagement score from 3 to 2. The D scores measure how much children took part. <abbr class="ind" data-ind="C1">C1</abbr> is how good the questions were.</p>
+          </div>
+          <div style="display:grid;gap:14px">
+            <div class="scroll"><table class="table" style="color:#fff">
+              <thead><tr><th style="color:rgba(255,255,255,.6)">Score</th><th style="color:rgba(255,255,255,.6)">Machine</th><th style="color:rgba(255,255,255,.6)">Moiz</th></tr></thead>
+              <tbody>
+                <tr><td><abbr class="ind" data-ind="D1">D1</abbr> taking part</td><td class="n">3</td><td class="n">2</td></tr>
+                <tr><td><abbr class="ind" data-ind="D2">D2</abbr> thinking hard</td><td class="n">3</td><td class="n">2</td></tr>
+                <tr><td><abbr class="ind" data-ind="D4">D4</abbr> confidence</td><td class="n">3</td><td class="n">2</td></tr>
+                <tr><td><abbr class="ind" data-ind="D5">D5</abbr> on task alone</td><td class="n">3</td><td class="n">2</td></tr>
+                <tr><td><abbr class="ind" data-ind="D6">D6</abbr> use of materials</td><td class="n">3</td><td class="n">2</td></tr>
+                <tr><td><abbr class="ind" data-ind="C1">C1</abbr> questions</td><td class="n">2</td><td class="n">2</td></tr>
+              </tbody></table></div>
+            <blockquote class="quote" style="color:#fff;font-size:22px"><span class="ur" style="font-style:normal;font-size:.9em">چھوٹے بچوں کے ساتھ ہم دو پیریڈ ہوتے ہیں۔ ایک میں ہم پڑھاتے ہیں، تو ایک میں ہم ان کو پریکٹس کرواتے ہیں</span><span class="who">Saima, after the lesson: with the little ones we run two periods. One to teach, one to practise.</span></blockquote>
+          </div>
+        </div>
+        <p class="small" style="margin-top:22px;max-width:70ch">Both coaches suggested slower transitions, one line of instruction before each switch. Nobody suggested waiting for a child to answer.</p>
+      </div>
+    </details>
+
+    <p class="tease">At noon, in the staff room, the teachers told us what they thought of all this, and it was not gentle.</p>
   </section>
 
-    <!-- ============================================================ CH 5: STAFF ROOM -->
+    <!-- ============================================================ CH 5: STAFF ROOM (v2) -->
   <section class="chapter" id="staffroom">
     <div class="chapter-head">
       <span class="eyebrow">Tuesday · the staff room · 51 minutes, about ten teachers</span>
       <div class="t"><span class="clock">12:08</span><h2>Where the numbers stop and the teachers start</h2></div>
-      <p class="lede">The recorder ran for 51 minutes. Ten of them, while we were out of the room, caught the staff's own conversation and stay out of this report. What remains is forty minutes of the most direct feedback the programme has had, and it does not all say what we remembered.</p>
+      <p class="lede">For 51 minutes the staff room told us what they think of the plans, the coach and the score. Not all of it is what we remembered.</p>
+      <p class="playbook"><b>Playbook</b> Layer 3 · Teacher interview, all four tracks in one room, and Layer 4 root causes: content/curriculum fit, trust in the product, coaching feedback quality</p>
     </div>
 
-    <div class="two wide-left">
-      <div class="prose reveal">
-        <p>It started with a grade-5 English teacher walking through the lesson she had taught that morning: paragraph structure, a house as the analogy, foundation, walls, details, textbook page 83. Her complaint was not about the idea. It was that the plan's text and its questions did not match the task she had built the lesson around, that the plan was long enough to tire you out just reading it, and that when she sent the recording in, a score came back that she could not connect to anything she had done.</p>
-        <p>Then, at the sixteenth minute, the first hard number: the same recording, uploaded twice, had scored 30% and 53%. Haroon's explanation on the spot was that one upload had picked up the lesson plan and the other had not. That is a real defect class in the linking code, and it set the tone. From there the conversation went where every staff room in ICT seems to go: the plan's shape, the recording, the score, and the exam.</p>
-      </div>
-      <div style="display:grid;gap:14px">
-        <div class="clip" data-src="audio/staffroom_01.mp3"><button type="button" aria-label="Play: Same recording, two scores">▶</button><div class="meta"><b>Same recording, two scores</b><span>A teacher, then Haroon · 15:46 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
-        <blockquote class="quote reveal">"Some of it is written here, some below, some above. Which one are we following?"<span class="who">A teacher, on the K-5 plan's layout · 16:47</span></blockquote>
-      </div>
+    <div class="open">
+      <p>It started with a grade 5 English teacher and a house. They had taught paragraph writing that morning: foundation, walls, details, page 83. The idea was fine. The plan's words did not match it, and the plan tired you out just to read.</p>
+      <p>Then the first hard number. One recording, sent twice, scored 30% and 53%. Haroon said one upload had picked up the lesson plan and the other had not. That is a real bug in our linking code.</p>
+      <p>The score frightened people. Match the plan, good marks. Miss it, not. And nobody had opened the plan being checked against.</p>
+      <p>Ten minutes, while we were out, were the staff's own talk. Those stay private, except one line about the plans, labelled below.</p>
+      <blockquote class="quote reveal">"Some of it is written here, some below, some above. Which one are we following?"<span class="who">A teacher, on the K-5 plan · 16:47</span></blockquote>
+      <div class="clip" data-src="audio/staffroom_01.mp3"><button type="button" aria-label="Play: Same recording, two scores">▶</button><div class="meta"><b>Same recording, two scores</b><span>A teacher, then Haroon · 15:46 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
+      <p class="small">Four buckets inside: K-5 lesson plans · 6 to 12 lesson plans · AI coach · Fidelity scoring.</p>
     </div>
 
-    <div class="three reveal" style="margin-top:44px">
-      <div class="bucket">
-        <h3>K-5 lesson plans</h3>
-        <ul>
-          <li><b>The branching reads as noise.</b> The "behind / ahead" boxes are meant as differentiation. In the room they read as three plans on one page. <span class="ur">کچھ ادھر لکھا ہوا ہوتا ہے، کچھ نیچے، کچھ اوپر</span></li>
-          <li><b>They do not believe a person wrote it.</b> "Made by AI that doesn't know our environment." Haroon: it isn't AI, our team wrote it; it looks that way because AI writes one thing for the whole world. Differentiation, one teacher said, is "the personal part, our job, not the AI's".</li>
-          <li><b>"I already run three groups; your plan gives me nothing for them."</b> The plan's two branches do not map onto the levels a teacher has already carved her class into.</li>
-          <li><b>Content that jars.</b> A morning-dance dialogue ("is that appropriate for our children?"), "Pinky and Joseph" where Ali and Sana would do, "Taleemabad" used as a place name, superheroes where Fatima Jinnah and Sufi Tabassum could be.</li>
-          <li><b>Two periods, not one.</b> "It takes two full periods, try it yourself." Fourteen chapters in the grade-5 book.</li>
-        </ul>
-        <div class="clip" data-src="audio/staffroom_03.mp3"><button type="button" aria-label="Play: "Not the AI's job" / "It isn't AI"">▶</button><div class="meta"><b>"Not the AI's job" / "It isn't AI"</b><span>A teacher, then Haroon · 18:08 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
-        <div class="clip" data-src="audio/staffroom_04.mp3"><button type="button" aria-label="Play: "Nothing in your plan for my three groups"">▶</button><div class="meta"><b>"Nothing in your plan for my three groups"</b><span>A teacher · 19:55 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
-        <div class="clip" data-src="audio/staffroom_11.mp3"><button type="button" aria-label="Play: Morning dance, Pinky and Joseph">▶</button><div class="meta"><b>Morning dance, Pinky and Joseph</b><span>A teacher · 35:08 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
-      </div>
-      <div class="bucket">
-        <h3>6–12 lesson plans</h3>
-        <ul>
-          <li><b>"That's notes, not a lesson plan."</b> The 6–12 plans carry FBISE exam banks after the plan proper. Teachers read the whole document as the plan and find it endless. Haroon: the first four pages are the plan; the rest is exam preparation.</li>
-          <li><b>Three masters.</b> "We follow NIETE, we follow the SLOs, we follow FDE. Three things. There's no time left to teach." Haroon's reply: NIETE sits under FDE, aligning is our job, not yours.</li>
-          <li><b>The secondary split nobody planned for.</b> A psychology/economics teacher: forty-mark paper, sixty marks practical, and a new syllabus coming. The plans do not reflect it.</li>
-          <li><b>Committed on tape.</b> A new, shorter plan format on teachers' phones "next week", and the 6–12 plans shortened.</li>
-        </ul>
-        <div class="clip" data-src="audio/staffroom_05.mp3"><button type="button" aria-label="Play: "New format next week" / "That's notes, not a plan"">▶</button><div class="meta"><b>"New format next week" / "That's notes, not a plan"</b><span>Haroon, then a teacher · 24:48 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
-      </div>
-      <div class="bucket">
-        <h3>AI Coach</h3>
-        <ul>
-          <li><b>The 15-minute problem is a message defect, not ignorance.</b> "You told us to send 15 minutes." Haroon: fifteen is the minimum, send the whole class. Teacher: "But they said to do 15." The minimum was received as the instruction, so teachers record a fraction and then object, reasonably, that a fraction cannot judge a lesson.</li>
-          <li><b>The follow-up questions are being abandoned.</b> "We give the forty minutes, then we're in the next class and it fires question after question. I don't answer. I just stop."</li>
-          <li><b>"Why is pair reading a must? Can't a teacher be ill?"</b> Daily pair and independent tasks are experienced as score items with no bad days allowed.</li>
-          <li><b>Stress with a name on it.</b> A colleague refused a recording, then sent a sorry voice message from home: she had been very tense, and she named the programme.</li>
-          <li><b>Scoring is a black box anchored to a plan they may not have opened.</b> "If it matches, good marks; if not, not." And the score is not, in their words, for them: "the numbers are for you and Moiz; we came here to teach children."</li>
-        </ul>
-        <div class="clip" data-src="audio/staffroom_06.mp3"><button type="button" aria-label="Play: The 15-minute contradiction">▶</button><div class="meta"><b>The 15-minute contradiction</b><span>A teacher and Haroon · 26:50 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
-        <div class="clip" data-src="audio/staffroom_10.mp3"><button type="button" aria-label="Play: "Question after question. I just stop."">▶</button><div class="meta"><b>"Question after question. I just stop."</b><span>A teacher · 33:47 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
-      </div>
-    </div>
-
-    <div class="card-navy reveal" style="margin-top:44px">
-      <span class="eyebrow">The fidelity argument · 29:54 to 34:20, and a coda at 50:44</span>
-      <h3 style="color:#fff;margin:10px 0 22px;font-family:var(--display);font-weight:500;font-size:clamp(24px,3vw,34px)">Two true things, said past each other for four minutes</h3>
-      <div class="two">
-        <div style="display:grid;gap:16px">
-          <span class="eyebrow" style="color:rgba(255,255,255,.6)">What the teachers said</span>
-          <p class="small">"If it comes from my own head, if I plan it in myself, why do I get nothing for it?" · "Why is pair reading a <i>must</i>? Can't a teacher be ill?" · "Take those two items out, they're costing us marks." · "Our hands and feet are tied. Do your own activity, it's on the board, and the marks drop. In front of you people we've become zero." · And the last word of the day: "Don't bind the teacher. Give extra marks. Don't cut."</p>
-          <div class="clip" data-src="audio/staffroom_09.mp3"><button type="button" aria-label="Play: "If it's my own idea, why no marks?"">▶</button><div class="meta"><b>"If it's my own idea, why no marks?"</b><span>A teacher, then Haroon's rubric · 30:34 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
-          <div class="clip" data-src="audio/staffroom_12.mp3"><button type="button" aria-label="Play: "Our hands and feet are tied"">▶</button><div class="meta"><b>"Our hands and feet are tied"</b><span>A teacher · 37:16 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
+    <details class="fold">
+      <summary><b>Open the four complaints</b><span>the plans, the coach and the score, with the audio</span></summary>
+      <div class="buckets">
+        <div class="bucket">
+          <h3>K-5 lesson plans</h3>
+          <span class="pb">Track B · content fit, trust in the product</span>
+          <ul>
+            <li><b>Three plans, one page.</b> The boxes for slower and faster children read as three plans at once.<span class="ur">کچھ ادھر لکھا ہوا ہوتا ہے، کچھ نیچے، کچھ اوپر</span></li>
+            <li><b>Who wrote this, really?</b> Teachers said an AI that does not know their classrooms made it. Haroon said our team did.</li>
+            <li><b>Nothing for three groups.</b> One teacher already runs three levels, and the plan has nothing for them.</li>
+            <li><b>The content feels foreign.</b> A morning dance, "Pinky and Joseph" where Ali and Sana would do, superheroes instead of Fatima Jinnah.</li>
+            <li><b>Two periods, not one.</b> "It takes two full periods, try it yourself."</li>
+          </ul>
+          <div class="clip" data-src="audio/staffroom_03.mp3"><button type="button" aria-label="Play: "Not the AI's job" / "It isn't AI"">▶</button><div class="meta"><b>"Not the AI's job" / "It isn't AI"</b><span>A teacher, then Haroon · 18:08 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
+          <div class="clip" data-src="audio/staffroom_11.mp3"><button type="button" aria-label="Play: Morning dance, Pinky and Joseph">▶</button><div class="meta"><b>Morning dance, Pinky and Joseph</b><span>A teacher · 35:08 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
         </div>
-        <div style="display:grid;gap:16px">
-          <span class="eyebrow" style="color:rgba(255,255,255,.6)">What Haroon said</span>
-          <p class="small">The same request came two weeks ago. The rubric already credits substitutions: half for partial, full for done, full for something better, full for something equivalent. Independent practice is a must because it is what Islamabad classrooms lack most. The score is pacing guidance: warm-up three to five minutes, then explanation, then the children work alone. And, before all of it, the appeal: "Nobody wakes up in the morning deciding to ruin your day. One day you will pray for this, not curse it."</p>
-          <div class="clip" data-src="audio/staffroom_08.mp3"><button type="button" aria-label="Play: "Nobody wakes up to ruin your day"">▶</button><div class="meta"><b>"Nobody wakes up to ruin your day"</b><span>Haroon · 29:07 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
+        <div class="bucket">
+          <h3>6 to 12 lesson plans</h3>
+          <span class="pb">Track B · content fit</span>
+          <ul>
+            <li><b>Notes, not a plan.</b> Exam question banks sit after the plan, so the whole file reads as the plan.<span class="ur">وہ یہ نوٹس ٹائپ ہے نا، یہ لیسن پلان نہیں ہے</span></li>
+            <li><b>Three masters, no time.</b> "We follow <abbr class="ind" data-ind="NIETE">NIETE</abbr>, the SLOs and FDE. There is no time left to teach." Haroon: lining them up is our job.</li>
+            <li><b>Promised on the tape.</b> A shorter plan on teachers' phones "next week", and the 6 to 12 plans cut down.</li>
+          </ul>
+          <div class="clip" data-src="audio/staffroom_05.mp3"><button type="button" aria-label="Play: "New format next week" / "That's notes, not a plan"">▶</button><div class="meta"><b>"New format next week" / "That's notes, not a plan"</b><span>Haroon, then a teacher · 24:48 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
+        </div>
+        <div class="bucket">
+          <h3>AI coach</h3>
+          <span class="pb">Track C · coaching feedback quality</span>
+          <ul>
+            <li><b>Fifteen became the rule.</b> Teachers were told to send 15 minutes, so they send a slice, then ask how a slice can judge a lesson.</li>
+            <li><b>Follow-up questions get dropped.</b> After class the coach asks question after question while the teacher is in the next room. "I just stop."</li>
+            <li><b>No sick days allowed.</b> Daily pair reading counts against the score, even on a bad day.<span class="ur">اس کو مسٹ کیوں کیا … کوئی ٹیچر بیمار نہیں ہو سکتی</span></li>
+            <li><b>Stress with our name.</b> A colleague refused to record, then sent a sorry voice message from home, and named the programme.</li>
+            <li><b>Numbers are for you.</b> "The numbers are for you and Moiz. We came here to teach children."</li>
+          </ul>
+          <div class="clip" data-src="audio/staffroom_06.mp3"><button type="button" aria-label="Play: The 15-minute contradiction">▶</button><div class="meta"><b>The 15-minute contradiction</b><span>A teacher and Haroon · 26:50 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
+          <div class="clip" data-src="audio/staffroom_10.mp3"><button type="button" aria-label="Play: "Question after question. I just stop."">▶</button><div class="meta"><b>"Question after question. I just stop."</b><span>A teacher · 33:47 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
+        </div>
+        <div class="bucket">
+          <h3>Fidelity scoring</h3>
+          <span class="pb">Track D · coaching feedback quality, trust in the product</span>
+          <ul>
+            <li><b>Own ideas earn nothing.</b> Fidelity means how closely the lesson followed its plan, and teachers ask why an idea of their own gets nothing.</li>
+            <li><b>The rubric says otherwise.</b> Haroon: half a mark for partly done, a full mark for done, and a full mark for something better or equal.</li>
+            <li><b>Hands and feet tied.</b> Do your own activity, it is on the board, and the marks drop.<span class="ur">ہمارے ہاتھ پاؤں بندھے ہوئے ہیں</span></li>
+            <li><b>Add marks, don't cut.</b> At the end Haroon and Moiz said the lesson they watched beat its plan. A teacher: then give extra marks, don't cut.</li>
+          </ul>
+          <div class="clip" data-src="audio/staffroom_09.mp3"><button type="button" aria-label="Play: "If it's my own idea, why no marks?"">▶</button><div class="meta"><b>"If it's my own idea, why no marks?"</b><span>A teacher, then Haroon's rubric · 30:34 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
           <div class="clip" data-src="audio/staffroom_15.mp3"><button type="button" aria-label="Play: "You did better than the plan" / "Then don't cut, add"">▶</button><div class="meta"><b>"You did better than the plan" / "Then don't cut, add"</b><span>Haroon and Moiz, then a teacher · 50:50 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
         </div>
       </div>
-      <p class="small" style="margin-top:22px;max-width:70ch"><b style="color:#fff">Where it landed: nowhere.</b> The rubric Haroon described and the experience the teachers described were never reconciled on tape, because nobody opened a scored session to check which was true. The next chapter does that. A teacher's request that someone from NIETE come and teach an ideal plan as a real class got "for now" and no commitment.</p>
-    </div>
+      <div class="callout" style="margin-top:22px;max-width:none"><b>Said among themselves while we were out</b> At 07:07 one teacher told another: you need it when you have to teach bio or chemistry, not when you teach your own subject. We think "it" is the plan. The tape does not say, so we hold this loosely. The rest of those ten minutes was private staff matters. At 14:30 a teacher noticed the recorder and asked for it to be switched off. Fair.</div>
+    </details>
 
-    <div class="two wide-right" style="margin-top:44px">
-      <div class="prose reveal">
-        <h3>The exam, and what actually shifted</h3>
-        <p>At the thirty-eighth minute the conversation turned to the grade-5 paper. FDE used to send a full format: which stories, which paragraphs, which applications. This year, nothing. Teachers want the template back; they are sure application writing will come.</p>
-        <p>Haroon did not say the exam would be set from these plans. What he said was that FDE's people had read every chapter of the National Book Foundation text and built the syllabus on it, that the SLO list on every page carries the writing forms, and then he had them open the plan on their phones and walked its parts: words and meanings, reading, figurative language, comprehension, a short speech, an application. The old memorised letter format, he said, is gone on purpose, and this is FDE's attempt to move off it.</p>
-        <p>The room shifted. The questions changed from "what's the format" to "how will my bottom fifteen cope" and "how do I teach application", and he coached it: parts first, in Urdu, said aloud, then written. One teacher's acceptance was compliance, not conversion: "We followed FDE's format then; we follow what you make us follow now." It was a turn, not a flip.</p>
-      </div>
-      <div style="display:grid;gap:14px">
-        <div class="clip" data-src="audio/staffroom_13.mp3"><button type="button" aria-label="Play: "FDE read every chapter" / "FDE used to send the format"">▶</button><div class="meta"><b>"FDE read every chapter" / "FDE used to send the format"</b><span>Haroon, then a teacher · 38:25 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
-        <div class="clip" data-src="audio/staffroom_14.mp3"><button type="button" aria-label="Play: "We followed FDE then, we follow you now"">▶</button><div class="meta"><b>"We followed FDE then, we follow you now"</b><span>A teacher, then Haroon · 42:49 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
-        <div class="callout"><b>A parent's signal</b> Children go home and say the teacher was on her mobile. A mother asked what school is for if the teacher says "here's the topic, make it from there". A phone-based plan is visible to children, and parents read it as neglect. Nothing in the data would have shown us this.</div>
-        <div class="callout"><b>Lost content</b> The early-years focal teacher asked where the old phonics lessons went, "the very good ones, the ones with sound". They no longer appear in the app.</div>
-      </div>
-    </div>
+    <details class="fold">
+      <summary><b>The exam, and what changed in the room</b><span>38:14 to 51:24, with the audio</span></summary>
+      <p>At 38 minutes the talk turned to the grade 5 paper. <abbr class="ind" data-ind="FDE">FDE</abbr>, the office that runs Islamabad's government schools, used to send the exam format: which stories, which paragraphs, which applications. This year, nothing.</p>
+      <p>Haroon did not say the exam would come from our plans. He said FDE had read every chapter of the textbook and built the syllabus on it, and that the lesson goals, called <abbr class="ind" data-ind="SLO">SLOs</abbr>, list the writing forms. Then he had them open a plan on their phones and walked its parts: words, reading, comprehension, a speech, an application. The old memorised letter is gone on purpose.</p>
+      <p>The room changed. "What is the format" became "how do I teach application" and "how will my fifteen weakest cope". Haroon coached it: parts first, in Urdu, aloud, then written. One teacher's yes was compliance, not conversion: "We followed FDE's format then. We follow what you make us follow now."</p>
+      <div class="clip" data-src="audio/staffroom_13.mp3"><button type="button" aria-label="Play: "FDE read every chapter" / "FDE used to send the format"">▶</button><div class="meta"><b>"FDE read every chapter" / "FDE used to send the format"</b><span>Haroon, then a teacher · 38:25 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
+      <div class="clip" data-src="audio/staffroom_14.mp3"><button type="button" aria-label="Play: "We followed FDE then, we follow you now"">▶</button><div class="meta"><b>"We followed FDE then, we follow you now"</b><span>A teacher, then Haroon · 42:49 · <span class="time"></span></span><div class="bar"><i></i></div></div></div>
+      <div class="callout"><b>A parent's signal</b> Children go home and say the teacher was on the phone. A mother asked what school is for if the teacher says "here is the topic, make it from there". No data would have shown us this.</div>
+      <div class="callout"><b>Lost content</b> The early-years teacher asked where the old phonics lessons went, "the very good ones, the ones with sound". They no longer show in the app.</div>
+    </details>
 
-    <div class="callout reveal" style="margin-top:36px;max-width:none">
-      <b>Not on the tape</b>
-      Some of what we remembered from the room is not on the recording, and this report does not claim it. The complaint about a "Journey Through the Text" lesson asking a paragraph from page 84 and questions from page 85 is not there (only page 83 is mentioned, in a related grievance about a paragraph lesson); nor is a teacher unable to find the pre-reading pictures; nor a live demo of zooming into one box of the plan and losing the rest (the format complaint is there, the demo is not); nor any teacher praising the voicenotes. These may have happened off-mic in the classrooms or in the ten minutes we were out of the room. They are recorded here as recollection, not evidence.
-    </div>
+    <div class="callout reveal" style="margin-top:36px;max-width:none"><b>Not on the tape</b> Four things we remember are not on the recording: the page 84 and 85 complaint, a zoom demo on the plan, praise for the voice notes, and an "attitude flip" at the exam. Recollection, not evidence.</div>
+
+    <p class="tease">The room said the score punishes a better idea, nobody opened a scored lesson to check, so after lunch we did.</p>
   </section>
 
-    <!-- ============================================================ CH 5b: THE SCORES -->
+    <!-- ============================================================ CH 5: THE SCORES (v2) -->
   <section class="chapter" id="fidelity">
     <div class="chapter-head">
-      <span class="eyebrow">Tuesday afternoon · the four session records, opened</span>
-      <div class="t"><span class="clock">After lunch</span><h2>The staff room said the scoring punishes a better idea. The records say something more specific.</h2></div>
-      <p class="lede">Nobody in the staff room opened a scored session to settle the argument. We did. Four records of two lessons: what the machine wrote before a coach touched it, what the coaches changed, and what the room actually contained.</p>
+      <span class="eyebrow">Tuesday afternoon · the four scored records of the two lessons, opened</span>
+      <div class="t"><span class="clock">After lunch</span><h2>Same lesson, two phones, two different scores</h2></div>
+      <p class="lede">The staff room said the score punishes a better idea, and nobody could settle it. So we opened the four records of the two lessons we had just watched, and found something more specific.</p>
+      <p class="playbook"><b>Playbook</b> Layer 2 · Product deep-dive, the room's hypothesis tested against the records · Layer 4 root cause: product bug or UX friction, plus coaching feedback quality</p>
     </div>
 
-    <div class="two">
-      <figure class="figure reveal"><img src="img/charts/09_two_phones.png" alt="Lesson-plan fidelity out of 40: same lesson, two phones, then after coach corrections" width="1600" height="874" loading="lazy" decoding="async"><figcaption><b>The scorer disagrees with itself before anyone disagrees with it.</b> Same room, same thirty minutes. Part of the gap is real: Moiz's recording of Raheela's lesson is missing four minutes fifty, and nothing in the pipeline noticed. The rest is the model reading the same audio twice.</figcaption></figure>
-      <figure class="figure reveal"><img src="img/charts/12_b_indicators_two_phones.png" alt="Ten fidelity indicators, one lesson, two recordings" width="1600" height="874" loading="lazy" decoding="async"><figcaption><b>Where the indicators split.</b> On Moiz's phone the machine gave "use of prescribed resources" a 1 because it heard no Taleemabad video or worksheet. The plan's own resource list is chalk, board, textbook, notebook. All four are in the photographs.</figcaption></figure>
+    <div class="open">
+      <p>Each lesson was recorded on two phones, Haroon's and Moiz's. So each lesson has two records, scored by the same machine. Fidelity means how closely the lesson followed its plan. It is scored out of 40. Here is what the four records showed.</p>
+
+      <ol class="findings">
+        <li><b>Two phones, two scores.</b> Before any coach touched them, Raheela's lesson scored 13 on Haroon's phone and 10 on Moiz's. Saima's scored 25 and 20. Part of the gap is a hole of 4 minutes 50 seconds in Moiz's recording of Raheela, and nothing in the pipeline noticed it. The rest is the model reading the same lesson twice and reading it differently.</li>
+        <li><b>The scorer cannot see the board.</b> Both plans have a step that says "write it on the board". Both boards were done, and a photo of each board was attached to the record. On all four records the machine wrote that it could not judge that step, because writing makes no sound, and gave it nothing. Moiz then flipped it by hand on both of his records. A bug card, BUG-173, now names this.</li>
+        <li><b>The verdict that never fires.</b> The scoring has a verdict called "substituted better", for when a teacher does something different that works as well or better. Across all four records the machine used it zero times. Every "substituted better" in today's records was typed in by a coach afterwards. Raheela's act-and-guess game was counted as "not done".</li>
+        <li><b>What it costs.</b> Moiz flipped 6 of 8 verdicts on his record of Raheela. The coaches flipped 4 of 10 on each record of Saima. Correcting one observation properly took roughly 20 to 25 minutes per indicator touched. And when a coach flips a verdict, the machine's written reason stays. Raheela's record now says "substituted better" right next to "there is no identifiable exit check".</li>
+      </ol>
+
+      <figure class="figure"><div class="chart" data-chart="09_two_phones" role="figure" aria-label="The same lesson recorded on two phones got two different machine scores"><noscript><img src="img/charts/09_two_phones.png" alt="The same lesson recorded on two phones got two different machine scores" width="1600" height="874" loading="lazy" decoding="async"></noscript></div><figcaption><b>Same room, same half hour, two numbers.</b> Each lesson has a machine score from each phone, and a score after the coach's corrections. Moiz's phone missed 4 minutes 50 seconds of Raheela's lesson, and the machine read the rest differently too.</figcaption></figure>
+      <figure class="figure"><div class="chart" data-chart="12_b_indicators_two_phones" role="figure" aria-label="Ten fidelity indicators for one lesson, scored from two phones"><noscript><img src="img/charts/12_b_indicators_two_phones.png" alt="Ten fidelity indicators for one lesson, scored from two phones" width="1600" height="874" loading="lazy" decoding="async"></noscript></div><figcaption><b>Where the two readings of Raheela's lesson split.</b> Each bar is one of the ten fidelity indicators, scored 1 to 4. On Moiz's phone the machine gave "use of prescribed resources" a 1 because it heard no video or worksheet, but the plan only asks for chalk, board, textbook and notebook, and all four are in the photos.</figcaption></figure>
+      <p class="small">Hover over or tap any bar to see what that indicator means.</p>
     </div>
 
-    <div class="three reveal" style="margin-top:44px">
-      <div class="bucket">
-        <h3>1 · It cannot see the board, and it has the photo</h3>
-        <p class="small">Move m3 in both plans is "before class, write it on the board". Both machine runs marked it "not adjudicable: a silent action". The coaches' boards, photographed and uploaded with the sessions, show it done. The move is flagged <span class="kbd">observable_in_photo: true</span> in the moves table. A card filed this morning, BUG-173, names the class: "the scorer penalises what the microphone didn't hear."</p>
-        <picture><source type="image/webp" srcset="img/cls_saima_moiz_1.webp"><img src="img/cls_saima_moiz_1.jpg" alt="Saima's whiteboard: WHO hunt for a name, WHERE hunt for a place, WHY you must reason, the word wall and three portraits" width="1400" height="788" loading="lazy" decoding="async"></picture>
-      </div>
-      <div class="bucket">
-        <h3>2 · "Better" exists, and it is used by coaches, not the machine</h3>
-        <p class="small">The verdict <span class="kbd">substituted_better</span> is real, and the staff room was told so. Across four machine runs of two lessons it fired on zero moves. Every "better" in today's records was written by a coach afterwards: three by Moiz on Raheela, three on Saima. The engine can say it. So far it has only ever agreed when a human said it first.</p>
-        <p class="small">And when a coach overrides, the machine's reasons stay. Raheela's exit check now reads "substituted better" beside "there is no identifiable exit check". Whoever reads that record next, including the teacher, gets both.</p>
-      </div>
-      <div class="bucket">
-        <h3>3 · Two scores that do not add up, on purpose</h3>
-        <p class="small">A coach corrects ten indicators, B1 to B10, each out of four. The fidelity domain score the teacher sees is not their sum. It is derived from the move verdicts. Raheela's B-indicators on Haroon's recording sum to 29 of 40; her fidelity score is 13. Moiz's corrections moved zero indicator points and thirteen fidelity points. Two coaches spent an afternoon correcting a set of numbers the score does not read.</p>
-        <img src="img/charts/11_correction_cost.png" alt="Correction cost: 37 indicators, about 22 minutes each, three observations today" width="1600" height="834" loading="lazy" decoding="async">
-      </div>
-    </div>
+    <details class="fold">
+      <summary><b>What every score word means</b><span>fidelity, moves, the five verdicts, and the ten B indicators</span></summary>
+      <dl class="defs">
+        <dt>Fidelity</dt><dd>How closely the lesson followed its plan. Scored out of 40.</dd>
+        <dt>A move</dt><dd>One step the plan asks for, like "read the story aloud" or "give an exit check". Raheela's plan has 8 moves and Saima's has 10. Homework is listed but not counted.</dd>
+        <dt>Done</dt><dd>The teacher did the step as the plan asked. Full credit, 1.</dd>
+        <dt>Partly</dt><dd>Some of the step happened. Half credit, 0.5.</dd>
+        <dt>Not done</dt><dd>The step did not happen. No credit, 0.</dd>
+        <dt>Substituted better</dt><dd>The teacher did something different that worked as well or better. Full credit, 1. The machine is allowed to give this verdict. Today it never did.</dd>
+        <dt>Can't judge</dt><dd>The recording cannot show whether the step happened, like writing on a board in silence. The step is left out of the count. The machine calls this "not adjudicable".</dd>
+        <dt><abbr class="ind" data-ind="B1">B1</abbr> Instructional clarity and objectives</dt><dd>Did the teacher say what the lesson was for, and come back to it.</dd>
+        <dt><abbr class="ind" data-ind="B2">B2</abbr> Lesson structure and sequence</dt><dd>Did the lesson go "I do, we do, you do", in that order.</dd>
+        <dt><abbr class="ind" data-ind="B3">B3</abbr> Activities and tasks alignment</dt><dd>Did the activities match the learning goal.</dd>
+        <dt><abbr class="ind" data-ind="B4">B4</abbr> Activation of prior knowledge</dt><dd>Did the teacher connect to what the children already knew.</dd>
+        <dt><abbr class="ind" data-ind="B5">B5</abbr> Real-world connections</dt><dd>Did the lesson link to the children's own lives.</dd>
+        <dt><abbr class="ind" data-ind="B6">B6</abbr> Differentiation</dt><dd>Did children who were behind or ahead get a different task.</dd>
+        <dt><abbr class="ind" data-ind="B7">B7</abbr> Use of the Taleemabad lesson plan</dt><dd>Did the teacher use the plan at all.</dd>
+        <dt><abbr class="ind" data-ind="B8">B8</abbr> Use of prescribed resources</dt><dd>Did the teacher use the materials the plan lists.</dd>
+        <dt><abbr class="ind" data-ind="B9">B9</abbr> Time on task</dt><dd>How much of the lesson the children spent working.</dd>
+        <dt><abbr class="ind" data-ind="B10">B10</abbr> Closure and consolidation</dt><dd>Did the lesson end with a recap, or a check that the children got it.</dd>
+        <dt>How the B score is worked out</dt><dd>Each of <abbr class="ind" data-ind="B1">B1</abbr> to <abbr class="ind" data-ind="B10">B10</abbr> is scored 1 to 4, but the fidelity score out of 40 is not their sum. It is worked out from the moves. The machine adds up the move credits, divides by the number of moves it counted, and scales that to 40. So Raheela's B1 to B10 on Haroon's phone add up to 29, and her fidelity score is 13. When Moiz corrected his record of Raheela, he did not change a single B indicator, and her fidelity score went from 10 to 26.</dd>
+      </dl>
+    </details>
 
-    <div class="two wide-left" style="margin-top:44px">
-      <div class="prose reveal">
-        <h3>The staff room's own example, checked</h3>
-        <p>The first complaint on the staff-room tape was that the same recording, sent twice, scored 30% and 53%. Haroon's explanation was that one upload linked a lesson plan and the other did not. The linking method on every session today is <span class="kbd">selected_recent</span>: the plan attached is the most recent one the teacher pulled, whether or not it is the lesson she taught. Raheela pulled hers the night before, so it matched. Samina Saleem's 7.5% on 31 August, the number that put her at the top of the pre-visit list, sits under the same method.</p>
-        <p>Then the recording-length problem. Teachers said they had been told to send fifteen minutes; fifteen is the minimum. On a fifteen-minute file, independent practice is almost always in the missing half, and the score says so. The staff room heard "the score punishes us for what you told us to do" and, on this point, they were right.</p>
-      </div>
-      <div style="display:grid;gap:14px">
-        <div class="callout"><b>Recording integrity is a fidelity input.</b> A 4:50 gap in one file and a 15-minute file that stops before the practice block both produce confident "not done" verdicts. Neither is a teaching finding.</div>
-        <div class="callout"><b>What the machine got right today.</b> On Haroon's audio it correctly gave Raheela's independent practice nothing and said why. It read Saima's WHO think-aloud and the -an word family correctly. Its coaching narratives named the right growth areas, collaborative learning and open questioning, in both rooms, and Moiz's debrief matched them.</div>
-      </div>
-    </div>
+    <details class="fold">
+      <summary><b>The four records, side by side</b><span>machine score, coach score, flips, and length of audio</span></summary>
+      <div class="scroll"><table class="table">
+        <thead><tr><th>Record</th><th>Machine fidelity, out of 40</th><th>After coach</th><th>Verdicts flipped by coach</th><th>Audio length</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Raheela, Haroon's phone</td><td class="n">13</td><td class="n">13, not yet reviewed</td><td class="n">none yet</td><td class="n">33:18</td><td>The full lesson. The machine gave the act-and-guess game nothing, and said why.</td></tr>
+          <tr><td>Raheela, Moiz's phone</td><td class="n">10</td><td class="n">26</td><td class="n">6 of 8</td><td class="n">28:29</td><td>Missing 4 minutes 50 seconds in the middle, including the hook. Nothing flagged it. <abbr class="ind" data-ind="B1">B1</abbr> to <abbr class="ind" data-ind="B10">B10</abbr> were not changed.</td></tr>
+          <tr><td>Saima, Haroon's phone</td><td class="n">25</td><td class="n">24</td><td class="n">4 of 10</td><td class="n">25:07</td><td>Started 3 minutes 22 seconds late, after the warm-up. The transcript ran the last 22 minutes as one teacher turn.</td></tr>
+          <tr><td>Saima, Moiz's phone</td><td class="n">20</td><td class="n">24</td><td class="n">4 of 10</td><td class="n">28:30</td><td>The full lesson. Moiz also changed 14 other indicators, and lowered every engagement indicator from 3 to 2.</td></tr>
+        </tbody>
+      </table></div>
+      <p class="small">Machine scores are the record's own autofill fields, before any edit. "After coach" is the saved score. Flips come from the record's edit summary. Audio length is the duration stored on the record.</p>
+      <figure class="figure"><div class="chart" data-chart="11_correction_cost" role="figure" aria-label="Correcting one observation properly takes a coach over an hour"><noscript><img src="img/charts/11_correction_cost.png" alt="Correcting one observation properly takes a coach over an hour" width="1600" height="834" loading="lazy" decoding="async"></noscript></div><figcaption>Roughly 20 to 25 minutes per indicator touched, and three records were corrected today.</figcaption></figure>
+    </details>
+
+    <p class="tease">Then some good news arrived, from a feature nobody had announced.</p>
   </section>
 
 
-  <!-- ============================================================ CH 6: DECISIONS -->
+  <!-- ============================================================ CH 7: DECISIONS -->
   <section class="chapter" id="decisions">
     <div class="chapter-head">
-      <span class="eyebrow">Tuesday · Google Meet, 75 minutes, fifteen people</span>
-      <div class="t"><span class="clock">15:15</span><h2>What was decided by four o'clock</h2></div>
-      <p class="lede">The "ICT Decisions" call happened three hours after the staff room emptied. The transcript is in the meetings corpus; these are its decisions, with the Notion cards that carry them.</p>
+      <span class="eyebrow">Tuesday · Google Meet with the ICT team · 75 minutes, fifteen people</span>
+      <div class="t"><span class="clock">15:15</span><h2>The same afternoon, we decided what to do</h2></div>
+      <p class="lede">A visit that ends in a report is only half done. Like our daily data posts, an investigation has to end in actions, each with a guess about what will change and a number to check. So we met the regional team three hours after the staff room emptied, while it was fresh.</p>
+      <p class="playbook"><b>Playbook</b> Layer 4, synthesis · one root cause per item, one owner, a date</p>
     </div>
 
-    <div class="three">
-      <div class="bucket reveal">
-        <h3>The lesson-plan format changes</h3>
-        <ul>
-          <li><b>Decided, no dissent.</b> Font up, length down, the cleaner 6–12 layout adopted for K-5. Haroon showed that a readable font size balloons a plan to 16–20 pages; the room agreed the current format is "wonky and too long".</li>
-          <li><b>Data first.</b> Sabeen analyses the fidelity data through the MCP to see which sections teachers actually skip or replace, due Wednesday. Ramisha and Sabeen then produce a line-by-line condensed sample plan this week, to push updated plans next week.</li>
-          <li><b>Already on the board.</b> TASK-163, filed 20 August: "teachers calling the new LP format complex, hard to read, preferring the old straight-flow format".</li>
-          <li><b>The survey behind it.</b> 4 September, 1,224 ICT teachers: NPS −40. Teachers who said the product "saves effort" rated it 7.2 of 10; "adds effort", 4.2.</li>
-        </ul>
+    <div class="open">
+      <div class="buckets">
+        <div class="bucket reveal">
+          <h3>Shorter lesson plans</h3>
+          <ul>
+            <li><b>Decided, nobody against.</b> Bigger font, fewer pages, and the cleaner grade 6 to 12 layout for grades 1 to 5 too. Haroon showed that a readable font turns today's plan into 16 to 20 pages. The room agreed it is too long.</li>
+            <li><b>Data first.</b> Sabeen checks the fidelity data to see which parts teachers skip or replace, by Wednesday. Then Sabeen and Ramisha write a condensed sample this week, with updated plans next week.</li>
+            <li><b>Already on the board.</b> Card TASK-163, filed 20 August: teachers find the new format hard to read.</li>
+            <li><b>The survey says the same.</b> 1,224 ICT teachers on 4 September: <abbr class="ind" data-ind="NPS">NPS</abbr> of minus 40.</li>
+          </ul>
+        </div>
+        <div class="bucket reveal">
+          <h3>Fidelity scoring</h3>
+          <ul>
+            <li><b>The scale.</b> The scoring is moving from 0, half and 1 to just 0 or 1. The team was not sure why. Haroon asked Amena and Rifat to get the reasoning from Ali this week, so everyone works from the same answer.</li>
+            <li><b>The loophole closes.</b> Teachers had learned that not attaching a plan gives a kinder score. That path closes. Amena and Rifat design what replaces it.</li>
+            <li><b>Filed today.</b> Bug BUG-173: the scorer marks down what the microphone could not hear. Two of our four records are textbook cases.</li>
+          </ul>
+        </div>
+        <div class="bucket reveal">
+          <h3>A smaller FICO</h3>
+          <ul>
+            <li><b>The problem.</b> Almost every Islamabad teacher scores between 55 and 70 percent. Nobody ever gets a 4. "Even the best teacher in the world cannot get above 70."</li>
+            <li><b>The decision.</b> Ship a trimmed set of indicators as FICO v5 this week, even if imperfect. Amena, Rifat and Abdul Waheed own it. Nine of the 37 indicators never change from teacher to teacher.</li>
+            <li><b>The hidden cost.</b> Correcting one observation properly takes about 20 to 25 minutes per indicator touched. Three records were corrected today.</li>
+          </ul>
+        </div>
       </div>
-      <div class="bucket reveal">
-        <h3>Fidelity scoring under the microscope</h3>
-        <ul>
-          <li><b>The scale.</b> A decision had been taken elsewhere to move from 0 / 0.5 / 1 to binary 0 / 1. Haroon questioned it: with binary scores, which of many zeros gets the feedback? Amena and Rifat to get the rationale from Ali this week.</li>
-          <li><b>The hack, closed.</b> Teachers had learned that not attaching a plan yields a zero on fidelity but a kinder score on the old Section B. That path closes; Amena and Rifat design what replaces it, "N/A" or "zero with a reason".</li>
-          <li><b>Already filed today.</b> BUG-173: "the scorer penalises what the microphone didn't hear". Two of our four sessions are textbook cases of it.</li>
-        </ul>
-      </div>
-      <div class="bucket reveal">
-        <h3>FICO gets a smaller version</h3>
-        <ul>
-          <li><b>The problem stated.</b> Almost every Islamabad teacher sits between 55% and 70%; nobody ever scores a 4. "Even the best teacher in the world, Taleemabad cannot give me a score above 70."</li>
-          <li><b>The decision.</b> Ship the trimmed set as "FICO v5" this week even if imperfect. Amena, Rifat and Abdul Waheed own it. RES-084 has a 26-indicator v4 on staging (37 live), which scores roughly half of v3 on identical evidence; RES-054 found 9 of the 37 indicators never vary at all.</li>
-          <li><b>The cost nobody has on a card.</b> Correcting one observation properly took roughly 20–25 minutes per indicator touched. Moiz did three today.</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="two wide-left" style="margin-top:36px">
-      <figure class="figure reveal"><img src="img/charts/10_quiz_funnel.png" alt="Transcript-quiz funnel: 1,199 offered, 305 sent, 493 children opened one, 391 completed" width="1600" height="823" loading="lazy" decoding="async"><figcaption><b>The one piece of good news in the room.</b> A quiz generated from the teacher's own AI-coach transcript, launched with no announcement on Saturday evening. By Tuesday afternoon 493 children had opened one and 391 had finished. Haroon took it on as temporary owner; Hasnat gathers teacher feedback this week.</figcaption></figure>
-      <div class="prose reveal">
-        <h3>Why the quiz matters to the rest of this report</h3>
-        <p>Every teacher in the staff room said they record lessons for the AI coach because they were asked to, and that the score frightens them. A quiz that their own children take, built from that same recording, is the first thing that makes the recording worth something to the teacher other than a mark.</p>
-        <p>The numbers are two days old and small. But 118 teachers have already reached a student through it, one in four of the teachers who were offered one sent it on, and nobody told them to.</p>
+      <div class="two wide-left" style="margin-top:28px">
+        <figure class="figure reveal"><div class="chart" data-chart="10_quiz_funnel" role="figure" aria-label="The transcript quiz: 1,199 offered, 305 sent on, 493 children opened one, 391 finished"><noscript><img src="img/charts/10_quiz_funnel.png" alt="The transcript quiz: 1,199 offered, 305 sent on, 493 children opened one, 391 finished" width="1600" height="823" loading="lazy" decoding="async"></noscript></div><figcaption><b>The good news in the room.</b> A quiz built from the teacher's own recorded lesson. It launched quietly on Saturday evening. By Tuesday afternoon 493 children had opened one and 391 had finished.</figcaption></figure>
+        <div class="prose reveal">
+          <h3>Why the quiz matters</h3>
+          <p>Every teacher in the staff room said they record lessons because they were told to, and that the score scares them. A quiz their own children can take, made from that same recording, is the first thing that makes recording worth something to the teacher other than a mark.</p>
+          <p>The numbers are two days old and small. But 118 teachers have already reached a child through it, and nobody told them to. Haroon owns it for now. Hasnat collects teacher feedback this week.</p>
+        </div>
       </div>
     </div>
+    <p class="tease">Decisions are promises. The next chapter turns them into numbers we can check in four weeks.</p>
   </section>
 
-  <!-- ============================================================ CH 7: WHERE NEXT -->
+  <!-- ============================================================ CH 8: EIGHT MOVES -->
   <section class="chapter" id="next">
     <div class="chapter-head">
-      <span class="eyebrow">Where do we go from here</span>
-      <div class="t"><h2>Eight moves, each with the number that will tell us it worked</h2></div>
-      <p class="lede">A recommendation without a metric is a wish. Each of these names what changes, who owns it, and the figure we will read in four weeks.</p>
+      <span class="eyebrow">What we will do, and how we will know it worked</span>
+      <div class="t"><h2>Eight moves, each with a number</h2></div>
+      <p class="lede">A recommendation without a number is a wish. Each move below says what changes, who owns it, our guess about why it will help, and the figure we will read in four weeks.</p>
     </div>
+    <div class="open">
+      <div style="display:grid;gap:16px">
+        <div class="rec reveal">
+          <div class="prose"><h3>1 · One screen per step: a shorter, straight-line plan</h3><p>Teachers zoom into one box on the phone and lose the rest. Today's plan is four dense pages for a 30-minute lesson. Keep the plan, cut the words: one screen per step. <span class="owner">Sabeen and Ramisha · sample this week, plans next week.</span></p><p class="hyp"><b>Our guess:</b> if the plan fits on the phone, the last step stops being the one that gets dropped.</p></div>
+          <div class="metric"><span class="eyebrow">The number</span><b class="big">Independent practice happens</b>Today it was "not done" on 3 of 4 machine reads. Target: done or partly done in more than half of ICT observations within four weeks of the new format.</div>
+        </div>
+        <div class="rec reveal">
+          <div class="prose"><h3>2 · A scorer that credits a better idea, and can read the board photo</h3><p>The score already has a "substituted better" verdict. The machine never gives it. It also marked "write the words on the board" as "can't judge" while the photo of that board sat in the same record. <span class="owner">Amena and Rifat · this week · BUG-173.</span></p><p class="hyp"><b>Our guess:</b> if the machine credits a good substitute and reads the photo, coaches stop rewriting its verdicts and teachers stop fearing it.</p></div>
+          <div class="metric"><span class="eyebrow">The number</span><b class="big">Under 2 coach changes per record</b>Today the coaches changed 6 of 8, 4 of 10 and 4 of 10 verdicts. And teacher <abbr class="ind" data-ind="NPS">NPS</abbr> climbing from minus 40.</div>
+        </div>
+        <div class="rec reveal">
+          <div class="prose"><h3>3 · A smaller FICO with an honest top</h3><p>37 indicators, a scale nobody reaches the top of, and a correction that costs a coach an afternoon. Ship the smaller set, drop the nine that never change, and rescale so a good lesson can score well. <span class="owner">Amena, Rifat, Abdul Waheed · this week.</span></p><p class="hyp"><b>Our guess:</b> fewer indicators means faster, more honest corrections, and a score teachers believe.</p></div>
+          <div class="metric"><span class="eyebrow">The number</span><b class="big">Under 20 minutes per correction</b>From over an hour today. And a top-quarter score above 80 percent, where today everyone sits between 55 and 70.</div>
+        </div>
+        <div class="rec reveal">
+          <div class="prose"><h3>4 · Make the recording earn something: the quiz</h3><p>Offer the quiz after every completed AI-coach recording, and say so in the plan's coaching corner. Later, worksheets and revision sheets from the same recording. <span class="owner">Haroon for now · Hasnat on teacher feedback this week.</span></p><p class="hyp"><b>Our guess:</b> when a recording gives the teacher something for their children, they record more and fear it less.</p></div>
+          <div class="metric"><span class="eyebrow">The number</span><b class="big">1 in 4 becomes 1 in 2</b>The share of offered quizzes a teacher sends on (305 of 1,199 today). And AI-coach recordings per active teacher per week going up, not flat.</div>
+        </div>
+        <div class="rec reveal">
+          <div class="prose"><h3>5 · Teach to the exam they are afraid of</h3><p>When the staff room heard that the grade 5 paper would be built from these plans and their goals, the mood turned. The principal asked for sample tests. Ask the Directorate what the February paper is. Until they answer, send grade 5 teachers a sample paper per chapter, built from the plans they already have. <span class="owner">Bilal with the Directorate · meeting Friday 11 September.</span></p><p class="hyp"><b>Our guess:</b> a plan that visibly prepares children for the exam gets taught, not just rated useful.</p></div>
+          <div class="metric"><span class="eyebrow">The number</span><b class="big">"Taught", not just "useful"</b>Only 11 of 33 feedback answers at this school said the plan was taught. Target: half. And grade 5 plan pulls holding through October to December.</div>
+        </div>
+        <div class="rec reveal">
+          <div class="prose"><h3>6 · Two phones, two scores: measure it</h3><p>Same room, same 30 minutes, two recordings, two different scores. Our reliability work so far re-scores the same transcript. It has never changed the microphone. <span class="owner">Evals · Sameer.</span></p><p class="hyp"><b>Our guess:</b> a good part of the "unfair score" complaint is the recording, not the model.</p></div>
+          <div class="metric"><span class="eyebrow">The number</span><b class="big">Within 2 points of 40</b>Agreement between two phones in the same room, on 20 lessons, before any coach edits.</div>
+        </div>
+        <div class="rec reveal">
+          <div class="prose"><h3>7 · When a coach changes a verdict, the reason changes with it</h3><p>Moiz set Raheela's exit check to "substituted better". The record still says "no exit check found". Whatever the teacher reads later must not argue with itself. <span class="owner">Product · small, this sprint.</span></p><p class="hyp"><b>Our guess:</b> a record that agrees with itself is a record a teacher can trust.</p></div>
+          <div class="metric"><span class="eyebrow">The number</span><b class="big">0</b>Records where a changed verdict still carries the old reason.</div>
+        </div>
+        <div class="rec reveal">
+          <div class="prose"><h3>8 · A one-page brief for the coach before every visit</h3><p>The coach forwarded our pre-visit brief to himself and asked for one every time. Ours was too long. The one-pager in the appendix is the shape. <span class="owner">Built into the school-visits playbook · ready now.</span></p><p class="hyp"><b>Our guess:</b> a coach who knows who to sit with does more observations per visit.</p></div>
+          <div class="metric"><span class="eyebrow">The number</span><b class="big">Every visit</b>Share of ICT coach visits that start with a brief, and observations per visit day.</div>
+        </div>
+      </div>
+    </div>
+    <p class="tease">You have read what we saw. Now tell us what you see.</p>
+  </section>
 
-    <div style="display:grid;gap:18px">
-      <div class="rec reveal">
-        <div class="prose"><h3>1 · One screen per phase: a shorter, linear lesson plan</h3><p>Teachers zoomed into one box on the phone and lost the rest. The plan is four dense pages for a 30-minute lesson. Keep the plan, cut the prose: one screen per phase, the five words and the three-part rule on the first screen, the exit ticket on the last. <span class="owner">Sabeen Fatima and Ramisha Riaz · decided 8 Sep · sample this week, plans next week.</span></p></div>
-        <div class="metric"><span class="eyebrow">Metric</span><b class="big">Independent practice actually happens</b><span>Today, move m6 (independent practice) scored "not done" on 3 of 4 machine reads. Target: executed or partial on more than half of ICT observations within four weeks of the new format, and the lesson-plan-fidelity median (B domain) rising from today's ICT baseline.</span></div>
-      </div>
-      <div class="rec reveal">
-        <div class="prose"><h3>2 · Fidelity that credits a better idea, and can see the board</h3><p>The engine already has a "substituted better" verdict. It fired on none of Raheela's eight moves on the recording where she had children act out the words. It also marked "write the five words on the board" as not adjudicable, with a photograph of that board attached to the session. Score what the teacher did against the intent of the move, and read the photo for the moves that are flagged observable-in-photo. <span class="owner">Amena Ahmed and Rifat Yasmeen · this week, per the 15:15 decision · BUG-173.</span></p></div>
-        <div class="metric"><span class="eyebrow">Metric</span><b class="big">Fewer coach overrides</b><span>Today the coaches changed 6 of 8, 4 of 10 and 4 of 10 machine verdicts to get to a score they could stand behind. Target: under 2 verdict changes per session on average, and teacher NPS climbing from −40.</span></div>
-      </div>
-      <div class="rec reveal">
-        <div class="prose"><h3>3 · FICO v5: fewer indicators, honest ceiling</h3><p>37 indicators, a scale nobody reaches the top of, and a correction that costs a coach an afternoon. Ship the smaller set, drop the nine that never vary, and rescale so a good lesson can score well. <span class="owner">Amena, Rifat, Abdul Waheed · this week · RES-084, RES-054.</span></p></div>
-        <div class="metric"><span class="eyebrow">Metric</span><b class="big">&lt; 20 min per correction</b><span>From roughly an hour-plus per observation today. And a top-quartile score above 80%, where today's ICT distribution sits between 55 and 70.</span></div>
-      </div>
-      <div class="rec reveal">
-        <div class="prose"><h3>4 · Make the recording earn something: the quiz as the reason to record</h3><p>Put the quiz offer on every completed AI-coach session and say so in the coaching corner of the plan. Later, worksheets and revision sheets from the same transcript. <span class="owner">Haroon (temporary owner) · Hasnat on teacher feedback this week.</span></p></div>
-        <div class="metric"><span class="eyebrow">Metric</span><b class="big">1 in 4 → 1 in 2</b><span>Share of offered quizzes a teacher sends on (305 of 1,199 today). And AI-coach sessions per active teacher per week, up, not flat.</span></div>
-      </div>
-      <div class="rec reveal">
-        <div class="prose"><h3>5 · Teach to the exam they are actually afraid of</h3><p>When Haroon told the staff room that the grade-5 paper would be built from these plans and their SLOs, the room's view of the plans turned. The principal asked for sample tests. Ask the Directorate what the February paper is; until they answer, send grade-5 teachers an SLO-mapped sample paper per chapter, generated from the plans they already have. <span class="owner">Bilal Sadiq with the Directorate · alignment meeting Friday 11 Sep.</span></p></div>
-        <div class="metric"><span class="eyebrow">Metric</span><b class="big">"Taught", not just "useful"</b><span>Only 11 of 33 answered feedback responses at this school said the plan was actually taught. Target: half. And grade-5 plan pulls per teacher holding through October–December, when the calendar pressure peaks.</span></div>
-      </div>
-      <div class="rec reveal">
-        <div class="prose"><h3>6 · Two phones, two scores: measure device reliability</h3><p>Same room, same 30 minutes, two recordings: the machine gave Raheela's fidelity 13 and 10 out of 40, Saima's 25 and 20. The reliability work so far (RES-054) re-scores the same transcript; it has not yet varied the microphone. <span class="owner">Evals · Sameer Sheikh.</span></p></div>
-        <div class="metric"><span class="eyebrow">Metric</span><b class="big">± 2 of 40</b><span>Agreement between two devices in the same room, on a sample of 20 lessons, before any coach edits.</span></div>
-      </div>
-      <div class="rec reveal">
-        <div class="prose"><h3>7 · When a coach overrides a verdict, the reason must change with it</h3><p>Moiz set Raheela's exit check to "substituted better"; the record still says "no identifiable exit check". Whatever the teacher later reads must not contradict itself. Re-write or clearly label the rationale on override. <span class="owner">Product · small, this sprint.</span></p></div>
-        <div class="metric"><span class="eyebrow">Metric</span><b class="big">0</b><span>Sessions where an edited verdict still carries its pre-edit rationale.</span></div>
-      </div>
-      <div class="rec reveal">
-        <div class="prose"><h3>8 · A brief for the coach before every visit</h3><p>The coach forwarded the pre-visit brief to himself and asked for one every time. Ours was too long. The one-pager below is the shape: who to sit with, why, three things to check, and the last visit's weakest indicators. <span class="owner">Automated from the school-visits skill · ready now.</span></p></div>
-        <div class="metric"><span class="eyebrow">Metric</span><b class="big">Every visit</b><span>Share of ICT coach visits that start with a brief, and observations per visit-day.</span></div>
-      </div>
+  <!-- ============================================================ CH 9: STICKY NOTES -->
+  <section class="chapter" id="notes">
+    <div class="chapter-head">
+      <span class="eyebrow">Your turn</span>
+      <div class="t"><h2>Leave a sticky note</h2></div>
+      <p class="lede">Agree, disagree, add what we missed, or just say hi. Notes show for everyone who opens this page. Put your name on it, or it will not post.</p>
+    </div>
+    <div class="open">
+      <form class="note-form" id="note-form" autocomplete="on">
+        <div class="row">
+          <label>Your name <input type="text" name="name" maxlength="40" required placeholder="Sabeena"></label>
+          <label>About <select name="chapter">
+            <option value="">The whole report</option>
+            <option value="before">The numbers before</option>
+            <option value="principal">The principal</option>
+            <option value="raheela">Raheela's lesson</option>
+            <option value="saima">Saima's lesson</option>
+            <option value="staffroom">The staff room</option>
+            <option value="fidelity">The scores</option>
+            <option value="decisions">The decisions</option>
+            <option value="next">The eight moves</option>
+          </select></label>
+          <label>Colour <span class="swatches"><input type="radio" name="color" value="gold" checked><i class="c-gold"></i><input type="radio" name="color" value="rose"><i class="c-rose"></i><input type="radio" name="color" value="mint"><i class="c-mint"></i><input type="radio" name="color" value="sky"><i class="c-sky"></i><input type="radio" name="color" value="paper"><i class="c-paper"></i></span></label>
+        </div>
+        <label>Your note <textarea name="body" maxlength="280" rows="3" required placeholder="What do you think?"></textarea></label>
+        <div class="row end"><span class="small" id="note-count">0 / 280</span><button type="submit" class="btn">Stick it</button></div>
+        <p class="small" id="note-msg" aria-live="polite"></p>
+      </form>
+      <div class="wall" id="wall" aria-live="polite"><p class="small">Loading notes…</p></div>
     </div>
   </section>
 
-  <!-- ============================================================ CH 8: METHOD + COACH BRIEF -->
-  <section class="chapter" id="method">
+  <!-- ============================================================ APPENDIX -->
+  <section class="chapter appendix" id="appendix">
     <div class="chapter-head">
-      <span class="eyebrow">How this was made</span>
-      <div class="t"><h2>The same evidence, every time</h2></div>
+      <span class="eyebrow">Appendix</span>
+      <div class="t"><h2>How this was made, and the coach's one-pager</h2></div>
     </div>
-    <div class="two">
-      <div class="prose reveal">
-        <p><b>Data.</b> Every number here came from the governed <span class="kbd">taleemabad-data</span> layer over <span class="kbd">Niete_Rumi_db</span>, rule versions 0.33.4 and 0.34.3, pulled 7–8 September. The lesson plans' moves came from <span class="kbd">niete_lp_fidelity_moves</span>; the plans themselves and their voicenotes from the lesson-plan cache; the four observation sessions, with their machine scores before and after coach edits, from <span class="kbd">coaching_sessions</span>.</p>
-        <p><b>Field.</b> Two phone recordings in each classroom, one in the principal's office, one in the staff room, transcribed with the same engine the product uses (Soniox, Urdu and English). Photographs of the boards. No child is identifiable on this page.</p>
-        <p><b>Afterwards.</b> The 15:15 meeting from the Extended Mind corpus; the Notion cards through the board's own API. The pre-visit brief, the charts and this page are produced by the <span class="kbd">school-visits</span> skill, which any teammate can run the evening before a visit with an EMIS code.</p>
-        <p class="small">Contains teacher names and classroom audio. Internal to Taleemabad and NIETE; do not forward outside.</p>
+    <details class="fold">
+      <summary><b>Where every number came from</b><span>data, field recordings, and the playbook</span></summary>
+      <div class="two" style="margin-top:18px">
+        <div class="prose">
+          <p><b>Data.</b> Every number here came from the team's governed data connection to the NIETE database, pulled on 7 and 8 September. The plan steps came from the fidelity moves table. The plans and their voice notes came from the lesson-plan cache. The four observation records, with the machine's scores before and after the coach's edits, came from the coaching sessions table.</p>
+          <p><b>Field.</b> Two phone recordings in each classroom, one in the principal's office, one in the staff room, written out by the same speech engine the product uses. Photos of the boards. No child can be identified on this page.</p>
+          <p><b>Afterwards.</b> The 15:15 meeting from our meeting notes. The Notion cards through the board itself. The brief, the charts and this page come from the school-visits playbook, which any teammate can run the evening before a visit.</p>
+          <p class="small">Contains teacher names and classroom audio. Internal to Taleemabad and NIETE. Please do not forward outside.</p>
+        </div>
+        <div class="bucket">
+          <h3>Where this visit sits in the playbook</h3>
+          <p class="small">Sabeena Abbasi's Teacher Low Usage Investigation Playbook: data first, product second, teacher last.</p>
+          <ul>
+            <li><b>Step 0, trigger.</b> Fewer than half the teachers active, flagged by the data pull.</li>
+            <li><b>Layer 1, analytics.</b> The night-before charts: where in the funnel usage drops.</li>
+            <li><b>Layer 2, deep-dive.</b> The written guess: "the plan is too long for one period".</li>
+            <li><b>Layer 3, interview.</b> The principal, two classrooms, the staff room. Tracks B and D mostly.</li>
+            <li><b>Layer 4, synthesis.</b> The 15:15 meeting: root causes, owners, dates, numbers.</li>
+          </ul>
+        </div>
       </div>
-      <div class="bucket reveal">
-        <h3>The coach's one-pager</h3>
-        <p class="small">What Moiz asked for: the half of the brief he reads in the car.</p>
+    </details>
+    <details class="fold">
+      <summary><b>The coach's one-pager</b><span>what Moiz asked for: the half of the brief you read in the car</span></summary>
+      <div class="bucket" style="margin-top:18px">
         <ul>
-          <li><b>Where.</b> IMCG Lohi Bher, EMIS 508, Sihala. Grades 1–12, 29 teacher accounts: 8 primary-only, 15 middle/high-only, 6 both.</li>
-          <li><b>The one line.</b> More plans than almost any ICT school; fewer than half the teachers make them. Three people carry the number. Seven of eight primary-only teachers have never started.</li>
-          <li><b>Sit with, in order.</b> Samina Saleem (102 plans, 7.5% fidelity on your last observation); Naheed Akhter (middle/high science, never recorded); one who has never started.</li>
-          <li><b>Check in the room.</b> Middle/high teachers pulling primary plans; the 6–12 menu (live since Sunday); the call-centre account on the roster.</li>
-          <li><b>From your last visits.</b> Collaborative learning 43 vs ICT 52, differentiation 35 vs 41. Look for any moment children work with each other.</li>
-          <li><b>Before you go.</b> Confirm the linked plan is today's, not the most recent pull. Charge the phone.</li>
+          <li><b>Where.</b> IMCG Lohi Bher, school 508, Sihala. Grades 1 to 12, 29 teacher accounts: 8 primary only, 15 middle or high only, 6 both.</li>
+          <li><b>The one line.</b> More plans than almost any ICT school. Fewer than half the teachers make them. Three people carry the number. Seven of eight primary-only teachers have never started.</li>
+          <li><b>Sit with, in order.</b> Samina (102 plans, a very low fidelity score on your last observation). Naheed (middle or high science, never recorded). One teacher who has never started.</li>
+          <li><b>Check in the room.</b> Middle or high teachers pulling primary plans. The grade 6 to 12 menu, live since Sunday. The call-centre account on the roster.</li>
+          <li><b>From your last visits.</b> Collaborative learning 43 against 52 for ICT. Differentiation 35 against 41. Look for any moment children work with each other.</li>
+          <li><b>Before you go.</b> Check the linked plan is today's, not the last one pulled. Charge the phone.</li>
         </ul>
       </div>
-    </div>
+    </details>
   </section>
 
   <footer>
     <img class="mark" src="img/rumi-mark.png" alt="Rumi" width="68" height="26">
-    <p>Lohi Bher, 8 September 2026. Field visit by Haroon Yasin with coach Moiz Khan. Playbook by Sabeena Abbasi. Report assembled the same evening.</p>
-    <p class="small">Internal to Taleemabad and NIETE. Contains teacher names and classroom audio; not indexed, not for onward sharing.</p>
+    <p>Lohi Bher, 8 September 2026. Field visit by Haroon Yasin with coach Moiz Khan. Playbook by Sabeena Abbasi. Report assembled the same evening, revised the next day.</p>
+    <p class="small">Internal to Taleemabad and NIETE. Contains teacher names and classroom audio. Not indexed, not for onward sharing.</p>
   </footer>
   </main>
 </div>
+<a class="fab" href="#notes" aria-label="Leave a sticky note">✎ Leave a note</a>
+<div class="ind-tip" id="ind-tip" role="tooltip" hidden></div>
+<script src="glossary.js" defer></script>
+<script src="charts.js" defer></script>
 <script src="app.js" defer></script>
 </body>
 </html>
