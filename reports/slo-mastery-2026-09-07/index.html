@@ -5,12 +5,12 @@
 <style>
 :root{--ground:#F6F7F5;--surface:#FFFFFF;--sunk:#ECEFEA;--ink:#2B2F3D;--ink-2:#5B6070;--ink-3:#8A8F9E;--rule:#DDE2DB;
  --green:#47BA7D;--green-ink:#256F49;--green-soft:#E3F4EA;--navy:#333748;--amber:#D89B2A;--red:#C0392F;
- --accent:#C0392F;--mono:ui-monospace,SFMono-Regular,Menlo,monospace;--orange:#E8853F;--teal:#0F5275;--f1:#1A3A75;--f2:#1F62C8;--f3:#3F8DE6;--f4:#0F5275;--f5:#16A971;--r1:#D5DAD3;--r2:#A8C6EA;--r3:#3F8DE6;--r4:#1A3A75;--o1:#F2CBA8;--o2:#E8853F;--o3:#A94E14;
+ --accent:#C0392F;--mono:ui-monospace,SFMono-Regular,Menlo,monospace;--orange:#E8853F;--teal:#0F5275;--f1:#1A3A75;--f2:#1F62C8;--f3:#3F8DE6;--f4:#0F5275;--f5:#16A971;--r1:#D5DAD3;--r2:#A8C6EA;--r3:#3F8DE6;--r4:#1A3A75;--o1:#F2CBA8;--o2:#E8853F;--o3:#A94E14;--stop:#94A0B3;
  --shadow:0 1px 2px rgba(51,55,72,.06),0 14px 34px -22px rgba(51,55,72,.35);--maxw:1080px;
  --display:"Fraunces",Georgia,serif;--body:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--urdu:"Noto Nastaliq Urdu",serif;
  --wa-bg:#0B141A;--wa-in:#1F2C34;--wa-out:#005C4B;--wa-head:#111B21;--wa-text:#E9EDEF;--wa-2:#8696A0;--wa-btn:#53BDEB;--wa-div:#2A3942}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ground:#1B1E27;--surface:#242833;--sunk:#2C313D;--ink:#EAECF1;--ink-2:#B3B9C7;--ink-3:#868D9E;--rule:#3A3F4D;--green:#5FCB92;--green-ink:#8FE0B4;--green-soft:#1F3A2C;--navy:#E3E6EE;--amber:#E5B75C;--red:#E3796E;--accent:#E3796E;--orange:#F0A05E;--teal:#4A9DC4;--f1:#5B86D6;--f2:#4D8CE8;--f3:#7FB4F0;--f4:#4A9DC4;--f5:#3FC78E;--r1:#3A4553;--r2:#37699F;--r3:#5FA0E8;--r4:#A9CAF6;--o1:#7D5330;--o2:#DD8846;--o3:#F7BD85;--shadow:0 1px 2px rgba(0,0,0,.3),0 14px 34px -22px rgba(0,0,0,.6)}}
-:root[data-theme="dark"]{--ground:#1B1E27;--surface:#242833;--sunk:#2C313D;--ink:#EAECF1;--ink-2:#B3B9C7;--ink-3:#868D9E;--rule:#3A3F4D;--green:#5FCB92;--green-ink:#8FE0B4;--green-soft:#1F3A2C;--navy:#E3E6EE;--amber:#E5B75C;--red:#E3796E;--accent:#E3796E;--orange:#F0A05E;--teal:#4A9DC4;--f1:#5B86D6;--f2:#4D8CE8;--f3:#7FB4F0;--f4:#4A9DC4;--f5:#3FC78E;--r1:#3A4553;--r2:#37699F;--r3:#5FA0E8;--r4:#A9CAF6;--o1:#7D5330;--o2:#DD8846;--o3:#F7BD85;--shadow:0 1px 2px rgba(0,0,0,.3),0 14px 34px -22px rgba(0,0,0,.6)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ground:#1B1E27;--surface:#242833;--sunk:#2C313D;--ink:#EAECF1;--ink-2:#B3B9C7;--ink-3:#868D9E;--rule:#3A3F4D;--green:#5FCB92;--green-ink:#8FE0B4;--green-soft:#1F3A2C;--navy:#E3E6EE;--amber:#E5B75C;--red:#E3796E;--accent:#E3796E;--orange:#F0A05E;--teal:#4A9DC4;--f1:#5B86D6;--f2:#4D8CE8;--f3:#7FB4F0;--f4:#4A9DC4;--f5:#3FC78E;--r1:#3A4553;--r2:#37699F;--r3:#5FA0E8;--r4:#A9CAF6;--o1:#7D5330;--o2:#DD8846;--o3:#F7BD85;--stop:#8C9AB0;--shadow:0 1px 2px rgba(0,0,0,.3),0 14px 34px -22px rgba(0,0,0,.6)}}
+:root[data-theme="dark"]{--ground:#1B1E27;--surface:#242833;--sunk:#2C313D;--ink:#EAECF1;--ink-2:#B3B9C7;--ink-3:#868D9E;--rule:#3A3F4D;--green:#5FCB92;--green-ink:#8FE0B4;--green-soft:#1F3A2C;--navy:#E3E6EE;--amber:#E5B75C;--red:#E3796E;--accent:#E3796E;--orange:#F0A05E;--teal:#4A9DC4;--f1:#5B86D6;--f2:#4D8CE8;--f3:#7FB4F0;--f4:#4A9DC4;--f5:#3FC78E;--r1:#3A4553;--r2:#37699F;--r3:#5FA0E8;--r4:#A9CAF6;--o1:#7D5330;--o2:#DD8846;--o3:#F7BD85;--stop:#8C9AB0;--shadow:0 1px 2px rgba(0,0,0,.3),0 14px 34px -22px rgba(0,0,0,.6)}
 *{box-sizing:border-box} body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px 110px}
 h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.01em;line-height:1.12;margin:0;text-wrap:balance}
@@ -176,7 +176,8 @@ footer{border-top:1px solid var(--rule);padding-top:20px;color:var(--ink-3);font
 .pdrop{font-family:var(--mono,ui-monospace,monospace);font-size:10.5px;fill:var(--accent)}
 .pcellnum{font-family:var(--mono,ui-monospace,monospace);font-size:10.5px;fill:var(--ink);
   fill-opacity:.7}
-.plink{fill:none;mix-blend-mode:multiply}
+.plink{fill:none;transition:stroke-opacity .12s}
+.plink:hover{stroke-opacity:.85!important}
 .pcell{stroke:var(--surface);stroke-width:1.5}
 .pdot{shape-rendering:geometricPrecision}
 .pkey{display:flex;flex-wrap:wrap;gap:13px;margin:14px 0 0;font-family:var(--body);
@@ -676,10 +677,10 @@ function pSankey() {
   const colour = k =>
     k === 'reached_the_library' || /video/.test(k) ? pcss('--orange') :
     k === 'more_teacher_quizzes' ? pcss('--green') :
-    /stopped|finished_none/.test(k) ? pcss('--ink-3') : pcss('--f3');
+    /stopped|finished_none/.test(k) ? pcss('--stop') : pcss('--f3');
   svg.append('g').selectAll('path').data(graph.links).join('path')
     .attr('class', 'plink').attr('d', d3.sankeyLinkHorizontal())
-    .attr('stroke', d => colour(d.target.key)).attr('stroke-opacity', .34)
+    .attr('stroke', d => colour(d.target.key)).attr('stroke-opacity', .46)
     .attr('stroke-width', d => Math.max(1, d.width))
     .on('mousemove', (ev, d) => pshow(
       `<b>${pfmt(d.value)}</b> children<br>${d.source.name} → ${d.target.name}`, ev))
@@ -702,7 +703,7 @@ function pSankey() {
   const k = document.getElementById('k-p-sankey');
   if (k) k.innerHTML = [
     [pcss('--f3'), 'still going'], [pcss('--green'), 'more of what the teacher sent'],
-    [pcss('--orange'), 'chose the library'], [pcss('--ink-3'), 'stopped'],
+    [pcss('--orange'), 'chose the library'], [pcss('--stop'), 'stopped'],
   ].map(([c, t]) => `<span><i style="background:${c}"></i>${t}</span>`).join('');
 }
 
