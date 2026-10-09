@@ -303,12 +303,26 @@ ul.games .gh{font-size:14px;color:var(--ink);text-align:right}
 @media (max-width:640px){table.nr{font-size:13px}table.nr th,table.nr td{padding:8px 4px}
   table.nr td.bars{min-width:0;width:24%}table.nr .nrbar{min-width:0}table.nr td.bars span{font-size:11.5px}
   table.nr thead th{font-size:10px;letter-spacing:.03em}}
+/* ── 9 Oct 2026: what changed (from data/changes.json) ── */
+.wc{max-width:820px;margin:6px 0 4px}
+.wc-day h3{margin:22px 0 6px}
+.wc-day ul{list-style:none;margin:0;padding:0}
+.wc-day li{display:grid;grid-template-columns:150px 128px minmax(0,1fr);gap:4px 14px;align-items:baseline;padding:9px 0;border-top:1px solid var(--rule);font-size:15px;line-height:1.5}
+.wc-day li:last-child{border-bottom:1px solid var(--rule)}
+.wc-st{justify-self:start;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.wc-live{background:var(--green-soft);color:var(--green-ink)}
+.wc-off{background:var(--sunk);color:var(--ink-2)}
+.wc-page{background:var(--sunk);color:var(--ink)}
+.wc-area{font-size:13.5px;font-weight:600;color:var(--ink-2)}
+.wc-line{color:var(--ink)}
+p.wc-note{border-left:3px solid var(--amber);padding:4px 0 4px 12px;margin-top:16px}
+@media (max-width:640px){.wc-day li{grid-template-columns:auto minmax(0,1fr);gap:4px 10px}.wc-line{grid-column:1/-1}}
 
 </style>
 
-<div class="wrap" data-cut="2026-10-08T18:59:00Z">
+<div class="wrap" data-cut="2026-10-09T18:59:00Z">
 <header class="top">
-  <p class="eyebrow">NIETE · Islamabad · quiz live since 6 September 2026 · on a web page since 7 October · data to 23:59 on 8 October</p>
+  <p class="eyebrow">NIETE · Islamabad · quiz live since 6 September 2026 · on a web page since 7 October · data to 23:59 on 9 October</p>
   <h1>A quiz from the lesson just taught</h1>
   <p class="stand">A teacher forwards one link to the class group, and the children take a quiz written from the lesson
     that teacher just taught. Until 6 October the quiz ran inside the WhatsApp chat, one message per step, about 46
@@ -325,15 +339,16 @@ ul.games .gh{font-size:14px;color:var(--ink);text-align:right}
     <li><a href="#why">Why it moved</a><span>One finished quiz: 46 messages, or one page</span></li>
     <li><a href="#tour">What a child gets now</a><span>Twelve screens, start to finish</span></li>
     <li><a href="#web">Since the page went live</a><span>7 October to now: links, children, library, sharing</span></li>
-    <li><a href="#challenge">Jugnu’s Challenge, day one</a><span>Who played, how they did, words a minute</span></li>
+    <li><a href="#challenge">Jugnu’s Challenge</a><span>Who played, how they did, words a minute</span></li>
+    <li><a href="#changes">What changed</a><span>Each change that reached children, by day</span></li>
     <li><a href="#newret">New and returning</a><span>Teachers and children, week by week since 6 September</span></li>
     <li><a href="#funnels">Two funnels</a><span>Teachers: offer to a child opening it. Children: first quiz to a friend joining</span></li>
     <li><a href="#scale">How far it has reached</a><span>The school map, by sector</span></li>
     <li><a href="#repeat">The same quiz again</a><span>Children who come back to a quiz they finished</span></li>
     <li><a href="#caveats">What this cannot say</a><span>How much weight the numbers carry</span></li>
   </ol></nav>
-  <p class="pop"><span><b>11,801</b> children have started a quiz since 6 September</span><span><b>1,796</b> teachers have got a class link for a quiz</span>
-    <span><b>8</b> children played Jugnu’s Challenge on day one</span><span>Data to 8 October 2026, 23:59 Pakistan time (18:59 UTC)</span></p>
+  <p class="pop"><span><b>12,675</b> children have started a quiz since 6 September</span><span><b>1,817</b> teachers have got a class link for a quiz</span>
+    <span><b>16</b> children have played Jugnu’s Challenge since it opened</span><span>Data to 9 October 2026, 23:59 Pakistan time (18:59 UTC)</span></p>
 </header>
 
 <section id="why">
@@ -406,73 +421,77 @@ that cost nothing: replies a business sends inside a conversation the person has
 <section id="web">
   <h2>Since the page went live</h2>
   <p class="prose">The page went live for every teacher at 03:08 on 7 October, Pakistan time. The numbers here run from then
-    to 23:59 on 8 October and count real children only: the checks our own team ran on the live service are taken out.
-    The service changed along the way, all times Pakistan time:</p>
+    to 23:59 on 9 October and count real children only: the checks our own team ran on the live service are taken out.
+    The service changed in its first two days, all times Pakistan time:</p>
   <ul class="timeline"><li><b>7 Oct, 03:08</b> Every new quiz link opens the web page instead of the chat.</li><li><b>7 Oct, 12:28</b> The hub and the video library open to every child.</li><li><b>7 Oct, 12:39</b> Jugnu’s Challenge opens with two games: which number is bigger, and a passage read aloud and scored afterwards.</li><li><b>7 Oct, 19:30</b> Three fixes: the score picture arrives with a shared link, “Who is playing?” waits for the child to choose, and the Urdu voices play.</li><li><b>7 Oct, 19:38</b> A door on the scorecard leads to the hub, and the challenge as it is now goes live: words light up as the child reads, the words a minute show at once, questions on the passage follow, and a listen-and-answer game.</li><li><b>7 Oct, 21:45</b> Library quizzes play their recorded voices first, with a voice for each answer option.</li><li><b>7 Oct, 22:03</b> An old WhatsApp quiz link answers with one button that opens the quiz on the page.</li><li><b>8 Oct, 09:24</b> Urdu library lessons show their screens in Urdu, and the class-league picture is ready when the quiz ends.</li></ul>
   <div class="stats">
-    <div class="stat"><b>314</b><span>quiz links sent by 251 teachers</span></div>
-    <div class="stat"><b>210</b><span>of them opened by at least one child so far</span></div>
-    <div class="stat"><b>2,389</b><span>children played on the page</span></div>
-    <div class="stat"><b>3,710</b><span>quizzes started, 2,704 finished (73%)</span></div>
+    <div class="stat"><b>428</b><span>quiz links sent by 317 teachers</span></div>
+    <div class="stat"><b>295</b><span>of them opened by at least one child so far</span></div>
+    <div class="stat"><b>3,263</b><span>children played on the page</span></div>
+    <div class="stat"><b>5,359</b><span>quizzes started, 3,842 finished (72%)</span></div>
   </div>
-  <div class="tablewrap"><table><thead><tr><th>Each day, Pakistan time</th><th class="num">7 Oct</th><th class="num">8 Oct to 23:59</th></tr></thead><tbody>
-  <tr><th>Children on the page</th><td class="num">994</td><td class="num">1,495</td></tr>
-  <tr><th>Quizzes started on the page</th><td class="num">1,490</td><td class="num">2,220</td></tr>
-  <tr><th>… finished</th><td class="num">1,115 (75%)</td><td class="num">1,589 (72%)</td></tr>
-  <tr><th>Chat sittings on old links</th><td class="num">731</td><td class="num">38</td></tr>
+  <div class="tablewrap"><table><thead><tr><th>Each day, Pakistan time</th><th class="num">7 Oct</th><th class="num">8 Oct</th><th class="num">9 Oct to 23:59</th></tr></thead><tbody>
+  <tr><th>Children on the page</th><td class="num">994</td><td class="num">1,495</td><td class="num">1,035</td></tr>
+  <tr><th>Quizzes started on the page</th><td class="num">1,490</td><td class="num">2,220</td><td class="num">1,649</td></tr>
+  <tr><th>… finished</th><td class="num">1,115 (75%)</td><td class="num">1,600 (72%)</td><td class="num">1,127 (68%)</td></tr>
+  <tr><th>Chat sittings on old links</th><td class="num">731</td><td class="num">38</td><td class="num">12</td></tr>
 </tbody></table></div>
   <p class="prose">Links sent before the switch still open the old way, and those chat sittings are dwindling as the old links age.
-    Since 22:03 on 7 October an old link answers with one button that opens the quiz on the page; the button has been sent 281 times by 23:59.
-    2,083 of the web sittings were in English and 1,627 in Urdu.
-    627 of the 2,389 children were matched to their class’s list, so their results land against the right name in the teacher’s register.</p>
-  <p class="prose small">Of the 3,722 page opens that carry a browser signature, 59 name WhatsApp’s own browser; the rest opened in the phone’s own browser (Chrome on most phones), which is where a link forwarded in a class group opens. So the quiz is one tap from WhatsApp, not inside it.</p>
+    Since 22:03 on 7 October an old link answers with one button that opens the quiz on the page; the button has been sent 443 times by 23:59.
+    3,048 of the web sittings were in English and 2,311 in Urdu.
+    843 of the 3,263 children were matched to their class’s list, so their results land against the right name in the teacher’s register.</p>
+  <p class="prose small">Of the 14,206 page opens, 785 were inside WhatsApp’s own browser, almost all from a button the bot sent; the rest opened in the phone’s own browser (Chrome on most phones), which is where a link forwarded in a class group opens. So for most children the quiz is one tap from WhatsApp, not inside it.</p>
   <figure class="chart"><picture><source media="(max-width:640px)" srcset="charts/w3_children_days_m.png"><img src="charts/w3_children_days.png" alt="Children on the quiz each day from 21 September, chat and web page together" loading="lazy"></picture></figure>
   <h3>The library</h3>
-  <p class="prose">Since the library opened at 12:28 on 7 October, children have looked at 11,192 library
-    screens, picked 1,268 videos, saved 506 to the phone and started 517
+  <p class="prose">Since the library opened at 12:28 on 7 October, children have looked at 16,488 library
+    screens, picked 2,376 videos, saved 836 to the phone and started 830
     quizzes from a video they picked themselves.</p>
   <h3>Sharing</h3>
-  <p class="prose">Children tapped a share button 5,906 times: 3,982 from the scorecard,
-    889 from the class league, 957 to challenge a friend and 78 from the
-    school league. 2,480 friend challenges were made, and 51 quizzes have
+  <p class="prose">Children tapped a share button 4,147 times: 2,822 from the scorecard,
+    609 from the class league, 672 to challenge a friend and 44 from the
+    school league; 2,048 of those shares went through. 190 friend challenges were shared, and 61 quizzes have
     been played through one.</p>
   <h3>The hub</h3>
-  <p class="prose">The hub opened 485 times; since the door on the scorecard went live at 19:38 on 7 October,
-    children tapped it 396 times. The hub is also the way into Jugnu’s Challenge, next.</p>
+  <p class="prose">The hub opened 922 times; since the door on the scorecard went live at 19:38 on 7 October,
+    children tapped it 692 times. The hub is also the way into Jugnu’s Challenge, next.</p>
 </section>
 
 <section id="challenge">
-  <h2>Jugnu’s Challenge, day one</h2>
+  <h2>Jugnu’s Challenge</h2>
   <p class="prose">Jugnu’s Challenge is three short practice games for grades 2 to 5, reached from the hub: <i>Which is bigger?</i>
     (ten pairs of numbers), <i>Read aloud</i> (a passage read for one minute, words lighting up as the child reads, then questions
     on it) and <i>Listen and answer</i> (a story read to the child, then questions). The games opened at 12:39 on 7 October;
     the version described here, with the live reading, the questions and the listening game, went on at 19:38 that evening.
-    So “day one” here runs from 7 Oct 19:38 to 23:59 on 8 October (Pakistan time), and 8 October is its first full school day.</p>
+    The numbers here run from then, 19:38 on 7 Oct, to 23:59 on 9 October (Pakistan time): that first evening and two full days since. On 9 October alone, 8 children played and 24 games were finished.</p>
   <div class="stats">
-    <div class="stat"><b>8</b><span>children played at least one game</span></div>
-    <div class="stat"><b>18</b><span>games finished, of 41 started</span></div>
-    <div class="stat"><b>67</b><span>times the games menu was opened</span></div>
-    <div class="stat"><b>479</b><span>hub opens in the same hours, the only way in</span></div>
+    <div class="stat"><b>16</b><span>children played at least one game</span></div>
+    <div class="stat"><b>42</b><span>games finished, of 93 started</span></div>
+    <div class="stat"><b>130</b><span>times the games menu was opened</span></div>
+    <div class="stat"><b>916</b><span>hub opens in the same hours, the only way in</span></div>
   </div>
   <ul class="games">
-    <li><b>Which is bigger?</b><span class="gn">7 children · started 16 times · finished 9 (56%)</span><span class="gh">80 of 90 pairs right (89%)</span></li>
-    <li><b>Read aloud</b><span class="gn">5 children · started 17 times · finished 6 (35%)</span><span class="gh">words a minute: below</span></li>
-    <li><b>Listen and answer</b><span class="gn">fewer than 5 children · started 8 times · finished 3 (38%)</span><span class="gh">answers: below</span></li>
+    <li><b>Which is bigger?</b><span class="gn">14 children · started 39 times · finished 23 (59%)</span><span class="gh">200 of 230 pairs right (87%)</span></li>
+    <li><b>Read aloud</b><span class="gn">11 children · started 35 times · finished 12 (34%)</span><span class="gh">words a minute: below</span></li>
+    <li><b>Listen and answer</b><span class="gn">6 children · started 19 times · finished 7 (37%)</span><span class="gh">answers: below</span></li>
   </ul>
-  <p class="prose">Questions, after a reading and in the listening game together: 11 of 15 answers right (73%). Split by game, each count comes from fewer than 5 children.</p>
-  <p class="prose">6 readings from 4 children have been scored so far (1 more child began a reading that was not finished). <b>That is too few to report a typical WCPM.</b> Fewer than 5 children have read a passage aloud in each language, and a median from so few readings would describe those children, not the programme. The number is computed and stored for every reading; it goes on this page once at least 5 children have read in a language.</p>
+  <p class="prose">Questions, after a reading and in the listening game together: 29 of 38 answers right (76%). After a reading: 13 of 17 right; in the listening game: 16 of 21 right.</p>
+  <p class="prose">Words correct per minute (WCPM), counted by the scorer from the recording: Urdu: 5 children, a median of <b>49 words correct a minute</b> on their first reading (middle half 35–94). The Urdu and English passages differ, so the two are never pooled.</p>
   <p class="prose">“Started” counts each time a game was opened, so a child who opens a game twice counts twice and the finished share is a floor.
-    7 Oct 20:00, 7 Oct 22:00, 7 Oct 23:00, 8 Oct 14:00, 8 Oct 15:00, 8 Oct 21:00
-    are the hours (Pakistan time) in which a game was finished. The microphone was allowed 7 times and refused or failed 5 times;
+    A game was finished in 14 different hours on 3 days, Pakistan time. The microphone was allowed 20 times and refused or failed 7 times;
     the reason for a refusal is not recorded yet. Our own checks of the live games are taken out.</p>
   <p class="prose small">Where the drop happens: a child reaches the games through the scorecard’s door to the hub, then the games tile, and the games are for grades 2 to 5 only.
-    In these hours the hub was opened 479 times, the games menu 67 times, and 41 games were started.
+    Since the challenge went live, the hub was opened 916 times, the games menu 130 times, and 93 games were started.
     A WCPM from the page is practice, not an assessment: nobody checks who is reading, and a child can read the same passage again.</p>
 </section>
 
+<section id="changes">
+  <h2>What changed</h2>
+  <p class="prose">Each change, day by day, newest first, Pakistan time. “Live for children” means it is on the service children use and turned on. “Ready, switched off” means the change is on the live service but not yet turned on, so no child sees it yet.</p>
+  <div class="wc"><div class="wc-day"><h3>9 October</h3><ul><li><span class="wc-st wc-off">Ready, switched off</span><span class="wc-area">Sharing</span><span class="wc-line">After a quiz, a short panel asks the child who to challenge next (someone at home, a cousin or a friend in their street), and writes the invitation for them with their first name.</span></li><li><span class="wc-st wc-off">Ready, switched off</span><span class="wc-area">Jugnu’s Challenge</span><span class="wc-line">A child’s first try at each challenge task is the one that counts; practice rounds never change it, and a reading the child stops early never becomes a reading-speed score.</span></li><li><span class="wc-st wc-off">Ready, switched off</span><span class="wc-area">Jugnu’s Challenge</span><span class="wc-line">The challenge becomes a trail of stops with a badge at each one, with a new Missing number task; a phone without a microphone can still play every stop that does not need one.</span></li><li><span class="wc-st wc-off">Ready, switched off</span><span class="wc-area">Jugnu’s Challenge</span><span class="wc-line">In the listening task, each answer can be played aloud from its own button, so a child who cannot read yet can still answer.</span></li><li><span class="wc-st wc-off">Ready, switched off</span><span class="wc-area">Hub</span><span class="wc-line">A child who sends /quiz gets one Home button that opens their hub, with their last quiz on top.</span></li><li><span class="wc-st wc-off">Ready, switched off</span><span class="wc-area">Quiz page</span><span class="wc-line">A Home button stays on every quiz screen.</span></li><li><span class="wc-st wc-off">Ready, switched off</span><span class="wc-area">Quiz page</span><span class="wc-line">Children can go back to an earlier question to review it, and the phone’s Back button steps back through the quiz.</span></li><li><span class="wc-st wc-page">On this page</span><span class="wc-area">This page</span><span class="wc-line">Three figures were corrected: friend challenges, opens inside WhatsApp, and share taps. The note under “Two funnels” says what each now counts.</span></li></ul></div><div class="wc-day"><h3>8 October</h3><ul><li><span class="wc-st wc-live">Live for children</span><span class="wc-area">Voices</span><span class="wc-line">Maths is read aloud as maths: 50 − 30 is now “fifty minus thirty”, × and ÷ are “times” and “divided by”, “= ?” is read “equals what?”, and brackets are read as brackets, in English and Urdu.</span></li><li><span class="wc-st wc-live">Live for children</span><span class="wc-area">Library</span><span class="wc-line">The line that points to a picture is spoken in the recorded voice, and library answers are explained in the recorded voice, using only explanations a person has checked.</span></li><li><span class="wc-st wc-live">Live for children</span><span class="wc-area">Old links</span><span class="wc-line">The “Start quiz” button now says no typing is needed, and a child who types instead gets the button once more.</span></li><li><span class="wc-st wc-live">Live for children</span><span class="wc-area">Voices</span><span class="wc-line">On an old link the read-aloud voices are ready sooner, and a page opened before they are ready picks them up by itself.</span></li><li><span class="wc-st wc-live">Live for children</span><span class="wc-area">Library</span><span class="wc-line">An Urdu lesson in the library shows its screens in Urdu, even for a child whose class plays in English.</span></li><li><span class="wc-st wc-live">Live for children</span><span class="wc-area">Sharing</span><span class="wc-line">The class-league picture is ready the moment a quiz ends, so a shared league link shows its picture in the group.</span></li><li><span class="wc-st wc-live">Live for children</span><span class="wc-area">Library</span><span class="wc-line">Every library quiz now plays recorded voices for its questions and answers, apart from one maths question.</span></li></ul></div><div class="wc-day"><h3>7 October</h3><ul><li><span class="wc-st wc-live">Live for children</span><span class="wc-area">Old links</span><span class="wc-line">Old quiz links send one “Start quiz” button instead of the chat quiz.</span></li><li><span class="wc-st wc-live">Live for children</span><span class="wc-area">Library</span><span class="wc-line">Library quizzes play their recorded voices first, with a voice for each answer option.</span></li><li><span class="wc-st wc-live">Live for children</span><span class="wc-area">Jugnu’s Challenge</span><span class="wc-line">Reading aloud is live: words light up as the child reads, the words a minute show at once, questions on the passage follow, and a new listen-and-answer game.</span></li><li><span class="wc-st wc-live">Live for children</span><span class="wc-area">Hub</span><span class="wc-line">A door on the scorecard leads to the child’s hub of quizzes, videos and the challenge.</span></li><li><span class="wc-st wc-live">Live for children</span><span class="wc-area">Quiz page</span><span class="wc-line">“Who is playing?” waits for the child to choose, Urdu voices play for the first child of a new quiz, a shared scorecard shows its picture, and the teacher’s name is no longer written twice.</span></li><li><span class="wc-st wc-live">Live for children</span><span class="wc-area">Hub</span><span class="wc-line">On a phone shared by an English class and an Urdu class, “Who is playing?” is in the right language.</span></li><li><span class="wc-st wc-live">Live for children</span><span class="wc-area">Jugnu’s Challenge</span><span class="wc-line">Jugnu’s Challenge opens with two games: which number is bigger, and a passage read aloud.</span></li><li><span class="wc-st wc-live">Live for children</span><span class="wc-area">Library</span><span class="wc-line">Children get a hub and a library of 858 lesson videos, each with its quiz.</span></li><li><span class="wc-st wc-live">Live for children</span><span class="wc-area">Quiz page</span><span class="wc-line">Every new quiz link opens a web page instead of the WhatsApp chat: the whole quiz on one page, read aloud in English or Urdu.</span></li></ul></div></div>
+</section>
 <section id="month" class="era">
   <h2>Since 6 September</h2>
-  <p class="prose">From here the page covers the whole run, from the first quiz on 6 September to 23:59 on 8 October, chat and web page together.
+  <p class="prose">From here the page covers the whole run, from the first quiz on 6 September to 23:59 on 9 October, chat and web page together.
     The earlier page, with how the chat quiz worked, mastery by objective and one child’s journey replayed, is kept
     <a href="message-era-2026-10-02.html">here</a> as it stood on 2 October.</p>
 </section>
@@ -486,13 +505,13 @@ that cost nothing: replies a business sends inside a conversation the person has
     <li><b>A child is active</b> in a week when they start a quiz. <b>New</b> means that week holds their first quiz ever, on any
       quiz since the service began; <b>back</b> means they had played before.</li>
   </ul>
-  <div class="nrkey" aria-hidden="true"><span><i class="nw"></i>new</span><span><i class="rt"></i>back (returning)</span></div><h3>Teachers</h3><div class="tablewrap"><table class="nr"><thead><tr><th>Week</th><th class="num">Active</th><th class="num">New</th><th class="num">Back</th><th>New share</th></tr></thead><tbody><tr class=""><th>6–13 Sep</th><td class="num">672</td><td class="num">646</td><td class="num">26</td><td class="bars"><div class="nrbar" role="img" aria-label="646 new, 26 returning"><span class="nw" style="width:96.1%"></span><span class="rt" style="width:3.9%"></span></div><span>96% new</span></td></tr><tr class=""><th>14–20 Sep</th><td class="num">583</td><td class="num">328</td><td class="num">255</td><td class="bars"><div class="nrbar" role="img" aria-label="328 new, 255 returning"><span class="nw" style="width:56.3%"></span><span class="rt" style="width:43.7%"></span></div><span>56% new</span></td></tr><tr class=""><th>21–27 Sep</th><td class="num">705</td><td class="num">361</td><td class="num">344</td><td class="bars"><div class="nrbar" role="img" aria-label="361 new, 344 returning"><span class="nw" style="width:51.2%"></span><span class="rt" style="width:48.8%"></span></div><span>51% new</span></td></tr><tr class=""><th>28 Sep – 4 Oct</th><td class="num">724</td><td class="num">316</td><td class="num">408</td><td class="bars"><div class="nrbar" role="img" aria-label="316 new, 408 returning"><span class="nw" style="width:43.6%"></span><span class="rt" style="width:56.4%"></span></div><span>44% new</span></td></tr><tr class=""><th>5–8 Oct (so far)</th><td class="num">382</td><td class="num">103</td><td class="num">279</td><td class="bars"><div class="nrbar" role="img" aria-label="103 new, 279 returning"><span class="nw" style="width:27.0%"></span><span class="rt" style="width:73.0%"></span></div><span>27% new</span></td></tr><tr class="sum"><th>Web days, 7–8 Oct</th><td class="num">251</td><td class="num">56</td><td class="num">195</td><td class="bars"><div class="nrbar" role="img" aria-label="56 new, 195 returning"><span class="nw" style="width:22.3%"></span><span class="rt" style="width:77.7%"></span></div><span>22% new</span></td></tr><tr class="sum"><th>8 Oct, to 23:59</th><td class="num">153</td><td class="num">35</td><td class="num">118</td><td class="bars"><div class="nrbar" role="img" aria-label="35 new, 118 returning"><span class="nw" style="width:22.9%"></span><span class="rt" style="width:77.1%"></span></div><span>23% new</span></td></tr></tbody></table></div><h3>Children</h3><div class="tablewrap"><table class="nr"><thead><tr><th>Week</th><th class="num">Active</th><th class="num">New</th><th class="num">Back</th><th>New share</th></tr></thead><tbody><tr class=""><th>6–13 Sep</th><td class="num">2,874</td><td class="num">2,732</td><td class="num">142</td><td class="bars"><div class="nrbar" role="img" aria-label="2,732 new, 142 returning"><span class="nw" style="width:95.1%"></span><span class="rt" style="width:4.9%"></span></div><span>95% new</span></td></tr><tr class=""><th>14–20 Sep</th><td class="num">3,465</td><td class="num">2,108</td><td class="num">1,357</td><td class="bars"><div class="nrbar" role="img" aria-label="2,108 new, 1,357 returning"><span class="nw" style="width:60.8%"></span><span class="rt" style="width:39.2%"></span></div><span>61% new</span></td></tr><tr class=""><th>21–27 Sep</th><td class="num">4,105</td><td class="num">2,180</td><td class="num">1,925</td><td class="bars"><div class="nrbar" role="img" aria-label="2,180 new, 1,925 returning"><span class="nw" style="width:53.1%"></span><span class="rt" style="width:46.9%"></span></div><span>53% new</span></td></tr><tr class=""><th>28 Sep – 4 Oct</th><td class="num">4,005</td><td class="num">1,804</td><td class="num">2,201</td><td class="bars"><div class="nrbar" role="img" aria-label="1,804 new, 2,201 returning"><span class="nw" style="width:45.0%"></span><span class="rt" style="width:55.0%"></span></div><span>45% new</span></td></tr><tr class=""><th>5–8 Oct (so far)</th><td class="num">3,881</td><td class="num">2,763</td><td class="num">1,118</td><td class="bars"><div class="nrbar" role="img" aria-label="2,763 new, 1,118 returning"><span class="nw" style="width:71.2%"></span><span class="rt" style="width:28.8%"></span></div><span>71% new</span></td></tr><tr class="sum"><th>Web days, 7–8 Oct</th><td class="num">2,777</td><td class="num">2,476</td><td class="num">301</td><td class="bars"><div class="nrbar" role="img" aria-label="2,476 new, 301 returning"><span class="nw" style="width:89.2%"></span><span class="rt" style="width:10.8%"></span></div><span>89% new</span></td></tr><tr class="sum"><th>8 Oct, to 23:59</th><td class="num">1,513</td><td class="num">1,396</td><td class="num">117</td><td class="bars"><div class="nrbar" role="img" aria-label="1,396 new, 117 returning"><span class="nw" style="width:92.3%"></span><span class="rt" style="width:7.7%"></span></div><span>92% new</span></td></tr></tbody></table></div>
-  <p class="prose">Among teachers, the share sending a quiz for the first time fell week by week, from 96% in the first week; returning teachers first outnumbered new ones in the week of 28 Sep – 4 Oct (56% returning), and 73% in 5–8 Oct (so far). In the web days, 78% of the 251 teachers
+  <div class="nrkey" aria-hidden="true"><span><i class="nw"></i>new</span><span><i class="rt"></i>back (returning)</span></div><h3>Teachers</h3><div class="tablewrap"><table class="nr"><thead><tr><th>Week</th><th class="num">Active</th><th class="num">New</th><th class="num">Back</th><th>New share</th></tr></thead><tbody><tr class=""><th>6–13 Sep</th><td class="num">672</td><td class="num">646</td><td class="num">26</td><td class="bars"><div class="nrbar" role="img" aria-label="646 new, 26 returning"><span class="nw" style="width:96.1%"></span><span class="rt" style="width:3.9%"></span></div><span>96% new</span></td></tr><tr class=""><th>14–20 Sep</th><td class="num">583</td><td class="num">328</td><td class="num">255</td><td class="bars"><div class="nrbar" role="img" aria-label="328 new, 255 returning"><span class="nw" style="width:56.3%"></span><span class="rt" style="width:43.7%"></span></div><span>56% new</span></td></tr><tr class=""><th>21–27 Sep</th><td class="num">705</td><td class="num">361</td><td class="num">344</td><td class="bars"><div class="nrbar" role="img" aria-label="361 new, 344 returning"><span class="nw" style="width:51.2%"></span><span class="rt" style="width:48.8%"></span></div><span>51% new</span></td></tr><tr class=""><th>28 Sep – 4 Oct</th><td class="num">724</td><td class="num">316</td><td class="num">408</td><td class="bars"><div class="nrbar" role="img" aria-label="316 new, 408 returning"><span class="nw" style="width:43.6%"></span><span class="rt" style="width:56.4%"></span></div><span>44% new</span></td></tr><tr class=""><th>5–9 Oct (so far)</th><td class="num">439</td><td class="num">124</td><td class="num">315</td><td class="bars"><div class="nrbar" role="img" aria-label="124 new, 315 returning"><span class="nw" style="width:28.2%"></span><span class="rt" style="width:71.8%"></span></div><span>28% new</span></td></tr><tr class="sum"><th>Web days, 7–9 Oct</th><td class="num">317</td><td class="num">77</td><td class="num">240</td><td class="bars"><div class="nrbar" role="img" aria-label="77 new, 240 returning"><span class="nw" style="width:24.3%"></span><span class="rt" style="width:75.7%"></span></div><span>24% new</span></td></tr><tr class="sum"><th>9 Oct, to 23:59</th><td class="num">96</td><td class="num">21</td><td class="num">75</td><td class="bars"><div class="nrbar" role="img" aria-label="21 new, 75 returning"><span class="nw" style="width:21.9%"></span><span class="rt" style="width:78.1%"></span></div><span>22% new</span></td></tr></tbody></table></div><h3>Children</h3><div class="tablewrap"><table class="nr"><thead><tr><th>Week</th><th class="num">Active</th><th class="num">New</th><th class="num">Back</th><th>New share</th></tr></thead><tbody><tr class=""><th>6–13 Sep</th><td class="num">2,874</td><td class="num">2,732</td><td class="num">142</td><td class="bars"><div class="nrbar" role="img" aria-label="2,732 new, 142 returning"><span class="nw" style="width:95.1%"></span><span class="rt" style="width:4.9%"></span></div><span>95% new</span></td></tr><tr class=""><th>14–20 Sep</th><td class="num">3,465</td><td class="num">2,108</td><td class="num">1,357</td><td class="bars"><div class="nrbar" role="img" aria-label="2,108 new, 1,357 returning"><span class="nw" style="width:60.8%"></span><span class="rt" style="width:39.2%"></span></div><span>61% new</span></td></tr><tr class=""><th>21–27 Sep</th><td class="num">4,105</td><td class="num">2,180</td><td class="num">1,925</td><td class="bars"><div class="nrbar" role="img" aria-label="2,180 new, 1,925 returning"><span class="nw" style="width:53.1%"></span><span class="rt" style="width:46.9%"></span></div><span>53% new</span></td></tr><tr class=""><th>28 Sep – 4 Oct</th><td class="num">4,005</td><td class="num">1,804</td><td class="num">2,201</td><td class="bars"><div class="nrbar" role="img" aria-label="1,804 new, 2,201 returning"><span class="nw" style="width:45.0%"></span><span class="rt" style="width:55.0%"></span></div><span>45% new</span></td></tr><tr class=""><th>5–9 Oct (so far)</th><td class="num">4,757</td><td class="num">3,637</td><td class="num">1,120</td><td class="bars"><div class="nrbar" role="img" aria-label="3,637 new, 1,120 returning"><span class="nw" style="width:76.5%"></span><span class="rt" style="width:23.5%"></span></div><span>76% new</span></td></tr><tr class="sum"><th>Web days, 7–9 Oct</th><td class="num">3,653</td><td class="num">3,350</td><td class="num">303</td><td class="bars"><div class="nrbar" role="img" aria-label="3,350 new, 303 returning"><span class="nw" style="width:91.7%"></span><span class="rt" style="width:8.3%"></span></div><span>92% new</span></td></tr><tr class="sum"><th>9 Oct, to 23:59</th><td class="num">1,040</td><td class="num">874</td><td class="num">166</td><td class="bars"><div class="nrbar" role="img" aria-label="874 new, 166 returning"><span class="nw" style="width:84.0%"></span><span class="rt" style="width:16.0%"></span></div><span>84% new</span></td></tr></tbody></table></div>
+  <p class="prose">Among teachers, the share sending a quiz for the first time fell week by week, from 96% in the first week; returning teachers first outnumbered new ones in the week of 28 Sep – 4 Oct (56% returning), and 72% in 5–9 Oct (so far). In the web days, 76% of the 317 teachers
     whose class link went out had sent one before.</p>
   <p class="prose"><b>Children are where the switch blurs the count.</b> A child on the chat is known by the family phone; a child on the
     web page is known by the page’s own record, made the first time they say who is playing. The two cannot yet be joined, so a child
-    who played in September and now plays on the page counts as new. Of the 2,777 children since 7 October,
-    2,389 are page records and 100 of those played on the page on more than one day. A separate check that matched
+    who played in September and now plays on the page counts as new. Of the 3,653 children since 7 October,
+    3,263 are page records and 251 of those played on the page on more than one day. A separate check that matched
     page children to chat children under the same teacher found 14–24% of page children had played on the chat before, so the true
     “new” share of children since 7 October is lower than the table shows. Until the two records can be joined, the weeks before 7 October are the clean read.</p>
 </section>
@@ -500,63 +519,72 @@ that cost nothing: replies a business sends inside a conversation the person has
 <section id="funnels">
   <h2>Two funnels</h2>
   <p class="prose">Two funnels, because they count different things: the first counts teachers, the second children.
-    Each bar shows how many got that far, from 6 September to 23:59 on 8 October, and the share of the step before that went on.</p>
+    Each bar shows how many got that far, from 6 September to 23:59 on 9 October, and the share of the step before that went on.</p>
   <h3>Teachers <span class="unit">unit: one teacher</span></h3>
-  <ol class="funnel" aria-label="Teacher funnel, in teachers"><li><div class="fl"><b>Offered a quiz</b><span>after a coaching report (2,438 teachers) or with a lesson plan (2,387); 1,260 got both kinds</span></div>
+  <ol class="funnel" aria-label="Teacher funnel, in teachers"><li><div class="fl"><b>Offered a quiz</b><span>after a coaching report (2,458 teachers) or with a lesson plan (2,407); 1,281 got both kinds</span></div>
       <div class="fb"><span style="width:100.0%"></span></div>
-      <div class="fv"><strong>3,565</strong></div></li><li><div class="fl"><b>Said yes and got the quiz</b><span>1,794 said yes to at least one offer; for 100 of them no quiz reached them, because writing it failed or it is still waiting</span></div>
-      <div class="fb"><span style="width:47.5%"></span></div>
-      <div class="fv"><strong>1,694</strong><em>48% of the step before</em></div></li><li class="gap"><div class="fl"><b>Sent it to a class</b><span>WhatsApp does not tell us when a teacher forwards a link to a class group. The first sign is the next step, so this step has no number of its own.</span></div></li><li><div class="fl"><b>A child opened it</b><span>at least one child started at least one of those quizzes</span></div>
-      <div class="fb"><span style="width:20.8%"></span></div>
-      <div class="fv"><strong>741</strong><em>44% of the step before</em></div></li></ol>
+      <div class="fv"><strong>3,584</strong></div></li><li><div class="fl"><b>Said yes and got the quiz</b><span>1,817 said yes to at least one offer; for 102 of them no quiz reached them, because writing it failed or it is still waiting</span></div>
+      <div class="fb"><span style="width:47.9%"></span></div>
+      <div class="fv"><strong>1,715</strong><em>48% of the step before</em></div></li><li class="gap"><div class="fl"><b>Sent it to a class</b><span>WhatsApp does not tell us when a teacher forwards a link to a class group. The first sign is the next step, so this step has no number of its own.</span></div></li><li><div class="fl"><b>A child opened it</b><span>at least one child started at least one of those quizzes</span></div>
+      <div class="fb"><span style="width:21.1%"></span></div>
+      <div class="fv"><strong>758</strong><em>44% of the step before</em></div></li></ol>
   <p class="prose small"><b>How each step is counted:</b> offered = the quiz offer after a coaching report, or the lesson-plan quiz offer,
     was sent to the teacher; said yes = the teacher accepted that offer; got the quiz = the quiz was written and its class link sent to the teacher;
-    a child opened it = a child started that quiz. Counted in quizzes instead: 18,473 offers
-    (14,301 after coaching, 4,172 with a lesson plan), 4,333 yeses,
-    3,930 quizzes delivered and 2,049 opened by a child. A quiz a teacher asks for through /quiz,
+    a child opened it = a child started that quiz. Counted in quizzes instead: 18,908 offers
+    (14,600 after coaching, 4,308 with a lesson plan), 4,420 yeses,
+    4,008 quizzes delivered and 2,103 opened by a child. A quiz a teacher asks for through /quiz,
     without an offer, is not in this funnel. <b>What it cannot see:</b> whether a teacher forwarded the link; a quiz forwarded
     but never tapped looks the same as one never forwarded. “Opened” is a floor.</p>
   <h3>Children <span class="unit">unit: one child</span></h3>
-  <ol class="funnel" aria-label="Child funnel, in children"><li><div class="fl"><b>Started a quiz</b><span>9,412 on the chat, 2,389 on the web page</span></div>
+  <ol class="funnel" aria-label="Child funnel, in children"><li><div class="fl"><b>Started a quiz</b><span>9,412 on the chat, 3,263 on the web page</span></div>
       <div class="fb"><span style="width:100.0%"></span></div>
-      <div class="fv"><strong>11,801</strong></div></li><li><div class="fl"><b>Finished one</b><span>answered every question of at least one quiz</span></div>
-      <div class="fb"><span style="width:87.0%"></span></div>
-      <div class="fv"><strong>10,265</strong><em>87% of the step before</em></div></li><li><div class="fl"><b>Did another quiz or a video</b><span>finished one and started a second, different quiz; 2,844 of them took a video’s quiz from the library</span></div>
-      <div class="fb"><span style="width:48.4%"></span></div>
-      <div class="fv"><strong>5,715</strong><em>56% of the step before</em></div></li><li><div class="fl"><b>Challenged a friend</b><span>finished one and made a friend-challenge link (a share of the scorecard to the class group is not counted: it cannot be tied to a child)</span></div>
-      <div class="fb"><span style="width:44.4%"></span></div>
-      <div class="fv"><strong>5,241</strong><em>51% of “finished one”</em></div></li><li><div class="fl"><b>A friend joined</b><span>219 friends in all started a quiz through one of those links</span></div>
-      <div class="fb"><span style="width:1.1%"></span></div>
-      <div class="fv"><strong>127</strong><em>2% of the step before</em></div></li></ol>
+      <div class="fv"><strong>12,675</strong></div></li><li><div class="fl"><b>Finished one</b><span>answered every question of at least one quiz</span></div>
+      <div class="fb"><span style="width:86.4%"></span></div>
+      <div class="fv"><strong>10,954</strong><em>86% of the step before</em></div></li><li><div class="fl"><b>Did another quiz or a video</b><span>finished one and started a second, different quiz; 2,976 of them took a video’s quiz from the library</span></div>
+      <div class="fb"><span style="width:46.9%"></span></div>
+      <div class="fv"><strong>5,941</strong><em>54% of the step before</em></div></li></ol>
   <p class="prose small"><b>What it cannot see:</b> a child on both the chat and the page is two children here. A video watched without
-    its quiz is not counted (the page records the tap, not who tapped). Sharing the scorecard to the class group is the most common share
-    (3,982 taps on the page since 7 October) and cannot be tied to a child, so “challenged a friend” is the only
-    sharing a child can be counted for. A friend who arrived through a scorecard picture is not counted as joining.</p>
+    its quiz is not counted (the page records the tap, not who tapped).</p>
+  <h3>Then, on the web page: sharing a challenge <span class="unit">unit: taps, shares, links, friends</span></h3>
+  <p class="prose small">Sharing is counted on the web page only, from 03:08 on 7 October: the chat quiz had no share step that could be counted,
+    so these steps are not a share of the 12,675 children above. A share is not tied to the child who made it, so the steps count taps, shares, links and friends.</p>
+  <ol class="funnel" aria-label="Sharing a challenge, web page only"><li><div class="fl"><b>Tapped “Challenge a friend”</b><span>on the scorecard, which was shown 8,547 times</span></div>
+      <div class="fb"><span style="width:100.0%"></span></div>
+      <div class="fv"><strong>672</strong></div></li><li><div class="fl"><b>Shared a challenge with a friend</b><span>the share went through: to WhatsApp, to another app, or the link copied; 445 were cancelled in the phone’s share sheet</span></div>
+      <div class="fb"><span style="width:28.3%"></span></div>
+      <div class="fv"><strong>190</strong><em>28% of the step before</em></div></li><li><div class="fl"><b>A friend opened the link</b><span>challenge links opened, 145 times in all</span></div>
+      <div class="fb"><span style="width:7.9%"></span></div>
+      <div class="fv"><strong>53</strong></div></li><li><div class="fl"><b>A friend started the quiz</b><span>friends, invited by 33 children; 61 quizzes started</span></div>
+      <div class="fb"><span style="width:7.0%"></span></div>
+      <div class="fv"><strong>47</strong></div></li><li><div class="fl"><b>A friend finished it</b><span>of the 61 quizzes friends started</span></div>
+      <div class="fb"><span style="width:7.0%"></span></div>
+      <div class="fv"><strong>47</strong></div></li></ol>
+  <p class="prose small">The class-group share on the same scorecard: 2,822 taps, of which 1,602 went through.
+    It cannot be followed to who opened it, so it has no further steps.</p>
+  <p class="prose small wc-note">Corrected on 9 October: three figures on this page counted the wrong thing. “Challenged a friend” had counted the challenge code made at every finished quiz (5,241); it now counts challenges a child actually shared. Opens inside WhatsApp’s browser had been read from data that lost the browser on most rows (59 of 3,722); it now covers every page open. Share taps had counted a tap and its outcome as two (5,906); each tap now counts once.</p>
 </section>
 
 <section id="scale">
   <h2>How far it has reached</h2>
-  <p class="prose">Since the first quiz went out on 6 September, <b>11,801 children</b> have started
-    at least one quiz, from the classes of <b>1,796 teachers</b> who got a class link for at least one quiz. Who is new and who came back is
+  <p class="prose">Since the first quiz went out on 6 September, <b>12,675 children</b> have started
+    at least one quiz, from the classes of <b>1,817 teachers</b> who got a class link for at least one quiz. Who is new and who came back is
     in <a href="#newret">“New and returning”</a> above; this section is about where they are.</p>
   <figure class="chart"><img src="charts/17_cumulative_reach.png" alt="Cumulative children and teachers reached since launch" loading="lazy"></figure>
   <figure class="chart"><img src="charts/20_daily_teachers.png" alt="Teachers sending a quiz each day" loading="lazy"></figure>
 
   <h3>Where the children come from</h3>
   <p class="prose">Every teacher belongs to a school, and every ICT school to one of six sectors, so both the teachers and
-    the children can be placed. Across the six, <b>24.5% of the 6,602 teachers on the roll</b> have had a class link for
-    at least one quiz, from <b>323 of the 433 schools</b>. Sihala leads on penetration
-    (32.7% of its teachers); Urban-I carries the most children (5,408) because it is
-    the biggest sector. Mastery barely moves between them — Urban-I at 75.3%,
-    Urban-II at 69.8% — which is the point: the quiz is written from the lesson, and the
-    lessons are the same curriculum everywhere.</p>
+    the children can be placed. Across the six, <b>24.7% of the 6,607 teachers on the roll</b> have had a class link for
+    at least one quiz, from <b>324 of the 433 schools</b>. Sihala leads on penetration
+    (32.7% of its teachers); Urban-I carries the most children (5,844) because it is
+    the biggest sector. Mastery barely moves between them — Urban-I at 75.1%, Urban-II at 69.7% — which is the point: the quiz is written from the lesson, and the lessons are the same curriculum everywhere.</p>
   <div class="mapembed"><iframe id="quizmap" src="map/" title="Map of Islamabad government schools: where the class quiz has reached, school by school and sector by sector" style="width:100%;height:1150px;border:0;display:block"></iframe></div>
   <p class="prose small">The map also opens on <a href="map/">its own page</a>. Press <b>Play the rollout</b> to watch it spread day by day from 6 September, or keep the film: <a href="map/quiz_rollout_light.mp4">light</a> · <a href="map/quiz_rollout_dark.mp4">dark</a>.</p>
   <script>addEventListener('message',function(e){if(e.origin===location.origin&&e.data&&e.data.type==='quizmap-height'){var f=document.getElementById('quizmap');if(f)f.style.height=e.data.h+'px'}})</script>
   <figure class="chart"><img src="charts/21_sectors.png" alt="Teachers who have sent a quiz as a share of each sector&#x27;s roll, ranked" loading="lazy"></figure>
-  <div class="tablewrap"><table><thead><tr><th>Sector, ranked</th><th class="num">Penetration</th><th class="num">Teachers with a class link</th><th class="num">Schools reached</th><th class="num">Children</th><th class="num">Quizzes finished</th><th class="num">Objectives mastered</th></tr></thead><tbody><tr><th>1. Sihala</th><td class="num"><b>32.7%</b></td><td class="num">256 of 783</td><td class="num">62 of 79</td><td class="num">1,540</td><td class="num">4,552</td><td class="num">74.7%</td></tr><tr><th>2. Urban-I</th><td class="num"><b>28.0%</b></td><td class="num">490 of 1,747</td><td class="num">52 of 74</td><td class="num">5,408</td><td class="num">17,557</td><td class="num">75.3%</td></tr><tr><th>3. Bhara Kahu</th><td class="num"><b>24.7%</b></td><td class="num">229 of 928</td><td class="num">62 of 85</td><td class="num">742</td><td class="num">1,872</td><td class="num">71.9%</td></tr><tr><th>4. Tarnol</th><td class="num"><b>23.5%</b></td><td class="num">185 of 787</td><td class="num">50 of 61</td><td class="num">673</td><td class="num">1,993</td><td class="num">72.6%</td></tr><tr><th>5. Urban-II</th><td class="num"><b>20.7%</b></td><td class="num">311 of 1,499</td><td class="num">46 of 67</td><td class="num">2,625</td><td class="num">6,115</td><td class="num">69.8%</td></tr><tr><th>6. Nilore</th><td class="num"><b>16.8%</b></td><td class="num">144 of 858</td><td class="num">51 of 67</td><td class="num">540</td><td class="num">1,285</td><td class="num">72.2%</td></tr><tr><th>All six sectors</th><td class="num"><b>24.5%</b></td><td class="num">1,615 of 6,602</td><td class="num">323 of 433</td><td class="num">11,528</td><td class="num">33,374</td><td class="num"></td></tr><tr><th>Not mapped to a sector</th><td class="num">—</td><td class="num">181</td><td class="num">—</td><td class="num">691</td><td class="num">1,333</td><td class="num">72.5%</td></tr></tbody></table></div>
-  <p class="prose small">The roll is every teacher account that maps to a sector through its school record — 6,602
-    teachers, in line with the ICT sheet. 1,615 of the 1,796 teachers with a class link map that
+  <div class="tablewrap"><table><thead><tr><th>Sector, ranked</th><th class="num">Penetration</th><th class="num">Teachers with a class link</th><th class="num">Schools reached</th><th class="num">Children</th><th class="num">Quizzes finished</th><th class="num">Objectives mastered</th></tr></thead><tbody><tr><th>1. Sihala</th><td class="num"><b>32.7%</b></td><td class="num">256 of 783</td><td class="num">62 of 79</td><td class="num">1,610</td><td class="num">4,671</td><td class="num">74.5%</td></tr><tr><th>2. Urban-I</th><td class="num"><b>28.4%</b></td><td class="num">497 of 1,748</td><td class="num">52 of 74</td><td class="num">5,844</td><td class="num">18,142</td><td class="num">75.1%</td></tr><tr><th>3. Bhara Kahu</th><td class="num"><b>24.9%</b></td><td class="num">232 of 932</td><td class="num">62 of 85</td><td class="num">793</td><td class="num">1,937</td><td class="num">72.2%</td></tr><tr><th>4. Tarnol</th><td class="num"><b>23.8%</b></td><td class="num">187 of 787</td><td class="num">50 of 61</td><td class="num">698</td><td class="num">2,032</td><td class="num">72.6%</td></tr><tr><th>5. Urban-II</th><td class="num"><b>21.0%</b></td><td class="num">315 of 1,499</td><td class="num">46 of 67</td><td class="num">2,806</td><td class="num">6,315</td><td class="num">69.7%</td></tr><tr><th>6. Nilore</th><td class="num"><b>17.1%</b></td><td class="num">147 of 858</td><td class="num">52 of 67</td><td class="num">566</td><td class="num">1,319</td><td class="num">72.1%</td></tr><tr><th>All six sectors</th><td class="num"><b>24.7%</b></td><td class="num">1,634 of 6,607</td><td class="num">324 of 433</td><td class="num">12,317</td><td class="num">34,416</td><td class="num"></td></tr><tr><th>Not mapped to a sector</th><td class="num">—</td><td class="num">183</td><td class="num">—</td><td class="num">776</td><td class="num">1,435</td><td class="num">72.1%</td></tr></tbody></table></div>
+  <p class="prose small">The roll is every teacher account that maps to a sector through its school record — 6,607
+    teachers, in line with the ICT sheet. 1,634 of the 1,817 teachers with a class link map that
     way; the rest have no school on file. A child who sat quizzes from teachers in two sectors is counted in both, so the
     column can sum to slightly more than the distinct total above. A friend who arrived by another child's invite is placed
     with that child's teacher.</p>
@@ -565,8 +593,8 @@ that cost nothing: replies a business sends inside a conversation the person has
 
 <section id="repeat">
   <h2>The same quiz again</h2>
-  <p class="prose"><b>3,208 children</b> have finished a quiz and then sat that same quiz again —
-    27% of everyone reached, across 8,572 repeat sittings.
+  <p class="prose"><b>3,301 children</b> have finished a quiz and then sat that same quiz again —
+    26% of everyone reached, across 8,721 repeat sittings.
     It happens every day, weekends included. The class report and the class card count each child once, using their latest attempt,
     so a child who repeats a quiz to improve is ranked on the result they ended with.</p>
   <figure class="chart"><img src="charts/19_repeat_children.png" alt="Children repeating a quiz they had finished, each day" loading="lazy"></figure>
@@ -575,8 +603,8 @@ that cost nothing: replies a business sends inside a conversation the person has
 
 <section id="caveats">
   <div class="caveats"><h3>How much weight this carries</h3><ul>
-    <li><strong>The web page is two days old</strong> and changed during them (the list under “Since the page went live”). Jugnu’s Challenge,
-      as described, is one evening and one school day. A day is not a week.</li>
+    <li><strong>The web page is three days old</strong> and changed during its first two (the list under “Since the page went live”). Jugnu’s Challenge,
+      as described, has run for one evening and two full days. A few days are not a week.</li>
     <li><strong>Our own testing is taken out.</strong> Test children and their quiz codes are removed by record; hub and game taps,
       which carry no quiz code, are removed for the minutes our checks ran (7 Oct 12:20–13:10; 7 Oct 19:30–20:00; 7 Oct 21:45–22:15; 8 Oct 09:20–09:45).</li>
     <li><strong>A child on the page is a new record</strong>, so a child on both routes is counted twice and some children called new since
@@ -591,7 +619,7 @@ that cost nothing: replies a business sends inside a conversation the person has
 <script>(function(){var t=document.getElementById('contents'),b=document.querySelector('.to-top');
 if(!t||!b||!('IntersectionObserver' in window))return;
 new IntersectionObserver(function(e){b.hidden=e[0].isIntersecting;}).observe(t);})();</script>
-<footer>Source: NIETE production, read replica and event logs, read at 8 October 2026, 23:59 Pakistan time (18:59 UTC). Web page: from 7 October 2026, 03:08 Pakistan time.
+<footer>Source: NIETE production, read replica and event logs, read at 9 October 2026, 23:59 Pakistan time (18:59 UTC). Web page: from 7 October 2026, 03:08 Pakistan time.
   Whole run: from 6 September 2026. Earlier page: <a href="message-era-2026-10-02.html">message-era-2026-10-02.html</a>.</footer>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
