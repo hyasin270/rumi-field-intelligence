@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Listening to Classrooms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Nastaliq+Urdu&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Taleemabad · for Paul Atherton, Fab Inc · Geneva, October 2026</div>
+    <h1>Listening to classrooms, coaches and children</h1>
+    <p class="lede">Since our Fab AI Learning-by-Doing grant we open-sourced the technology and built a coalition of implementers around it. These recordings are what we learn from every day: what happens in a lesson, how a coach talks to the teacher afterwards, and how children read. All of them are real.</p>
+    <div class="stats" id="stats"></div>
+  </div>
+</header>
+<nav class="toc"><div class="wrap">
+  <a href="#children">Children reading</a><a href="#classrooms">Classrooms</a><a href="#debriefs">Debriefs</a>
+  <a href="#together">Working together</a><a href="#how">How we chose these</a>
+  <button class="theme" id="theme">Dark</button>
+</div></nav>
+
+<main class="wrap">
+  <section class="sec" id="children">
+    <h2>Children reading</h2>
+    <p class="lede2">Three ways we hear children read. The scores beside each recording are the AI's and a person's, so the gap between them is in plain view.</p>
+    <div class="kvs" id="child-stats"></div>
+    <p class="small muted">The numbers above come from the Rawalpindi trial: 2,233 children, 28 enumerators, 99 schools, 207 whole-session recordings and 1,462 re-listens by reviewers. The AI was evaluated on the 187 recordings that join to both. On timed reading, two trained people agree only about half the time, so that, not 100%, is the bar an AI has to clear.</p>
+    <div class="lock" id="lock">
+      <h3>These are real children's voices</h3>
+      <p>The recordings are sealed on this page and open only with the password Haroon shared with you. They play in your browser and are not stored anywhere else.</p>
+      <form id="lock-form" autocomplete="off"><input id="pw" type="password" placeholder="Password" aria-label="Password"><button type="submit">Open the recordings</button></form>
+      <p id="lock-msg" class="muted small" aria-live="polite"></p>
+    </div>
+    <div id="child-clips" hidden></div>
+  </section>
+
+  <section class="sec" id="classrooms">
+    <h2>Inside the classroom</h2>
+    <p class="lede2">Moments from real lessons in Islamabad, Punjab, Tanzania and Palestine, each with what the AI coach told the teacher after hearing the whole lesson. These carry children's voices, so they open with the same password.</p>
+    <p class="lock-note" id="classroom-lock">These clips carry children's voices, so they open with the same password. <a href="#children">Go to the password</a></p>
+    <div id="classroom-sealed"></div>
+    <div id="classroom-clips"></div>
+  </section>
+
+  <section class="sec" id="debriefs">
+    <h2>After the lesson: the coach and the teacher</h2>
+    <p class="lede2">After an observation the coach and the teacher talk. We recorded those conversations and studied 399 of them: they are warm and safe (92–98%), the teacher rarely tries the new move out loud before the coach leaves (3% in Islamabad, 0% elsewhere), and the coached skill moved by +0.06 of a level against matched controls (95% interval +0.02 to +0.10).</p>
+    <div id="debrief-clips"></div>
+    <p><a href="../coaching-debriefs-2026-10/">The full debrief study: 399 conversations, what good looks like, and whether teaching changed</a></p>
+  </section>
+
+  <section class="sec" id="together">
+    <h2>Where we could work together</h2>
+    <p class="lede2">Nine places where Fab AI's evaluation work and our recordings, platform and coalition fit together, each with a first step that fits in four weeks.</p>
+    <div class="ideas" id="collab"></div>
+  </section>
+
+  <section class="sec" id="how">
+    <h2>How we chose these recordings</h2>
+    <ul><li><b>Real children only.</b> We excluded test accounts, the team's own phones, test children, and every recording where an adult was reading. Each child clip passed a pitch check (a child's voice sits above about 260 Hz) and an AI listen confirming a child under about 12, the language, and that no one's name is spoken.</li><li><b>No names.</b> No child, teacher, coach or school is named in any text here. Debrief text is redacted; coaches are numbered.</li><li><b>Sealed.</b> Anything with a child's voice is encrypted on this page and opens only with the password; the debrief clips were already published in our study.</li><li><b>Short.</b> Clips are 15 to 45 seconds, cut at a natural break, loudness-matched.</li></ul>
+  </section>
+</main>
+<footer class="foot"><div class="wrap muted small">Taleemabad · Rumi · prepared for a conversation with Fab AI, October 2026 · not for redistribution</div></footer>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
