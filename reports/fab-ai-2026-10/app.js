@@ -33,7 +33,7 @@
     const ai = c.ai_said ? `<div class="ai"><b>${esc(c.ai_said_label || 'What the AI coach told the teacher')}</b>
       <p class="${isUrdu(c.ai_said) ? 'ur' : ''}">${esc(c.ai_said)}</p></div>` : '';
     const audio = sealed ? `<audio controls preload="none" data-sealed="${esc(c.file)}"></audio>`
-                         : `<audio controls preload="none" src="${esc(c.file)}"></audio>`;
+                         : `<audio controls preload="metadata" src="${esc(c.file)}"></audio>`;
     return `<article class="clip"><div class="clip-head"><span class="tag">${tags}</span><span class="dur">${mmss(c.duration_s)}</span></div>
       ${title}${audio}<p class="cap">${esc(c.caption)}</p>${scoreLine(c.scores)}${ai}${tx}
       ${c.why ? `<p class="why">${esc(c.why)}</p>` : ''}<p class="src muted small">${esc(c.source || '')}</p></article>`;
@@ -71,6 +71,29 @@
     const u = new Uint8Array(buf);
     return crypto.subtle.decrypt({ name: 'AES-GCM', iv: u.slice(0, 12) }, key, u.slice(12));
   }
+  async function prepareSealed() {
+    const list = [...document.querySelectorAll('audio[data-sealed]')];
+    list.forEach((a) => a.insertAdjacentHTML('beforebegin', '<p class="muted small loading">Opening the recording…</p>'));
+    let i = 0;
+    async function worker() {
+      while (i < list.length) {
+        const a = list[i++];
+        const note = a.previousElementSibling;
+        try {
+          const r = await fetch(a.dataset.sealed);
+          if (!r.ok) throw new Error(String(r.status));
+          const blob = new Blob([await openBytes(await r.arrayBuffer())], { type: 'audio/mpeg' });
+          a.preload = 'metadata';
+          a.src = URL.createObjectURL(blob);
+          a.dataset.ready = '1';
+          if (note && note.classList.contains('loading')) note.remove();
+        } catch (e) {
+          if (note && note.classList.contains('loading')) note.textContent = 'This recording did not open. Reload the page and try again.';
+        }
+      }
+    }
+    await Promise.all([worker(), worker(), worker(), worker()]);
+  }
   async function unlock(ev) {
     ev.preventDefault();
     const msg = $('#lock-msg'); msg.textContent = 'Opening…';
@@ -84,15 +107,9 @@
       renderGroups($('#child-clips'), P.childGroups.filter((g) => g.key !== 'classroom'), data.clips, true);
       renderGroups($('#classroom-sealed'), P.childGroups.filter((g) => g.key === 'classroom'), data.clips, true);
       $('#lock').hidden = true; $('#child-clips').hidden = false; $('#classroom-lock').hidden = true;
-      document.querySelectorAll('audio[data-sealed]').forEach((a) => {
-        a.addEventListener('play', async function onPlay() {
-          if (a.dataset.ready) return;
-          a.pause();
-          const r = await fetch(a.dataset.sealed);
-          const blob = new Blob([await openBytes(await r.arrayBuffer())], { type: 'audio/mpeg' });
-          a.src = URL.createObjectURL(blob); a.dataset.ready = '1'; a.play();
-        });
-      });
+      // Decrypt every sealed clip now and hand it to its player, so the native play button works on a tap:
+      // a player with no source ignores a tap, so decrypting "on play" never starts for a real user.
+      prepareSealed();
     } catch (e) { msg.textContent = 'Opened, but the recordings did not load. Try again in a moment.'; }
   }
   if (S && $('#lock-form')) $('#lock-form').addEventListener('submit', unlock);
