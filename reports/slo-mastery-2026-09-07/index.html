@@ -349,7 +349,7 @@ table.nr.co td{text-align:right;font-variant-numeric:tabular-nums;white-space:no
     <li><a href="#challenge">Jugnu’s Challenge</a><span>Who played, how they did, words a minute</span></li>
     <li><a href="#changes">What changed</a><span>Each change that reached children, by day</span></li>
     <li><a href="#newret">New and returning</a><span>Teachers and children, week by week since 6 September</span></li>
-    <li><a href="#cohorts">Who keeps coming back</a><span>Teachers who say yes again, and children who play again, day by day</span></li>
+    <li><a href="#cohorts">Who keeps coming back</a><span>Teachers who say yes again, and children who play again, week by week</span></li>
     <li><a href="#funnels">Two funnels</a><span>Teachers: offer to a child opening it. Children: first quiz to a friend joining</span></li>
     <li><a href="#scale">How far it has reached</a><span>The school map, by sector</span></li>
     <li><a href="#repeat">The same quiz again</a><span>Children who come back to a quiz they finished</span></li>
@@ -452,13 +452,11 @@ that cost nothing: replies a business sends inside a conversation the person has
   <figure class="chart"><picture><source media="(max-width:640px)" srcset="charts/w3_children_days_m.png"><img src="charts/w3_children_days.png" alt="Children on the quiz each day from 21 September, chat and web page together" loading="lazy"></picture></figure>
   <h3>The library</h3>
   <p class="prose">Since the library opened at 12:28 on 7 October, children have looked at 51,052 library
-    screens, picked 4,900 videos, saved 1,622 to the phone and started 2,702
+    screens, picked 4,955 videos, saved 1,622 to the phone and started 2,702
     quizzes from a video they picked themselves.</p>
   <h3>Sharing</h3>
-  <p class="prose">Children tapped a share button 12,168 times: 7,721 from the scorecard,
-    1,796 from the class league, 2,515 to challenge a friend and 136 from the
-    school league; 5,337 of those shares went through. 557 friend challenges were shared, and 161 quizzes have
-    been played through one.</p>
+  <p class="prose">Children tapped a share button 12,860 times: 8,167 from the scorecard, 2,515 to challenge a friend and 2,178 from the class league, the school league and Jugnu’s game cards; 5,387 of those shares went through. 557 friend challenges were shared, and 161 quizzes have
+    been played through one. Since 19 October a share sent with the WhatsApp button of the new share card is recorded the same way as the tap that opened it, so it is counted as a tap, and the number that went through is a floor.</p>
   <h3>The hub</h3>
   <p class="prose">The hub opened 7,005 times; since the door on the scorecard went live at 19:38 on 7 October,
     children tapped it 1,486 times. The hub is also the way into Jugnu’s Challenge, next.</p>
@@ -526,28 +524,29 @@ that cost nothing: replies a business sends inside a conversation the person has
 
 <section id="cohorts">
   <h2>Who keeps coming back</h2>
-  <p class="prose">These are standard retention curves. Everyone starts on day 0, the day of their first quiz, so every line
-    begins at 100%. Each later point is the share of that group who came back on exactly that day, counted from their own first day.
-    Each thin line is one group of people who started at the same time; the bold line is the average across all of them, weighted by
-    group size. A line stops at the last day everyone in its group has reached, so no point moves while a group is still filling.
-    The small panel zooms in on day 1 onwards, where the numbers are small.</p>
+  <p class="prose">These are standard weekly retention curves. Weeks run Monday to Sunday. Everyone starts in week 0, the
+    week of their first quiz, so every line begins at 100%. Each later point is the share of that group who came back at least once in
+    that week. Each thin line is one group of people whose first week was the same; the bold line is the average across all of them,
+    weighted by group size. Only finished weeks are drawn, so no point moves once it is on the chart; the week now running ends on
+    Sunday 25 Oct.</p>
   <h3>Teachers <span class="unit">unit: one teacher</span></h3>
   <ul class="defs">
-    <li><b>A teacher returns</b> on a day they say yes to the afternoon quiz offer and get the quiz link. Nothing else counts.</li>
+    <li><b>A teacher returns</b> in a week if, on any day of it, they say yes to the afternoon quiz offer and get the quiz link.
+      Nothing else counts.</li>
   </ul>
-  <figure class="chart"><picture><source media="(max-width:640px)" srcset="charts/ret_teachers_dod_m.png"><img src="charts/ret_teachers_dod.png" alt="Teachers by week of their first yes: share who said yes to a quiz offer and got the link again on each later day, with the average" loading="lazy"></picture></figure>
+  <figure class="chart"><picture><source media="(max-width:640px)" srcset="charts/ret_teachers_weekly_m.png"><img src="charts/ret_teachers_weekly.png" alt="Teachers by the week of their first yes: share who said yes to a quiz offer and got the link again in each later week, with the average and the share offered a quiz" loading="lazy"></picture></figure>
   <p class="prose">539 teachers have said yes to a quiz and got the link since 25 September.
-    3.8% of them did so again the next day, 2.7% on day 7, and on a typical day from day 3 about 2.3%. That is low partly by design: offers go out only on school days and
-    only after a lesson plan, so on a given later day just 4–17% of these teachers were even offered a quiz
-    (the orange dashed line). A teacher cannot say yes on a day no offer reaches them.</p>
+    13% of them did so again the week after their first, 10% in week 2, 5.7% in week 3. Part of that is how often they are asked: offers go out only on school days and only after a lesson plan, so
+    in weeks 1, 2 and 3 only 38%, 27% and 31% of these teachers were offered a quiz at all (the orange dashed line). A teacher cannot say yes in a
+    week no offer reaches them.</p>
   <h3>Children on the web quiz page <span class="unit">unit: one child</span></h3>
   <ul class="defs">
-    <li><b>A child returns</b> on a day they start a quiz on the web quiz page. One child is their student record, or the
-      phone and browser when a sitting has no student record. The page opened on 7 October, so groups are three days wide.</li>
+    <li><b>A child returns</b> in a week if they start a quiz on the web quiz page on any day of it. One child is their student
+      record, or the phone and browser when a sitting has no student record. The page opened on Tuesday 7 October.</li>
   </ul>
-  <figure class="chart"><picture><source media="(max-width:640px)" srcset="charts/ret_children_web_dod_m.png"><img src="charts/ret_children_web_dod.png" alt="Children by first day on the web quiz page: share who started a quiz there again on each later day, with the average" loading="lazy"></picture></figure>
-  <p class="prose">8,653 children have started a quiz on the web page since 7 October.
-    8.7% played again the next day and 4.7% on day 2; from day 3 a typical day is about 3.1% (3.7% on day 7). Data to 19 Oct.</p>
+  <figure class="chart"><picture><source media="(max-width:640px)" srcset="charts/ret_children_web_weekly_m.png"><img src="charts/ret_children_web_weekly.png" alt="Children by the week of their first web quiz: share who started a quiz on the web page again in each later week, with the average" loading="lazy"></picture></figure>
+  <p class="prose">8,653 children have started a quiz on the web page since 7 October. 14% of them started a web quiz again the week after their first (572 of the 4,143 whose next week has finished).
+    The page is new, so the line has one step so far; week 2 is drawn once Sunday 25 Oct has passed. Data to 19 Oct.</p>
 </section>
 
 <section id="funnels">
@@ -593,8 +592,8 @@ that cost nothing: replies a business sends inside a conversation the person has
       <div class="fv"><strong>128</strong></div></li><li><div class="fl"><b>A friend finished it</b><span>of the 161 quizzes friends started</span></div>
       <div class="fb"><span style="width:4.7%"></span></div>
       <div class="fv"><strong>117</strong></div></li></ol>
-  <p class="prose small">The class-group share on the same scorecard: 7,721 taps, of which 4,133 went through.
-    It cannot be followed to who opened it, so it has no further steps.</p>
+  <p class="prose small">The class-group share on the same scorecard: 8,167 taps, of which 4,171 went through.
+    It cannot be followed to who opened it, so it has no further steps. Since 19 October a share sent with the WhatsApp button of the new share card is recorded the same way as the tap that opened it, so it is counted as a tap, and the number that went through is a floor.</p>
   <p class="prose small wc-note">Corrected on 9 October: three figures on this page counted the wrong thing. “Challenged a friend” had counted the challenge code made at every finished quiz (5,241); it now counts challenges a child actually shared. Opens inside WhatsApp’s browser had been read from data that lost the browser on most rows (59 of 3,722); it now covers every page open. Share taps had counted a tap and its outcome as two (5,906); each tap now counts once.</p>
 </section>
 
