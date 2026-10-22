@@ -1,0 +1,1117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Presenter: town hall, October 2026</title>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<style>
+  :root { --bg: #121417; --ink: #F4F1EA; --mute: #8C929B; --blue: #6F94F0; --amber: #EFAF22; --red: #E94E5A; --green: #17C65D;
+    --lit: #EFAF22; /* = --lit in build/theme/tokens.css: the presenter is built without the theme */ }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font-family: "Poppins", sans-serif; overflow: hidden; }
+  .wrap { display: grid; grid-template-columns: 1fr 34%; grid-template-rows: auto 1fr auto; height: 100vh; gap: 0; }
+  header { grid-column: 1 / 3; display: flex; align-items: baseline; gap: 28px; padding: 18px 32px 10px; border-bottom: 1px solid #2a2e34; }
+  header .id { font-family: "Fredoka", sans-serif; font-size: 28px; color: var(--blue); }
+  header .title { font-family: "Fredoka", sans-serif; font-size: 40px; font-weight: 600; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  header .step { font-size: 26px; color: var(--mute); }
+  header .mode { font-size: 22px; padding: 2px 14px; border-radius: 10px; background: var(--amber); color: #000; display: none; }
+  header .mode.on { display: inline-block; }
+  .note { padding: 22px 36px; overflow-y: auto; font-size: 34px; line-height: 1.45; white-space: pre-wrap; }
+  .note .press { display: block; color: var(--amber); font-size: 24px; letter-spacing: .1em; text-transform: uppercase; margin: 6px 0; }
+  .note .press.done { color: #4b5058; }
+  /* "[Haroon, in your own words: ...]" lines: his to tell, not to read */
+  .note .own { display: block; color: var(--lit); border-left: 6px solid var(--lit); padding-left: 20px; margin: 4px 0; white-space: normal; }
+  .note .own .own-q { display: block; font-size: 0.667em; line-height: 1.4; opacity: 0.85; margin-top: 4px; }
+  .note .cues { font-size: 22px; color: var(--mute); margin-bottom: 18px; line-height: 1.35; }
+  .note .src { font-size: 20px; color: var(--mute); margin-top: 22px; }
+  aside { border-left: 1px solid #2a2e34; padding: 22px 28px; display: flex; flex-direction: column; gap: 22px; }
+  .clock { font-family: "Fredoka", sans-serif; font-size: 96px; line-height: 1; }
+  .clock small { display: block; font-family: "Poppins", sans-serif; font-size: 18px; color: var(--mute); letter-spacing: .08em; text-transform: uppercase; }
+  .scene-t { font-family: "Fredoka", sans-serif; font-size: 56px; line-height: 1; }
+  .scene-t.amber { color: var(--amber); }
+  .scene-t.red { color: var(--red); }
+  .scene-t small { display: block; font-family: "Poppins", sans-serif; font-size: 18px; color: var(--mute); letter-spacing: .08em; text-transform: uppercase; }
+  .clipbox { display: none; }
+  .clipbox.on { display: block; }
+  .clipbox .bar { height: 14px; background: #2a2e34; border-radius: 7px; overflow: hidden; margin-top: 8px; }
+  .clipbox .bar i { display: block; height: 100%; width: 0; background: var(--amber); }
+  .clipbox .lbl { font-size: 20px; color: var(--mute); }
+  .endhint { display: none; font-size: 26px; color: var(--amber); }
+  .endhint.on { display: block; }
+  .endhint small { display: block; font-size: 18px; color: var(--mute); }
+  .next { margin-top: auto; border-top: 1px solid #2a2e34; padding-top: 18px; }
+  .next small { font-size: 18px; color: var(--mute); letter-spacing: .08em; text-transform: uppercase; }
+  .next .nt { font-family: "Fredoka", sans-serif; font-size: 34px; margin: 4px 0 6px; }
+  .next .nl { font-size: 22px; color: #c9ccd1; line-height: 1.35; }
+  footer { grid-column: 1 / 3; padding: 8px 32px; font-size: 16px; color: var(--mute); border-top: 1px solid #2a2e34; display: flex; gap: 24px; }
+  footer .link.off { color: var(--red); }
+  .black-on header .title::after { content: "  (screen is black)"; color: var(--red); font-size: 24px; }
+  .warn { color: var(--red); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><span class="id" id="pid">-</span><span class="title" id="ptitle">Waiting for the show window</span><span class="mode" id="pmode">appendix</span><span class="step" id="pstep"></span></header>
+  <div class="note" id="pnote"></div>
+  <aside>
+    <div class="clock" id="pclock">0:00<small>show clock (T to start)</small></div>
+    <div class="scene-t" id="pscene">0:00<small>this scene</small></div>
+    <div class="endhint" id="pend">↓ ends the clip<small>clicker: B, then →</small></div>
+    <div class="clipbox" id="pclip"><div class="lbl" id="pcliplbl"></div><div class="bar"><i id="pclipbar"></i></div></div>
+    <div class="next"><small>Next</small><div class="nt" id="pnext"></div><div class="nl" id="pnextl"></div></div>
+  </aside>
+  <footer><span class="link" id="plink">link: waiting</span><span id="pbuild"></span><span>Next: Right, Space, PageDown · Back: Left, PageUp · ↓ ends a clip · A appendix · B black · T clock · digits then Enter</span><span class="warn" id="pwarn"></span></footer>
+</div>
+<script type="application/json" id="deck-manifest">{"title":"Town hall, October 2026","built_at":"2026-10-22T21:36:21Z","stage":[1920,1080],"scenes":[{"id":"s01","title":"A child reads","chapter":"open","duration_s":45,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-open","status":"design-pass","media":[{"type":"audio","src":"assets/clips/audio/c01.mp3","clip":"c01","autoplay":false}],"highlight":{"mode":"passage","words":"clips/words/c01.json","size_px":68,"lang":"en","clip":"c01","audio_src":"assets/clips/audio/c01.mp3"},"note":{"planned":"45 s (clip 29 s, speaking 16 s, at most 36 words)","cues":["press 1: the clip plays and the words light as the child reads them (↓ ends it early)","press 2: holds on the lit passage; the caption appears: \"A child in Grade 3, Islamabad, reading on a phone. October 2026.\"","press 3: moves to s02"],"body":"[Say nothing on arrival. Wait for the room to settle, then press.]\n(press)\n[Say nothing until the clip ends. Two seconds of silence.]\n(press)\nA child in Islamabad, a few weeks ago.\nYou heard them start the first line six times, and keep going.\nImran is the boy in the story. The child reading is not named.\n(press)","first_line":"A child in Islamabad, a few weeks ago."}},{"id":"s02","title":"Teach Well. Improve.","chapter":"open","duration_s":30,"appendix":false,"steps":3,"transition":"cut","sensitive":false,"owner":"sg-open","status":"design-pass","media":[],"highlight":null,"note":{"planned":"30 s","cues":["press 1: \"Improve.\" appears beside \"Teach Well.\"","press 2: the contents appear under both words","press 3: moves to s03"],"body":"Two words you know. Teach Well. Lesson plans and training: everything a teacher needs to teach well today.\n(press)\nImprove. Coaching and debriefs, so the teacher is better tomorrow.\n(press)\nIn March this room said these two words back to me on cue.\nFor a long time, though, I could not say what all of it was for.\n(press)","first_line":"Two words you know."}},{"id":"s03","title":"What we said in July","chapter":"idea","duration_s":15,"appendix":false,"steps":1,"transition":"cut","sensitive":false,"owner":"sg-open","status":"design-pass","media":[{"type":"image","src":"assets/scenes/s03/july.jpg","autoplay":false}],"highlight":null,"note":{"planned":"15 s","cues":["press 1: moves to s04"],"body":"In July we showed you three promises. The second, prove impact, we had not done yet.\nThe team deck says \"Prove it in learning\". I will say it as the child would.\n(press)","first_line":"In July we showed you three promises."}},{"id":"s04","title":"Learn.","chapter":"idea","duration_s":35,"appendix":false,"steps":3,"transition":"cut","sensitive":false,"owner":"sg-open","status":"design-pass","media":[],"highlight":null,"note":{"planned":"35 s","cues":["press 1: the contents appear under each word","press 2: each question takes the place of its word's contents, beside the word; under the device, \"Teach well so the child learns. Improve so the child learns more.\"","press 3: moves to s05"],"body":"Learn. Are the children learning? That is the third word, and it completes the puzzle.\n(press)\nA short check by the coach, the quiz at home, and one move.\n(press)\nWe teach well so the child learns. We improve so the child learns more.\nSo every region will collect learning data every month, and use it to run its programme.\n[If you want to say the three words once in Urdu: the way the room said them in March, «ٹیچ ویل۔ امپروو۔ لرن۔» (Teach Well. Improve. Learn.), or in your own Urdu, for example «اچھا پڑھائیں۔ بہتر بنائیں۔ سیکھیں۔» (Teach well. Make it better. Learn.)]\n(press)","first_line":"Learn."}},{"id":"s05","title":"The one in front of us","chapter":"idea","duration_s":65,"appendix":false,"steps":3,"transition":"cut","sensitive":false,"owner":"sg-open","status":"design-pass","media":[{"type":"image","src":"assets/scenes/s05/child.jpg","autoplay":false}],"highlight":null,"note":{"planned":"65 s","cues":["press 1: the frame pulls back until the child is one point among thousands","press 2: the frame comes back in to the one child","press 3: moves to s06"],"body":"[Haroon, in your own words: becoming a parent. From your brief: \"I want to tell them I'm about to become a parent -- and so even though I want to help millions across the globe, as a teacher and as a parent, my child -- the one in front of me -- is the center of my universe. I want to get to know them. They're not a number to me. They're not a statistic.\" About 30 s here.]\n(press)\n[Haroon, in your own words: the duality. From your brief: \"So I hold this duality, you know, of wanting both scale and wanting THAT child to be center stage. And I've come to terms with this duality -- that I know its not either or. That we'll endeavor to move the learning outcomes of entire districts and countries and provinces, yet look at the numbers as if the child and teacher was infront of us.\" About 25 s here.]\n(press)\nWhen I say Learn today, this is the child I mean.\n(press)","first_line":"When I say Learn today, this is the child I mean."}},{"id":"s06","title":"First, we listen","chapter":"listen","duration_s":35,"appendix":false,"steps":2,"transition":"cut","sensitive":false,"owner":"sg-listen","status":"design-pass","media":[],"highlight":null,"note":{"planned":"35 s","cues":["press 1: \"Islamabad: 28,000 lessons recorded this term, and we read them.\"","press 2: moves to s07"],"body":"We cannot be in every classroom. Even the coaches cannot.\n[Haroon, in your own words: the wound of a teacher. From your brief: \"I want to talk about the wound of a teacher.\" About 25 s here.]\nSo before any number, we listened.\n(press)\nTwenty-eight thousand lessons in Islamabad this term, recorded by teachers and their coaches, and we read them. Here is what a few of them sound like.\n(press)","first_line":"We cannot be in every classroom."}},{"id":"s07","title":"Teach Well sounds like this","chapter":"listen","duration_s":45,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-listen","status":"design-pass","media":[{"type":"audio","src":"assets/clips/audio/c02.mp3","clip":"c02","autoplay":false}],"highlight":{"mode":"transcript","words":"clips/words/c02.json","size_px":64,"lang":"mixed","show_gloss":true,"clip":"c02","audio_src":"assets/clips/audio/c02.mp3"},"note":{"planned":"45 s (clip 20 s, speaking 25 s, at most 56 words)","cues":["press 1: the clip plays and each line appears as it is spoken, Urdu with the English under it (↓ ends it early)","press 2: holds on the \"why\" line and the child's answer, with the caption","press 3: moves to s08"],"body":"Listen to this teacher, in an English grammar lesson.\n(press)\n[Let it play. Two seconds of silence.]\n(press)\nA real question: why? Then the teacher asks again, so the child has to give the reason.\nNo name on the screen, and I will not say one. That is what Teach Well sounds like in a room.\n(press)","first_line":"Listen to this teacher, in an English grammar lesson."}},{"id":"s08","title":"Improve sounds like this","chapter":"listen","duration_s":50,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-listen","status":"design-pass","media":[{"type":"audio","src":"assets/clips/audio/c03.mp3","clip":"c03","autoplay":false}],"highlight":{"mode":"transcript","words":"clips/words/c03.json","size_px":64,"lang":"ur","show_gloss":true,"clip":"c03","audio_src":"assets/clips/audio/c03.mp3"},"note":{"planned":"50 s (clip 25 s, speaking 25 s, at most 57 words)","cues":["press 1: the clip plays, the coach and the teacher line by line (↓ ends it early)","press 2: holds on the coach's question alone, lit, with its English and the caption","press 3: moves to s09"],"body":"And this is after a lesson. A coach and a teacher.\n(press)\n[Let it play.]\n(press)\n\"So where did you feel that? At what point?\" One question from the coach, and the teacher works out what to change tomorrow.\nThat is the debrief. The next visit checks whether it happened.\n(press)","first_line":"And this is after a lesson."}},{"id":"s09","title":"And the child?","chapter":"listen","duration_s":65,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-listen","status":"design-pass","media":[{"type":"audio","src":"assets/clips/audio/c12.mp3","clip":"c12","autoplay":false}],"highlight":{"mode":"passage","words":"clips/words/c12.json","size_px":64,"lang":"ur","clip":"c12","audio_src":"assets/clips/audio/c12.mp3"},"note":{"planned":"65 s (clip 38 s, speaking 28 s, at most 63 words)","cues":["press 1: the clip plays and the passage lights as the child reads (↓ ends it early)","press 2: holds on the lit passage; the one English line about the story (on screen from entry, hidden during the read) returns under it, with the caption: \"Reading to an assessor. Rawalpindi, May 2026.\"","press 3: moves to s10"],"body":"This child reads a whole story to one of our assessors, in Rawalpindi, in May.\n(press)\n[Let it play. Let the silence sit.]\n(press)\nSixty words. Every one.\n[Haroon, in your own words: what you felt hearing this, if you want to say it. About 10 s here, or let the silence carry it.]\n(press)","first_line":"This child reads a whole story to one of our assessors, in Rawalpindi, in May."}},{"id":"s10","title":"We listen to this too","chapter":"listen","duration_s":35,"appendix":false,"steps":3,"transition":"fade","sensitive":true,"owner":"sg-listen","status":"design-pass","media":[],"highlight":null,"note":{"planned":"35 s (clip 16 s, speaking 19 s, at most 44 words)","cues":["press 1: the clip plays; one Urdu line lights as it is spoken, then its English line (↓ ends it early)","press 2: the screen holds, then \"We listen to this too.\" appears","press 3: moves to s11"],"body":"[Morning brief: this plays only with your yes. If you said no, the line arrives as text at the speed it was said, with no sound.]\nSome moments are harder to hear.\n(press)\n[Let it play. Hold the silence.]\n(press)\nWe listen to this too. A coach who has heard this knows what the next visit is for.\n(press)\n[Move on. Do not explain.]","first_line":"Some moments are harder to hear."}},{"id":"s11","title":"Another child","chapter":"listen","duration_s":65,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-listen","status":"design-pass","media":[{"type":"audio","src":"assets/clips/audio/c06.mp3","clip":"c06","autoplay":false}],"highlight":{"mode":"passage","words":"clips/words/c06.json","size_px":64,"lang":"ur","clip":"c06","audio_src":"assets/clips/audio/c06.mp3"},"note":{"planned":"65 s (clip 39 s, speaking 26 s, at most 60 words)","cues":["press 1: the clip plays and the passage lights as the child reads (↓ ends it early)","press 2: holds on the lit passage; the one English line about the story (on screen from entry, hidden during the read) returns under it, with the caption: \"Reading on a phone, a grown-up beside them. October 2026.\"","press 3: moves to s12"],"body":"The same story. Another child, on a phone, with a grown-up beside them who starts them off.\n(press)\n[Let it play.]\n(press)\nYou heard them stick on one word, go back to the start of the line, and read it through.\n(press)","first_line":"The same story."}},{"id":"s12","title":"What listening taught us","chapter":"listen","duration_s":35,"appendix":false,"steps":2,"transition":"cut","sensitive":false,"owner":"sg-listen","status":"design-pass","media":[],"highlight":null,"note":{"planned":"35 s","cues":["press 1: the second line appears: \"Head teachers and principals now observe too.\"","press 2: moves to s13"],"body":"In March I asked you to ask me whether feedback feels more like an invitation than a threat. Ask me. The debrief you heard earlier is my answer so far.\nA debrief that ends with one move and a check-back changes what teachers do. We know that from about five thousand recordings.\n(press)\nThe people closest to a teacher can do this too: head teachers and principals now observe, to the same standard as our coaches.\n(press)","first_line":"In March I asked you to ask me whether feedback feels more like an invitation than a threat."}},{"id":"s13","title":"Two ways to know","chapter":"know","duration_s":20,"appendix":false,"steps":2,"transition":"cut","sensitive":false,"owner":"sg-know","status":"design-pass","media":[],"highlight":null,"note":{"planned":"20 s","cues":["press 1: the two tiles: \"1 · The coach's phone\" and \"2 · The child at home\"","press 2: moves to s14"],"body":"The third word. How will we know? Two ways.\n(press)\nThe first is the coach's phone, in school. The second is the quiz, on a family phone. Two of the children you heard read through it.\n(press)","first_line":"The third word."}},{"id":"s14","title":"The coach's phone","chapter":"know","duration_s":40,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"owner":"sg-know","status":"design-pass","media":[{"type":"image","src":"assets/clips/stills/v01_1_coach_list.png","autoplay":false},{"type":"image","src":"assets/clips/stills/v01_2_part_picker.png","autoplay":false},{"type":"image","src":"assets/clips/stills/v01_3_letters.png","autoplay":false},{"type":"image","src":"assets/clips/stills/v01_4_passage.png","autoplay":false},{"type":"image","src":"assets/clips/stills/v01_5_hand_back.png","autoplay":false}],"highlight":null,"note":{"planned":"40 s","cues":["press 1: the next screen; caption \"Five children on one visit\"","press 2: the next screen; caption \"A short reading and maths check, on a phone\"","press 3: the next screen; the first two captions leave, and \"The recordings score themselves\" stands with the dates line","press 4: moves to s15"],"body":"One. On a visit, the coach opens Rumi.\n(press)\nFive children, picked at random for them.\n(press)\nA short reading and maths check, on the phone. We think about nine minutes a child. We start timing it with real children this week.\n(press)\nThe recordings score themselves, and the result comes back as one thing to do. Islamabad's coaches start this Monday, and every region within about a month. The coach does not help the child read. We collect it so that an outside check would agree with it.\n(press)","first_line":"One."}},{"id":"s15","title":"The child at home","chapter":"know","duration_s":50,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-know","status":"design-pass","media":[{"type":"image","src":"assets/clips/stills/v02_1_child_home.png","autoplay":false},{"type":"image","src":"assets/clips/stills/v02_2_quiz.png","autoplay":false},{"type":"image","src":"assets/clips/stills/v02_3_storybook.png","autoplay":false},{"type":"image","src":"assets/clips/stills/v02_4_read_aloud.png","autoplay":false},{"type":"video","src":"assets/clips/video/v02.mp4","autoplay":false,"poster":"assets/clips/stills/v02_4_read_aloud.png"}],"highlight":null,"note":{"planned":"50 s","cues":["press 1: the next phone screen: the quiz","press 2: the storybook; the video plays, muted, labelled \"demo\"","press 3: moves to s16"],"body":"Two. The child's home page, in Islamabad, opened through WhatsApp, which stays the door.\n(press)\nAfter a lesson, a quiz. Eighteen thousand children in Islamabad took one this term, mostly the ones with a phone at home. The coach's check also reaches the children without one.\n(press)\nAnd storybooks a child can read aloud while we listen. This is a demo with a scripted voice. That part is only starting: about 230 children have opened a storybook, and 75 have read a page aloud. Islamabad first, your region after.\n(press)","first_line":"Two."}},{"id":"s16","title":"What a region will see","chapter":"know","duration_s":35,"appendix":false,"steps":3,"transition":"cut","sensitive":false,"owner":"sg-know","status":"design-pass","media":[],"highlight":null,"note":{"planned":"35 s","cues":["press 1: the line appears: \"In Grade 3, seven children in every ten can't yet read a story fluently.\"","press 2: one priority skill for the region, one move in every debrief","press 3: moves to s17"],"body":"This is what a region will see within a month. A hundred dots for each grade, coloured by reading level. This is the picture from Rawalpindi, in May.\n(press)\nIn grade 3, seven children in every ten cannot yet read a story fluently.\n(press)\nSo that becomes the region's one priority skill, and one move in every debrief. A signal for the region, and nobody's score.\n(press)","first_line":"This is what a region will see within a month."}},{"id":"s17","title":"When we see the gaps","chapter":"act","duration_s":40,"appendix":false,"steps":2,"transition":"cut","sensitive":false,"owner":"sg-know","status":"design-pass","media":[],"highlight":null,"note":{"planned":"40 s","cues":["press 1: the ring draws around the device: Listen, Notice, One move, Check","press 2: moves to s18"],"body":"[Haroon, in your own words: the big question. From your brief: \"The big question now becomes -- when we begin to see these gaps, what do we do with them?\" About 10 s here.]\nFor the first weeks, we listen. Every morning, when you look at the numbers, look at them from the lens of the child. We do not have the answer yet. You will get the report.\n(press)\nThen we notice the pattern and make one move, the one under Learn: a change to a lesson plan, or to a debrief. Then we check. Every region's answer will look different.\n(press)","first_line":"For the first weeks, we listen."}},{"id":"s18","title":"The region around the child","chapter":"act","duration_s":40,"appendix":false,"steps":7,"transition":"cut","sensitive":false,"owner":"sg-know","status":"design-pass","media":[],"highlight":null,"note":{"planned":"40 s","cues":["press 1: the parent's ring","press 2: the teacher's ring","press 3: the school's ring (the head observes)","press 4: the district's ring","press 5: the province's ring","press 6: the region's people close around: lieutenant, field team, operator, growth, P&C; \"A region has everything it needs.\"","press 7: moves to s19"],"body":"Everything wraps around the child.\n(press)\nTheir parent.\n(press)\nTheir teacher.\n(press)\nTheir school, where the head now observes.\n(press)\nThe district.\n(press)\nThe province.\n(press)\nSo we are arranging ourselves the same way. Growth sits in the region: one person who brings in more teachers, and the grants and government funding to pay for them. The operator, who runs a region's programme, sits in one or two regions. P&C, our people team, sits with you. A region has everything it needs. More follows later.\n(press)","first_line":"Everything wraps around the child."}},{"id":"s19","title":"Monday","chapter":"act","duration_s":40,"appendix":false,"steps":7,"transition":"cut","sensitive":false,"owner":"sg-know","status":"design-pass","media":[],"highlight":null,"note":{"planned":"40 s","cues":["press 1: \"If you coach\", in English and Urdu (the Urdu is on screen; say it only if you want)","press 2: \"If you lead a region\"","press 3: \"If you build or write\"","press 4: \"If you bring in teachers\"","press 5: earlier rows dim; \"Appraisals: twice a year, on the rubric. First round in December.\"","press 6: \"WhatsApp stays the door to Rumi. Everything else opens from it.\"","press 7: moves to s20"],"body":"So, Monday.\n(press)\nIf you coach: a quick check of a few children on visits, and one move per debrief.\n(press)\nIf you lead a region: your number now includes whether children learn.\n(press)\nIf you build or write: the regions will ask for your work.\n(press)\nIf you bring in teachers: more teachers, and the funding to pay for them.\n(press)\nAppraisals: twice a year, on the rubric, from December.\n(press)\nAnd one answer many of you asked for: WhatsApp stays the door to Rumi. Everything else opens from it.\n(press)","first_line":"So, Monday."}},{"id":"s20","title":"Learning per dollar","chapter":"dream","duration_s":35,"appendix":false,"steps":4,"transition":"cut","sensitive":false,"owner":"sg-dream","status":"built","media":[],"highlight":null,"note":{"planned":"35 s","cues":["press 1: \"How much more a child learns because of us\"","press 2: \"divided by what it costs\"","press 3: \"per $100\"","press 4: moves to s21"],"body":"What is all of this for? There is a public table of the world's education programmes, with one measure.\n(press)\nHow much more a child learns because of the programme, counted in years of good schooling.\n(press)\nDivided by what it costs.\n(press)\nFor every hundred dollars. That is learning per dollar. Its name is LAYS per $100: learning-adjusted years of schooling.\n(press)","first_line":"What is all of this for?"}},{"id":"s21","title":"The leaderboard","chapter":"dream","duration_s":50,"appendix":false,"steps":3,"transition":"cut","sensitive":false,"owner":"sg-dream","status":"built","media":[],"highlight":null,"note":{"planned":"50 s","cues":["press 1: our band climbs to 20; rows from rank 4 step below it; \"2027: outside studies\" appears; \"First. End of 2028.\" takes the title (the top three and \"1 to 3\" stay)","press 2: the table dims; \"Every point is a child reading.\"; the estimate card stays","press 3: moves to s22"],"body":"Eighty-six programmes. The best structured-teaching programme scores about fifteen. One preschool programme that trained its own teachers sits just above it, at sixteen. At twenty we pass them both. Our best estimates put us in the middle, somewhere between thirty-third and fifty-sixth, and that is an estimate: no study of ours is yet strong enough for funders.\n(press)\n[Haroon, in your own words: the dream. From your brief: \"I want to be vulnerable, to be persuasive, to be MLK like with the dream of being nuber one in the world at moving learning outcomes\" About 20 s here.]\nBy the end of 2028 we want to be first among programmes that train teachers: twenty, on the same measure. By raising learning, with cost held flat, and by proving it outside.\n(press)\n(press)","first_line":"Eighty-six programmes."}},{"id":"s22","title":"Letting go","chapter":"dream","duration_s":35,"appendix":false,"steps":2,"transition":"cut","sensitive":false,"owner":"sg-dream","status":"built","media":[{"type":"image","src":"assets/scenes/s22/photo_crop.jpg","autoplay":false}],"highlight":null,"note":{"planned":"35 s","cues":["press 1: the line draws on to the last stop, \"Open source\"","press 2: moves to s23"],"body":"How do we get there? The way we always have. We started in a school in a slum, with me teaching. Then schools that carried our name. Then government schools, where the teachers were not ours. Then Rawalpindi, with the government's coaches. Then Moawin, a partner in Pakistan, and Tanzania, where the coaches were not paid by us.\n(press)\nThen we made our code public.\n[Haroon, in your own words: letting go. From your brief: \"Of not controlling, yet still influencing.\" About 5 s here.]\n(press)","first_line":"How do we get there?"}},{"id":"s23","title":"Who comes in","chapter":"dream","duration_s":25,"appendix":false,"steps":3,"transition":"cut","sensitive":false,"owner":"sg-dream","status":"built","media":[],"highlight":null,"note":{"planned":"25 s","cues":["press 1: the Tanzania line alone (the three lines of what a partner brings are on screen from entry)","press 2: the South Africa line alone","press 3: moves to s24"],"body":"We cannot do it alone. Our partners reach public schools, believe in Teach Well and Improve, and care whether children learn.\n(press)\nOur partner in Tanzania is in government schools for the first time.\n(press)\nFunda Wande, from South Africa, is coming to see how we write lesson plans so fast.\n(press)","first_line":"We cannot do it alone."}},{"id":"s24","title":"This quarter","chapter":"wins","duration_s":35,"appendix":false,"steps":6,"transition":"cut","sensitive":false,"owner":"sg-dream","status":"built","media":[],"highlight":null,"note":{"planned":"35 s","cues":["press 1: Moawin","press 2: the Financial Times","press 3: Anthropic","press 4: the largest single grant","press 5: 45,000 lessons since August, every region","press 6: moves to s25"],"body":"This quarter. Palestine: seven weeks after launch, more than 2,900 teachers planning lessons, despite all the challenges in the West Bank.\n(press)\nMoawin's teachers used their lesson plans more steadily than anyone in Pakistan.\n(press)\nThe Financial Times wrote about this work.\n(press)\nWe now work alongside Anthropic's applied-AI team to make Rumi's coaching scores steadier.\n(press)\nThis year we closed the largest single grant in our history.\n(press)\nMore than 45,000 lessons recorded since August, across every region.\n(press)","first_line":"This quarter."}},{"id":"s25","title":"Thank you","chapter":"wins","duration_s":20,"appendix":false,"steps":1,"transition":"cut","sensitive":false,"owner":"sg-dream","status":"built","media":[],"highlight":null,"note":{"planned":"20 s","cues":["press 1: moves to s26"],"body":"This is the work of the coaches who recorded and the teachers who let us listen, of every team here, and of the teams who test Rumi, give it memory, run our agents, do the research, and work on impact and policy.\n[If you want, in place of the second sentence: read the names on the screen aloud, one breath.]\n(press)","first_line":"This is the work of the coaches who recorded and the teachers who let us listen, of every team here, and of the teams who test Rumi, give it memory, run our agents, do the research, and work on impact"}},{"id":"s26","title":"One breath","chapter":"close","duration_s":30,"appendix":false,"steps":3,"transition":"cut","sensitive":false,"owner":"sg-open","status":"design-pass","media":[],"highlight":null,"note":{"planned":"30 s","cues":["press 1: \"Improve.\" turns yellow as the room says it (\"Teach Well.\" is yellow from entry, with all three words and their contents on screen)","press 2: \"Learn.\" turns yellow as everyone says it","press 3: moves to s27"],"body":"One breath. I say the first word, you say the second, and we all say the third.\nTeach Well.\n(press)\n[The room: \"Improve.\"]\n(press)\n[Everyone: \"Learn.\"]\n[If the room is with you: once more, all three together.]\nSay it with me on Monday too.\n[If you want it once in Urdu, as the room said it in March: «ٹیچ ویل۔ امپروو۔ لرن۔» (Teach Well. Improve. Learn.)]\n(press)","first_line":"One breath."}},{"id":"s27","title":"That child again","chapter":"close","duration_s":30,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"owner":"sg-open","status":"design-pass","media":[{"type":"image","src":"assets/scenes/s27/taleemabad.png","autoplay":false}],"highlight":null,"note":{"planned":"30 s","cues":["press 1: the dim words light one by one, in silence (about 15 s); then the Taleemabad mark","press 2: moves to s28"],"body":"[Haroon, in your own words: why the child is at the centre. From your brief: \"we essentially are putting the child at the center of the org. Whether or not their learning improves is the central piece of the equation\" About 10 s here, before you press; then say nothing until the page is lit.]\nThat child again.\n(press)\n[Let the words light. Say nothing until the page is lit.]\nTeach Well. Improve. Learn. Thank you.\n(press)","first_line":"That child again."}},{"id":"s28","title":"Questions","chapter":"index","duration_s":5,"appendix":false,"steps":1,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press A: the index opens; a number, then Enter, opens a page (A again comes back here; Right does nothing on s28)"],"body":"[To open the questions: ask a Rawalpindi coach first, then Palestine on video, then an engineer.]\n[Not spoken. Questions start here. Press A to open the index, then the number and Enter: 7 Enter opens a07. Without A first, a number opens a main scene. From an appendix scene, A takes you back to where you were. The More moments clips, a17a to a17i, open from a17 by pressing on, or with Up and Down in the index.]\n(press)","first_line":""}},{"id":"a01","title":"How we read 28,000 lessons","chapter":"appendix","duration_s":5,"appendix":true,"steps":2,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2: read twice, and what we found","press 2: moves to a02"],"body":"This is how we read every lesson. We read each recording without knowing whose lesson it was.\n(press)\nAbout one in ten was read a second time to check the first. What we found: teachers improve after their first AI-coach report, and then stay at that level.\n(press)","first_line":"This is how we read every lesson."}},{"id":"a02","title":"The eight shifts","chapter":"appendix","duration_s":5,"appendix":true,"steps":2,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: shifts five to eight replace one to four","press 2: moves to a03"],"body":"These are the eight changes the leadership team took to every team this week, in the same words as the team deck. Here are the first four.\n(press)\nAnd the other four. Pick the one you want to talk about and I will take it from there.\n(press)","first_line":"These are the eight changes the leadership team took to every team this week, in the same words as the team deck."}},{"id":"a03","title":"The coach's check","chapter":"appendix","duration_s":5,"appendix":true,"steps":2,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2: impartial, checked, back to the coach, when","press 2: moves to a04"],"body":"This is the coach's check in more detail. On a visit, the coach tests a small group of children picked at random, with a short reading and maths check matched to the time of year.\n(press)\nNobody helps a child read. Tests that coaches give tend to come out high, so we check their results against outside tests. The result comes back to the coach as one move. It tells the coach where to go. It is never a teacher's score; five children from one school are a signal, not a mark. Islamabad starts on Monday the 26th, and every region follows within about a month.\n(press)","first_line":"This is the coach's check in more detail."}},{"id":"a04","title":"The child's home","chapter":"appendix","duration_s":5,"appendix":true,"steps":1,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[{"type":"image","src":"assets/clips/stills/v02_1_child_home.png","autoplay":false},{"type":"image","src":"assets/clips/stills/v02_2_quiz.png","autoplay":false},{"type":"image","src":"assets/clips/stills/v02_3_storybook.png","autoplay":false},{"type":"image","src":"assets/clips/stills/v02_4_read_aloud.png","autoplay":false}],"highlight":null,"note":{"planned":"5 s","cues":["press 1: moves to a05"],"body":"This is everything a child can do on a family phone in Islamabad today: their home page, a quiz, the storybooks, and reading aloud, which is still a demo. It all opens from WhatsApp, which stays the door to Rumi.\n(press)","first_line":"This is everything a child can do on a family phone in Islamabad today: their home page, a quiz, the storybooks, and reading aloud, which is still a demo."}},{"id":"a05","title":"What children at home have done","chapter":"appendix","duration_s":5,"appendix":true,"steps":1,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: moves to a06"],"body":"These are the numbers behind the quiz. Just over eighteen thousand children in Islamabad took one this term. Most of them come from families with a phone, so this is not every child. The coach's check reaches the rest. Reading aloud on the phone has only just started.\n(press)","first_line":"These are the numbers behind the quiz."}},{"id":"a06","title":"Learning per dollar: the method","chapter":"appendix","duration_s":5,"appendix":true,"steps":2,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2: the top six of the table, what each one did, with Tusome and Brazil further down","press 2: moves to a07"],"body":"This is the method behind the table. It is published, and anyone can check it. You take how much more children learn because of a programme, count it in years of good schooling, and divide by the cost per child.\n(press)\nAnd these are the programmes at the top, with what each one did.\n(press)","first_line":"This is the method behind the table."}},{"id":"a07","title":"Why our figure is an estimate","chapter":"appendix","duration_s":5,"appendix":true,"steps":1,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: moves to a08"],"body":"Why is our place only an estimate? None of our own studies is yet strong enough for funders, so our impact is estimated from programmes like ours. What would change that is a study run by outsiders, comparing children in the programme with similar children who are not. The plan is to start them in three places in 2027.\n(press)","first_line":"Why is our place only an estimate?"}},{"id":"a08","title":"Partners: who comes in","chapter":"appendix","duration_s":5,"appendix":true,"steps":2,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: \"What we do for partners\" replaces \"Who can come in\"","press 2: moves to a09"],"body":"This is who we work with. The one thing we insist on is real access to schools. If we say no to a partner, they can still use Rumi and our open-source code for free.\n(press)\nAnd this is what we do for them.\n(press)","first_line":"This is who we work with."}},{"id":"a09","title":"How we observe","chapter":"appendix","duration_s":5,"appendix":true,"steps":2,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: the second page of rules, from \"Heads observe too\"","press 2: moves to a10"],"body":"These are the rules for every observation, in every region. The one I care about most: never correct or embarrass a teacher in front of the class. Every debrief ends with one thing to try tomorrow, and the next visit checks it.\n(press)\nHead teachers observe too, to the same standard as our coaches.\n(press)","first_line":"These are the rules for every observation, in every region."}},{"id":"a10","title":"The timeline","chapter":"appendix","duration_s":5,"appendix":true,"steps":1,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: moves to a11"],"body":"Here is what happens when. On Monday the 26th, Islamabad's coaches begin the learning check. Learning data flows from every region by about 19 November. The end of 2028 is our target date.\n[If asked about Balochistan: a winter school is being prepared for December; it depends on a contract that is not signed; we will say more when it is.]\n(press)","first_line":"Here is what happens when."}},{"id":"a11","title":"Monday, every role","chapter":"appendix","duration_s":5,"appendix":true,"steps":3,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2: Operator and Growth member","press 2: page 3: Internal teams, and Coaches and field teams","press 3: moves to a12"],"body":"This is the full version of Monday, role by role: what changes in your week and what you get from it. Find your row.\n(press)\nOperators and the growth member for each region.\n(press)\nThe rest of the roles. If your row is not clear, that is a question for today.\n(press)","first_line":"This is the full version of Monday, role by role: what changes in your week and what you get from it."}},{"id":"a12","title":"The quarter in numbers","chapter":"appendix","duration_s":5,"appendix":true,"steps":2,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2: each region's own roster, term to date","press 2: moves to a13"],"body":"These are the quarter's numbers. One more thing we can now see: since mid-October, in Islamabad, which lessons teachers open, send or record.\n(press)\nAnd region by region, up to this week. I am happy to go through any row.\n(press)","first_line":"These are the quarter's numbers."}},{"id":"a13","title":"Region stages","chapter":"appendix","duration_s":5,"appendix":true,"steps":2,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: the smaller stages replace the larger ones","press 2: moves to a14"],"body":"A region's team depends on its stage, from a region with no users yet to one with more than a thousand teachers. This shows who sits in a region at each stage, the largest first.\n(press)\nAnd the smaller stages.\n(press)","first_line":"A region's team depends on its stage, from a region with no users yet to one with more than a thousand teachers."}},{"id":"a14","title":"What stays the same","chapter":"appendix","duration_s":5,"appendix":true,"steps":1,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: moves to a15"],"body":"This stays as it is. Teach Well and Improve. Structured lessons with coaching at the core, and nothing new added to the main programmes this quarter. WhatsApp as the door to Rumi. Public schools as our focus.\n(press)","first_line":"This stays as it is."}},{"id":"a15","title":"Where we grow next","chapter":"appendix","duration_s":5,"appendix":true,"steps":1,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: moves to a16"],"body":"Most of where we look next follows the funding. The top partner hot spots today are India, South Africa, Uganda, Ethiopia and Ghana, and we go where the good partners are.\n(press)","first_line":"Most of where we look next follows the funding."}},{"id":"a16","title":"Open source","chapter":"appendix","duration_s":5,"appendix":true,"steps":1,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: moves to a17"],"body":"Rumi's code has been public since January this year, free for anyone to use and build on. Since June we have held calls with other organisations building AI coaching for teachers.\n(press)","first_line":"Rumi's code has been public since January this year, free for anyone to use and build on."}},{"id":"a17","title":"More moments (index)","chapter":"appendix","duration_s":5,"appendix":true,"steps":1,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: moves to a17a"],"body":"More recordings, if you want to hear them. Pick one, and I will tell you where it is from.\n(press)","first_line":"More recordings, if you want to hear them."}},{"id":"a17a","title":"More moments: says the problem back","chapter":"appendix","duration_s":5,"appendix":true,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[{"type":"audio","src":"assets/clips/audio/c07.mp3","clip":"c07","autoplay":false}],"highlight":{"mode":"transcript","words":"clips/words/c07.json","size_px":64,"lang":"ur","show_gloss":true,"clip":"c07","audio_src":"assets/clips/audio/c07.mp3"},"note":{"planned":"5 s","cues":["press 1: the clip plays, line by line (↓ ends it early)","press 2: holds on the whole exchange","press 3: moves to a17b"],"body":"A grade 3 child in Rawalpindi, doing maths word problems out loud with an assessor, in May.\n(press)\n(press)\nThey said the bus problem back, got it right, then answered fifteen for the apples, where the answer is twelve.\n(press)","first_line":"A grade 3 child in Rawalpindi, doing maths word problems out loud with an assessor, in May."}},{"id":"a17b","title":"More moments: August, the same teacher","chapter":"appendix","duration_s":5,"appendix":true,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[{"type":"audio","src":"assets/clips/audio/c08a.mp3","clip":"c08a","autoplay":false}],"highlight":{"mode":"transcript","words":"clips/words/c08a.json","size_px":64,"lang":"ur","show_gloss":true,"clip":"c08a","audio_src":"assets/clips/audio/c08a.mp3"},"note":{"planned":"5 s","cues":["press 1: the clip plays, line by line (↓ ends it early)","press 2: holds on the whole exchange","press 3: moves to a17c"],"body":"One teacher's first recorded lesson, in August, with grades 1 and 2. Listen to what happens when the teacher asks what \"role model\" means.\n(press)\n(press)\nThe class said the words back. Now the same teacher, a month later.\n(press)","first_line":"One teacher's first recorded lesson, in August, with grades 1 and 2."}},{"id":"a17c","title":"More moments: September, the same teacher","chapter":"appendix","duration_s":5,"appendix":true,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[{"type":"audio","src":"assets/clips/audio/c08b.mp3","clip":"c08b","autoplay":false}],"highlight":{"mode":"transcript","words":"clips/words/c08b.json","size_px":64,"lang":"ur","show_gloss":true,"clip":"c08b","audio_src":"assets/clips/audio/c08b.mp3"},"note":{"planned":"5 s","cues":["press 1: the clip plays, line by line (↓ ends it early)","press 2: holds on the whole exchange","press 3: moves to a17d"],"body":"September, the same teacher, with grades 3 to 5. The teacher asks a child which kind of sentence they made, then asks for a command.\n(press)\n(press)\nThis is one teacher, and probably a different class. We can hear the improvement. We cannot say what caused it.\n(press)","first_line":"September, the same teacher, with grades 3 to 5."}},{"id":"a17d","title":"More moments: a closed check, for contrast","chapter":"appendix","duration_s":5,"appendix":true,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[{"type":"audio","src":"assets/clips/audio/c09.mp3","clip":"c09","autoplay":false}],"highlight":{"mode":"transcript","words":"clips/words/c09.json","size_px":64,"lang":"ur","show_gloss":true,"clip":"c09","audio_src":"assets/clips/audio/c09.mp3"},"note":{"planned":"5 s","cues":["press 1: the clip plays, line by line (↓ ends it early)","press 2: holds on the whole exchange","press 3: moves to a17e"],"body":"This is the most common check we hear. Has everyone understood? Yes.\n(press)\n(press)\nA chorus of yes tells the teacher very little.\n(press)","first_line":"This is the most common check we hear."}},{"id":"a17e","title":"More moments: reads to the end, then stops","chapter":"appendix","duration_s":5,"appendix":true,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[{"type":"audio","src":"assets/clips/audio/c10.mp3","clip":"c10","autoplay":false}],"highlight":{"mode":"passage","words":"clips/words/c10.json","size_px":64,"lang":"ur","show_gloss":true,"clip":"c10","audio_src":"assets/clips/audio/c10.mp3"},"note":{"planned":"5 s","cues":["press 1: the clip plays and the passage lights as the child reads (↓ ends it early)","press 2: holds on the lit passage","press 3: moves to a17f"],"body":"A grade 5 child reading an Urdu story on a phone, this month.\n(press)\n(press)\nThey read to the end, and then stopped on their own.\n(press)","first_line":"A grade 5 child reading an Urdu story on a phone, this month."}},{"id":"a17f","title":"More moments: all the way to the end","chapter":"appendix","duration_s":5,"appendix":true,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[{"type":"audio","src":"assets/clips/audio/c04.mp3","clip":"c04","autoplay":false}],"highlight":{"mode":"passage","words":"clips/words/c04.json","size_px":64,"lang":"ur","show_gloss":true,"clip":"c04","audio_src":"assets/clips/audio/c04.mp3"},"note":{"planned":"5 s","cues":["press 1: the clip plays and the passage lights as the child reads (↓ ends it early)","press 2: holds on the lit passage","press 3: moves to a17g"],"body":"A grade 4 child reading the Urdu story you heard earlier, on a phone, this month, all the way to the end.\n(press)\n(press)\n(press)","first_line":"A grade 4 child reading the Urdu story you heard earlier, on a phone, this month, all the way to the end."}},{"id":"a17g","title":"More moments: call and echo","chapter":"appendix","duration_s":5,"appendix":true,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[{"type":"audio","src":"assets/clips/audio/c11.mp3","clip":"c11","autoplay":false}],"highlight":{"mode":"transcript","words":"clips/words/c11.json","size_px":68,"lang":"mixed","show_gloss":true,"clip":"c11","audio_src":"assets/clips/audio/c11.mp3"},"note":{"planned":"5 s","cues":["press 1: the clip plays, line by line (↓ ends it early)","press 2: holds on the whole exchange","press 3: moves to a17h"],"body":"A reading drill in Islamabad, one word at a time. Every child takes part, and nobody has to think. This is what we are moving away from.\n(press)\n(press)\n(press)","first_line":"A reading drill in Islamabad, one word at a time."}},{"id":"a17h","title":"More moments: a whole English story","chapter":"appendix","duration_s":5,"appendix":true,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[{"type":"audio","src":"assets/clips/audio/c13.mp3","clip":"c13","autoplay":false}],"highlight":{"mode":"passage","words":"clips/words/c13.json","size_px":68,"lang":"en","show_gloss":true,"clip":"c13","audio_src":"assets/clips/audio/c13.mp3"},"note":{"planned":"5 s","cues":["press 1: the clip plays and the passage lights as the child reads (↓ ends it early)","press 2: holds on the lit passage","press 3: moves to a17i"],"body":"A grade 3 child reading a whole English story on a phone, this month, in about thirty seconds.\n(press)\n(press)\nThe scoring marked fifty-eight of the sixty words right.\n(press)","first_line":"A grade 3 child reading a whole English story on a phone, this month, in about thirty seconds."}},{"id":"a17i","title":"More moments: why does the tenths digit decide it","chapter":"appendix","duration_s":5,"appendix":true,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[{"type":"audio","src":"assets/clips/audio/c14.mp3","clip":"c14","autoplay":false}],"highlight":{"mode":"transcript","words":"clips/words/c14.json","size_px":64,"lang":"ur","show_gloss":true,"clip":"c14","audio_src":"assets/clips/audio/c14.mp3"},"note":{"planned":"5 s","cues":["press 1: the clip plays, line by line (↓ ends it early)","press 2: holds on the whole exchange","press 3: moves to a18"],"body":"A maths lesson in Islamabad, comparing decimals, grades 3 to 5. The teacher asks the child to explain, and then asks why again.\n(press)\n(press)\n(press)","first_line":"A maths lesson in Islamabad, comparing decimals, grades 3 to 5."}},{"id":"a18","title":"The one in front of us","chapter":"appendix","duration_s":5,"appendix":true,"steps":1,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: moves to a19"],"body":"[Haroon, in your own words, if someone asks what today was about. From your brief: \"we'll endeavor to move the learning outcomes of entire districts and countries and provinces, yet look at the numbers as if the child and teacher was infront of us.\"]\n(press)","first_line":""}},{"id":"a19","title":"What the leadership team decided this month","chapter":"appendix","duration_s":5,"appendix":true,"steps":2,"transition":"cut","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2: still open, with a date","press 2: returns to the index"],"body":"This is what the leadership team decided this month, on one page.\n(press)\nAnd what is still open, with the date we come back to it. If your question is about something on this list, the answer today is that it is not decided yet.\n(press)","first_line":"This is what the leadership team decided this month, on one page."}}],"main_total_s":1050,"excluded_sensitive":[],"warnings":[]}</script>
+<script>/* deck.js: the town hall engine (offline, file://, 1920x1080).
+   build.py inlines this file, the manifest (#deck-manifest) and every timing JSON (#words-<clip>) into index.html.
+   Scene scripts call Deck.register(id, { enter(step), step(n), leave() }).
+   The same file is inlined into presenter.html, which uses only Deck.Sync and Deck.keyAction. */
+(function () {
+  "use strict";
+
+  var W = 1920, H = 1080;
+  var ROLES = { teacher: "Teacher", child: "Child", coach: "Coach", parent: "Parent", adult: "Adult" };
+
+  function $(sel, root) { return (root || document).querySelector(sel); }
+  function $$(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+  function readJSON(id) {
+    var el = document.getElementById(id);
+    if (!el) return null;
+    try { return JSON.parse(el.textContent); } catch (e) { console.error("deck: bad JSON in #" + id + ": " + e.message); return null; }
+  }
+  function safe(fn, what) {
+    try { return fn(); } catch (e) { console.error("deck: " + what + " failed: " + (e && e.stack || e)); }
+  }
+
+  /* ------------------------------------------------------------------ keys */
+  // One key map for both windows. Returns an action name or null.
+  function keyAction(e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return null;
+    var k = e.key;
+    if (k === "ArrowRight" || k === "PageDown" || k === " " || k === "Spacebar") return "next";
+    if (k === "ArrowLeft" || k === "PageUp") return "prev";
+    if (k === "ArrowDown") return "down";
+    if (k === "ArrowUp") return "up";
+    if (k === "a" || k === "A") return "appendix";
+    if (k === "b" || k === "B" || k === ".") return "black";
+    if (k === "f" || k === "F") return "fullscreen";
+    if (k === "g" || k === "G") return "guide";
+    if (k === "p" || k === "P") return "presenter";
+    if (k === "t" || k === "T") return "clock";
+    if (k === "Home") return "home";
+    if (k === "End") return "end";
+    if (k === "Enter") return "enter";
+    if (k === "Backspace" || k === "i" || k === "I") return "index";
+    if (/^[0-9]$/.test(k)) return "digit:" + k;
+    return null;
+  }
+
+  /* ------------------------------------------------------------------ sync */
+  // BroadcastChannel "townhall" first; window.opener / opened-window postMessage as well.
+  // Every message carries a unique mid, so a message that arrives both ways is handled once.
+  var Sync = (function () {
+    var bc = null, peers = [], handlers = [], seen = {}, seenQ = [], n = 0;
+    var me = Math.random().toString(36).slice(2, 8);
+    try { bc = new BroadcastChannel("townhall"); } catch (e) { bc = null; }
+    function deliver(msg) {
+      if (!msg || msg.app !== "townhall" || msg.from === me) return;
+      if (seen[msg.mid]) return;
+      seen[msg.mid] = 1; seenQ.push(msg.mid);
+      if (seenQ.length > 400) delete seen[seenQ.shift()];
+      handlers.forEach(function (h) { safe(function () { h(msg); }, "sync handler"); });
+    }
+    if (bc) bc.onmessage = function (ev) { deliver(ev.data); };
+    window.addEventListener("message", function (ev) { deliver(ev.data); });
+    return {
+      send: function (msg) {
+        msg.app = "townhall"; msg.from = me; msg.mid = me + "-" + (++n);
+        if (bc) { try { bc.postMessage(msg); } catch (e) { /* closed */ } }
+        var targets = peers.slice();
+        if (window.opener && !window.opener.closed) targets.push(window.opener);
+        targets.forEach(function (w) { try { if (w && !w.closed) w.postMessage(msg, "*"); } catch (e) { /* gone */ } });
+      },
+      on: function (h) { handlers.push(h); },
+      addPeer: function (w) { if (w && peers.indexOf(w) < 0) peers.push(w); },
+      hasChannel: function () { return !!bc; }
+    };
+  })();
+
+  /* ------------------------------------------------------------------ deck state */
+  var M = null;                 // manifest
+  var scenes = [];              // manifest scene entries, show order (main then appendix)
+  var byId = {};
+  var mainIdx = [], appIdx = []; // indexes into scenes
+  var registry = {};            // id -> { enter, step, leave }
+  var clips = {};               // scene id -> clip controller
+  var S = {
+    mode: "main",               // main | index | appendix
+    idx: -1, step: 1,
+    saved: null,                // { idx, step, clipT } while in the appendix
+    sel: 0,                     // selection in the appendix index
+    black: false,
+    clockStart: null,
+    sceneStart: Date.now(),
+    started: false
+  };
+  var stage, viewport, blackEl, indexEl, gotoEl, guideEl;
+  var digits = "", digitTimer = null;
+  var presenterWin = null;
+  var transitionTimer = null, leavingEl = null;
+
+  function sceneEl(i) { return scenes[i] && scenes[i]._el; }
+  function cur() { return scenes[S.idx]; }
+  function listFor(mode) { return mode === "main" ? mainIdx : appIdx; }
+
+  /* ------------------------------------------------------------------ scaling */
+  function fit() {
+    var w = window.innerWidth, h = window.innerHeight;
+    var s = Math.min(w / W, h / H);
+    var x = Math.round((w - W * s) / 2), y = Math.round((h - H * s) / 2);
+    stage.style.transform = "translate(" + x + "px," + y + "px) scale(" + s + ")";
+    stage.dataset.scale = s.toFixed(4);
+  }
+
+  /* ------------------------------------------------------------------ steps */
+  function applySteps(el, n) {
+    $$("[data-step]", el).forEach(function (x) {
+      var k = parseInt(x.getAttribute("data-step"), 10) || 1;
+      x.classList.toggle("is-on", n >= k);
+    });
+    $$("[data-until]", el).forEach(function (x) {
+      var k = parseInt(x.getAttribute("data-until"), 10) || 1;
+      x.classList.toggle("is-gone", n > k);
+    });
+    // media with data-play-step="n" (n >= 2) plays when step n is reached by a press and rewinds when the step is undone
+    $$("video[data-play-step], audio[data-play-step]", el).forEach(function (m) {
+      var k = parseInt(m.getAttribute("data-play-step"), 10);
+      if (!(k > 1)) return;
+      if (n >= k) { if (m.paused && !m.ended && m.dataset.started !== "1") { m.dataset.started = "1"; var p = m.play(); if (p && p.catch) p.catch(playFailed); } }
+      else { m.pause(); try { m.currentTime = 0; } catch (e) { /* not loaded */ } m.dataset.started = ""; }
+    });
+  }
+  function stopMedia(el) {
+    $$("video, audio", el).forEach(function (m) { m.pause(); try { m.currentTime = 0; } catch (e) { /* not loaded */ } m.dataset.started = ""; });
+  }
+  function playFailed(err) {
+    console.warn("deck: playback was refused (" + (err && err.name) + "). Press any key in the show window once, then try again.");
+    Sync.send({ type: "warn", text: "Audio was blocked. Press any key once in the show window." });
+  }
+
+  /* ------------------------------------------------------------------ highlighting */
+  function Clip(sc, el) {
+    var h = sc.highlight, self = this;
+    this.sc = sc; this.el = el; this.h = h;
+    this.data = readJSON("words-" + h.clip) || { words: [], lines: [] };
+    this.state = "idle";       // idle | playing | paused | ended
+    this.audio = $("audio[data-clip='" + h.clip + "']", el);
+    if (!this.audio) {
+      this.audio = document.createElement("audio");
+      this.audio.preload = "auto";
+      this.audio.setAttribute("data-clip", h.clip);
+      this.audio.src = h.audio_src;
+      el.appendChild(this.audio);
+    }
+    this.audio.autoplay = false;
+    this.audio.addEventListener("ended", function () { self.state = "ended"; self.update(Infinity); emitState(); });
+    this.audio.addEventListener("timeupdate", function () { if (self.state === "playing") self.update(self.audio.currentTime); });
+    this.box = $("[data-highlight]", el);
+    if (!this.box) { this.box = document.createElement("div"); el.appendChild(this.box); }
+    this.box.classList.add("hl", h.mode);
+    this.inner = document.createElement("div"); this.inner.className = "hl-in"; this.box.appendChild(this.inner);
+    var dir = this.data.dir || (h.lang === "ur" ? "rtl" : "ltr");
+    this.box.setAttribute("dir", dir);
+    this.box.style.fontSize = Math.max(56, h.size_px) + "px";
+    this.bar = $(".clip-bar > i", el);
+    if (!this.bar) {
+      var b = document.createElement("div"); b.className = "clip-bar"; b.innerHTML = "<i></i>";
+      el.appendChild(b); this.bar = b.firstChild;
+    }
+    this.words = [];  // { el, start, attempts, status, miscue, passAt, line }
+    this.lines = [];  // transcript: { el, glossEl, start, end }
+    if (h.mode === "passage") this.buildPassage(); else this.buildTranscript();
+    this.lastSig = null;
+    this.update(-1);
+  }
+
+  Clip.prototype.buildPassage = function () {
+    var d = this.data, box = this.inner, words = this.words;
+    var src = d.passage && d.passage.lines ? d.passage.lines : null;
+    if (!src) {
+      // fall back to the top-level lines and words
+      src = (d.lines || []).map(function (ln) {
+        var a = ln.words ? ln.words[0] : 0, b = ln.words ? ln.words[1] : -1;
+        return { text: ln.text, words: (d.words || []).slice(a, b + 1).map(function (w) {
+          return { w: w.w, start: w.start, end: w.end, status: w.status || "read", miscue: w.miscue, attempts: [[w.start, w.end]] };
+        }) };
+      });
+    }
+    src.forEach(function (ln, li) {
+      var p = document.createElement("span"); p.className = "p-line";
+      (ln.words || []).forEach(function (w, wi) {
+        var s = document.createElement("span"); s.className = "w"; s.textContent = w.w;
+        var atts = (w.attempts && w.attempts.length ? w.attempts : (w.start != null ? [[w.start, w.end]] : []))
+          .map(function (a) { return [+a[0], +a[1]]; });
+        var first = atts.length ? Math.min.apply(null, atts.map(function (a) { return a[0]; })) : null;
+        var status = w.status || (first == null ? "not_reached" : "read");
+        words.push({ el: s, start: first, attempts: atts, status: status, miscue: !!w.miscue || status === "misread", line: li, passAt: null });
+        p.appendChild(s);
+        if (wi < ln.words.length - 1) p.appendChild(document.createTextNode(" "));
+      });
+      box.appendChild(p);
+    });
+    // a skipped word is marked once the reader has read a word after it
+    for (var i = 0; i < words.length; i++) {
+      if (words[i].status !== "skipped") continue;
+      for (var j = i + 1; j < words.length; j++) if (words[j].start != null) { words[i].passAt = words[j].start; break; }
+    }
+  };
+
+  Clip.prototype.buildTranscript = function () {
+    var d = this.data, box = this.inner, self = this;
+    var showGloss = this.h.show_gloss !== false;
+    var dw = d.words || [];
+    (d.lines || []).forEach(function (ln, li) {
+      var line = document.createElement("div"); line.className = "t-line";
+      var role = ROLES[(ln.speaker || "").toLowerCase()];
+      if (role && self.h.show_speaker !== false) {
+        var sp = document.createElement("span"); sp.className = "t-speaker"; sp.textContent = role; line.appendChild(sp);
+      }
+      var tx = document.createElement("span"); tx.className = "t-text";
+      var a = ln.words ? ln.words[0] : 0, b = ln.words ? ln.words[1] : -1, last = null, first = null;
+      for (var i = a; i <= b && i < dw.length; i++) {
+        var w = dw[i], s = document.createElement("span"); s.className = "w"; s.textContent = w.w;
+        tx.appendChild(s);
+        if (i < b) tx.appendChild(document.createTextNode(" "));
+        self.words.push({ el: s, start: +w.start, attempts: [[+w.start, +w.end]], status: "read", miscue: !!w.miscue, line: li });
+        if (first == null) first = +w.start;
+        last = +w.end;
+      }
+      line.appendChild(tx);
+      var g = null, gloss = ln.gloss || ln.en || null;
+      if (showGloss && gloss) { g = document.createElement("span"); g.className = "t-gloss"; g.textContent = gloss; line.appendChild(g); }
+      box.appendChild(line);
+      var st = ln.start != null ? +ln.start : first, en = last != null ? last : (ln.end != null ? +ln.end : st);
+      self.lines.push({ el: line, glossEl: g, start: st, end: en });
+    });
+  };
+
+  // Set every word and line for time t. Idempotent; touches the DOM only on change.
+  Clip.prototype.update = function (t) {
+    var ws = this.words, i, w;
+    for (i = 0; i < ws.length; i++) {
+      w = ws[i];
+      var lit = w.start != null && t >= w.start;
+      var now = false;
+      if (lit && t !== Infinity) for (var k = 0; k < w.attempts.length; k++) {
+        if (t >= w.attempts[k][0] && t <= w.attempts[k][1] + 0.12) { now = true; break; }
+      }
+      var skipped = w.status === "skipped" && w.passAt != null && t >= w.passAt;
+      if (w._lit !== lit) { w.el.classList.toggle("lit", lit); w._lit = lit; if (lit && Deck.onLit) Deck.onLit(this.h.clip, i, w.start, this.audio.currentTime); }
+      if (w._now !== now) { w.el.classList.toggle("now", now); w._now = now; }
+      if (w._sk !== skipped) { w.el.classList.toggle("skipped", skipped); w._sk = skipped; }
+      if (w._mc !== w.miscue) { w.el.classList.toggle("miscue", w.miscue); w._mc = w.miscue; }
+      if (w.attempts.length > 1) {
+        // how many times the word has been heard so far: a theme can deepen a trail on re-reads (.w[data-tries="3"])
+        var tries = 0;
+        for (var q = 0; q < w.attempts.length; q++) if (t >= w.attempts[q][0]) tries++;
+        if (w._tries !== tries) { w._tries = tries; if (tries > 1) w.el.setAttribute("data-tries", tries > 4 ? "4" : String(tries)); else w.el.removeAttribute("data-tries"); }
+      }
+    }
+    if (this.lines.length) {
+      var sig = "";
+      for (i = 0; i < this.lines.length; i++) {
+        var L = this.lines[i];
+        var on = L.start != null && t >= L.start - 0.05;
+        var gon = !!L.glossEl && t >= L.end;
+        sig += (on ? 1 : 0) + "" + (gon ? 1 : 0);
+        if (L._on !== on) { L.el.classList.toggle("is-on", on); L._on = on; }
+        if (L.glossEl && L._g !== gon) { L.glossEl.classList.toggle("is-on", gon); L._g = gon; }
+      }
+      if (sig !== this.lastSig) { this.lastSig = sig; this.trim(); }
+    }
+    if (this.bar) {
+      var dur = this.audio.duration || this.data.duration || 0;
+      var tt = t === Infinity ? dur : Math.max(0, t);
+      this.bar.style.width = (dur ? Math.min(100, 100 * tt / dur) : 0) + "%";
+    }
+  };
+
+  // Transcript: keep the newest lines; hide the oldest until the box no longer overflows.
+  Clip.prototype.trim = function () {
+    var box = this.box, inner = this.inner;
+    this.lines.forEach(function (L) { L.el.classList.remove("is-trimmed"); });
+    var shown = this.lines.filter(function (L) { return L._on; });
+    var hidden = this.lines.filter(function (L) { return !L._on; });
+    hidden.forEach(function (L) { L.el.classList.add("is-trimmed"); });
+    while (shown.length > 1 && inner.offsetHeight > box.clientHeight + 1) shown.shift().el.classList.add("is-trimmed");
+  };
+
+  Clip.prototype.setStep = function (n, how) {
+    var a = this.audio;
+    if (n <= 1) {
+      a.pause(); try { a.currentTime = 0; } catch (e) { /* not loaded */ }
+      this.state = "idle"; this.box.classList.remove("hold"); this.update(-1);
+    } else if (n === 2) {
+      this.box.classList.remove("hold");
+      if (how === "advance") {
+        try { a.currentTime = 0; } catch (e) { /* not loaded */ }
+        this.play();
+      } else if (how === "back" || (how === "restore" && this.restoreEnded)) {
+        // stepping back from the hold: the clip has been heard; show its end, the next press holds again
+        a.pause(); this.state = "ended"; this.update(Infinity);
+      } else if (how === "restore" && this.restoreT != null) {
+        // returning from the appendix: paused where it was left; the next press resumes
+        try { a.currentTime = this.restoreT; } catch (e) { /* not loaded */ }
+        this.state = this.restoreT > 0 ? "paused" : "idle"; this.update(this.restoreT);
+      } else {
+        // landed on step 2 by a jump or a reload: dimmed and waiting; the next press plays
+        a.pause(); try { a.currentTime = 0; } catch (e) { /* not loaded */ }
+        this.state = "idle"; this.update(-1);
+      }
+    } else {
+      a.pause(); this.state = "ended"; this.box.classList.add("hold"); this.update(Infinity);
+    }
+    this.restoreT = null; this.restoreEnded = false;
+  };
+
+  Clip.prototype.play = function () {
+    var self = this, p = this.audio.play();
+    this.state = "playing";
+    if (p && p.catch) p.catch(function (e) { self.state = "paused"; playFailed(e); emitState(); });
+    tick();
+  };
+  Clip.prototype.pause = function () { this.audio.pause(); this.state = "paused"; this.update(this.audio.currentTime); };
+  // A press during step 2: pause, resume, or (when the clip has ended) let the step advance.
+  Clip.prototype.press = function () {
+    if (this.state === "playing") { this.pause(); return true; }
+    if (this.state === "paused") { this.play(); return true; }
+    if (this.state === "idle") { try { this.audio.currentTime = 0; } catch (e) { /* not loaded */ } this.play(); return true; }
+    return false;
+  };
+  Clip.prototype.stop = function () {
+    this.audio.pause(); try { this.audio.currentTime = 0; } catch (e) { /* not loaded */ }
+    this.state = "idle"; this.update(-1);
+  };
+  Clip.prototype.info = function () {
+    var dur = this.audio.duration || this.data.duration || 0;
+    var t = this.state === "ended" ? dur : (this.state === "idle" ? 0 : this.audio.currentTime);
+    return { clip: this.h.clip, t: +t.toFixed(2), dur: +(+dur).toFixed(2), state: this.state };
+  };
+
+  var rafOn = false, lastEmit = 0;
+  function tick() {
+    if (rafOn) return;
+    rafOn = true;
+    requestAnimationFrame(function loop() {
+      var c = clips[cur() && cur().id];
+      if (!c || c.state !== "playing") { rafOn = false; emitState(); return; }
+      c.update(c.audio.currentTime);
+      var now = Date.now();
+      if (now - lastEmit > 250) { lastEmit = now; emitState(); }
+      requestAnimationFrame(loop);
+    });
+  }
+
+  /* ---- scene-owned clips: a scene may draw its own highlight and drive its own audio.
+     Two shapes are accepted (the two R2 studios):
+       { clip() -> { play, pause, playing, started, ended, render(t) } }
+       { media: { playing(), toggle() }, seek(t) }
+     The engine then never builds its own highlight for that scene; it only routes presses. */
+  var wordsCache = {}, sharedAudio = {};
+  function words(clip) {
+    if (wordsCache[clip]) return wordsCache[clip];
+    var el = document.getElementById("words-" + clip) || $("script[type='application/json'][data-words='" + clip + "']");
+    if (!el || !el.textContent.trim()) { console.error("deck: no timing JSON inlined for clip " + clip); return null; }
+    try { wordsCache[clip] = JSON.parse(el.textContent); } catch (e) { console.error("deck: bad timing JSON for " + clip); return null; }
+    return wordsCache[clip];
+  }
+  function clipSrc(clip) {
+    var cs = cur(), pools = cs ? [cs].concat(scenes) : scenes;
+    for (var i = 0; i < pools.length; i++) {
+      var ms = pools[i].media || [];
+      for (var k = 0; k < ms.length; k++) if (ms[k].clip === clip && ms[k].type === "audio") return ms[k].src;
+    }
+    return null;
+  }
+  function audioFor(clip) {
+    if (sharedAudio[clip]) return sharedAudio[clip];
+    var a = document.createElement("audio");
+    a.preload = "auto"; a.autoplay = false; a.setAttribute("data-clip", clip); a.setAttribute("data-shared", "1");
+    var src = clipSrc(clip);
+    if (!src) console.error("deck: Deck.audio(" + clip + "): no scene lists this clip in its media");
+    else a.src = src;
+    document.body.appendChild(a);
+    sharedAudio[clip] = a;
+    return a;
+  }
+  function sceneAudios(sc) {
+    var list = sc && sc._el ? $$("audio, video", sc._el) : [];
+    (sc && sc.media || []).forEach(function (m) { if (m.clip && sharedAudio[m.clip]) list.push(sharedAudio[m.clip]); });
+    return list;
+  }
+  function ownClip(sc) {
+    var r = sc && registry[sc.id];
+    if (!r) return null;
+    var auds = function () { return sceneAudios(sc).filter(function (a) { return a.tagName === "AUDIO"; }); };
+    var main = function () { var l = auds(); for (var i = 0; i < l.length; i++) if (l[i].currentTime > 0 || !l[i].paused) return l[i]; return l[0] || null; };
+    if (typeof r.clip === "function") {
+      var c = safe(function () { return r.clip(); }, "scene " + sc.id + " clip()");
+      if (!c) return null;
+      return { playing: function () { return !!c.playing(); }, started: function () { return !!(c.started ? c.started() : main() && main().currentTime > 0); },
+        ended: function () { return !!(c.ended ? c.ended() : main() && main().ended); },
+        pause: function () { c.pause(); }, resume: function () { c.play(); },
+        seek: function (t) { if (c.pause) c.pause(); if (c.render) c.render(t); },
+        hold: function () { if (c.render) c.render(Infinity); }, audio: main };
+    }
+    if (r.media && typeof r.media.playing === "function") {
+      return { playing: function () { return !!r.media.playing(); }, started: function () { var a = main(); return !!a && a.currentTime > 0; },
+        ended: function () { var a = main(); return !!a && (a.ended || (a.duration && a.currentTime >= a.duration - 0.05)); },
+        pause: function () { if (r.media.playing()) r.media.toggle(); }, resume: function () { if (!r.media.playing()) r.media.toggle(); },
+        seek: function (t) { if (typeof r.seek === "function") r.seek(t); },
+        hold: function () { var a = main(); if (typeof r.seek === "function") r.seek(a && a.duration ? a.duration : 1e6); }, audio: main };
+    }
+    return null;
+  }
+
+  function clipFor(i) {
+    var sc = scenes[i];
+    if (!sc || !sc.highlight || ownClip(sc)) return null;
+    if (!clips[sc.id]) clips[sc.id] = safe(function () { return new Clip(sc, sc._el); }, "clip " + sc.id) || null;
+    return clips[sc.id];
+  }
+
+  /* ------------------------------------------------------------------ navigation */
+  function callScene(id, fn, arg) {
+    var r = registry[id];
+    if (r && typeof r[fn] === "function") safe(function () { r[fn](arg); }, "scene " + id + " " + fn);
+  }
+
+  function finishTransition() {
+    if (transitionTimer) { clearTimeout(transitionTimer); transitionTimer = null; }
+    if (leavingEl) { leavingEl.classList.remove("is-leaving", "rev"); setT(leavingEl, null); leavingEl = null; }
+    $$(".scene.is-entering", stage).forEach(function (e) { e.classList.remove("is-entering", "rev"); setT(e, null); });
+  }
+
+  function setT(el, tr) {
+    ["fade", "slide-left", "push-up", "zoom", "cut"].forEach(function (t) { el.classList.remove("t-" + t); });
+    if (tr) el.classList.add("t-" + tr);
+  }
+
+  // how: "advance" (a Next press), "back" (a Prev press), "jump", "restore"
+  function go(i, step, how) {
+    if (i < 0 || i >= scenes.length) return;
+    finishTransition();
+    var prev = S.idx, prevEl = sceneEl(prev), sc = scenes[i], el = sc._el;
+    step = Math.max(1, Math.min(sc.steps, step || 1));
+    S.pausedByPress = false;
+    if (prev !== i && prevEl) {
+      var pc = clips[scenes[prev].id]; if (pc) pc.stop();
+      callScene(scenes[prev].id, "leave");
+      stopMedia(prevEl);
+      sceneAudios(scenes[prev]).forEach(function (m) { m.pause(); try { m.currentTime = 0; } catch (e) { /* not loaded */ } });
+      prevEl.classList.remove("is-current", "active");
+      var tr = sc.transition || "fade";
+      if (tr !== "cut" && S.started && !document.documentElement.classList.contains("no-anim")) {
+        leavingEl = prevEl;
+        setT(prevEl, tr); setT(el, tr);
+        prevEl.classList.add("is-leaving");
+        el.classList.add("is-entering");
+        if (how === "back") { prevEl.classList.add("rev"); el.classList.add("rev"); }
+        transitionTimer = setTimeout(finishTransition, 700);
+      }
+    }
+    var entering = prev !== i;
+    S.idx = i; S.step = step;
+    el.classList.add("is-current", "active");
+    el.setAttribute("data-step", String(step));   // CSS-only scenes can style by [data-step="n"] on the section
+    if (entering) S.sceneStart = Date.now();
+    applySteps(el, step);
+    if (entering) {
+      callScene(sc.id, "enter", step);
+      // audio never starts on entry: a scene entered by a jump, a return or a reload waits for a press
+      var oc0 = ownClip(sc);
+      if (oc0 && oc0.playing()) { oc0.pause(); S.pausedByPress = true; }
+    }
+    var c = clipFor(i);
+    if (c) c.setStep(step, entering ? (how === "restore" ? "restore" : "enter") : how);
+    if (!entering) callScene(sc.id, "step", step);
+    updateHash();
+    emitState();
+  }
+
+  function setStep(n, how) { go(S.idx, n, how); }
+
+  function neighbour(dir) {
+    var list = listFor(S.mode === "appendix" ? "appendix" : "main");
+    var k = list.indexOf(S.idx);
+    if (k < 0) return -1;
+    var j = k + dir;
+    return j >= 0 && j < list.length ? list[j] : -1;
+  }
+
+  function startClockIfNeeded() { if (S.clockStart == null) S.clockStart = Date.now(); }
+
+  function next() {
+    if (S.mode === "index") { turnPage(1); return; }
+    if (S.mode === "main") startClockIfNeeded();
+    // a clicker has no Down key: its black button then Right ends a clip that is under way, and lifts the black
+    if (S.black && clipUnderWay()) { endClip(); toggleBlack(); return; }
+    var sc = cur(), c = clipFor(S.idx), oc = c ? null : ownClip(sc);
+    if (c && S.step === 2 && c.press()) { emitState(); return; }
+    if (oc) {
+      // a press during play pauses; the next press resumes; once the clip has ended, presses advance again
+      if (oc.playing()) { oc.pause(); S.pausedByPress = true; emitState(); return; }
+      if (S.pausedByPress && !oc.ended()) { oc.resume(); S.pausedByPress = false; emitState(); return; }
+    }
+    if (S.step < sc.steps) { setStep(S.step + 1, "advance"); return; }
+    var j = neighbour(1);
+    if (j >= 0) go(j, 1, "advance");
+  }
+
+  // the current scene's clip has started and not ended (playing or paused by a press)
+  function clipUnderWay() {
+    var sc = cur(), c = clipFor(S.idx);
+    if (c) return S.step === 2 && (c.state === "playing" || c.state === "paused");
+    var oc = ownClip(sc);
+    return !!oc && (oc.playing() || (oc.started() && !oc.ended()));
+  }
+
+  // Down (outside the appendix index): end the clip now and land on the hold step, text lit as at the clip's end.
+  // Works from step 1 too (skips the clip). Does nothing on a scene without a clip or already on the hold step.
+  function endClip() {
+    var sc = cur(), c = clipFor(S.idx), oc = c ? null : ownClip(sc);
+    var hasClip = c || oc || (sc && (sc.media || []).some(function (m) { return m.type === "audio" && m.clip; }));
+    if (!hasClip || S.step >= 3) return;
+    S.pausedByPress = false;
+    var oa = oc && oc.audio(), wasPlaying = !!oc && oc.playing();
+    if (wasPlaying) oc.pause();
+    if (sc.steps >= 3) setStep(3, "advance");
+    else if (c) { c.audio.pause(); c.state = "ended"; c.update(Infinity); }
+    // whatever the scene's own step code did, no sound continues on the hold
+    sceneAudios(sc).forEach(function (m) { m.pause(); });
+    if (oc) {
+      // a scene that repaints on its audio's "pause" event would draw the mid-clip moment over its hold;
+      // once that event has fired, paint the clip's end again (only if still on this scene's hold)
+      var idx = S.idx, paint = function () { if (S.idx === idx && S.step >= Math.min(3, sc.steps)) oc.hold(); };
+      if (wasPlaying && oa) oa.addEventListener("pause", function () { setTimeout(paint, 0); }, { once: true });
+      paint(); setTimeout(paint, 80);
+    }
+    emitState();
+  }
+
+  function prev() {
+    if (S.mode === "index") { turnPage(-1); return; }
+    if (S.step > 1) { setStep(S.step - 1, "back"); return; }
+    var j = neighbour(-1);
+    if (j >= 0) go(j, scenes[j].steps, "back");
+  }
+
+  /* ------------------------------------------------------------------ appendix */
+  // The index is laid out when it opens, by measuring its rows: 48 px rows on one page in as many columns as fit;
+  // else 40 px (the appendix floor) on one page; else 48 px over pages (Right/PageDown, Left/PageUp turn them).
+  // A sub-scene (a17a under a17) sits as an indented row under its parent, its shared title prefix dropped.
+  // Nothing below the stage's bottom margin (984); the key hint sits under the last row.
+  var IX = { pages: 1, page: 0, pageOf: [], size: 48, cols: 1 }, IX_BOTTOM = 984, IX_GAP = 64, IX_MIN_COL = 440;
+  function buildIndex() {
+    indexEl.innerHTML = "<h1>Appendix</h1><div class='ix-pager'></div><div class='ix-body'></div><div class='hint'></div>";
+  }
+  function indexRows() {
+    var ids = appIdx.map(function (i) { return scenes[i].id; });
+    var rows = appIdx.map(function (i, k) {
+      var id = scenes[i].id, m = /^(a\d\d)[a-z]$/.exec(id);
+      return { k: k, id: id, title: scenes[i].title || "", parent: m && ids.indexOf(m[1]) >= 0 ? m[1] : null };
+    });
+    // drop "More moments: " when every sibling under the same parent shares it
+    var byParent = {};
+    rows.forEach(function (r) { if (r.parent) (byParent[r.parent] = byParent[r.parent] || []).push(r); });
+    Object.keys(byParent).forEach(function (p) {
+      var sib = byParent[p], pre = /^([^:]{1,40}:\s+)/.exec(sib[0].title);
+      if (pre && sib.every(function (r) { return r.title.indexOf(pre[1]) === 0 && r.title.length > pre[1].length; }))
+        sib.forEach(function (r) { r.title = r.title.slice(pre[1].length); });
+    });
+    rows.forEach(function (r) { r.kids = byParent[r.id] ? byParent[r.id].length : 0; });
+    return rows;
+  }
+  function rowEl(r) {
+    var li = document.createElement("li");
+    li.innerHTML = "<b></b><span></span>";
+    li.firstChild.textContent = r.id;
+    li.lastChild.textContent = r.title;
+    li.dataset.k = r.k;
+    if (r.parent) li.className = "sub";
+    return li;
+  }
+  // rows into columns of height H, cols to a page; a parent and its sub-rows start a new page rather than split, when they fit on one
+  function packIndex(rows, hs, cols, H) {
+    var pages = [[[]]], colH = 0;
+    function newCol() { var pg = pages[pages.length - 1]; if (pg.length < cols) pg.push([]); else pages.push([[]]); colH = 0; }
+    for (var j = 0; j < rows.length; j++) {
+      if (hs[j] > H) return null;
+      var pg = pages[pages.length - 1], col = pg[pg.length - 1];
+      if (rows[j].kids) {
+        var gh = 0; for (var g = j; g <= j + rows[j].kids && g < rows.length; g++) gh += hs[g];
+        var room = (H - colH) + (cols - pg.length) * H, pageEmpty = pg.length === 1 && !col.length;
+        if (gh > room && gh <= cols * H && !pageEmpty) { pages.push([[]]); colH = 0; pg = pages[pages.length - 1]; col = pg[0]; }
+      }
+      if (colH + hs[j] > H && col.length) { newCol(); pg = pages[pages.length - 1]; col = pg[pg.length - 1]; }
+      col.push(j); colH += hs[j];
+    }
+    return pages;
+  }
+  function layoutIndex() {
+    var rows = indexRows(), body = $(".ix-body", indexEl), hint = $(".hint", indexEl), pager = $(".ix-pager", indexEl);
+    var cs = getComputedStyle(indexEl);
+    var W = indexEl.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    var limit = Math.min(IX_BOTTOM - indexEl.offsetTop, indexEl.clientHeight - parseFloat(cs.paddingBottom));
+    var maxCols = Math.max(1, Math.floor((W + IX_GAP) / (IX_MIN_COL + IX_GAP)));
+    function hintText() { return "Up and down to choose, Enter to open, A to go back to the show"; }
+    function measure(size, cols) {
+      var colW = Math.floor((W - (cols - 1) * IX_GAP) / cols);
+      body.innerHTML = "";
+      var ol = document.createElement("ol");
+      ol.style.width = colW + "px"; ol.style.fontSize = size + "px";
+      rows.forEach(function (r) { ol.appendChild(rowEl(r)); });
+      body.appendChild(ol);
+      return { colW: colW, hs: $$("li", ol).map(function (li) { return li.offsetHeight; }) };
+    }
+    function room() {
+      hint.textContent = hintText();
+      var hh = hint.offsetHeight, gap = hh ? parseFloat(getComputedStyle(hint).marginTop) || 0 : 0;
+      return limit - body.offsetTop - hh - gap;
+    }
+    var pick = null;
+    [48, 40].some(function (size) {
+      for (var c = 1; c <= maxCols; c++) {
+        var m = measure(size, c), H = room(), p = packIndex(rows, m.hs, c, H);
+        if (p && p.length === 1) { pick = { size: size, cols: c, colW: m.colW, pages: p }; return true; }
+      }
+      return false;
+    });
+    // pages at 48 px (40 only if a 48 px row cannot fit): the column count that needs the fewest pages (fewer columns on a tie)
+    [48, 40].forEach(function (size) {
+      if (pick) return;
+      for (var c = 1; c <= maxCols && !(pick && pick.pages.length === 1); c++) {
+        var m = measure(size, c), p = packIndex(rows, m.hs, c, room());
+        if (p && (!pick || p.length < pick.pages.length)) pick = { size: size, cols: c, colW: m.colW, pages: p };
+      }
+    });
+    if (!pick) {
+      console.warn("deck: an appendix index row is taller than the stage allows");
+      pick = { size: 40, cols: 1, colW: W, pages: [[rows.map(function (r, j) { return j; })]] };
+    }
+    body.innerHTML = "";
+    IX.pageOf = [];
+    pick.pages.forEach(function (pg, pn) {
+      var pd = document.createElement("div");
+      pd.className = "ix-page"; pd.style.gap = IX_GAP + "px";
+      pg.forEach(function (col) {
+        var ol = document.createElement("ol");
+        ol.style.width = pick.colW + "px"; ol.style.fontSize = pick.size + "px";
+        col.forEach(function (j) { ol.appendChild(rowEl(rows[j])); IX.pageOf[rows[j].k] = pn; });
+        pd.appendChild(ol);
+      });
+      body.appendChild(pd);
+    });
+    IX.pages = pick.pages.length; IX.size = pick.size; IX.cols = pick.cols;
+    hint.textContent = hintText();
+    pager.style.display = IX.pages > 1 ? "" : "none";
+  }
+  function showPage(pn) {
+    IX.page = Math.max(0, Math.min(IX.pages - 1, pn));
+    $$(".ix-page", indexEl).forEach(function (pd, n) { pd.classList.toggle("is-on", n === IX.page); });
+    $(".ix-pager", indexEl).textContent = (IX.page + 1) + " of " + IX.pages + (IX.page + 1 < IX.pages ? ", Right for more" : ", Left to go back");
+  }
+  function showIndex() {
+    indexEl.classList.add("is-on");
+    layoutIndex();
+    showSel();
+  }
+  function showSel() {
+    $$("li", indexEl).forEach(function (li) { li.classList.toggle("is-sel", +li.dataset.k === S.sel); });
+    showPage(IX.pageOf[S.sel] || 0);
+  }
+  function moveSel(d) {
+    if (!appIdx.length) return;
+    S.sel = (S.sel + d + appIdx.length) % appIdx.length;
+    showSel(); emitState();
+  }
+  // Right and Left in the index: turn the page when there are pages (the selection goes to the page's first row), else move the selection
+  function turnPage(d) {
+    if (IX.pages < 2) { moveSel(d); return; }
+    var pn = IX.page + d;
+    if (pn < 0 || pn >= IX.pages) return;
+    S.sel = IX.pageOf.indexOf(pn);
+    showSel(); emitState();
+  }
+  function openIndex() {
+    if (S.mode === "main") {
+      var c = clips[cur() && cur().id];
+      S.saved = { idx: S.idx, step: S.step, clipT: c && c.state !== "idle" && c.state !== "ended" ? c.audio.currentTime : null, clipEnded: c && c.state === "ended" };
+      if (c) { c.audio.pause(); if (c.state === "playing") c.state = "paused"; }
+      var oc = c ? null : ownClip(cur());
+      if (oc && oc.playing()) { oc.pause(); S.pausedByPress = true; }
+      $$("video, audio", sceneEl(S.idx)).forEach(function (m) { m.pause(); });
+    }
+    S.mode = "index";
+    showIndex(); emitState(); updateHash();
+  }
+  function openAppendixScene(k) {
+    if (k < 0 || k >= appIdx.length) return;
+    if (S.mode === "main") openIndex();
+    S.sel = k; S.mode = "appendix";
+    indexEl.classList.remove("is-on");
+    go(appIdx[k], 1, "jump");
+  }
+  function returnToMain() {
+    indexEl.classList.remove("is-on");
+    if (!mainIdx.length) {
+      // an appendix-only deck: A leaves the index for the selected appendix scene
+      if (S.mode === "index") { S.mode = "appendix"; if (S.idx !== appIdx[S.sel]) go(appIdx[S.sel], 1, "jump"); else emitState(); }
+      return;
+    }
+    S.mode = "main";
+    var sv = S.saved || { idx: mainIdx[0], step: 1 };
+    S.saved = null;
+    if (S.idx === sv.idx) {
+      // never left the scene (index overlay only); the clip stays paused where it was
+      emitState(); updateHash(); return;
+    }
+    var sc = scenes[sv.idx], c = sc && sc.highlight ? clipFor(sv.idx) : null;
+    if (c) { c.restoreT = sv.clipT; c.restoreEnded = !!sv.clipEnded; }
+    go(sv.idx, sv.step, "restore");
+  }
+  function toggleAppendix() {
+    if (S.mode === "main") openIndex(); else returnToMain();
+  }
+
+  /* ------------------------------------------------------------------ other actions */
+  function toggleBlack() { S.black = !S.black; blackEl.classList.toggle("is-on", S.black); emitState(); }
+  // The safe-area guide (COS #C18.2): the 120 / 96 px margins and one line with its baseline at 984.
+  // Off by default; G or ?guide shows it. render.js never passes the flag and fails if it is ever on.
+  // Built from markup so the parser puts it in the SVG namespace itself: no namespace URL in the output (rm-deck B16, 19:19Z).
+  function makeGuide() {
+    var d = document.createElement("div");
+    d.innerHTML = '<svg id="guide" viewBox="0 0 1920 1080">' +
+      '<rect x="120" y="96" width="1680" height="888"/>' +
+      '<text x="960" y="984">If you can read this, the edges are safe</text></svg>';
+    guideEl = d.firstChild;
+    stage.appendChild(guideEl);
+    if (/[?&]guide(=|&|$)/.test(location.search)) guideEl.classList.add("is-on");
+  }
+  function toggleGuide() { guideEl.classList.toggle("is-on"); }
+  function toggleFullscreen() {
+    if (document.fullscreenElement) { document.exitFullscreen(); return; }
+    var p = document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();
+    if (p && p.catch) p.catch(function (e) { console.warn("deck: fullscreen refused: " + e.message); });
+  }
+  function openPresenter() {
+    presenterWin = window.open("presenter.html", "townhall-presenter", "width=1280,height=800");
+    if (presenterWin) Sync.addPeer(presenterWin);
+    setTimeout(emitState, 400);
+  }
+  function startClock() { S.clockStart = Date.now(); emitState(); }
+
+  function mainNumber(n) {
+    // digits name the main scene: 12 -> s12; otherwise the n-th main scene
+    var id = "s" + (n < 10 ? "0" + n : "" + n);
+    if (byId[id] != null && !scenes[byId[id]].appendix) return byId[id];
+    return n >= 1 && n <= mainIdx.length ? mainIdx[n - 1] : -1;
+  }
+
+  function digit(d) {
+    digits = (digits + d).slice(-3);
+    gotoEl.textContent = digits; gotoEl.classList.add("is-on");
+    clearTimeout(digitTimer);
+    digitTimer = setTimeout(clearDigits, 4000);
+  }
+  function clearDigits() { digits = ""; gotoEl.classList.remove("is-on"); }
+  function commitDigits() {
+    if (!digits) { if (S.mode === "index") openAppendixScene(S.sel); return; }
+    var n = parseInt(digits, 10); clearDigits();
+    if (S.mode === "index") { openAppendixScene(appIdx.indexOf(byId["a" + (n < 10 ? "0" + n : n)])); return; }
+    var i = mainNumber(n);
+    if (i < 0) return;
+    if (S.mode === "appendix") { indexEl.classList.remove("is-on"); S.mode = "main"; S.saved = null; }
+    go(i, 1, "jump");
+  }
+
+  function act(a) {
+    if (!S.started) return;
+    if (a.indexOf("digit:") === 0) { digit(a.slice(6)); return; }
+    switch (a) {
+      case "next": next(); break;
+      case "prev": prev(); break;
+      case "down": if (S.mode === "index") moveSel(1); else endClip(); break;
+      case "up": if (S.mode === "index") moveSel(-1); break;
+      case "enter": commitDigits(); break;
+      case "appendix": toggleAppendix(); break;
+      case "index": if (S.mode === "appendix") { S.mode = "index"; showIndex(); emitState(); } break;
+      case "black": toggleBlack(); break;
+      case "fullscreen": toggleFullscreen(); break;
+      case "guide": toggleGuide(); break;
+      case "presenter": openPresenter(); break;
+      case "clock": startClock(); break;
+      case "home":
+      case "end":
+        if (!mainIdx.length) break;
+        if (S.mode !== "main") { indexEl.classList.remove("is-on"); S.mode = "main"; S.saved = null; }
+        go(a === "home" ? mainIdx[0] : mainIdx[mainIdx.length - 1], 1, "jump");
+        break;
+    }
+  }
+
+  /* ------------------------------------------------------------------ state out */
+  function snapshot() {
+    var sc = cur(), c = sc && clips[sc.id];
+    return {
+      type: "state", idx: S.idx, id: sc && sc.id, step: S.step, steps: sc && sc.steps, mode: S.mode,
+      sel: S.sel, selId: appIdx.length ? scenes[appIdx[S.sel]].id : null,
+      saved: S.saved ? { id: scenes[S.saved.idx].id, step: S.saved.step } : null,
+      black: S.black, clockStart: S.clockStart, sceneStart: S.sceneStart,
+      clip: c ? c.info() : ownInfo(sc), sent: Date.now()
+    };
+  }
+  function ownInfo(sc) {
+    var oc = ownClip(sc), a = oc && oc.audio();
+    if (!a) return null;
+    var st = oc.playing() ? "playing" : oc.ended() ? "ended" : a.currentTime > 0 ? "paused" : "idle";
+    var clip = a.getAttribute("data-clip") || "audio";
+    return { clip: clip, t: +a.currentTime.toFixed(2), dur: +(a.duration || 0).toFixed(2), state: st };
+  }
+  function emitState() { if (S.started) Sync.send(snapshot()); }
+
+  function updateHash() {
+    var sc = cur();
+    if (!sc) return;
+    var h = "#" + sc.id + (S.step > 1 ? "/" + S.step : "");
+    if (location.hash !== h) { try { history.replaceState(null, "", h); } catch (e) { /* file:// may refuse */ } }
+  }
+
+  /* ------------------------------------------------------------------ start */
+  // fonts load lazily and scenes start hidden, so the first heading would draw in a fallback and swap on screen;
+  // ask for every face the show uses before the first scene
+  var FACES = ["400 64px Fredoka", "500 64px Fredoka", "600 64px Fredoka", "700 64px Fredoka",
+               "400 48px Poppins", "500 48px Poppins", "600 48px Poppins", "400 64px 'Noto Nastaliq Urdu'"];
+  function preloadFonts() {
+    if (!document.fonts || !document.fonts.load) return;
+    FACES.forEach(function (f) {
+      document.fonts.load(f, /Nastaliq/.test(f) ? "\u0627\u0628\u067E" : "Ab1").catch(function () { /* reported by render.js */ });
+    });
+  }
+
+  // Warm every clip at load: each audio gets preload="auto" and one load(), so its first play does not wait on the
+  // decoder (a cold first play lagged about 240 ms in studio-a's scenes, which create their player on the press).
+  var durations = {};
+  function preloadClips() {
+    scenes.forEach(function (sc, i) {
+      (sc.media || []).forEach(function (m) {
+        if (m.type !== "audio" || !m.clip) return;
+        if (sc.highlight && !registry[sc.id]) clipFor(i); else if (!$("audio[data-clip='" + m.clip + "']", sc._el)) audioFor(m.clip);
+      });
+    });
+    $$("audio, video").forEach(function (a) {
+      if (a.dataset.warm === "1") return;
+      a.dataset.warm = "1";
+      a.preload = "auto";
+      var key = a.getAttribute("data-clip") || a.getAttribute("src");
+      a.addEventListener("loadedmetadata", function () { durations[key] = +a.duration.toFixed(2); }, { once: true });
+      try { a.load(); } catch (e) { /* reported on play */ }
+    });
+  }
+
+  function start() {
+    if (S.started) return;
+    preloadFonts();
+    M = readJSON("deck-manifest");
+    if (!M) { console.error("deck: no manifest"); return; }
+    viewport = $("#viewport"); stage = $("#stage");
+    blackEl = $("#black"); indexEl = $("#appendix-index"); gotoEl = $("#goto");
+    scenes = M.scenes;
+    scenes.forEach(function (sc, i) {
+      byId[sc.id] = i;
+      sc._el = $(".scene[data-id='" + sc.id + "']", stage);
+      if (!sc._el) console.error("deck: no <section class=\"scene\" data-id=\"" + sc.id + "\">");
+      (sc.appendix ? appIdx : mainIdx).push(i);
+    });
+    buildIndex();
+    makeGuide();
+    preloadClips();
+    fit();
+    window.addEventListener("resize", fit);
+    document.addEventListener("keydown", function (e) {
+      var a = keyAction(e);
+      if (!a) return;
+      e.preventDefault();
+      act(a);
+    });
+    Sync.on(function (msg) {
+      if (msg.type === "cmd" && msg.action) act(msg.action);
+      if (msg.type === "hello") emitState();
+    });
+    // start position: #s12 or #s12/2 (reload-safe); otherwise the first main scene
+    var m = /^#([sa]\d{2}[a-z]?)(?:\/(\d+))?$/.exec(location.hash || "");
+    // an appendix-only deck (a test build) starts on its first appendix scene
+    var i0 = m && byId[m[1]] != null ? byId[m[1]] : (mainIdx.length ? mainIdx[0] : appIdx[0]);
+    if (scenes[i0] && scenes[i0].appendix) { S.saved = mainIdx.length ? { idx: mainIdx[0], step: 1 } : null; S.mode = "appendix"; S.sel = appIdx.indexOf(i0); }
+    go(i0, m && m[2] ? parseInt(m[2], 10) : 1, "jump");
+    S.started = true;
+    emitState();
+    setInterval(function () { var oc = ownClip(cur()); if (oc && oc.playing()) emitState(); }, 300);
+  }
+
+  var Deck = {
+    register: function (id, api) {
+      registry[id] = api || {};
+      // a scene script that runs after the scene became current (inline modules run late) still gets enter()
+      if (S.started && cur() && cur().id === id) callScene(id, "enter", S.step);
+    },
+    start: start,
+    act: act,
+    next: next, prev: prev,
+    go: function (id, step) { var i = byId[id]; if (i != null) { S.mode = scenes[i].appendix ? "appendix" : "main"; if (S.mode === "main") { S.saved = null; indexEl.classList.remove("is-on"); } go(i, step || 1, "jump"); } },
+    index: function () { return { pages: IX.pages, page: IX.page, size: IX.size, cols: IX.cols, entries: appIdx.length }; },
+    indexPage: function (pn) { if (S.mode === "index") showPage(pn); return IX.page; },
+    openAppendix: function (id) { var k = appIdx.indexOf(byId[id]); if (k >= 0) openAppendixScene(k); },
+    state: function () { return snapshot(); },
+    clip: function () { return clips[cur() && cur().id] || null; },
+    durations: function () { return durations; },
+    endClip: function () { endClip(); },
+    guide: function () { return !!(guideEl && guideEl.classList.contains("is-on")); },
+    scenes: function () { return scenes.map(function (s) { return { id: s.id, steps: s.steps, appendix: s.appendix, highlight: !!s.highlight, clip: (s.media || []).some(function (m) { return m.type === "audio" && m.clip; }) }; }); },
+    // render and test hooks: show a clip step at time t without playing
+    words: words,
+    audio: audioFor,
+    owned: function () { return !!ownClip(cur()); },
+    clipId: function () { var m = ((cur() || {}).media || []).filter(function (x) { return x.type === "audio" && x.clip; })[0]; return m ? m.clip : null; },
+    seekClip: function (t) { var oc = ownClip(cur()); if (oc) { oc.seek(t); return true; } var c = clips[cur() && cur().id]; if (!c) return false; c.audio.pause(); c.state = "paused"; try { c.audio.currentTime = t; } catch (e) { /* not loaded */ } c.update(t); return true; },
+    onLit: null,
+    keyAction: keyAction,
+    Sync: Sync,
+    ROLES: ROLES
+  };
+  window.Deck = Deck;
+
+  // deck.js sits in <head>, so wait for the body; the presenter page has no #stage and never starts
+  function boot() { if (document.getElementById("stage")) start(); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else setTimeout(boot, 0);
+})();
+</script>
+<script>
+(function () {
+  "use strict";
+  var M = JSON.parse(document.getElementById("deck-manifest").textContent);
+  var scenes = M.scenes, byId = {};
+  scenes.forEach(function (s, i) { byId[s.id] = i; });
+  var st = null, lastHeard = 0, renderedKey = "", digits = "";
+  function $(id) { return document.getElementById(id); }
+  function mmss(ms) {
+    if (ms == null || ms < 0) ms = 0;
+    var s = Math.floor(ms / 1000);
+    return Math.floor(s / 60) + ":" + ("0" + (s % 60)).slice(-2);
+  }
+  function esc(t) { return String(t).replace(/[&<>]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; }); }
+
+  function noteHtml(sc, step) {
+    var n = sc.note || {};
+    var cues = (n.cues || []).map(esc).join("<br>");
+    var press = 0;
+    var body = esc(n.body || "(no note)").split("\n").map(function (line) {
+      if (line.trim() === "(press)") { press++; return "<span class='press" + (press < step ? " done" : "") + "'>press " + press + "</span>"; }
+      if (/^\s*\[Haroon, in your own words/.test(line)) {
+        // the label (what the moment is for) in the note's large type, the quoted brief under it at two thirds
+        var t = line.trim().replace(/^\[/, "").replace(/\]\s*$/, ""), k = t.indexOf("From your brief");
+        var lbl = k < 0 ? t : t.slice(0, k).trim(), q = k < 0 ? "" : t.slice(k).trim();
+        return "<span class='own'><span class='own-l'>" + lbl + "</span>" + (q ? "<span class='own-q'>" + q + "</span>" : "") + "</span>";
+      }
+      return line;
+    }).join("\n");
+    return (cues ? "<div class='cues'>" + cues + "</div>" : "") + body +
+      (n.sources ? "<div class='src'>Sources: " + esc(n.sources) + "</div>" : "");
+  }
+
+  function nextScene(i) {
+    var sc = scenes[i];
+    if (!sc) return null;
+    for (var j = i + 1; j < scenes.length; j++) if (scenes[j].appendix === sc.appendix) return scenes[j];
+    return null;
+  }
+
+  function render() {
+    if (!st) return;
+    var sc = scenes[st.idx];
+    if (!sc) return;
+    var key = st.idx + "/" + st.step + "/" + st.mode + "/" + st.sel;
+    if (key !== renderedKey) {
+      renderedKey = key;
+      $("pid").textContent = sc.id + " · " + sc.chapter;
+      $("ptitle").textContent = sc.title;
+      $("pstep").textContent = "step " + st.step + " of " + sc.steps;
+      $("pmode").textContent = st.mode === "index" ? "appendix index: " + (st.selId || "") : "appendix";
+      $("pmode").classList.toggle("on", st.mode !== "main");
+      $("pnote").innerHTML = noteHtml(sc, st.step);
+      $("pend").classList.toggle("on", !!sc.highlight || (sc.media || []).some(function (m) { return m.type === "audio" && m.clip; }));
+      var nx = st.mode === "index" ? scenes[byId[st.selId]] : nextScene(st.idx);
+      $("pnext").textContent = nx ? nx.id + " · " + nx.title : "(end)";
+      $("pnextl").textContent = nx && nx.note ? nx.note.first_line || "" : "";
+      // the part he is saying now starts at the top, so an own-words label is never scrolled away
+      var done = $("pnote").querySelectorAll(".press.done");
+      if (done.length) done[done.length - 1].scrollIntoView({ block: "start" }); else $("pnote").scrollTop = 0;
+    }
+    document.body.classList.toggle("black-on", !!st.black);
+  }
+
+  function clockTick() {
+    if (st) {
+      var now = Date.now();
+      $("pclock").firstChild.nodeValue = st.clockStart ? mmss(now - st.clockStart) : "0:00";
+      var sc = scenes[st.idx], el = now - st.sceneStart, dur = sc ? sc.duration_s * 1000 : 0;
+      var pct = dur ? el / dur : 0;
+      var se = $("pscene");
+      se.firstChild.nodeValue = mmss(el) + " / " + mmss(dur);
+      se.classList.toggle("amber", !sc.appendix && pct >= 1 && pct < 1.25);
+      se.classList.toggle("red", !sc.appendix && pct >= 1.25);
+      var c = st.clip;
+      $("pclip").classList.toggle("on", !!c);
+      if (c) {
+        var t = c.state === "playing" ? c.t + (now - st.sent) / 1000 : c.t;
+        t = Math.min(t, c.dur || t);
+        $("pclipbar").style.width = (c.dur ? 100 * t / c.dur : 0) + "%";
+        $("pcliplbl").textContent = "clip " + c.clip + " · " + c.state + " · " + mmss(t * 1000) + " / " + mmss(c.dur * 1000);
+      }
+      var ok = now - lastHeard < 5000;
+      $("plink").textContent = ok ? "link: on" + (Deck.Sync.hasChannel() ? " (channel)" : " (window)") : "link: lost, press any key in the show window";
+      $("plink").classList.toggle("off", !ok);
+    }
+    requestAnimationFrame(clockTick);
+  }
+
+  Deck.Sync.on(function (msg) {
+    if (msg.type === "state") { st = msg; lastHeard = Date.now(); render(); }
+    if (msg.type === "warn") { $("pwarn").textContent = msg.text; setTimeout(function () { $("pwarn").textContent = ""; }, 8000); }
+  });
+  // heartbeat so the link indicator stays honest while nothing moves
+  setInterval(function () { Deck.Sync.send({ type: "hello" }); }, 2000);
+
+  document.addEventListener("keydown", function (e) {
+    var a = Deck.keyAction(e);
+    if (!a) return;
+    e.preventDefault();
+    if (a === "presenter") return;
+    if (a === "fullscreen") {
+      if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen().catch(function () {});
+      return;
+    }
+    Deck.Sync.send({ type: "cmd", action: a });
+  });
+
+  // which copy is on the laptop: the manifest's build time, UTC to the minute (qa-run IDEA 2)
+  var bt = /T(\d\d):(\d\d)/.exec(M.built_at || "");
+  $("pbuild").textContent = bt ? "build " + bt[1] + ":" + bt[2] + "Z" : "";
+  Deck.Sync.send({ type: "hello" });
+  requestAnimationFrame(clockTick);
+  window.__presenter = { state: function () { return st; }, title: function () { return $("ptitle").textContent; } };
+})();
+</script>
+</body>
+</html>
