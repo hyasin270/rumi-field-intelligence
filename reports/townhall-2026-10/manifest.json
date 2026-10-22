@@ -1,6 +1,6 @@
 {
  "title": "Town hall, October 2026",
- "built_at": "2026-10-22T21:36:21Z",
+ "built_at": "2026-10-22T22:10:25Z",
  "stage": [
   1920,
   1080
@@ -647,7 +647,7 @@
      "press 2: the table dims; \"Every point is a child reading.\"; the estimate card stays",
      "press 3: moves to s22"
     ],
-    "body": "Eighty-six programmes. The best structured-teaching programme scores about fifteen. One preschool programme that trained its own teachers sits just above it, at sixteen. At twenty we pass them both. Our best estimates put us in the middle, somewhere between thirty-third and fifty-sixth, and that is an estimate: no study of ours is yet strong enough for funders.\n(press)\n[Haroon, in your own words: the dream. From your brief: \"I want to be vulnerable, to be persuasive, to be MLK like with the dream of being nuber one in the world at moving learning outcomes\" About 20 s here.]\nBy the end of 2028 we want to be first among programmes that train teachers: twenty, on the same measure. By raising learning, with cost held flat, and by proving it outside.\n(press)\n(press)",
+    "body": "Eighty-six programmes. The best structured-teaching programme scores about fifteen. One preschool programme that trained its own teachers sits just above it, at sixteen. At twenty we pass them both. Our best estimates put us in the middle, somewhere between thirty-third and fifty-sixth, and that is an estimate: no study of ours is yet strong enough for funders.\n(press)\n[Haroon, in your own words: the dream. From your brief: \"I want to be vulnerable, to be persuasive, to be MLK like with the dream of being number one in the world at moving learning outcomes\" About 20 s here.]\nBy the end of 2028 we want to be first among programmes that train teachers: twenty, on the same measure. By raising learning, with cost held flat, and by proving it outside.\n(press)\n(press)",
     "first_line": "Eighty-six programmes."
    }
   },
@@ -822,9 +822,9 @@
    "note": {
     "planned": "5 s",
     "cues": [
-     "press A: the index opens; a number, then Enter, opens a page (A again comes back here; Right does nothing on s28)"
+     "press A: the index opens; a number, then Enter, opens a page (A again comes back here; in the deck, press A again before the next number; Right does nothing on s28)"
     ],
-    "body": "[To open the questions: ask a Rawalpindi coach first, then Palestine on video, then an engineer.]\n[Not spoken. Questions start here. Press A to open the index, then the number and Enter: 7 Enter opens a07. Without A first, a number opens a main scene. From an appendix scene, A takes you back to where you were. The More moments clips, a17a to a17i, open from a17 by pressing on, or with Up and Down in the index.]\n(press)",
+    "body": "[To open the questions: ask a Rawalpindi coach first, then Palestine on video, then an engineer.]\n[Not spoken. Questions start here. Press A to open the index, then the number and Enter: 7 Enter opens a07. Without A first, a number opens a main scene. From an appendix scene, A takes you back to where you were. In the deck that closes the index: press A again before the next number, or the number opens a main scene. In the world the index stays open. The More moments clips, a17a to a17i, open from a17 by pressing on, or with Up and Down in the index.]\n(press)",
     "first_line": ""
    }
   },
@@ -1632,5 +1632,8 @@
  ],
  "main_total_s": 1050,
  "excluded_sensitive": [],
- "warnings": []
+ "warnings": [],
+ "sensitive_handling": {
+  "s10": "c05 audio and words absent; the de-identified line shows as muted text at spoken pace"
+ }
 }
