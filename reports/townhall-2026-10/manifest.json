@@ -1,6 +1,6 @@
 {
  "title": "Town hall, October 2026",
- "built_at": "2026-10-23T08:05:48Z",
+ "built_at": "2026-10-23T08:38:05Z",
  "stage": [
   1920,
   1080
@@ -36,7 +36,7 @@
    "note": {
     "planned": "45 s (clip 29 s, speaking 16 s, at most 36 words)",
     "cues": [
-     "press 1: the clip plays and the words light as the child reads them (↓ ends it early)",
+     "press 1: the clip plays and the words light as the child reads them · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: holds on the lit passage; the caption appears: \"A child in Grade 3, Islamabad, reading on a phone. October 2026.\"",
      "press 3: moves to s02"
     ],
@@ -208,12 +208,12 @@
    "note": {
     "planned": "95 s (clips 71 s, speaking 24 s, at most 54 words)",
     "cues": [
-     "press 1: the first clip plays (maths, comparing decimals); teacher's and children's lines appear as spoken (a press pauses, the next resumes)",
-     "press 2: the second clip plays (English grammar: \"Why did you call it a proper noun?\")",
-     "press 3: the third clip plays (English, pair work)",
+     "press 1: the first recording appears, dim · press: it plays (maths, comparing decimals); teacher's and children's lines appear as spoken · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
+     "press 2: the second recording appears, dim · press: it plays (English grammar: \"Why did you call it a proper noun?\") · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
+     "press 3: the third recording appears, dim · press: it plays (English, pair work) · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 4: moves to s08"
     ],
-    "body": "[Keys here: Right only. Right pauses, Right resumes, Right after a clip ends plays the next. Do not use ↓ in this scene.]\nThree classrooms in Islamabad. Listen for the children's answers.\n(press)\n[Let it play.] The teacher asks why, then asks again.\n(press)\n[Let it play.] Why did you call it a proper noun? The child has to give the reason.\n(press)\n[Let it play.] Pair work. The teacher checks one child and asks for a new sentence. That is Teach Well.\n(press)",
+    "body": "[Keys here, per clip: it waits, ready. Press: it plays. Press again while it plays: it skips to the next clip, which waits. Left goes back to a clip; press, and it plays again. ↓ ends a clip and holds its words.]\nThree classrooms in Islamabad. Listen for the children's answers.\n(press)\n[Press to play it, then let it run.] The teacher asks why, then asks again.\n(press)\n[Press to play it, then let it run.] Why did you call it a proper noun? The child has to give the reason.\n(press)\n[Press to play it, then let it run.] Pair work. The teacher checks one child and asks for a new sentence. That is Teach Well.\n(press)",
     "first_line": "Three classrooms in Islamabad."
    }
   },
@@ -252,12 +252,12 @@
    "note": {
     "planned": "105 s (clips 81 s, speaking 24 s, at most 56 words)",
     "cues": [
-     "press 1: the first debrief plays, Islamabad (a press pauses, the next resumes)",
-     "press 2: the second debrief plays, Tanzania, Kiswahili with English under it",
-     "press 3: the third debrief plays, Punjab",
+     "press 1: the first recording appears, dim · press: it plays, Islamabad · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
+     "press 2: the second recording appears, dim · press: it plays, Tanzania, Kiswahili with English under it · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
+     "press 3: the third recording appears, dim · press: it plays, Punjab · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 4: moves to s09"
     ],
-    "body": "[Keys here: Right only. Right pauses, Right resumes, Right after a clip ends plays the next. Do not use ↓ in this scene.]\nImprove. Three debriefs, three regions, after a coach watched a lesson.\n(press)\n[Let it play.] \"Where exactly did you feel that?\" One moment, one change.\n(press)\n[Let it play.] In Tanzania the teacher disagrees, and backs it with the children's own sentences.\n(press)\n[Let it play.] In Punjab: one point for next time, in the teacher's own words.\n(press)",
+    "body": "[Keys here, per clip: it waits, ready. Press: it plays. Press again while it plays: it skips to the next clip, which waits. Left goes back to a clip; press, and it plays again. ↓ ends a clip and holds its words.]\nImprove. Three debriefs, three regions, after a coach watched a lesson.\n(press)\n[Press to play it, then let it run.] \"Where exactly did you feel that?\" One moment, one change.\n(press)\n[Press to play it, then let it run.] In Tanzania the teacher disagrees, and backs it with the children's own sentences.\n(press)\n[Press to play it, then let it run.] In Punjab: one point for next time, in the teacher's own words.\n(press)",
     "first_line": "Improve."
    }
   },
@@ -291,7 +291,7 @@
    "note": {
     "planned": "65 s (clip 38 s, speaking 28 s, at most 63 words)",
     "cues": [
-     "press 1: the clip plays and the passage lights as the child reads (↓ ends it early)",
+     "press 1: the clip plays and the passage lights as the child reads · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: holds on the lit passage; the one English line about the story (on screen from entry, hidden during the read) returns under it, with the caption: \"Reading to an assessor. Rawalpindi, May 2026.\"",
      "press 3: moves to s10"
     ],
@@ -334,13 +334,13 @@
    "note": {
     "planned": "60 s (clips 49 s, speaking 11 s, at most 26 words)",
     "cues": [
-     "press 1: the first clip plays (science); the teacher's line lights as it is spoken, then its English (a press pauses; after the end a press moves on)",
-     "press 2: the second clip plays (English: the haircut threat)",
-     "press 3: the third clip plays (social studies)",
+     "press 1: the first recording appears, dim · press: it plays (science); the teacher's line lights as it is spoken, then its English · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
+     "press 2: the second recording appears, dim · press: it plays (English: the haircut threat) · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
+     "press 3: the third recording appears, dim · press: it plays (social studies) · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 4: the screen holds, then \"We listen to this too.\" appears",
      "press 5: moves to s11"
     ],
-    "body": "[It plays with sound, in the room and on the practice link: your decision of 23 October.]\n[Keys here: Right only. Right pauses, Right resumes, Right after a clip ends plays the next. Do not use ↓ in this scene.]\nSome moments are harder to hear.\n(press)\n[Let it play. Hold the silence.]\n(press)\n[Let it play.]\n(press)\n[Let it play.]\n(press)\nWe listen to this too. A coach who has heard this knows what the next visit is for.\n[Only if asked: 88 threats like these in 28,403 lessons.]\n(press)\n[Move on. Do not explain.]",
+    "body": "[It plays with sound, in the room and on the practice link: your decision of 23 October.]\n[Keys here, per clip: it waits, ready. Press: it plays. Press again while it plays: it skips to the next clip, which waits. Left goes back to a clip; press, and it plays again. ↓ ends a clip and holds its words.]\nSome moments are harder to hear.\n(press)\n[Press to play it, then let it run. Hold the silence.]\n(press)\n[Press to play it, then let it run.]\n(press)\n[Press to play it, then let it run.]\n(press)\nWe listen to this too. A coach who has heard this knows what the next visit is for.\n[Only if asked: 88 threats like these in 28,403 lessons.]\n(press)\n[Move on. Do not explain.]",
     "first_line": "Some moments are harder to hear."
    }
   },
@@ -367,7 +367,7 @@
    "note": {
     "planned": "70 s (clip 42 s, speaking 28 s, at most 65 words)",
     "cues": [
-     "press 1: the clip plays and the passage lights as the child reads; \"A second voice\" and its line show under the story while it is said (↓ ends it early)",
+     "press 1: the clip plays and the passage lights as the child reads; \"A second voice\" and its line show under the story while it is said · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: holds on the lit passage; the caption: \"One of four tries in eight minutes. Someone was helping. The fourth try: every word.\"",
      "press 3: moves to s12"
     ],
@@ -398,14 +398,14 @@
    "note": {
     "planned": "85 s (clip 22 s, speaking 63 s, at most 145 words)",
     "cues": [
-     "press 1: the clip plays: an English lesson, Grades 1 to 2, the practice step sent home; Urdu lit word by word with the English under it (a press pauses; after the end a press moves on)",
+     "press 1: ready, silent · press: the clip plays: an English lesson, Grades 1 to 2, the practice step sent home; Urdu lit word by word with the English under it · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: \"After a debrief with one concrete move to try tomorrow, the next lesson got a little better.\"",
      "press 3: 12 in 100 teachers with a debrief, 10 in 100 similar teachers without; 907 debriefs in Islamabad",
      "press 4: \"Put the children in pairs.\" moved; \"Ask better questions.\" did not",
      "press 5: 46 in 100 debriefs agreed one clear next step; 3 in 100 practised it out loud",
      "press 6: moves to s13"
     ],
-    "body": "From our lesson-plan fidelity grading: the end of a lesson, where each child practises on their own. In one lesson in three, it did not happen at all. One lesson in seven had all of it.\n(press)\n[Let it play.]\nThe practice step went home as homework, and the lesson ended. It looks like time ran out.\n(press)\nWhat helps: a debrief that ends with one concrete move to try tomorrow.\n(press)\nIn 907 Islamabad debriefs, twelve in a hundred teachers moved up a level on the coached skill in their next lesson. Similar teachers with no debrief: ten. A little, and mostly where the step was concrete.\n(press)\n\"Put the children in pairs\" showed up in the next lesson. \"Ask better questions\" did not.\n(press)\nAlmost half agree on one clear step. Three in a hundred have the teacher practise it before the coach leaves. That is the gap we close next.\n(press)",
+    "body": "From our lesson-plan fidelity grading: the end of a lesson, where each child practises on their own. In one lesson in three, it did not happen at all. One lesson in seven had all of it.\n(press)\n[Press to play it, then let it run.]\nThe practice step went home as homework, and the lesson ended. It looks like time ran out.\n(press)\nWhat helps: a debrief that ends with one concrete move to try tomorrow.\n(press)\nIn 907 Islamabad debriefs, twelve in a hundred teachers moved up a level on the coached skill in their next lesson. Similar teachers with no debrief: ten. A little, and mostly where the step was concrete.\n(press)\n\"Put the children in pairs\" showed up in the next lesson. \"Ask better questions\" did not.\n(press)\nAlmost half agree on one clear step. Three in a hundred have the teacher practise it before the coach leaves. That is the gap we close next.\n(press)",
     "first_line": "From our lesson-plan fidelity grading: the end of a lesson, where each child practises on their own."
    }
   },
@@ -479,12 +479,12 @@
    "note": {
     "planned": "75 s (run with sound 68 s, speaking 7 s at the planned length; this note needs about 13 s, so about 81 s)",
     "cues": [
-     "press 1: the phone plays with sound: letters, words, then a real child reads the story aloud on this morning's test as the words light, a maths tap, the hand-back (a press pauses; ↓ ends it)",
+     "press 1: ready, silent · press: the phone plays with sound: letters, words, then a real child reads the story aloud on this morning's test as the words light, a maths tap, the hand-back · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: \"The children take the test on the phone.\" / \"About ten minutes a child.\"",
      "press 3: \"The recordings score themselves.\"",
      "press 4: moves to s15"
     ],
-    "body": "On a visit, the coach opens Rumi. Five children, picked at random.\n(press)\n[Let it play. This is a real test, taken this morning on a coach's phone. If the child's voice sounds grown-up to you in practice, say so: know2 reverts s14 to the earlier run, and this line goes.]\n(press)\nAbout ten minutes a child. We start timing it this week.\n(press)\nThe recordings score themselves.\n(press)",
+    "body": "On a visit, the coach opens Rumi. Five children, picked at random.\n(press)\n[Press to play it, then let it run. This is a real test, taken this morning on a coach's phone. If the child's voice sounds grown-up to you in practice, say so: know2 reverts s14 to the earlier run, and this line goes.]\n(press)\nAbout ten minutes a child. We start timing it this week.\n(press)\nThe recordings score themselves.\n(press)",
     "first_line": "On a visit, the coach opens Rumi."
    }
   },
@@ -526,7 +526,7 @@
    "note": {
     "planned": "95 s (clip 40 s, speaking 55 s, at most 126 words)",
     "cues": [
-     "press 1: the read plays with sound: the story lights word by word, with the caption \"Grade 4, in the reading game, October 2026.\" (a press pauses; ↓ ends it)",
+     "press 1: the read plays with sound: the story lights word by word, with the caption \"Grade 4, in the reading game, October 2026.\" · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: \"The story: a river, a boat, stones on the way home.\" / \"59 of 60 words read, all the way to the end.\"",
      "press 3: the phone again: a quiz question, then a storybook page",
      "press 4: moves to s16"
@@ -690,11 +690,11 @@
      "press 2: Malawi recedes; \"Brazil, coaching 2.65\" lights",
      "press 3: \"Tusome, Kenya 4.9\"",
      "press 4: our row, in yellow: \"Us 8.3\", 12th",
-     "press 5: the climb: our row rises above Malawi; \"First. End of 2028.\" and \"among programmes that train teachers\"",
+     "press 5: the climb: our row rises above Malawi; \"First. End of 2028.\" and \"among programmes that improve learning through teachers\"",
      "press 6: the table dims: \"Every point is a child reading.\"",
      "press 7: moves to s22"
     ],
-    "body": "This is that table. Every line is a programme somewhere in the world.\n(press)\nNear the top, a maths programme in Malawi: about twenty years of good schooling for every hundred dollars. That is the number to beat.\n(press)\nCoaching teachers in Brazil: under three.\n(press)\nTusome, teaching reading across Kenya: about five.\n(press)\nAnd us. In Rawalpindi, at about three dollars a child, we are at eight. Twelfth.\n(press)\n[Haroon, in your own words: the dream. From your brief: \"I want to be vulnerable, to be persuasive, to be MLK like with the dream of being number one in the world at moving learning outcomes\" About 20 s here.]\nBy the end of 2028, first among programmes that train teachers. Past twenty.\n(press)\nOur cost is already low. So the way up this table is the children's reading and maths. Now we can see their learning every month, and we will move it.\n(press)",
+    "body": "This is that table. Every line is a programme somewhere in the world.\n(press)\nNear the top, a maths programme in Malawi: about twenty years of good schooling for every hundred dollars. That is the number to beat.\n(press)\nCoaching teachers in Brazil: under three.\n(press)\nTusome, teaching reading across Kenya: about five.\n(press)\nAnd us. In Rawalpindi, at about three dollars a child, we are at eight. Twelfth.\n(press)\n[Haroon, in your own words: the dream. From your brief: \"I want to be vulnerable, to be persuasive, to be MLK like with the dream of being number one in the world at moving learning outcomes\" About 20 s here.]\nBy the end of 2028, first among programmes that improve learning through teachers. Past twenty.\n(press)\nOur cost is already low. So the way up this table is the children's reading and maths. Now we can see their learning every month, and we will move it.\n(press)",
     "first_line": "This is that table."
    }
   },
@@ -897,7 +897,7 @@
    "note": {
     "planned": "50 s (clip 30 s, speaking 20 s, at most 46 words)",
     "cues": [
-     "press 1: the clip plays; s01's page lights word by word as another child reads it, all the way to the end (↓ ends it early)",
+     "press 1: the clip plays; s01's page lights word by word as another child reads it, all the way to the end · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: holds on the lit page; \"Every child should be able to read like this.\"",
      "press 3: the device lights: Teach Well. Improve. Learn.; the Taleemabad mark",
      "press 4: moves to s28"
@@ -1364,7 +1364,7 @@
    "note": {
     "planned": "5 s",
     "cues": [
-     "press 1: the clip plays, line by line (↓ ends it early)",
+     "press 1: the clip plays, line by line · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: holds on the whole exchange",
      "press 3: moves to a17b"
     ],
@@ -1403,7 +1403,7 @@
    "note": {
     "planned": "5 s",
     "cues": [
-     "press 1: the clip plays, line by line (↓ ends it early)",
+     "press 1: the clip plays, line by line · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: holds on the whole exchange",
      "press 3: moves to a17c"
     ],
@@ -1442,7 +1442,7 @@
    "note": {
     "planned": "5 s",
     "cues": [
-     "press 1: the clip plays, line by line (↓ ends it early)",
+     "press 1: the clip plays, line by line · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: holds on the whole exchange",
      "press 3: moves to a17d"
     ],
@@ -1481,7 +1481,7 @@
    "note": {
     "planned": "5 s",
     "cues": [
-     "press 1: the clip plays, line by line (↓ ends it early)",
+     "press 1: the clip plays, line by line · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: holds on the whole exchange",
      "press 3: moves to a17e"
     ],
@@ -1520,7 +1520,7 @@
    "note": {
     "planned": "5 s",
     "cues": [
-     "press 1: the clip plays and the passage lights as the child reads (↓ ends it early)",
+     "press 1: the clip plays and the passage lights as the child reads · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: holds on the lit passage",
      "press 3: moves to a17f"
     ],
@@ -1559,7 +1559,7 @@
    "note": {
     "planned": "5 s",
     "cues": [
-     "press 1: the clip plays and the passage lights as the child reads (↓ ends it early)",
+     "press 1: the clip plays and the passage lights as the child reads · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: holds on the lit passage",
      "press 3: moves to a17g"
     ],
@@ -1598,7 +1598,7 @@
    "note": {
     "planned": "5 s",
     "cues": [
-     "press 1: the clip plays, line by line (↓ ends it early)",
+     "press 1: the clip plays, line by line · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: holds on the whole exchange",
      "press 3: moves to a17h"
     ],
@@ -1637,7 +1637,7 @@
    "note": {
     "planned": "5 s",
     "cues": [
-     "press 1: the clip plays and the passage lights as the child reads (↓ ends it early)",
+     "press 1: the clip plays and the passage lights as the child reads · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: holds on the lit passage",
      "press 3: moves to a17i"
     ],
@@ -1676,7 +1676,7 @@
    "note": {
     "planned": "5 s",
     "cues": [
-     "press 1: the clip plays, line by line (↓ ends it early)",
+     "press 1: the clip plays, line by line · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: holds on the whole exchange",
      "press 3: moves to a18"
     ],
@@ -1771,7 +1771,7 @@
      "press 1: page 2: Malawi's maths programme, about 20 per $100, Prevail's verified figure",
      "press 2: moves to a22"
     ],
-    "body": "If someone asks about the programmes at the very top. Three score above twenty, and none of them trains teachers. In Madagascar, families were told what schooling earns. In Indonesia, schools were linked to village councils. In Kenya, children were grouped by level. That is why we say first among programmes that train teachers. Of those, the best today are community preschools in Mozambique, about sixteen, and Argentina, about fifteen. Twenty passes both.\n(press)\nIf someone asks about Malawi's maths programme. About twenty per hundred dollars is Prevail's verified figure, shared with us in October. The published table has no row for it. Worked out on the table's own scale from the trial, it reads about four, which is why you may see two numbers. We use Prevail's.\n(press)",
+    "body": "If someone asks about the programmes at the very top. Three score above twenty, and none of them trains teachers. In Madagascar, families were told what schooling earns. In Indonesia, schools were linked to village councils. In Kenya, children were grouped by level. That is why we say first among programmes that improve learning through teachers. Of those, the best today are community preschools in Mozambique, about sixteen, and Argentina, about fifteen. Twenty passes both.\n(press)\nIf someone asks about Malawi's maths programme. About twenty per hundred dollars is Prevail's verified figure, shared with us in October. The published table has no row for it. Worked out on the table's own scale from the trial, it reads about four, which is why you may see two numbers. We use Prevail's.\n(press)",
     "first_line": "If someone asks about the programmes at the very top."
    }
   },
