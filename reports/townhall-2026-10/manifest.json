@@ -1,6 +1,6 @@
 {
  "title": "Town hall, October 2026",
- "built_at": "2026-10-23T07:38:18Z",
+ "built_at": "2026-10-23T07:48:38Z",
  "stage": [
   1920,
   1080
@@ -208,12 +208,12 @@
    "note": {
     "planned": "95 s (clips 71 s, speaking 24 s, at most 54 words)",
     "cues": [
-     "press 1: the first clip plays (maths, comparing decimals); teacher's and children's lines appear as spoken (a press pauses; ↓ ends it)",
+     "press 1: the first clip plays (maths, comparing decimals); teacher's and children's lines appear as spoken (a press pauses, the next resumes)",
      "press 2: the second clip plays (English grammar: \"Why did you call it a proper noun?\")",
      "press 3: the third clip plays (English, pair work)",
      "press 4: moves to s08"
     ],
-    "body": "Three classrooms in Islamabad. Listen for the children's answers.\n(press)\n[Let it play.] The teacher asks why, then asks again.\n(press)\n[Let it play.] Why did you call it a proper noun? The child has to give the reason.\n(press)\n[Let it play.] Pair work. The teacher checks one child and asks for a new sentence. That is Teach Well.\n(press)",
+    "body": "[Keys here: Right only. Right pauses, Right resumes, Right after a clip ends plays the next. Do not use ↓ in this scene.]\nThree classrooms in Islamabad. Listen for the children's answers.\n(press)\n[Let it play.] The teacher asks why, then asks again.\n(press)\n[Let it play.] Why did you call it a proper noun? The child has to give the reason.\n(press)\n[Let it play.] Pair work. The teacher checks one child and asks for a new sentence. That is Teach Well.\n(press)",
     "first_line": "Three classrooms in Islamabad."
    }
   },
@@ -252,12 +252,12 @@
    "note": {
     "planned": "105 s (clips 81 s, speaking 24 s, at most 56 words)",
     "cues": [
-     "press 1: the first debrief plays, Islamabad (a press pauses; ↓ ends it)",
+     "press 1: the first debrief plays, Islamabad (a press pauses, the next resumes)",
      "press 2: the second debrief plays, Tanzania, Kiswahili with English under it",
      "press 3: the third debrief plays, Punjab",
      "press 4: moves to s09"
     ],
-    "body": "Improve. Three debriefs, three regions, after a coach watched a lesson.\n(press)\n[Let it play.] \"Where exactly did you feel that?\" One moment, one change.\n(press)\n[Let it play.] In Tanzania the teacher disagrees, and backs it with the children's own sentences.\n(press)\n[Let it play.] In Punjab: one point for next time, in the teacher's own words.\n(press)",
+    "body": "[Keys here: Right only. Right pauses, Right resumes, Right after a clip ends plays the next. Do not use ↓ in this scene.]\nImprove. Three debriefs, three regions, after a coach watched a lesson.\n(press)\n[Let it play.] \"Where exactly did you feel that?\" One moment, one change.\n(press)\n[Let it play.] In Tanzania the teacher disagrees, and backs it with the children's own sentences.\n(press)\n[Let it play.] In Punjab: one point for next time, in the teacher's own words.\n(press)",
     "first_line": "Improve."
    }
   },
@@ -340,7 +340,7 @@
      "press 4: the screen holds, then \"We listen to this too.\" appears",
      "press 5: moves to s11"
     ],
-    "body": "[It plays with sound, in the room and on the practice link: your decision of 23 October.]\nSome moments are harder to hear.\n(press)\n[Let it play. Hold the silence.]\n(press)\n[Let it play.]\n(press)\n[Let it play.]\n(press)\nWe listen to this too. A coach who has heard this knows what the next visit is for.\n[Only if asked: 88 threats like these in 28,403 lessons.]\n(press)\n[Move on. Do not explain.]",
+    "body": "[It plays with sound, in the room and on the practice link: your decision of 23 October.]\n[Keys here: Right only. Right pauses, Right resumes, Right after a clip ends plays the next. Do not use ↓ in this scene.]\nSome moments are harder to hear.\n(press)\n[Let it play. Hold the silence.]\n(press)\n[Let it play.]\n(press)\n[Let it play.]\n(press)\nWe listen to this too. A coach who has heard this knows what the next visit is for.\n[Only if asked: 88 threats like these in 28,403 lessons.]\n(press)\n[Move on. Do not explain.]",
     "first_line": "Some moments are harder to hear."
    }
   },
