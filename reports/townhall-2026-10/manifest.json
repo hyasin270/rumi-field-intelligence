@@ -1,6 +1,6 @@
 {
  "title": "Town hall, October 2026",
- "built_at": "2026-10-22T22:10:25Z",
+ "built_at": "2026-10-23T07:22:03Z",
  "stage": [
   1920,
   1080
@@ -142,12 +142,12 @@
    "note": {
     "planned": "65 s",
     "cues": [
-     "press 1: the frame pulls back until the child is one point among thousands",
+     "press 1: the frame pulls back until the whole stage is dots and the child is one point among them; the line becomes \"The millions we care about.\"",
      "press 2: the frame comes back in to the one child",
      "press 3: moves to s06"
     ],
-    "body": "[Haroon, in your own words: becoming a parent. From your brief: \"I want to tell them I'm about to become a parent -- and so even though I want to help millions across the globe, as a teacher and as a parent, my child -- the one in front of me -- is the center of my universe. I want to get to know them. They're not a number to me. They're not a statistic.\" About 30 s here.]\n(press)\n[Haroon, in your own words: the duality. From your brief: \"So I hold this duality, you know, of wanting both scale and wanting THAT child to be center stage. And I've come to terms with this duality -- that I know its not either or. That we'll endeavor to move the learning outcomes of entire districts and countries and provinces, yet look at the numbers as if the child and teacher was infront of us.\" About 25 s here.]\n(press)\nWhen I say Learn today, this is the child I mean.\n(press)",
-    "first_line": "When I say Learn today, this is the child I mean."
+    "body": "[Haroon, in your own words: becoming a parent. From your brief: \"I want to tell them I'm about to become a parent -- and so even though I want to help millions across the globe, as a teacher and as a parent, my child -- the one in front of me -- is the center of my universe. I want to get to know them. They're not a number to me. They're not a statistic.\" About 30 s here.]\n(press)\nThese are the millions we care about.\n[Haroon, in your own words: the duality. From your brief: \"So I hold this duality, you know, of wanting both scale and wanting THAT child to be center stage. And I've come to terms with this duality -- that I know its not either or. That we'll endeavor to move the learning outcomes of entire districts and countries and provinces, yet look at the numbers as if the child and teacher was infront of us.\" About 25 s here.]\n(press)\nWhen I say Learn today, this is the child I mean.\n(press)",
+    "first_line": "These are the millions we care about."
    }
   },
   {
@@ -177,78 +177,88 @@
    "id": "s07",
    "title": "Teach Well sounds like this",
    "chapter": "listen",
-   "duration_s": 45,
+   "duration_s": 95,
    "appendix": false,
-   "steps": 3,
+   "steps": 4,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-listen",
-   "status": "design-pass",
+   "owner": "listen2",
+   "status": "built",
    "media": [
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/c14.mp3",
+     "clip": "c14",
+     "autoplay": false
+    },
     {
      "type": "audio",
      "src": "assets/clips/audio/c02.mp3",
      "clip": "c02",
      "autoplay": false
+    },
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/c08b.mp3",
+     "clip": "c08b",
+     "autoplay": false
     }
    ],
-   "highlight": {
-    "mode": "transcript",
-    "words": "clips/words/c02.json",
-    "size_px": 64,
-    "lang": "mixed",
-    "show_gloss": true,
-    "clip": "c02",
-    "audio_src": "assets/clips/audio/c02.mp3"
-   },
+   "highlight": null,
    "note": {
-    "planned": "45 s (clip 20 s, speaking 25 s, at most 56 words)",
+    "planned": "95 s (clips 71 s, speaking 24 s, at most 54 words)",
     "cues": [
-     "press 1: the clip plays and each line appears as it is spoken, Urdu with the English under it (↓ ends it early)",
-     "press 2: holds on the \"why\" line and the child's answer, with the caption",
-     "press 3: moves to s08"
+     "press 1: the first clip plays (maths, comparing decimals); teacher's and children's lines appear as spoken (a press pauses; ↓ ends it)",
+     "press 2: the second clip plays (English grammar: \"Why did you call it a proper noun?\")",
+     "press 3: the third clip plays (English, pair work)",
+     "press 4: moves to s08"
     ],
-    "body": "Listen to this teacher, in an English grammar lesson.\n(press)\n[Let it play. Two seconds of silence.]\n(press)\nA real question: why? Then the teacher asks again, so the child has to give the reason.\nNo name on the screen, and I will not say one. That is what Teach Well sounds like in a room.\n(press)",
-    "first_line": "Listen to this teacher, in an English grammar lesson."
+    "body": "Three classrooms in Islamabad. Listen for the children's answers.\n(press)\n[Let it play.] The teacher asks why, then asks again.\n(press)\n[Let it play.] Why did you call it a proper noun? The child has to give the reason.\n(press)\n[Let it play.] Pair work. The teacher checks one child and asks for a new sentence. That is Teach Well.\n(press)",
+    "first_line": "Three classrooms in Islamabad."
    }
   },
   {
    "id": "s08",
    "title": "Improve sounds like this",
    "chapter": "listen",
-   "duration_s": 50,
+   "duration_s": 105,
    "appendix": false,
-   "steps": 3,
+   "steps": 4,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-listen",
-   "status": "design-pass",
+   "owner": "listen2",
+   "status": "built",
    "media": [
     {
      "type": "audio",
      "src": "assets/clips/audio/c03.mp3",
      "clip": "c03",
      "autoplay": false
+    },
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/c19.mp3",
+     "clip": "c19",
+     "autoplay": false
+    },
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/c20.mp3",
+     "clip": "c20",
+     "autoplay": false
     }
    ],
-   "highlight": {
-    "mode": "transcript",
-    "words": "clips/words/c03.json",
-    "size_px": 64,
-    "lang": "ur",
-    "show_gloss": true,
-    "clip": "c03",
-    "audio_src": "assets/clips/audio/c03.mp3"
-   },
+   "highlight": null,
    "note": {
-    "planned": "50 s (clip 25 s, speaking 25 s, at most 57 words)",
+    "planned": "105 s (clips 81 s, speaking 24 s, at most 56 words)",
     "cues": [
-     "press 1: the clip plays, the coach and the teacher line by line (↓ ends it early)",
-     "press 2: holds on the coach's question alone, lit, with its English and the caption",
-     "press 3: moves to s09"
+     "press 1: the first debrief plays, Islamabad (a press pauses; ↓ ends it)",
+     "press 2: the second debrief plays, Tanzania, Kiswahili with English under it",
+     "press 3: the third debrief plays, Punjab",
+     "press 4: moves to s09"
     ],
-    "body": "And this is after a lesson. A coach and a teacher.\n(press)\n[Let it play.]\n(press)\n\"So where did you feel that? At what point?\" One question from the coach, and the teacher works out what to change tomorrow.\nThat is the debrief. The next visit checks whether it happened.\n(press)",
-    "first_line": "And this is after a lesson."
+    "body": "Improve. Three debriefs, three regions, after a coach watched a lesson.\n(press)\n[Let it play.] \"Where exactly did you feel that?\" One moment, one change.\n(press)\n[Let it play.] In Tanzania the teacher disagrees, and backs it with the children's own sentences.\n(press)\n[Let it play.] In Punjab: one point for next time, in the teacher's own words.\n(press)",
+    "first_line": "Improve."
    }
   },
   {
@@ -293,23 +303,44 @@
    "id": "s10",
    "title": "We listen to this too",
    "chapter": "listen",
-   "duration_s": 35,
+   "duration_s": 60,
    "appendix": false,
-   "steps": 3,
+   "steps": 5,
    "transition": "fade",
    "sensitive": true,
-   "owner": "sg-listen",
-   "status": "design-pass",
-   "media": [],
+   "owner": "listen2",
+   "status": "built",
+   "media": [
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/c05.mp3",
+     "clip": "c05",
+     "autoplay": false
+    },
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/c17.mp3",
+     "clip": "c17",
+     "autoplay": false
+    },
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/c18.mp3",
+     "clip": "c18",
+     "autoplay": false
+    }
+   ],
    "highlight": null,
    "note": {
-    "planned": "35 s (clip 16 s, speaking 19 s, at most 44 words)",
+    "planned": "60 s (clips 49 s, speaking 11 s, at most 26 words)",
     "cues": [
-     "press 1: the clip plays; one Urdu line lights as it is spoken, then its English line (↓ ends it early)",
-     "press 2: the screen holds, then \"We listen to this too.\" appears",
-     "press 3: moves to s11"
+     "press 1: the first clip plays (science); the teacher's line lights as it is spoken, then its English (a press pauses; after the end a press moves on)",
+     "press 2: the second clip plays (English: the haircut threat)",
+     "press 3: the third clip plays (social studies)",
+     "press 4: the screen holds, then \"We listen to this too.\" appears",
+     "press 5: moves to s11"
     ],
-    "body": "[Morning brief: this plays only with your yes. If you said no, the line arrives as text at the speed it was said, with no sound.]\nSome moments are harder to hear.\n(press)\n[Let it play. Hold the silence.]\n(press)\nWe listen to this too. A coach who has heard this knows what the next visit is for.\n(press)\n[Move on. Do not explain.]",
+    "body": "[It plays with sound, in the room and on the practice link: your decision of 23 October.]\nSome moments are harder to hear.\n(press)\n[Let it play. Hold the silence.]\n(press)\n[Let it play.]\n(press)\n[Let it play.]\n(press)\nWe listen to this too. A coach who has heard this knows what the next visit is for.\n[Only if asked: 88 threats like these in 28,403 lessons.]\n(press)\n[Move on. Do not explain.]",
     "first_line": "Some moments are harder to hear."
    }
   },
@@ -317,61 +348,65 @@
    "id": "s11",
    "title": "Another child",
    "chapter": "listen",
-   "duration_s": 65,
+   "duration_s": 70,
    "appendix": false,
    "steps": 3,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-listen",
-   "status": "design-pass",
+   "owner": "listen2",
+   "status": "built",
    "media": [
     {
      "type": "audio",
-     "src": "assets/clips/audio/c06.mp3",
-     "clip": "c06",
+     "src": "assets/clips/audio/c16.mp3",
+     "clip": "c16",
      "autoplay": false
     }
    ],
-   "highlight": {
-    "mode": "passage",
-    "words": "clips/words/c06.json",
-    "size_px": 64,
-    "lang": "ur",
-    "clip": "c06",
-    "audio_src": "assets/clips/audio/c06.mp3"
-   },
+   "highlight": null,
    "note": {
-    "planned": "65 s (clip 39 s, speaking 26 s, at most 60 words)",
+    "planned": "70 s (clip 42 s, speaking 28 s, at most 65 words)",
     "cues": [
-     "press 1: the clip plays and the passage lights as the child reads (↓ ends it early)",
-     "press 2: holds on the lit passage; the one English line about the story (on screen from entry, hidden during the read) returns under it, with the caption: \"Reading on a phone, a grown-up beside them. October 2026.\"",
+     "press 1: the clip plays and the passage lights as the child reads; \"A second voice\" and its line show under the story while it is said (↓ ends it early)",
+     "press 2: holds on the lit passage; the caption: \"One of four tries in eight minutes. Someone was helping. The fourth try: every word.\"",
      "press 3: moves to s12"
     ],
-    "body": "The same story. Another child, on a phone, with a grown-up beside them who starts them off.\n(press)\n[Let it play.]\n(press)\nYou heard them stick on one word, go back to the start of the line, and read it through.\n(press)",
-    "first_line": "The same story."
+    "body": "[Why this clip is here (your item 7): not because the help is wrong. Someone at home kept the child going, and by the fourth try they read every word. It is the parent point.]\nAnother child, in grade 5, in our reading game. Listen at the very start: a second voice calls them over.\n(press)\n[Let it play.]\n(press)\nThat was their second try. Someone at home sat with this child. Four tries in eight minutes. The fourth, every word right.\n[Haroon, in your own words. From your brief: \"parents also being involved in their child's learning\"]\nParents are part of a child's learning too.\n(press)",
+    "first_line": "Another child, in grade 5, in our reading game."
    }
   },
   {
    "id": "s12",
    "title": "What listening taught us",
    "chapter": "listen",
-   "duration_s": 35,
+   "duration_s": 85,
    "appendix": false,
-   "steps": 2,
+   "steps": 6,
    "transition": "cut",
    "sensitive": false,
-   "owner": "sg-listen",
-   "status": "design-pass",
-   "media": [],
+   "owner": "know2",
+   "status": "built",
+   "media": [
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/c23.mp3",
+     "clip": "c23",
+     "autoplay": false
+    }
+   ],
    "highlight": null,
    "note": {
-    "planned": "35 s",
+    "planned": "85 s (clip 22 s, speaking 63 s, at most 145 words)",
     "cues": [
-     "press 1: the second line appears: \"Head teachers and principals now observe too.\"",
-     "press 2: moves to s13"
+     "press 1: the clip plays: an English lesson, Grades 1 to 2, the practice step sent home; Urdu lit word by word with the English under it (a press pauses; after the end a press moves on)",
+     "press 2: \"After a debrief with one concrete move to try tomorrow, the next lesson got a little better.\"",
+     "press 3: 12 in 100 teachers with a debrief, 10 in 100 similar teachers without; 907 debriefs in Islamabad",
+     "press 4: \"Put the children in pairs.\" moved; \"Ask better questions.\" did not",
+     "press 5: 46 in 100 debriefs agreed one clear next step; 3 in 100 practised it out loud",
+     "press 6: moves to s13"
     ],
-    "body": "In March I asked you to ask me whether feedback feels more like an invitation than a threat. Ask me. The debrief you heard earlier is my answer so far.\nA debrief that ends with one move and a check-back changes what teachers do. We know that from about five thousand recordings.\n(press)\nThe people closest to a teacher can do this too: head teachers and principals now observe, to the same standard as our coaches.\n(press)",
-    "first_line": "In March I asked you to ask me whether feedback feels more like an invitation than a threat."
+    "body": "From our lesson-plan fidelity grading: the end of a lesson, where each child practises on their own. In one lesson in three, it did not happen at all. One lesson in seven had all of it.\n(press)\n[Let it play.]\nThe practice step went home as homework, and the lesson ended. It looks like time ran out.\n(press)\nWhat helps: a debrief that ends with one concrete move to try tomorrow.\n(press)\nIn 907 Islamabad debriefs, twelve in a hundred teachers moved up a level on the coached skill in their next lesson. Similar teachers with no debrief: ten. A little, and mostly where the step was concrete.\n(press)\n\"Put the children in pairs\" showed up in the next lesson. \"Ask better questions\" did not.\n(press)\nAlmost half agree on one clear step. Three in a hundred have the teacher practise it before the coach leaves. That is the gap we close next.\n(press)",
+    "first_line": "From our lesson-plan fidelity grading: the end of a lesson, where each child practises on their own."
    }
   },
   {
@@ -401,64 +436,69 @@
    "id": "s14",
    "title": "The coach's phone",
    "chapter": "know",
-   "duration_s": 40,
+   "duration_s": 75,
    "appendix": false,
    "steps": 4,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-know",
-   "status": "design-pass",
+   "owner": "know2",
+   "status": "built",
    "media": [
     {
      "type": "image",
-     "src": "assets/clips/stills/v01_1_coach_list.png",
+     "src": "assets/clips/know2/s14_r1_07.png",
      "autoplay": false
     },
     {
      "type": "image",
-     "src": "assets/clips/stills/v01_2_part_picker.png",
+     "src": "assets/clips/know2/s14_r1_08.png",
      "autoplay": false
     },
     {
      "type": "image",
-     "src": "assets/clips/stills/v01_3_letters.png",
+     "src": "assets/clips/know2/s14_r1_09.png",
      "autoplay": false
     },
     {
      "type": "image",
-     "src": "assets/clips/stills/v01_4_passage.png",
+     "src": "assets/clips/know2/s14_r1_10.png",
      "autoplay": false
     },
     {
      "type": "image",
-     "src": "assets/clips/stills/v01_5_hand_back.png",
+     "src": "assets/clips/know2/s14_r1_13.png",
+     "autoplay": false
+    },
+    {
+     "type": "audio",
+     "src": "assets/clips/know2/s14_run2.mp3",
      "autoplay": false
     }
    ],
    "highlight": null,
    "note": {
-    "planned": "40 s",
+    "planned": "75 s (run with sound 68 s, speaking 7 s at the planned length; this note needs about 13 s, so about 81 s)",
     "cues": [
-     "press 1: the next screen; caption \"Five children on one visit\"",
-     "press 2: the next screen; caption \"A short reading and maths check, on a phone\"",
-     "press 3: the next screen; the first two captions leave, and \"The recordings score themselves\" stands with the dates line",
+     "press 1: the phone plays with sound: letters, words, then a real child reads the story aloud on this morning's test as the words light, a maths tap, the hand-back (a press pauses; ↓ ends it)",
+     "press 2: \"The children take the test on the phone.\" / \"About ten minutes a child.\"",
+     "press 3: \"The recordings score themselves.\"",
      "press 4: moves to s15"
     ],
-    "body": "One. On a visit, the coach opens Rumi.\n(press)\nFive children, picked at random for them.\n(press)\nA short reading and maths check, on the phone. We think about nine minutes a child. We start timing it with real children this week.\n(press)\nThe recordings score themselves, and the result comes back as one thing to do. Islamabad's coaches start this Monday, and every region within about a month. The coach does not help the child read. We collect it so that an outside check would agree with it.\n(press)",
-    "first_line": "One."
+    "body": "On a visit, the coach opens Rumi. Five children, picked at random.\n(press)\n[Let it play. This is a real test, taken this morning.]\n(press)\nAbout ten minutes a child. We start timing it this week.\n(press)\nThe recordings score themselves.\n(press)",
+    "first_line": "On a visit, the coach opens Rumi."
    }
   },
   {
    "id": "s15",
    "title": "The child at home",
    "chapter": "know",
-   "duration_s": 50,
+   "duration_s": 95,
    "appendix": false,
-   "steps": 3,
+   "steps": 4,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-know",
-   "status": "design-pass",
+   "owner": "know2",
+   "status": "built",
    "media": [
     {
      "type": "image",
@@ -476,26 +516,22 @@
      "autoplay": false
     },
     {
-     "type": "image",
-     "src": "assets/clips/stills/v02_4_read_aloud.png",
+     "type": "audio",
+     "src": "assets/clips/audio/c04.mp3",
+     "clip": "c04",
      "autoplay": false
-    },
-    {
-     "type": "video",
-     "src": "assets/clips/video/v02.mp4",
-     "autoplay": false,
-     "poster": "assets/clips/stills/v02_4_read_aloud.png"
     }
    ],
    "highlight": null,
    "note": {
-    "planned": "50 s",
+    "planned": "95 s (clip 40 s, speaking 55 s, at most 126 words)",
     "cues": [
-     "press 1: the next phone screen: the quiz",
-     "press 2: the storybook; the video plays, muted, labelled \"demo\"",
-     "press 3: moves to s16"
+     "press 1: the read plays with sound: the story lights word by word, with the caption \"Grade 4, in the reading game, October 2026.\" (a press pauses; ↓ ends it)",
+     "press 2: \"The story: a river, a boat, stones on the way home.\" / \"59 of 60 words read, all the way to the end.\"",
+     "press 3: the phone again: a quiz question, then a storybook page",
+     "press 4: moves to s16"
     ],
-    "body": "Two. The child's home page, in Islamabad, opened through WhatsApp, which stays the door.\n(press)\nAfter a lesson, a quiz. Eighteen thousand children in Islamabad took one this term, mostly the ones with a phone at home. The coach's check also reaches the children without one.\n(press)\nAnd storybooks a child can read aloud while we listen. This is a demo with a scripted voice. That part is only starting: about 230 children have opened a storybook, and 75 have read a page aloud. Islamabad first, your region after.\n(press)",
+    "body": "Two. The child's home page, in Islamabad, opened through WhatsApp, which stays the door. Listen to a grade 4 child in the reading game.\n(press)\n[Let it play.]\n(press)\nFifty-nine of sixty words, all the way to the end.\n(press)\nAfter a lesson, a quiz. Eighteen thousand children in Islamabad took one this term, mostly the ones with a phone at home. The coach's check reaches the children without one. And storybooks a child can read aloud while we listen. That part is only starting: about 230 children have opened one, and 75 have read a page aloud. Islamabad first, your region after.\n(press)",
     "first_line": "Two."
    }
   },
@@ -578,27 +614,34 @@
    "id": "s19",
    "title": "Monday",
    "chapter": "act",
-   "duration_s": 40,
+   "duration_s": 45,
    "appendix": false,
-   "steps": 7,
+   "steps": 8,
    "transition": "cut",
    "sensitive": false,
-   "owner": "sg-know",
-   "status": "design-pass",
-   "media": [],
+   "owner": "know2",
+   "status": "built",
+   "media": [
+    {
+     "type": "image",
+     "src": "assets/clips/know2/s19_lesson_whatsapp.png",
+     "autoplay": false
+    }
+   ],
    "highlight": null,
    "note": {
-    "planned": "40 s",
+    "planned": "45 s",
     "cues": [
-     "press 1: \"If you coach\", in English and Urdu (the Urdu is on screen; say it only if you want)",
-     "press 2: \"If you lead a region\"",
-     "press 3: \"If you build or write\"",
-     "press 4: \"If you bring in teachers\"",
-     "press 5: earlier rows dim; \"Appraisals: twice a year, on the rubric. First round in December.\"",
-     "press 6: \"WhatsApp stays the door to Rumi. Everything else opens from it.\"",
-     "press 7: moves to s20"
+     "press 1: \"If you are a coach\" and \"A short check with a few children on your visits.\"",
+     "press 2: \"Then one move per debrief, to help the teacher do better.\"",
+     "press 3: \"And now you can send a teacher one specific lesson.\", with the WhatsApp picture of a coach sending a lesson",
+     "press 4: the coach row shrinks; \"If you lead a region\"",
+     "press 5: \"If you build\"",
+     "press 6: \"If you are growth\"",
+     "press 7: the rows leave; \"WhatsApp stays the door to Rumi. Everything else opens from it.\"",
+     "press 8: moves to s20"
     ],
-    "body": "So, Monday.\n(press)\nIf you coach: a quick check of a few children on visits, and one move per debrief.\n(press)\nIf you lead a region: your number now includes whether children learn.\n(press)\nIf you build or write: the regions will ask for your work.\n(press)\nIf you bring in teachers: more teachers, and the funding to pay for them.\n(press)\nAppraisals: twice a year, on the rubric, from December.\n(press)\nAnd one answer many of you asked for: WhatsApp stays the door to Rumi. Everything else opens from it.\n(press)",
+    "body": "So, Monday.\n(press)\nIf you coach: a short check with a few children on your visits comes first.\n(press)\nThen one move in every debrief, to help the teacher do better.\n(press)\nYou can now send a teacher the one lesson they need. The debrief is still where it happens.\n(press)\nIf you lead a region: your number now includes whether children learn.\n(press)\nIf you build: launch what the field team needs to improve learning.\n(press)\nIf you're in growth: make sure the region has the money to keep growing and add more teachers.\n(press)\nOne answer many of you asked for: WhatsApp stays the door to Rumi.\n(press)",
     "first_line": "So, Monday."
    }
   },
@@ -631,52 +674,98 @@
    "id": "s21",
    "title": "The leaderboard",
    "chapter": "dream",
-   "duration_s": 50,
+   "duration_s": 75,
    "appendix": false,
-   "steps": 3,
+   "steps": 7,
    "transition": "cut",
    "sensitive": false,
-   "owner": "sg-dream",
+   "owner": "dream2",
    "status": "built",
    "media": [],
    "highlight": null,
    "note": {
-    "planned": "50 s",
+    "planned": "75 s",
     "cues": [
-     "press 1: our band climbs to 20; rows from rank 4 step below it; \"2027: outside studies\" appears; \"First. End of 2028.\" takes the title (the top three and \"1 to 3\" stay)",
-     "press 2: the table dims; \"Every point is a child reading.\"; the estimate card stays",
-     "press 3: moves to s22"
+     "press 1: Malawi's row enters at 4th with its flag: \"Malawi, maths 20\"",
+     "press 2: Malawi recedes; \"Brazil, coaching 2.65\" lights",
+     "press 3: \"Tusome, Kenya 4.9\"",
+     "press 4: our row, in yellow: \"Us 8.3\", 12th",
+     "press 5: the climb: our row rises above Malawi; \"First. End of 2028.\" and \"among programmes that train teachers\"",
+     "press 6: the table dims: \"Every point is a child reading.\"",
+     "press 7: moves to s22"
     ],
-    "body": "Eighty-six programmes. The best structured-teaching programme scores about fifteen. One preschool programme that trained its own teachers sits just above it, at sixteen. At twenty we pass them both. Our best estimates put us in the middle, somewhere between thirty-third and fifty-sixth, and that is an estimate: no study of ours is yet strong enough for funders.\n(press)\n[Haroon, in your own words: the dream. From your brief: \"I want to be vulnerable, to be persuasive, to be MLK like with the dream of being number one in the world at moving learning outcomes\" About 20 s here.]\nBy the end of 2028 we want to be first among programmes that train teachers: twenty, on the same measure. By raising learning, with cost held flat, and by proving it outside.\n(press)\n(press)",
-    "first_line": "Eighty-six programmes."
+    "body": "This is that table. Every line is a programme somewhere in the world.\n(press)\nNear the top, a maths programme in Malawi: about twenty years of good schooling for every hundred dollars. That is the number to beat.\n(press)\nCoaching teachers in Brazil: under three.\n(press)\nTusome, teaching reading across Kenya: about five.\n(press)\nAnd us. In Rawalpindi, at about three dollars a child, we are at eight. Twelfth.\n(press)\n[Haroon, in your own words: the dream. From your brief: \"I want to be vulnerable, to be persuasive, to be MLK like with the dream of being number one in the world at moving learning outcomes\" About 20 s here.]\nBy the end of 2028, first among programmes that train teachers. Past twenty.\n(press)\nOur cost is already low. So the way up this table is the children's reading and maths. Now we can see their learning every month, and we will move it.\n(press)",
+    "first_line": "This is that table."
    }
   },
   {
    "id": "s22",
    "title": "Letting go",
    "chapter": "dream",
-   "duration_s": 35,
+   "duration_s": 110,
    "appendix": false,
-   "steps": 2,
+   "steps": 9,
    "transition": "cut",
    "sensitive": false,
-   "owner": "sg-dream",
+   "owner": "dream2",
    "status": "built",
    "media": [
     {
      "type": "image",
-     "src": "assets/scenes/s22/photo_crop.jpg",
+     "src": "assets/scenes/s22/p2011_a.jpg",
+     "autoplay": false
+    },
+    {
+     "type": "image",
+     "src": "assets/scenes/s22/p2011_b.jpg",
+     "autoplay": false
+    },
+    {
+     "type": "image",
+     "src": "assets/scenes/s22/p2020.jpg",
+     "autoplay": false
+    },
+    {
+     "type": "image",
+     "src": "assets/scenes/s22/p2023.png",
+     "autoplay": false
+    },
+    {
+     "type": "image",
+     "src": "assets/scenes/s22/p2025_tz.jpg",
+     "autoplay": false
+    },
+    {
+     "type": "image",
+     "src": "assets/scenes/s22/p2025_m1.jpg",
+     "autoplay": false
+    },
+    {
+     "type": "image",
+     "src": "assets/scenes/s22/p2025_m2.jpg",
+     "autoplay": false
+    },
+    {
+     "type": "image",
+     "src": "assets/scenes/s22/p2025_m3.jpg",
      "autoplay": false
     }
    ],
    "highlight": null,
    "note": {
-    "planned": "35 s",
+    "planned": "110 s",
     "cues": [
-     "press 1: the line draws on to the last stop, \"Open source\"",
-     "press 2: moves to s23"
+     "press 1: the years run back from 2026 to 2011: \"A school in a slum\", the first photo, full frame; the row \"Our schools · Our teachers · Our curriculum · Our coaches\"",
+     "press 2: the second 2011 photo",
+     "press 3: 2011 shrinks to a thumbnail; \"2020 to 2023 · Schools in our name\"; \"Our schools\" dims",
+     "press 4: \"2023 · Government schools, our coaches\"; schools, teachers and curriculum dim",
+     "press 5: \"2025 · Tanzania, Moawin, Rawalpindi\"; the four photos; \"We recruited others to do the work with us.\"; the coaches dim, \"Our code\" appears",
+     "press 6: \"2026 · Open source\"; three lines: ScienceFuse, a developer in Niger, a team in Germany",
+     "press 7: \"People said we would lose out.\"",
+     "press 8: \"The largest grant in our history.\"",
+     "press 9: moves to s23"
     ],
-    "body": "How do we get there? The way we always have. We started in a school in a slum, with me teaching. Then schools that carried our name. Then government schools, where the teachers were not ours. Then Rawalpindi, with the government's coaches. Then Moawin, a partner in Pakistan, and Tanzania, where the coaches were not paid by us.\n(press)\nThen we made our code public.\n[Haroon, in your own words: letting go. From your brief: \"Of not controlling, yet still influencing.\" About 5 s here.]\n(press)",
+    "body": "How do we get there? The way we always have, by letting go. This is 2026. Back we go.\n(press)\n2011. A school in a slum.\n(press)\nI was the teacher, the owner, the coach. I did everything in that school.\n(press)\nThen two hundred schools in our name. We chose the teachers and wrote the curriculum, and our coaches were there. What we gave away was running the school.\n(press)\nThen government schools. The government's teachers, the government's curriculum. All we held was our coaches.\n(press)\nThen Tanzania, Moawin and Rawalpindi, and we gave up our own coaches too. We recruited others to do the work with us. That was much harder. We committed to it, because this only works as a movement, not one organisation doing it itself.\n(press)\nAnd now people do not even need us. ScienceFuse took our code to build a science teaching assistant. A developer in Niger runs it for their school, without ever asking us. A team in Germany took it to offer to their own government.\n[Haroon, in your own words, only what you know first-hand: 7ate9 and Africa. From your brief: \"7ate9, and how they cloned our repo\" (facts2 found no source for the Gates contracts, so they stay off the screen.)]\n(press)\nPeople said we would lose out, that we would run out of money.\n(press)\nThis year we closed the largest grant in our history. Funders who said no to us three times have come back.\n[Haroon, in your own words: the Nina Jean story. From your brief: \"one of them has even sort of blocked us\" Say \"eleven years\" and \"now funding us\" only if you are sure.]\nLetting go and recruiting others is harder, and it brings more success and more scale.\n(press)",
     "first_line": "How do we get there?"
    }
   },
@@ -686,21 +775,22 @@
    "chapter": "dream",
    "duration_s": 25,
    "appendix": false,
-   "steps": 3,
+   "steps": 4,
    "transition": "cut",
    "sensitive": false,
-   "owner": "sg-dream",
+   "owner": "dream2",
    "status": "built",
    "media": [],
    "highlight": null,
    "note": {
     "planned": "25 s",
     "cues": [
-     "press 1: the Tanzania line alone (the three lines of what a partner brings are on screen from entry)",
-     "press 2: the South Africa line alone",
-     "press 3: moves to s24"
+     "press 1: \"Belief in Teach Well and Improve\"",
+     "press 2: \"Care about whether children learn\"",
+     "press 3: \"A partner from South Africa is coming to see how we write lesson plans with agent teams, so they can cover more districts and regions.\"",
+     "press 4: moves to s24"
     ],
-    "body": "We cannot do it alone. Our partners reach public schools, believe in Teach Well and Improve, and care whether children learn.\n(press)\nOur partner in Tanzania is in government schools for the first time.\n(press)\nFunda Wande, from South Africa, is coming to see how we write lesson plans so fast.\n(press)",
+    "body": "We cannot do it alone. The partners who come in reach public schools.\n(press)\nThey believe in Teach Well and Improve.\n(press)\nAnd they care whether children learn.\n(press)\nFunda Wande, from South Africa, is coming to see how we write lesson plans with agent teams, so they can cover more districts and regions.\n(press)",
     "first_line": "We cannot do it alone."
    }
   },
@@ -708,27 +798,29 @@
    "id": "s24",
    "title": "This quarter",
    "chapter": "wins",
-   "duration_s": 35,
+   "duration_s": 70,
    "appendix": false,
-   "steps": 6,
+   "steps": 8,
    "transition": "cut",
    "sensitive": false,
-   "owner": "sg-dream",
+   "owner": "dream2",
    "status": "built",
    "media": [],
    "highlight": null,
    "note": {
-    "planned": "35 s",
+    "planned": "70 s",
     "cues": [
-     "press 1: Moawin",
-     "press 2: the Financial Times",
-     "press 3: Anthropic",
-     "press 4: the largest single grant",
-     "press 5: 45,000 lessons since August, every region",
-     "press 6: moves to s25"
+     "press 1: the map moves in to \"Moawin · District Attock\" and the visits line",
+     "press 2: out, then in to South Africa and the partner line",
+     "press 3: out, then in to Palestine and the 2,900 teachers line",
+     "press 4: out, then in to Tanzania: \"Our partner in Tanzania worked in government schools for the first time.\"",
+     "press 5: out, then in to London: \"Rumi's coaching, in the Financial Times.\"",
+     "press 6: out to the whole world; the Anthropic line",
+     "press 7: every place lights: \"More than 45,000 lessons recorded since August, across every region.\"",
+     "press 8: moves to s25"
     ],
-    "body": "This quarter. Palestine: seven weeks after launch, more than 2,900 teachers planning lessons, despite all the challenges in the West Bank.\n(press)\nMoawin's teachers used their lesson plans more steadily than anyone in Pakistan.\n(press)\nThe Financial Times wrote about this work.\n(press)\nWe now work alongside Anthropic's applied-AI team to make Rumi's coaching scores steadier.\n(press)\nThis year we closed the largest single grant in our history.\n(press)\nMore than 45,000 lessons recorded since August, across every region.\n(press)",
-    "first_line": "This quarter."
+    "body": "This quarter, around the world. We start in Pakistan.\n(press)\nMoawin, in District Attock. Their coaches visit classrooms more often than anywhere else in Pakistan.\n(press)\nSouth Africa. The partner I mentioned is coming to see how we do it.\n(press)\nPalestine. Seven weeks after launch, more than 2,900 teachers planning lessons with us, despite everything in the West Bank.\n(press)\nTanzania. Our partner worked in government schools for the first time.\n[Haroon, in your own words: the partner's year. From your brief: \"Our partner in Tanzania worked with government schools for the first time and had its biggest fundraising year in history.\"]\n(press)\nLondon. The Financial Times wrote about Rumi's coaching.\n(press)\nWe now work alongside Anthropic's applied-AI team, to make Rumi's coaching scores steadier.\n(press)\nAnd more than 45,000 lessons recorded since August, across every region.\n(press)",
+    "first_line": "This quarter, around the world."
    }
   },
   {
@@ -779,16 +871,22 @@
   },
   {
    "id": "s27",
-   "title": "That child again",
+   "title": "Every child should read like this",
    "chapter": "close",
-   "duration_s": 30,
+   "duration_s": 50,
    "appendix": false,
-   "steps": 2,
+   "steps": 4,
    "transition": "fade",
    "sensitive": false,
    "owner": "sg-open",
    "status": "design-pass",
    "media": [
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/c13.mp3",
+     "clip": "c13",
+     "autoplay": false
+    },
     {
      "type": "image",
      "src": "assets/scenes/s27/taleemabad.png",
@@ -797,13 +895,15 @@
    ],
    "highlight": null,
    "note": {
-    "planned": "30 s",
+    "planned": "50 s (clip 30 s, speaking 20 s, at most 46 words)",
     "cues": [
-     "press 1: the dim words light one by one, in silence (about 15 s); then the Taleemabad mark",
-     "press 2: moves to s28"
+     "press 1: the clip plays; s01's page lights word by word as another child reads it, all the way to the end (↓ ends it early)",
+     "press 2: holds on the lit page; \"Every child should be able to read like this.\"",
+     "press 3: the device lights: Teach Well. Improve. Learn.; the Taleemabad mark",
+     "press 4: moves to s28"
     ],
-    "body": "[Haroon, in your own words: why the child is at the centre. From your brief: \"we essentially are putting the child at the center of the org. Whether or not their learning improves is the central piece of the equation\" About 10 s here, before you press; then say nothing until the page is lit.]\nThat child again.\n(press)\n[Let the words light. Say nothing until the page is lit.]\nTeach Well. Improve. Learn. Thank you.\n(press)",
-    "first_line": "That child again."
+    "body": "[Haroon, in your own words: why the child is at the centre. From your brief: \"we essentially are putting the child at the center of the org.\" About 10 s, then press.]\nThe same story we started with. Another child in grade 3.\n(press)\n[Let it play. Say nothing until the last word.]\n(press)\nEvery child should be able to read like this.\n(press)\nTeach Well. Improve. Learn. Thank you.\n(press)",
+    "first_line": "The same story we started with."
    }
   },
   {
@@ -1623,17 +1723,151 @@
     "planned": "5 s",
     "cues": [
      "press 1: page 2: still open, with a date",
-     "press 2: returns to the index"
+     "press 2: moves to a20"
     ],
     "body": "This is what the leadership team decided this month, on one page.\n(press)\nAnd what is still open, with the date we come back to it. If your question is about something on this list, the answer today is that it is not decided yet.\n(press)",
     "first_line": "This is what the leadership team decided this month, on one page."
    }
+  },
+  {
+   "id": "a20",
+   "title": "Where we sit: the sum",
+   "chapter": "appendix",
+   "duration_s": 5,
+   "appendix": true,
+   "steps": 2,
+   "transition": "cut",
+   "sensitive": false,
+   "owner": "apx2",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "5 s",
+    "cues": [
+     "press 1: page 2: two ways of counting cost, direct and all-in",
+     "press 2: moves to a21"
+    ],
+    "body": "If someone asks how we got twelfth. The table divides how much more children learn by what it costs. If Rawalpindi moves children as much as similar programmes do, about 0.2 of a standard deviation in a year, at about three dollars a child, that is about eight per hundred dollars: twelfth on the table, with Malawi's programme counted.\n(press)\nTwo honest limits. Nobody has measured Rawalpindi's effect yet, and three dollars is the direct cost. If we count every cost, as the leadership team agreed, and use Islamabad's figures, we sit between thirty-third and fifty-sixth. The table's dollars are 2015's, so the comparison is on the cautious side. To reach twenty at three dollars, children's learning has to more than double.\n(press)",
+    "first_line": "If someone asks how we got twelfth."
+   }
+  },
+  {
+   "id": "a21",
+   "title": "Above 20: the three that train no teachers",
+   "chapter": "appendix",
+   "duration_s": 5,
+   "appendix": true,
+   "steps": 2,
+   "transition": "cut",
+   "sensitive": false,
+   "owner": "apx2",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "5 s",
+    "cues": [
+     "press 1: page 2: Malawi's maths programme, about 20 per $100, Prevail's verified figure",
+     "press 2: moves to a22"
+    ],
+    "body": "If someone asks about the programmes at the very top. Three score above twenty, and none of them trains teachers. In Madagascar, families were told what schooling earns. In Indonesia, schools were linked to village councils. In Kenya, children were grouped by level. That is why we say first among programmes that train teachers. Of those, the best today are community preschools in Mozambique, about sixteen, and Argentina, about fifteen. Twenty passes both.\n(press)\nIf someone asks about Malawi's maths programme. About twenty per hundred dollars is Prevail's verified figure, shared with us in October. The published table has no row for it. Worked out on the table's own scale from the trial, it reads about four, which is why you may see two numbers. We use Prevail's.\n(press)",
+    "first_line": "If someone asks about the programmes at the very top."
+   }
+  },
+  {
+   "id": "a22",
+   "title": "The debrief study",
+   "chapter": "appendix",
+   "duration_s": 5,
+   "appendix": true,
+   "steps": 2,
+   "transition": "cut",
+   "sensitive": false,
+   "owner": "apx2",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "5 s",
+    "cues": [
+     "press 1: page 2: by the one move (group work, different levels, better questions)",
+     "press 2: moves to a23"
+    ],
+    "body": "If someone asks how we know. We took 907 debriefs in Islamabad and compared each teacher's next lesson with one before, on the skill they were coached on. We matched them with 1,271 similar teachers who recorded on the same days and had no debrief. Twelve in a hundred moved up a level, against ten. A small gain, and a real one: before any debrief there was no such change.\n(press)\nBy the one move: group work and teaching to different levels moved; asking better questions, the most common topic, did not. That split was not in our written plan, so it is a strong lead, not yet a finding. One catch: fewer debriefed teachers recorded again within four weeks, 73 in 100 against 83, so we keep checking.\n(press)",
+    "first_line": "If someone asks how we know."
+   }
+  },
+  {
+   "id": "a23",
+   "title": "Practice alone: what the data holds",
+   "chapter": "appendix",
+   "duration_s": 5,
+   "appendix": true,
+   "steps": 2,
+   "transition": "cut",
+   "sensitive": false,
+   "owner": "apx2",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "5 s",
+    "cues": [
+     "press 1: page 2: how far to trust it",
+     "press 2: moves to a24"
+    ],
+    "body": "If someone asks how we counted the practice at the end of a lesson. Islamabad, August to October, 7,412 lessons teachers recorded, each checked step by step against its plan. In about one in three, the children never practised on their own. In about one in seven, they did all of it. With a coach in the room it happens a little more: 28 in 100 coach visits skipped it, against 33 in 100 of teachers' own recordings.\n(press)\nHow far to trust it. The checking is done by an AI on the audio, so it is ours, not an official figure. We left out lessons that were not the lesson on the plan. A second count, one week in September, came out the same: about a third skipped, about one in seven did it all. An early-stopped recording looks the same as a skipped step. Our coaches' read is that time runs out; teachers rarely refuse the plan.\n(press)",
+    "first_line": "If someone asks how we counted the practice at the end of a lesson."
+   }
+  },
+  {
+   "id": "a24",
+   "title": "Who took our code",
+   "chapter": "appendix",
+   "duration_s": 5,
+   "appendix": true,
+   "steps": 1,
+   "transition": "cut",
+   "sensitive": false,
+   "owner": "apx2",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "5 s",
+    "cues": [
+     "press 1: moves to a25"
+    ],
+    "body": "If someone asks who uses our open code. A science education group, ScienceFuse, took it to build a science teaching assistant, and they are setting it up now. Someone in Niger runs it for their schools, without ever asking us. A team in Germany took it to offer to their own government. There were nineteen public copies on GitHub this morning, and a copy need not show up there, so there may be more.\n[Haroon, in your own words, only what you know first-hand: 7ate9. facts2 found no source for it, so it is not on the page.]\n(press)",
+    "first_line": "If someone asks who uses our open code."
+   }
+  },
+  {
+   "id": "a25",
+   "title": "One child, four tries",
+   "chapter": "appendix",
+   "duration_s": 5,
+   "appendix": true,
+   "steps": 1,
+   "transition": "cut",
+   "sensitive": false,
+   "owner": "apx2",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "5 s",
+    "cues": [
+     "press 1: returns to the index"
+    ],
+    "body": "If someone asks about the child at home. A grade 5 child, reading an Urdu passage in our reading game, on a phone. At the start a second voice calls them over. This was their second try, and they read forty-one of the sixty words. The page recorded help on all four tries in about eight minutes; the third reached fifty-eight, the fourth all sixty. The recording cannot tell us whose voice it is, or that it was at home.\n[Haroon, what you know of this family is yours to say, in your own words. From your brief: \"parents also being involved in their child's learning\"]\n(press)",
+    "first_line": "If someone asks about the child at home."
+   }
   }
  ],
- "main_total_s": 1050,
+ "main_total_s": 1475,
  "excluded_sensitive": [],
  "warnings": [],
- "sensitive_handling": {
-  "s10": "c05 audio and words absent; the de-identified line shows as muted text at spoken pace"
- }
+ "sensitive_handling": "none: every recording plays in the clear (operator decision 23 Oct 06:4xZ, COS #C23)"
 }
