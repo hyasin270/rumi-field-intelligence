@@ -1,6 +1,6 @@
 {
  "title": "Town hall, October 2026",
- "built_at": "2026-10-23T07:22:03Z",
+ "built_at": "2026-10-23T07:38:18Z",
  "stage": [
   1920,
   1080
@@ -484,7 +484,7 @@
      "press 3: \"The recordings score themselves.\"",
      "press 4: moves to s15"
     ],
-    "body": "On a visit, the coach opens Rumi. Five children, picked at random.\n(press)\n[Let it play. This is a real test, taken this morning.]\n(press)\nAbout ten minutes a child. We start timing it this week.\n(press)\nThe recordings score themselves.\n(press)",
+    "body": "On a visit, the coach opens Rumi. Five children, picked at random.\n(press)\n[Let it play. This is a real test, taken this morning on a coach's phone. If the child's voice sounds grown-up to you in practice, say so: know2 reverts s14 to the earlier run, and this line goes.]\n(press)\nAbout ten minutes a child. We start timing it this week.\n(press)\nThe recordings score themselves.\n(press)",
     "first_line": "On a visit, the coach opens Rumi."
    }
   },
@@ -1081,13 +1081,13 @@
      "press 1: page 2: the top six of the table, what each one did, with Tusome and Brazil further down",
      "press 2: moves to a07"
     ],
-    "body": "This is the method behind the table. It is published, and anyone can check it. You take how much more children learn because of a programme, count it in years of good schooling, and divide by the cost per child.\n(press)\nAnd these are the programmes at the top, with what each one did.\n(press)",
+    "body": "This is the method behind the table. It is published, and anyone can check it. You take how much more children learn because of a programme, count it in years of good schooling, and divide by the cost per child. On Rawalpindi's direct cost we are twelfth; counting every cost, between about thirty-third and fifty-sixth. By the end of 2028 we want to be first.\n(press)\nAnd these are the programmes at the top, with what each one did.\n(press)",
     "first_line": "This is the method behind the table."
    }
   },
   {
    "id": "a07",
-   "title": "Why our figure is an estimate",
+   "title": "How sure our figure is",
    "chapter": "appendix",
    "duration_s": 5,
    "appendix": true,
@@ -1103,8 +1103,8 @@
     "cues": [
      "press 1: moves to a08"
     ],
-    "body": "Why is our place only an estimate? None of our own studies is yet strong enough for funders, so our impact is estimated from programmes like ours. What would change that is a study run by outsiders, comparing children in the programme with similar children who are not. The plan is to start them in three places in 2027.\n(press)",
-    "first_line": "Why is our place only an estimate?"
+    "body": "How sure is our place? None of our own studies is yet strong enough for funders, so the gain is taken from programmes like ours. What would change that is a study run by outsiders, comparing children in the programme with similar children who are not. The plan is to start them in three places in 2027.\n(press)",
+    "first_line": "How sure is our place?"
    }
   },
   {
