@@ -1,11 +1,33 @@
 {
  "title": "Town hall, October 2026",
- "built_at": "2026-10-23T08:38:05Z",
+ "built_at": "2026-10-24T16:05:23Z",
  "stage": [
   1920,
   1080
  ],
  "scenes": [
+  {
+   "id": "cover",
+   "title": "Cover",
+   "chapter": "cover",
+   "duration_s": 5,
+   "appendix": false,
+   "steps": 1,
+   "transition": "cut",
+   "sensitive": false,
+   "owner": "nav-build",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "5 s",
+    "cues": [
+     "none (the first page of a copy shared by link; the room never sees it)"
+    ],
+    "body": "[Not spoken. Thumbnail v1 as the first page of the shared copy. Back is off here; Next or Right goes to s01.]",
+    "first_line": ""
+   }
+  },
   {
    "id": "s01",
    "title": "A child reads",
@@ -1866,8 +1888,9 @@
    }
   }
  ],
- "main_total_s": 1475,
+ "main_total_s": 1480,
  "excluded_sensitive": [],
+ "nav": true,
  "warnings": [],
  "sensitive_handling": "none: every recording plays in the clear (operator decision 23 Oct 06:4xZ, COS #C23)"
 }
