@@ -1,6 +1,6 @@
 {
  "title": "Town hall, October 2026",
- "built_at": "2026-10-24T16:05:23Z",
+ "built_at": "2026-10-24T16:46:24Z",
  "stage": [
   1920,
   1080
@@ -24,7 +24,7 @@
     "cues": [
      "none (the first page of a copy shared by link; the room never sees it)"
     ],
-    "body": "[Not spoken. Thumbnail v1 as the first page of the shared copy. Back is off here; Next or Right goes to s01.]",
+    "body": "[Not spoken. Thumbnail v1 as the first page of the shared copy. Back is off here; Next or Right goes to s01.]\n(press)",
     "first_line": ""
    }
   },
