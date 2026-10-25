@@ -1,0 +1,1300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Presenter</title>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<style>
+  :root { --bg: #121417; --ink: #F4F1EA; --mute: #8C929B; --blue: #6F94F0; --amber: #EFAF22; --red: #E94E5A; --green: #17C65D;
+    --lit: #EFAF22; /* = --lit in build/theme/tokens.css: the presenter is built without the theme */ }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font-family: "Poppins", sans-serif; overflow: hidden; }
+  .wrap { display: grid; grid-template-columns: 1fr 34%; grid-template-rows: auto 1fr auto; height: 100vh; gap: 0; }
+  header { grid-column: 1 / 3; display: flex; align-items: baseline; gap: 28px; padding: 18px 32px 10px; border-bottom: 1px solid #2a2e34; }
+  header .id { font-family: "Fredoka", sans-serif; font-size: 28px; color: var(--blue); }
+  header .title { font-family: "Fredoka", sans-serif; font-size: 40px; font-weight: 600; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  header .step { font-size: 26px; color: var(--mute); }
+  header .mode { font-size: 22px; padding: 2px 14px; border-radius: 10px; background: var(--amber); color: #000; display: none; }
+  header .mode.on { display: inline-block; }
+  .note { padding: 22px 36px; overflow-y: auto; font-size: 34px; line-height: 1.45; white-space: pre-wrap; }
+  .note .press { display: block; color: var(--amber); font-size: 24px; letter-spacing: .1em; text-transform: uppercase; margin: 6px 0; }
+  .note .press.done { color: #4b5058; }
+  /* "[<presenter>, in your own words: ...]" lines: theirs to tell, not to read */
+  .note .own { display: block; color: var(--lit); border-left: 6px solid var(--lit); padding-left: 20px; margin: 4px 0; white-space: normal; }
+  .note .own .own-q { display: block; font-size: 0.667em; line-height: 1.4; opacity: 0.85; margin-top: 4px; }
+  .note .cues { font-size: 22px; color: var(--mute); margin-bottom: 18px; line-height: 1.35; }
+  .note .src { font-size: 20px; color: var(--mute); margin-top: 22px; }
+  aside { border-left: 1px solid #2a2e34; padding: 22px 28px; display: flex; flex-direction: column; gap: 22px; }
+  .clock { font-family: "Fredoka", sans-serif; font-size: 96px; line-height: 1; }
+  .clock small { display: block; font-family: "Poppins", sans-serif; font-size: 18px; color: var(--mute); letter-spacing: .08em; text-transform: uppercase; }
+  .scene-t { font-family: "Fredoka", sans-serif; font-size: 56px; line-height: 1; }
+  .scene-t.amber { color: var(--amber); }
+  .scene-t.red { color: var(--red); }
+  .scene-t small { display: block; font-family: "Poppins", sans-serif; font-size: 18px; color: var(--mute); letter-spacing: .08em; text-transform: uppercase; }
+  .clipbox { display: none; }
+  .clipbox.on { display: block; }
+  .clipbox .bar { height: 14px; background: #2a2e34; border-radius: 7px; overflow: hidden; margin-top: 8px; }
+  .clipbox .bar i { display: block; height: 100%; width: 0; background: var(--amber); }
+  .clipbox .lbl { font-size: 20px; color: var(--mute); }
+  .endhint { display: none; font-size: 26px; color: var(--amber); }
+  .endhint.on { display: block; }
+  .endhint small { display: block; font-size: 18px; color: var(--mute); }
+  .next { margin-top: auto; border-top: 1px solid #2a2e34; padding-top: 18px; }
+  .next small { font-size: 18px; color: var(--mute); letter-spacing: .08em; text-transform: uppercase; }
+  .next .nt { font-family: "Fredoka", sans-serif; font-size: 34px; margin: 4px 0 6px; }
+  .next .nl { font-size: 22px; color: #c9ccd1; line-height: 1.35; }
+  footer { grid-column: 1 / 3; padding: 8px 32px; font-size: 16px; color: var(--mute); border-top: 1px solid #2a2e34; display: flex; gap: 24px; }
+  footer .link.off { color: var(--red); }
+  .black-on header .title::after { content: "  (screen is black)"; color: var(--red); font-size: 24px; }
+  .warn { color: var(--red); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><span class="id" id="pid">-</span><span class="title" id="ptitle">Waiting for the show window</span><span class="mode" id="pmode">appendix</span><span class="step" id="pstep"></span></header>
+  <div class="note" id="pnote"></div>
+  <aside>
+    <div class="clock" id="pclock">0:00<small>show clock (T to start)</small></div>
+    <div class="scene-t" id="pscene">0:00<small>this scene</small></div>
+    <div class="endhint" id="pend">→ skips · ← then → plays it again · ↓ ends the clip<small>clicker: B, then → ends and holds</small></div>
+    <div class="clipbox" id="pclip"><div class="lbl" id="pcliplbl"></div><div class="bar"><i id="pclipbar"></i></div></div>
+    <div class="next"><small>Next</small><div class="nt" id="pnext"></div><div class="nl" id="pnextl"></div></div>
+  </aside>
+  <footer><span class="link" id="plink">link: waiting</span><span id="pbuild"></span><span>Next: Right, Space, PageDown · Back: Left, PageUp · In a clip: → skips, ← then → plays again, ↓ holds · A appendix · B black · T clock · digits then Enter</span><span class="warn" id="pwarn"></span></footer>
+</div>
+<script type="application/json" id="deck-manifest">{"title":"FICO v2: what the pilot showed","built_at":"2026-10-25T05:09:47Z","stage":[1920,1080],"scenes":[{"id":"s01","title":"Same lesson. Same score.","chapter":"open","duration_s":45,"appendix":false,"steps":5,"transition":"cut","sensitive":false,"owner":"sg-open","status":"built","media":[],"highlight":null,"note":{"planned":"45 s","cues":["press 1: \"lesson.\" joins \"Same\"","press 2: the second \"Same\" appears","press 3: \"score.\" appears, in the teacher's colour","press 4: the rule draws and the chorus line appears: \"whoever observes, however they observe\"","press 5: moves to s02"],"body":"[Let the room settle. Say each word as it lands.]\nSame.\n(press)\nLesson.\n(press)\nSame.\n(press)\nScore.\n(press)\nWhen a teacher is observed, their score should mean the same thing whoever observes, however they observe. One coach or another; a coach in the room or a recording on a phone.\nThis bar is on the form and on the evidence. It is never a bar on a coach. When two honest observers of one lesson disagree, that tells us something useful about the form.\nSay it with me. Same lesson. Same score.\n(press)","first_line":"Same."}},{"id":"s02","title":"The teacher at the centre","chapter":"open","duration_s":30,"appendix":false,"steps":2,"transition":"cut","sensitive":false,"owner":"sg-open","status":"built","media":[],"highlight":null,"note":{"planned":"30 s (own words; budget two to three times the label, never cut)","cues":["press 1: \"120 teachers observed with the new form, 5 to 24 October\" and \"each gets a level on 17 rows; it should not depend on who observed\" appear","press 2: moves to s03"],"body":"This is who the score belongs to: a teacher in a government school in Islamabad, who gets a level on each of 17 rows after one lesson.\n(press)\nIn this pilot, 120 teachers were observed with the new form (240 visits, every account, 5 to 24 October).\n[Presenter, in your own words: why the score is the teacher's, and why it must not depend on who held the phone. From the 1 October call: \"coaching reports are not fair, they're not accurate\"]\n(press)","first_line":"This is who the score belongs to: a teacher in a government school in Islamabad, who gets a level on each of 17 rows after one lesson."}},{"id":"s03","title":"The form arrived filled in","chapter":"why","duration_s":40,"appendix":false,"steps":3,"transition":"cut","sensitive":false,"owner":"sg-why","status":"built","media":[{"type":"image","src":"assets/out/published-gen/scenes/s03/stills/old_form.png","autoplay":false}],"highlight":null,"note":{"planned":"40 s","cues":["press 1: \"Rumi filled it in.\" appears","press 2: \"The coach reviewed it and sent it.\" appears","press 3: moves to s04"],"body":"Before the pilot, this is what a coach opened after a visit. The old form: 37 rows, and every level already chosen.\n(press)\nRumi listened to the recording and filled it in.\n(press)\nThe coach reviewed it and pressed send. Thirty-seven rows on a phone, after a full lesson, with the next class waiting. For two months, that was the job.\nKeep this screen in mind for the next three numbers.\n(press)","first_line":"Before the pilot, this is what a coach opened after a visit."}},{"id":"s04","title":"What coaches did with it","chapter":"why","duration_s":45,"appendix":false,"steps":4,"transition":"cut","sensitive":false,"owner":"sg-why","status":"built","media":[],"highlight":null,"note":{"planned":"45 s","cues":["press 1: \"41 in 100 forms sent back within five minutes\" appears","press 2: \"about 4 points out of 100 above the pre-fill\" appears, median +1.5","press 3: the device, small, with \"Never was.\"","press 4: moves to s05"],"body":"**86 in 100 pre-filled scores were left as they were** (2,288 forms, 29 August to 27 September).\n(press)\n41 in 100 forms were sent within five minutes.\n(press)\nAnd the final score sat about 4 points out of 100 above Rumi's draft, on average.\nWith 37 rows on a phone after a lesson, most of us would accept the draft. So the old form never measured two coaches independently: the score was mostly the pre-fill.\n(press)\nSo, against our bar, the old form: never was.\n(press)","first_line":"**86 in 100 pre-filled scores were left as they were** (2,288 forms, 29 August to 27 September)."}},{"id":"s05","title":"What the planning calls decided","chapter":"why","duration_s":45,"appendix":false,"steps":3,"transition":"cut","sensitive":false,"owner":"sg-why","status":"built","media":[],"highlight":null,"note":{"planned":"45 s","cues":["press 1: the second quote appears (impact lead, standards and evals)","press 2: \"So we decided four things\": the four lines","press 3: moves to s06"],"body":"On the planning call on 29 September the worry was this: agreement between coaches, what we call IRR. Does a teacher get the same level whoever observes?\nEarlier in September, agreement came out at about 90 in 100, judged too high to be realistic. Most likely, that figure was agreement with Rumi's draft.\n(press)\nThe answer from standards and evals was simple. Coaches capture the evidence; that is their job in the room.\n(press)\nSo we decided four things. Evidence first. A form in two parts. Counts, not ranges. Seventeen rows, with no codes.\n(press)","first_line":"On the planning call on 29 September the worry was this: agreement between coaches, what we call IRR."}},{"id":"s06","title":"The new form in four screens","chapter":"why","duration_s":50,"appendix":false,"steps":4,"transition":"cut","sensitive":false,"owner":"sg-why","status":"built","media":[{"type":"image","src":"assets/out/published-gen/scenes/s06/stills/new_1_counts.png","autoplay":false},{"type":"image","src":"assets/out/published-gen/scenes/s06/stills/new_2_ticks.png","autoplay":false},{"type":"image","src":"assets/out/published-gen/scenes/s06/stills/new_3_seal.png","autoplay":false},{"type":"image","src":"assets/out/published-gen/scenes/s06/stills/new_4_moments.png","autoplay":false}],"highlight":null,"note":{"planned":"50 s (four phone mock-ups, fixture text)","cues":["press 1: the second screen: \"Part 2: ticks\"","press 2: the third screen: \"The seal\"","press 3: the fourth screen: \"Rumi's moments\", only after the seal","press 4: moves to s07"],"body":"This is the new form, and it starts blank. Part one runs during the lesson: numbers and a few taps, such as how many children spoke.\n(press)\nPart two covers independent practice and the wrap-up. Every question describes something the coach can see, in plain words. No indicator names, no codes.\n(press)\nBefore leaving the room the coach picks what the teacher should work on first, and seals the form. From then on, the record is locked.\n(press)\nOnly after the seal does Rumi show what it heard: a quote, the minute, and a yes or no for the coach. Then the coach sees the proposed levels and can change any of them.\n(press)","first_line":"This is the new form, and it starts blank."}},{"id":"s07","title":"The pilot by numbers","chapter":"built","duration_s":40,"appendix":false,"steps":4,"transition":"cut","sensitive":false,"owner":"sg-why","status":"built","media":[],"highlight":null,"note":{"planned":"40 s","cues":["press 1: \"240 visits, 223 of them by the 12\" appears (25 accounts in all, 120 teachers)","press 2: \"15 pairs checked the same lesson; 13 filled apart\" appears","press 3: the footnote line: a fallback model most likely from 22 October, 25 of 26","press 4: moves to s08"],"body":"**These are the 12 coaches who kept using the new form, from 5 October; figures now describe them unless the screen says otherwise.**\n(press)\nThis one counts everyone: 240 visits by all 25 accounts, 223 by the 12; 120 teachers.\n(press)\nFifteen pairs of coaches checked the same lesson; 13 filled forms apart.\n(press)\nOne footnote: from 22 October a fallback model most likely took over; 25 of 26 recorded visits since still have moments.\n(press)","first_line":"**These are the 12 coaches who kept using the new form, from 5 October; figures now describe them unless the screen says otherwise.** This one counts everyone: 240 visits by all 25 accounts, 223 by th"}},{"id":"s08","title":"Three blind reads of every lesson","chapter":"built","duration_s":45,"appendix":false,"steps":4,"transition":"cut","sensitive":false,"owner":"sg-why","status":"built","media":[],"highlight":null,"note":{"planned":"45 s","cues":["press 1: reader 2: \"Same transcript\", smaller model","press 2: reader 3: \"Transcript and photos\"","press 3: \"Rumi's moments\" and \"No coach's level leaked: 0 in 1,851 strings\"","press 4: moves to s09"],"body":"AI readers then judged every recorded lesson blind, with only what a self-serve coach would get. They stand in for the plan's three reference coaches and the coach's own re-score, which never ran.\nThe first reader had the transcript.\n(press)\nThe second, the same transcript on a smaller model of the same family, to see how much readers wobble.\n(press)\nThe third had the transcript and the coach's photos.\n(press)\nA fourth checked Rumi's moments against the transcript. 187 recordings, each read three times blind, and no coach's level leaked: 0 in 1,851 strings.\nDid all go well? What went wrong and what held: page a13.\n(press)","first_line":"AI readers then judged every recorded lesson blind, with only what a self-serve coach would get."}},{"id":"s09","title":"The rules we set first","chapter":"built","duration_s":35,"appendix":false,"steps":4,"transition":"cut","sensitive":false,"owner":"sg-why","status":"built","media":[],"highlight":null,"note":{"planned":"35 s","cues":["press 1: rule 2: \"the coaching priority matches at least 70% of the time\"","press 2: rule 3: Rumi's evidence items, 90% correct, under 5% wrong","press 3: rule 4: the self-serve coach scores a row in 4 of every 5 lessons","press 4: moves to s10"],"body":"First, the plan's rules, written before any result. Two coaches within one level at least 80 in 100 times; two unrelated lessons reach 81 by chance.\n(press)\nThe same first thing to work on, 70 in 100.\n(press)\nRumi's moments right at least 90 in 100 times; accepted ones wrong under 5 in 100.\n(press)\nThe AI coach scoring a row in 4 lessons in 5.\nThe first rule is met by chance alone, so now we ask for agreement beyond chance.\n(press)","first_line":"First, the plan's rules, written before any result."}},{"id":"s10","title":"Two coaches, one lesson","chapter":"evidence","duration_s":80,"appendix":false,"steps":5,"transition":"fade","sensitive":false,"owner":"sg-evidence","status":"built","media":[],"highlight":null,"note":{"planned":"80 s (a text moment on arrival, counts only, no audio)","cues":["press 1: the chart: \"a kappa of 0.43\", interval 0.32 to 0.55, chance 0.23, the bar 0.40","press 2: by kind of row: \"what they counted came out highest\", 0.52 · 0.36 · 0.08","press 3: \"The same thing to work on first: 6 of 13\", the bar 70 in 100","press 4: the summary line, the device, small, with \"Not yet.\" and \"Next read: 15 pairs on two phones, about 6 November.\"","press 5: moves to s11"],"body":"[Say: one lesson, two coaches. No school, no names, no day.]\nOn part 1 of the form, one coach typed that 47 of 53 children spoke; the other, in the same room, typed 20.\nBoth watched honestly; the gap is about the form, never either coach.\n(press)\n**Two coaches on one lesson reach agreement beyond chance, a kappa of 0.43, where two unrelated lessons give 0.23** (13 pairs, 212 levels). Our bar is 0.40; the range, 0.32 to 0.55, reaches below it: not shown yet.\nExact match 58 in 100 against 49 by chance; within one level, 90 against 81 by chance.\n(press)\nBy kind: what the coaches count, 0.52; what rests on Rumi's moments, 0.36; their own picks, 0.08. Against chance, only what they count clears it; the ranges overlap.\n(press)\nThe same thing to work on first: 6 of 13 pairs. The plan asked for 70 in 100; its chance figure is not computed yet.\n(press)\nSo, two coaches: not yet. Thirteen pairs is short of the plan's 15, and the old form never scored two coaches apart, so better or worse is unknown. Next read: 15 pairs on two phones, about 6 November.\n(press)","first_line":"On part 1 of the form, one coach typed that 47 of 53 children spoke; the other, in the same room, typed 20."}},{"id":"s11","title":"What a recording can judge","chapter":"evidence","duration_s":75,"appendix":false,"steps":5,"transition":"fade","sensitive":false,"owner":"sg-evidence","status":"built","media":[],"highlight":null,"note":{"planned":"75 s","cues":["press 1: the 17 rows, grey, each with its n, and the key","press 2: four rows fill orange: C1, D1, D2, D4, cannot be judged reliably","press 3: twelve rows fill: needs the room; F1 dashed; the key counts 0 · 0 · 12 · 4 · 1","press 4: the honest line, the strip, the photo line, at right \"AI readers stand in for reference coaches; no person has checked them yet. Nearest: group work, kappa 0.38, bar 0.40.\", the device, small, with \"Not yet.\" and the next read","press 5: moves to s12"],"body":"**For most rows, neither a recording nor a second coach is shown to agree beyond chance yet. From a recording alone, today: 0 of 17 rows.**\nA raised hand makes no sound.\n(press)\nSeventeen rows, each with its visits scored blind by an AI reader standing in for the plan's reference coaches.\n(press)\nFour rows cannot be judged reliably as they stand. The teacher's questions, from a gap in our code; three others, because their wording lets honest readers part ways.\n(press)\nTwelve need the room: on none does a recording reader agree with the coach well enough to stand in. The nearest is group work, a kappa of 0.38 (162 visits). The last, accuracy, is not enough yet.\n(press)\nAI readers agree with each other at 0.78 to 0.87, with the coach only at 0.30 (149 lessons), and no person has checked them yet.\nPhotos as coaches took them were not shown to change levels (131 visits). A photo we ask for: never tried. So a recording or a photo: not yet.\n(press)","first_line":"**For most rows, neither a recording nor a second coach is shown to agree beyond chance yet."}},{"id":"s12","title":"The rubric: three changes","chapter":"evidence","duration_s":70,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"owner":"sg-evidence","status":"built","media":[],"highlight":null,"note":{"planned":"70 s (two text moments, no audio; about 15 s of reading held)","cues":["press 1: the second moment: \"The teacher asks how; one child explains.\"; 51 in 100, \"27 in 100 once the line is added\"","press 2: Accuracy: \"0 of 166\"; \"A reader flags the minute; a person listens.\"","press 3: \"What a teacher is told\": scored both ways, side by side","press 4: moves to s13"],"body":"[Say: one class, then another; one teacher each. No school, no names, no day. Let the room read the lines; count three.]\nIn one lesson the class answers as one, again and again; the coach counted children who spoke.\nSo we count children who answered alone. Scored that way, 65 of 166 visits fall a level (39 in 100), with no change in the teaching.\n(press)\n[Let the room read; count three.]\nIn another, the teacher asks how; one child explains. Our code gave such follow-ups no credit, so 51 visits in 100 sit on a placeholder level for the teacher's questions. Once the line is added, 27 in 100.\n(press)\nAccuracy: coaches reported an error on 0 of 166 visits; two blind readers found real errors in two lessons. So a reader flags the minute, and a person listens.\n(press)\nBefore any teacher sees a new level, last month's lessons are scored both ways, side by side.\n(press)","first_line":"In one lesson the class answers as one, again and again; the coach counted children who spoke."}},{"id":"s13","title":"Time, and the funnel","chapter":"evidence","duration_s":65,"appendix":false,"steps":5,"transition":"fade","sensitive":false,"owner":"sg-evidence","status":"built","media":[{"type":"image","src":"assets/out/published-gen/scenes/s13/s13-time.png","autoplay":false},{"type":"image","src":"assets/out/published-gen/scenes/s13/s13-funnel.png","autoplay":false}],"highlight":null,"note":{"planned":"65 s","cues":["press 1: the funnel: \"81.9 in 100 sealed forms got a lesson recording\"; 99.3 checked; the bar 90","press 2: \"On day one, 19 coaches tried it; 7 kept it.\" (19 discs)","press 3: visits a coach-week: \"+0.3 (−2.1 to +2.9). A fall is not shown.\"","press 4: the device, small, with \"Not yet.\" and \"Next read: the second cohort's seven bars, two weeks.\"","press 5: moves to s14"],"body":"**These are the 12 coaches who kept using the form.**\nDuring the lesson, about 7 minutes that are new: 7.2 (167 forms). And about 4 minutes less after it: 6.7 before, 3.0 now (391 old forms). All told, phone time went from 6.7 to 11.0 minutes; 8.4 from the 16th form on.\n(press)\n81.9 in 100 sealed forms got a lesson recording (145 of 177); the bar is 90, and the gap is in the product. Once recorded, 99.3 in 100 are checked.\n(press)\nOn day one 19 coaches tried it and 7 kept it; the other 12 went back after one to five forms. That tells us about the form.\n(press)\nVisits a coach-week: 8.8 before, 9.1 during. A fall is not shown, though the range allows one of up to 24 in 100.\n(press)\nSo for every coach: not yet. Next read: the second cohort's seven bars, two weeks.\n(press)","first_line":"**These are the 12 coaches who kept using the form.** During the lesson, about 7 minutes that are new: 7.2 (167 forms)."}},{"id":"s14","title":"What the self-serve coach may score","chapter":"evidence","duration_s":65,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"owner":"sg-evidence","status":"built","media":[{"type":"image","src":"assets/out/published-gen/scenes/s14/s14-scores.png","autoplay":false}],"highlight":null,"note":{"planned":"65 s (the one sentence is said on the last press, before s15; lead-verdict 20261024T234202)","cues":["press 1: \"One lesson, three scores\": 64 · 53 · 43, and under them \"37 rows against 9; the coach's read was not blind.\"","press 2: \"Rows it may score from a recording today: 0 of 17.\" and the plan: count, mark not observed, switch on after a re-measure; 41 in 100 moments come back","press 3: the device, small, with \"Not yet.\" and \"Next read: the shadow run, two weeks, then the re-measure.\" Hold: count three after \"Not yet.\"","press 4: moves to s15, after the one sentence"],"body":"[Say: one lesson, one teacher. No school, no names, no day.]\n**From a recording alone, the self-serve coach may score 0 of 17 rows today.**\nIt scores 37 rows, and anything unseen scores 1; 9 in 100 of its scores are a 1 (826 sessions).\n(press)\nOne lesson, three scores: the old 37 rows, 64; a blind reader on a 9-row set, 53; the coach in the room, 43.\n(press)\nWe count with fixed rules, mark the unseen as not observed, and switch a row on only after a re-measure. Run twice, Rumi repeats 41 in 100 moments.\n(press)\nNot yet.\n[Hold: count three. Then the one sentence, slowly. s15 opens on line a.]\n**We changed the form so a score comes from what the coach saw and heard instead of a pre-filled guess; two coaches now agree moderately and beyond chance, a recording alone cannot yet reach the coach's score on any row, and we decided to fix the form, check the moments with a person, and stage the rollout before every coach gets it.**\n(press)","first_line":"**From a recording alone, the self-serve coach may score 0 of 17 rows today.** It scores 37 rows, and anything unseen scores 1; 9 in 100 of its scores are a 1 (826 sessions)."}},{"id":"s15","title":"Six decisions","chapter":"decide","duration_s":60,"appendix":false,"steps":6,"transition":"fade","sensitive":false,"owner":"sg-decide","status":"built","media":[],"highlight":null,"note":{"planned":"60 s (arrives on line a; the sentence was said on s14)","cues":["press 1: b: \"Can be judged: Yes-if a person checks accuracy.\" medium (line a cedes; its gloss \"15 pairs on two phones, about 6 Nov.\" stays)","press 2: c: \"The rubric: Yes-if 40 visits confirm it.\" and \"And no teacher sees a new level before the 166 are rescored side by side.\" medium","press 3: d: \"Every coach: Yes-if, staged.\" and \"Fixes; then the 12 who went back, two weeks, seven bars.\" medium, with \"low for the next 43\" under it","press 4: e: \"Self-serve coach: Yes-if it runs in shadow first.\" medium","press 5: +: \"Why we switched: The story, told.\" high","press 6: moves to s16"],"body":"[Read each line as it lands, then its confidence word.]\n**Did agreement between coaches improve? Not enough yet: 13 pairs, and 15 on two phones by about 6 November.** How sure: medium. Against the old form, low, because the old form never scored two coaches apart.\n(press)\nWhat we can judge: yes, once a person checks accuracy. Medium.\n(press)\nThe final rubric: yes, once the new wording is tried on 40 visits, and no teacher sees a new level before the 166 checked visits are rescored side by side. Medium.\n(press)\nEvery coach: yes, staged. Fixes first, then the 12 who went back, for two weeks against seven bars, then the rest. Medium; for the next 43, low.\n(press)\nThe self-serve coach: yes, once it runs in shadow. Medium; on which rows will score, low.\n(press)\nAnd why we switched: the form arrived filled in. That one is high.\n(press)","first_line":"**Did agreement between coaches improve?"}},{"id":"s16","title":"What happens Monday","chapter":"decide","duration_s":50,"appendix":false,"steps":5,"transition":"fade","sensitive":false,"owner":"sg-decide","status":"built","media":[],"highlight":null,"note":{"planned":"50 s","cues":["press 1: \"Product engineers and the engineering lead\": fixes first","press 2: \"ICT programme lead\": the 12 who went back, two weeks, seven bars; then the other 31","press 3: \"The standards and evals team\": the new wording on 40 visits; six photo asks; under it \"For the teacher observed next week: no new level until the 166 checked visits are rescored side by side.\"","press 4: \"Next read\": the four lines","press 5: moves to s17"],"body":"Monday: a coach trainer from outside the pilot, blind to every level, checks 74 of Rumi's moments, then reads six lessons.\n(press)\nFixes first: failed recordings finish, round 7 goes live, the AI service returns, the teacher's-questions rule.\n(press)\nThen the 12 who went back after day one: two weeks, seven bars, then the other 31. Under 80 in 100 uptake in week 2, we extend.\n(press)\nStandards and evals: new wording on 40 visits; six photo asks. No teacher sees a new level before the 166 are rescored.\n(press)\nThe next reads: 15 pairs on two phones by about 6 November; 30, partners rotated weekly, by about 9 November; then the re-measure, the cohort's bars, the shadow run.\n(press)","first_line":"Monday: a coach trainer from outside the pilot, blind to every level, checks 74 of Rumi's moments, then reads six lessons."}},{"id":"s17","title":"Same lesson. Same score.","chapter":"close","duration_s":30,"appendix":false,"steps":2,"transition":"cut","sensitive":false,"owner":"sg-open","status":"built","media":[],"highlight":null,"note":{"planned":"30 s (own words; budget two to three times the label, never cut)","cues":["press 1: under the device: \"Here is the bar. Here is what gets us there.\" and \"For the teacher observed next week: no new level until the 166 checked visits are rescored side by side.\"","press 2: moves to s18"],"body":"Same lesson. Same score.\nWe have not reached it yet, between two coaches or from a recording, and we now know what to fix first. We owe that to the teacher we observe next week.\n(press)\n[Presenter, in your own words: what this bar means for a teacher, and what you ask of the room this week. From the 2 October go-live call: \"the jury is out right now on whether this will become permanent or not\"]\nThank you.\n(press)","first_line":"Same lesson."}},{"id":"s18","title":"Questions","chapter":"index","duration_s":5,"appendix":false,"steps":1,"transition":"cut","sensitive":false,"owner":"sg-open","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: moves to a01"],"body":"Questions. Every page behind the numbers is in the appendix; A opens it, and I can go to any page you ask about.\n(press)","first_line":"Questions."}},{"id":"a01","title":"Every number's source","chapter":"appendix","duration_s":5,"appendix":true,"steps":4,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2 of 4: N10 to N17","press 2: page 3 of 4: N18 to N25","press 3: page 4 of 4: N26 to N33","press 4: moves to a02"],"body":"Every number on the main screens, with the lane that made it, the script and the n. Page 1: N1 to N9.\n(press)\n(press)\n(press)\n(press)","first_line":"Every number on the main screens, with the lane that made it, the script and the n."}},{"id":"a02","title":"How the blind reads worked","chapter":"appendix","duration_s":5,"appendix":true,"steps":2,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2 of 2: what was checked, and what no reader ever saw","press 2: moves to a03"],"body":"The readers, what each read and on which model, under protocol 1.1, tried first on three packets.\n(press)\nHow we checked that nothing leaked: 0 hits for 1,851 answer-key strings in 187 packets.\n(press)","first_line":"The readers, what each read and on which model, under protocol 1.1, tried first on three packets."}},{"id":"a03","title":"Rules first, changes after","chapter":"appendix","duration_s":5,"appendix":true,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2 of 3: changed after the results, R2 to R7","press 2: page 3 of 3: changed after the results, R8 to R16","press 3: moves to a04"],"body":"The rules as registered before any result. Every change after that is dated and marked as made after the results.\n(press)\n(press)\n(press)","first_line":"The rules as registered before any result."}},{"id":"a04","title":"The matrix in full","chapter":"appendix","duration_s":5,"appendix":true,"steps":5,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2 of 5: coach against reader, kappa with its interval, C1 to D1","press 2: page 3 of 5: D2 to F4","press 3: page 4 of 5: each reader's share and the old cell, C1 to D1","press 4: page 5 of 5: D2 to F4","press 5: moves to a05"],"body":"Every row, the cell as ruled, and the rows in each cell.\n(press)\n(press)\nIf asked about children answering each other: it sits past the bar, 0.44, but readers gave it a level on only 4 lessons in 10, so it needs the room.\n(press)\n(press)\n(press)","first_line":"Every row, the cell as ruled, and the rows in each cell."}},{"id":"a05","title":"The coaches' rubric","chapter":"appendix","duration_s":5,"appendix":true,"steps":6,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2 of 6: C4 to C7","press 2: page 3 of 6: C7 to D2","press 3: page 4 of 6: D2 to D4","press 4: page 5 of 6: D5 to F2","press 5: page 6 of 6: F3, F4","press 6: moves to a06"],"body":"The draft rubric: for each row, the cell, the decision, who scores it, and the evidence behind the change.\n(press)\n(press)\n(press)\n(press)\n(press)\n(press)","first_line":"The draft rubric: for each row, the cell, the decision, who scores it, and the evidence behind the change."}},{"id":"a06","title":"Self-serve coach: rubric","chapter":"appendix","duration_s":5,"appendix":true,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2 of 3: the upgrade, 0 of 17 scored today, run as a shadow","press 2: page 3 of 3: three gates before any row switches on","press 3: moves to a07"],"body":"What the self-serve coach scores today: the old 37 rows, and a row it does not see scores 1.\n(press)\nThe upgrade we build and run in shadow.\n(press)\nWhat a row must pass before a teacher sees it.\n(press)","first_line":"What the self-serve coach scores today: the old 37 rows, and a row it does not see scores 1."}},{"id":"a07","title":"The red team's 13 rows","chapter":"appendix","duration_s":5,"appendix":true,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2 of 3: RT-06 to RT-09","press 2: page 3 of 3: RT-10 to RT-13","press 3: moves to a08"],"body":"Thirteen objections the red team raised, and how each was ruled.\n(press)\n(press)\n(press)","first_line":"Thirteen objections the red team raised, and how each was ruled."}},{"id":"a08","title":"Pilot: designed and as run","chapter":"appendix","duration_s":5,"appendix":true,"steps":2,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2 of 2: the remaining rows","press 2: moves to a09"],"body":"What the pilot plan designed, what actually ran, and which answer each gap weakens.\n(press)\n(press)","first_line":"What the pilot plan designed, what actually ran, and which answer each gap weakens."}},{"id":"a09","title":"The outage and the models","chapter":"appendix","duration_s":5,"appendix":true,"steps":1,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: moves to a10"],"body":"From 22 October the AI service failed and a fallback model most likely took over; 25 of 26 recorded visits since still have moments. No form stores which model wrote its moments.\n(press)","first_line":"From 22 October the AI service failed and a fallback model most likely took over; 25 of 26 recorded visits since still have moments."}},{"id":"a10","title":"The pairs","chapter":"appendix","duration_s":5,"appendix":true,"steps":2,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2 of 2: who the pairs are, how fast they arrive, the next reads","press 2: moves to a11"],"body":"Sixteen pairs watched one lesson, 15 were checked, 13 filled apart; two were sealed seconds apart and set aside. The plan asked for 15.\n(press)\n(press)","first_line":"Sixteen pairs watched one lesson, 15 were checked, 13 filled apart; two were sealed seconds apart and set aside."}},{"id":"a11","title":"Coach reports, still broken","chapter":"appendix","duration_s":5,"appendix":true,"steps":2,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2 of 2: still broken, and who fixes it","press 2: moves to a12"],"body":"What coaches told us during the pilot, and what was fixed.\n(press)\nAnd what is still broken today, with who fixes it.\n(press)","first_line":"What coaches told us during the pilot, and what was fixed."}},{"id":"a12","title":"What would change our mind","chapter":"appendix","duration_s":5,"appendix":true,"steps":2,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2 of 2: d, e and why we switched","press 2: moves to a13"],"body":"For each decision, the data that would change it, and the date it could exist.\n(press)\n(press)","first_line":"For each decision, the data that would change it, and the date it could exist."}},{"id":"a13","title":"Did all go well?","chapter":"appendix","duration_s":5,"appendix":true,"steps":3,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2 of 3: what held","press 2: page 3 of 3: not run yet: the one sitting with a person","press 3: moves to a14"],"body":"What did not go well, each with its count. No item here is a verdict on a coach.\n(press)\nWhat held.\n(press)\nAnd the one sitting with a person that tests the readers, not run yet.\n(press)","first_line":"What did not go well, each with its count."}},{"id":"a14","title":"Time, funnel and cohort bars","chapter":"appendix","duration_s":5,"appendix":true,"steps":4,"transition":"fade","sensitive":false,"owner":"sg-appendix","status":"built","media":[],"highlight":null,"note":{"planned":"5 s","cues":["press 1: page 2 of 4: the funnel","press 2: page 3 of 4: the plan's conditions for rollout and their status","press 3: page 4 of 4: the seven bars, set before the cohort starts","press 4: moves back to s18"],"body":"Time is two numbers, during and after the lesson, for the 12 coaches who kept using the form.\n(press)\nThe funnel, from sealed to recorded to checked.\n(press)\nThe plan's conditions for rollout, and where each stands.\n(press)\nThe seven bars for the next 12 coaches, beside today's figures; the visits bar is against the other 31 and has not run yet.\n(press)","first_line":"Time is two numbers, during and after the lesson, for the 12 coaches who kept using the form."}}],"main_total_s":875,"excluded_sensitive":[],"nav":true,"warnings":["a03: title differs, SCENES.md 'The rules we set first, and what we changed after' vs scene.json 'Rules first, changes after'","a03: note title 'The rules we set first, and what we changed after' differs from scene title 'Rules first, changes after'","a05: title differs, SCENES.md \"The coaches' rubric: all 17 rows\" vs scene.json \"The coaches' rubric\"","a05: note title \"The coaches' rubric: all 17 rows\" differs from scene title \"The coaches' rubric\"","a06: title differs, SCENES.md \"The self-serve coach's rubric\" vs scene.json 'Self-serve coach: rubric'","a06: note title \"The self-serve coach's rubric\" differs from scene title 'Self-serve coach: rubric'","a07: title differs, SCENES.md \"The red team's rows and the rulings\" vs scene.json \"The red team's 13 rows\"","a07: note title \"The red team's rows and the rulings\" differs from scene title \"The red team's 13 rows\"","a08: title differs, SCENES.md 'The pilot as designed, and as it ran' vs scene.json 'Pilot: designed and as run'","a08: note title 'The pilot as designed, and as it ran' differs from scene title 'Pilot: designed and as run'","a11: title differs, SCENES.md 'What coaches reported, and what is still broken' vs scene.json 'Coach reports, still broken'","a11: note title 'What coaches reported, and what is still broken' differs from scene title 'Coach reports, still broken'","a13: title differs, SCENES.md 'Did all go well? What the blind reads found' vs scene.json 'Did all go well?'","a13: note title 'Did all go well? What the blind reads found' differs from scene title 'Did all go well?'","a14: title differs, SCENES.md \"Time and the funnel in full; the second cohort's bars\" vs scene.json 'Time, funnel and cohort bars'","a14: note title \"Time and the funnel in full; the second cohort's bars\" differs from scene title 'Time, funnel and cohort bars'"],"sensitive_handling":{}}</script>
+<script>/* deck.js: the live-show engine (offline, file://, 1920x1080).
+   build.py inlines this file, the manifest (#deck-manifest) and every timing JSON (#words-<clip>) into index.html.
+   Scene scripts call Deck.register(id, { enter(step), step(n), leave() }).
+   The same file is inlined into presenter.html, which uses only Deck.Sync and Deck.keyAction. */
+(function () {
+  "use strict";
+
+  var W = 1920, H = 1080;
+  var ROLES = { teacher: "Teacher", child: "Child", coach: "Coach", parent: "Parent", adult: "Adult" };
+
+  function $(sel, root) { return (root || document).querySelector(sel); }
+  function $$(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+  function readJSON(id) {
+    var el = document.getElementById(id);
+    if (!el) return null;
+    try { return JSON.parse(el.textContent); } catch (e) { console.error("deck: bad JSON in #" + id + ": " + e.message); return null; }
+  }
+  function safe(fn, what) {
+    try { return fn(); } catch (e) { console.error("deck: " + what + " failed: " + (e && e.stack || e)); }
+  }
+
+  /* ------------------------------------------------------------------ keys */
+  // One key map for both windows. Returns an action name or null.
+  function keyAction(e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return null;
+    var k = e.key;
+    if (k === "ArrowRight" || k === "PageDown" || k === " " || k === "Spacebar") return "next";
+    if (k === "ArrowLeft" || k === "PageUp") return "prev";
+    if (k === "ArrowDown") return "down";
+    if (k === "ArrowUp") return "up";
+    if (k === "a" || k === "A") return "appendix";
+    if (k === "b" || k === "B" || k === ".") return "black";
+    if (k === "f" || k === "F") return "fullscreen";
+    if (k === "g" || k === "G") return "guide";
+    if (k === "p" || k === "P") return "presenter";
+    if (k === "t" || k === "T") return "clock";
+    if (k === "Home") return "home";
+    if (k === "End") return "end";
+    if (k === "Enter") return "enter";
+    if (k === "Backspace" || k === "i" || k === "I") return "index";
+    if (/^[0-9]$/.test(k)) return "digit:" + k;
+    return null;
+  }
+
+  /* ------------------------------------------------------------------ sync */
+  // BroadcastChannel "liveshow" first; window.opener / opened-window postMessage as well.
+  // Every message carries a unique mid, so a message that arrives both ways is handled once.
+  var Sync = (function () {
+    var bc = null, peers = [], handlers = [], seen = {}, seenQ = [], n = 0;
+    var me = Math.random().toString(36).slice(2, 8);
+    try { bc = new BroadcastChannel("liveshow"); } catch (e) { bc = null; }
+    function deliver(msg) {
+      if (!msg || msg.app !== "liveshow" || msg.from === me) return;
+      if (seen[msg.mid]) return;
+      seen[msg.mid] = 1; seenQ.push(msg.mid);
+      if (seenQ.length > 400) delete seen[seenQ.shift()];
+      handlers.forEach(function (h) { safe(function () { h(msg); }, "sync handler"); });
+    }
+    if (bc) bc.onmessage = function (ev) { deliver(ev.data); };
+    window.addEventListener("message", function (ev) { deliver(ev.data); });
+    return {
+      send: function (msg) {
+        msg.app = "liveshow"; msg.from = me; msg.mid = me + "-" + (++n);
+        if (bc) { try { bc.postMessage(msg); } catch (e) { /* closed */ } }
+        var targets = peers.slice();
+        if (window.opener && !window.opener.closed) targets.push(window.opener);
+        targets.forEach(function (w) { try { if (w && !w.closed) w.postMessage(msg, "*"); } catch (e) { /* gone */ } });
+      },
+      on: function (h) { handlers.push(h); },
+      addPeer: function (w) { if (w && peers.indexOf(w) < 0) peers.push(w); },
+      hasChannel: function () { return !!bc; }
+    };
+  })();
+
+  /* ------------------------------------------------------------------ deck state */
+  var M = null;                 // manifest
+  var scenes = [];              // manifest scene entries, show order (main then appendix)
+  var byId = {};
+  var mainIdx = [], appIdx = []; // indexes into scenes
+  var registry = {};            // id -> { enter, step, leave }
+  var clips = {};               // scene id -> clip controller
+  var S = {
+    mode: "main",               // main | index | appendix
+    idx: -1, step: 1,
+    saved: null,                // { idx, step, clipT } while in the appendix
+    sel: 0,                     // selection in the appendix index
+    black: false,
+    clockStart: null,
+    sceneStart: Date.now(),
+    started: false
+  };
+  var stage, viewport, blackEl, indexEl, gotoEl, guideEl;
+  var digits = "", digitTimer = null;
+  var presenterWin = null;
+  var transitionTimer = null, leavingEl = null;
+
+  function sceneEl(i) { return scenes[i] && scenes[i]._el; }
+  function cur() { return scenes[S.idx]; }
+  function listFor(mode) { return mode === "main" ? mainIdx : appIdx; }
+
+  /* ------------------------------------------------------------------ scaling */
+  function fit() {
+    var w = window.innerWidth, h = window.innerHeight;
+    var s = Math.min(w / W, h / H);
+    var x = Math.round((w - W * s) / 2), y = Math.round((h - H * s) / 2);
+    if (NAV) {
+      // share buttons (build.py --nav): the stage is fitted beside them, never under them. A bar under the stage or a
+      // column each side, whichever leaves the stage larger (a bar on a tie); in a letterbox wide enough, nothing shrinks.
+      var sBar = Math.min(w / W, (h - NAV_BAR) / H), sSide = Math.min((w - 2 * NAV_SIDE) / W, h / H);
+      var side = sSide > sBar;
+      s = side ? sSide : sBar;
+      x = Math.round((w - W * s) / 2);
+      y = side ? Math.round((h - H * s) / 2) : Math.round((h - H * s - NAV_BAR) / 2);
+      // a narrow portrait window shows the stage as a strip: a line under the bar says to turn the phone (nav-qa IDEA 1)
+      NAV.el.className = side ? "side" : "bar" + (h > w && w < 600 ? " portrait" : "");
+      var ns = NAV.el.style;
+      if (side) { ns.left = "0px"; ns.top = "0px"; ns.width = w + "px"; ns.height = h + "px"; }
+      else { ns.left = x + "px"; ns.top = (y + Math.round(H * s)) + "px"; ns.width = Math.round(W * s) + "px"; ns.height = NAV_BAR + "px"; }
+    }
+    stage.style.transform = "translate(" + x + "px," + y + "px) scale(" + s + ")";
+    stage.dataset.scale = s.toFixed(4);
+  }
+
+  /* ------------------------------------------------------------------ steps */
+  function applySteps(el, n) {
+    $$("[data-step]", el).forEach(function (x) {
+      var k = parseInt(x.getAttribute("data-step"), 10) || 1;
+      x.classList.toggle("is-on", n >= k);
+    });
+    $$("[data-until]", el).forEach(function (x) {
+      var k = parseInt(x.getAttribute("data-until"), 10) || 1;
+      x.classList.toggle("is-gone", n > k);
+    });
+    // media with data-play-step="n" (n >= 2) plays when step n is reached by a press and rewinds when the step is undone
+    $$("video[data-play-step], audio[data-play-step]", el).forEach(function (m) {
+      var k = parseInt(m.getAttribute("data-play-step"), 10);
+      if (!(k > 1)) return;
+      if (n >= k) { if (m.paused && !m.ended && m.dataset.started !== "1") { m.dataset.started = "1"; var p = m.play(); if (p && p.catch) p.catch(playFailed); } }
+      else { m.pause(); try { m.currentTime = 0; } catch (e) { /* not loaded */ } m.dataset.started = ""; }
+    });
+  }
+  function stopMedia(el) {
+    $$("video, audio", el).forEach(function (m) { m.pause(); try { m.currentTime = 0; } catch (e) { /* not loaded */ } m.dataset.started = ""; });
+  }
+  function playFailed(err) {
+    console.warn("deck: playback was refused (" + (err && err.name) + "). Press any key in the show window once, then try again.");
+    Sync.send({ type: "warn", text: "Audio was blocked. Press any key once in the show window." });
+  }
+
+  /* ------------------------------------------------------------------ highlighting */
+  function Clip(sc, el) {
+    var h = sc.highlight, self = this;
+    this.sc = sc; this.el = el; this.h = h;
+    this.data = readJSON("words-" + h.clip) || { words: [], lines: [] };
+    this.state = "idle";       // idle | playing | paused | ended
+    this.audio = $("audio[data-clip='" + h.clip + "']", el);
+    if (!this.audio) {
+      this.audio = document.createElement("audio");
+      this.audio.preload = "auto";
+      this.audio.setAttribute("data-clip", h.clip);
+      this.audio.src = h.audio_src;
+      el.appendChild(this.audio);
+    }
+    this.audio.autoplay = false;
+    this.audio.addEventListener("ended", function () { self.state = "ended"; self.update(Infinity); emitState(); });
+    this.audio.addEventListener("timeupdate", function () { if (self.state === "playing") self.update(self.audio.currentTime); });
+    this.box = $("[data-highlight]", el);
+    if (!this.box) { this.box = document.createElement("div"); el.appendChild(this.box); }
+    this.box.classList.add("hl", h.mode);
+    this.inner = document.createElement("div"); this.inner.className = "hl-in"; this.box.appendChild(this.inner);
+    var dir = this.data.dir || (h.lang === "ur" ? "rtl" : "ltr");
+    this.box.setAttribute("dir", dir);
+    this.box.style.fontSize = Math.max(56, h.size_px) + "px";
+    this.bar = $(".clip-bar > i", el);
+    if (!this.bar) {
+      var b = document.createElement("div"); b.className = "clip-bar"; b.innerHTML = "<i></i>";
+      el.appendChild(b); this.bar = b.firstChild;
+    }
+    this.words = [];  // { el, start, attempts, status, miscue, passAt, line }
+    this.lines = [];  // transcript: { el, glossEl, start, end }
+    if (h.mode === "passage") this.buildPassage(); else this.buildTranscript();
+    this.lastSig = null;
+    this.update(-1);
+  }
+
+  Clip.prototype.buildPassage = function () {
+    var d = this.data, box = this.inner, words = this.words;
+    var src = d.passage && d.passage.lines ? d.passage.lines : null;
+    if (!src) {
+      // fall back to the top-level lines and words
+      src = (d.lines || []).map(function (ln) {
+        var a = ln.words ? ln.words[0] : 0, b = ln.words ? ln.words[1] : -1;
+        return { text: ln.text, words: (d.words || []).slice(a, b + 1).map(function (w) {
+          return { w: w.w, start: w.start, end: w.end, status: w.status || "read", miscue: w.miscue, attempts: [[w.start, w.end]] };
+        }) };
+      });
+    }
+    src.forEach(function (ln, li) {
+      var p = document.createElement("span"); p.className = "p-line";
+      (ln.words || []).forEach(function (w, wi) {
+        var s = document.createElement("span"); s.className = "w"; s.textContent = w.w;
+        var atts = (w.attempts && w.attempts.length ? w.attempts : (w.start != null ? [[w.start, w.end]] : []))
+          .map(function (a) { return [+a[0], +a[1]]; });
+        var first = atts.length ? Math.min.apply(null, atts.map(function (a) { return a[0]; })) : null;
+        var status = w.status || (first == null ? "not_reached" : "read");
+        words.push({ el: s, start: first, attempts: atts, status: status, miscue: !!w.miscue || status === "misread", line: li, passAt: null });
+        p.appendChild(s);
+        if (wi < ln.words.length - 1) p.appendChild(document.createTextNode(" "));
+      });
+      box.appendChild(p);
+    });
+    // a skipped word is marked once the reader has read a word after it
+    for (var i = 0; i < words.length; i++) {
+      if (words[i].status !== "skipped") continue;
+      for (var j = i + 1; j < words.length; j++) if (words[j].start != null) { words[i].passAt = words[j].start; break; }
+    }
+  };
+
+  Clip.prototype.buildTranscript = function () {
+    var d = this.data, box = this.inner, self = this;
+    var showGloss = this.h.show_gloss !== false;
+    var dw = d.words || [];
+    (d.lines || []).forEach(function (ln, li) {
+      var line = document.createElement("div"); line.className = "t-line";
+      var role = ROLES[(ln.speaker || "").toLowerCase()];
+      if (role && self.h.show_speaker !== false) {
+        var sp = document.createElement("span"); sp.className = "t-speaker"; sp.textContent = role; line.appendChild(sp);
+      }
+      var tx = document.createElement("span"); tx.className = "t-text";
+      var a = ln.words ? ln.words[0] : 0, b = ln.words ? ln.words[1] : -1, last = null, first = null;
+      for (var i = a; i <= b && i < dw.length; i++) {
+        var w = dw[i], s = document.createElement("span"); s.className = "w"; s.textContent = w.w;
+        tx.appendChild(s);
+        if (i < b) tx.appendChild(document.createTextNode(" "));
+        self.words.push({ el: s, start: +w.start, attempts: [[+w.start, +w.end]], status: "read", miscue: !!w.miscue, line: li });
+        if (first == null) first = +w.start;
+        last = +w.end;
+      }
+      line.appendChild(tx);
+      var g = null, gloss = ln.gloss || ln.en || null;
+      if (showGloss && gloss) { g = document.createElement("span"); g.className = "t-gloss"; g.textContent = gloss; line.appendChild(g); }
+      box.appendChild(line);
+      var st = ln.start != null ? +ln.start : first, en = last != null ? last : (ln.end != null ? +ln.end : st);
+      self.lines.push({ el: line, glossEl: g, start: st, end: en });
+    });
+  };
+
+  // Set every word and line for time t. Idempotent; touches the DOM only on change.
+  Clip.prototype.update = function (t) {
+    var ws = this.words, i, w;
+    for (i = 0; i < ws.length; i++) {
+      w = ws[i];
+      var lit = w.start != null && t >= w.start;
+      var now = false;
+      if (lit && t !== Infinity) for (var k = 0; k < w.attempts.length; k++) {
+        if (t >= w.attempts[k][0] && t <= w.attempts[k][1] + 0.12) { now = true; break; }
+      }
+      var skipped = w.status === "skipped" && w.passAt != null && t >= w.passAt;
+      if (w._lit !== lit) { w.el.classList.toggle("lit", lit); w._lit = lit; if (lit && Deck.onLit) Deck.onLit(this.h.clip, i, w.start, this.audio.currentTime); }
+      if (w._now !== now) { w.el.classList.toggle("now", now); w._now = now; }
+      if (w._sk !== skipped) { w.el.classList.toggle("skipped", skipped); w._sk = skipped; }
+      if (w._mc !== w.miscue) { w.el.classList.toggle("miscue", w.miscue); w._mc = w.miscue; }
+      if (w.attempts.length > 1) {
+        // how many times the word has been heard so far: a theme can deepen a trail on re-reads (.w[data-tries="3"])
+        var tries = 0;
+        for (var q = 0; q < w.attempts.length; q++) if (t >= w.attempts[q][0]) tries++;
+        if (w._tries !== tries) { w._tries = tries; if (tries > 1) w.el.setAttribute("data-tries", tries > 4 ? "4" : String(tries)); else w.el.removeAttribute("data-tries"); }
+      }
+    }
+    if (this.lines.length) {
+      var sig = "";
+      for (i = 0; i < this.lines.length; i++) {
+        var L = this.lines[i];
+        var on = L.start != null && t >= L.start - 0.05;
+        var gon = !!L.glossEl && t >= L.end;
+        sig += (on ? 1 : 0) + "" + (gon ? 1 : 0);
+        if (L._on !== on) { L.el.classList.toggle("is-on", on); L._on = on; }
+        if (L.glossEl && L._g !== gon) { L.glossEl.classList.toggle("is-on", gon); L._g = gon; }
+      }
+      if (sig !== this.lastSig) { this.lastSig = sig; this.trim(); }
+    }
+    if (this.bar) {
+      var dur = this.audio.duration || this.data.duration || 0;
+      var tt = t === Infinity ? dur : Math.max(0, t);
+      this.bar.style.width = (dur ? Math.min(100, 100 * tt / dur) : 0) + "%";
+    }
+  };
+
+  // Transcript: keep the newest lines; hide the oldest until the box no longer overflows.
+  Clip.prototype.trim = function () {
+    var box = this.box, inner = this.inner;
+    this.lines.forEach(function (L) { L.el.classList.remove("is-trimmed"); });
+    var shown = this.lines.filter(function (L) { return L._on; });
+    var hidden = this.lines.filter(function (L) { return !L._on; });
+    hidden.forEach(function (L) { L.el.classList.add("is-trimmed"); });
+    while (shown.length > 1 && inner.offsetHeight > box.clientHeight + 1) shown.shift().el.classList.add("is-trimmed");
+  };
+
+  Clip.prototype.setStep = function (n, how) {
+    var a = this.audio;
+    if (n <= 1) {
+      a.pause(); try { a.currentTime = 0; } catch (e) { /* not loaded */ }
+      this.state = "idle"; this.box.classList.remove("hold"); this.update(-1);
+    } else if (n === 2) {
+      this.box.classList.remove("hold");
+      if (how === "advance") {
+        try { a.currentTime = 0; } catch (e) { /* not loaded */ }
+        this.play();
+      } else if (how === "back") {
+        // stepping back onto the clip (round 8): READY, words dim, nothing playing; the next Right plays it again
+        a.pause(); try { a.currentTime = 0; } catch (e) { /* not loaded */ }
+        this.state = "idle"; this.update(-1);
+      } else if (how === "restore" && this.restoreEnded) {
+        // back from the appendix after the clip ended: show its end; the next Right moves on
+        a.pause(); this.state = "ended"; this.update(Infinity);
+      } else if (how === "restore" && this.restoreT != null) {
+        // returning from the appendix: paused where it was left; the next press resumes
+        try { a.currentTime = this.restoreT; } catch (e) { /* not loaded */ }
+        this.state = this.restoreT > 0 ? "paused" : "idle"; this.update(this.restoreT);
+      } else {
+        // landed on step 2 by a jump or a reload: dimmed and waiting; the next press plays
+        a.pause(); try { a.currentTime = 0; } catch (e) { /* not loaded */ }
+        this.state = "idle"; this.update(-1);
+      }
+    } else {
+      a.pause(); this.state = "ended"; this.box.classList.add("hold"); this.update(Infinity);
+    }
+    this.restoreT = null; this.restoreEnded = false;
+  };
+
+  Clip.prototype.play = function () {
+    var self = this, p = this.audio.play();
+    this.state = "playing";
+    if (p && p.catch) p.catch(function (e) { self.state = "paused"; playFailed(e); emitState(); });
+    tick();
+  };
+  Clip.prototype.pause = function () { this.audio.pause(); this.state = "paused"; this.update(this.audio.currentTime); };
+  // A Right press during step 2 (round 8): playing = skip (stop, light every word, and let the step advance);
+  // paused (back from the appendix) resumes; idle (READY) plays from 0 s; ended lets the step advance.
+  Clip.prototype.press = function () {
+    if (this.state === "playing") { this.audio.pause(); this.state = "ended"; this.update(Infinity); return false; }
+    if (this.state === "paused") { this.play(); return true; }
+    if (this.state === "idle") { try { this.audio.currentTime = 0; } catch (e) { /* not loaded */ } this.play(); return true; }
+    return false;
+  };
+  Clip.prototype.stop = function () {
+    this.audio.pause(); try { this.audio.currentTime = 0; } catch (e) { /* not loaded */ }
+    this.state = "idle"; this.update(-1);
+  };
+  Clip.prototype.info = function () {
+    var dur = this.audio.duration || this.data.duration || 0;
+    var t = this.state === "ended" ? dur : (this.state === "idle" ? 0 : this.audio.currentTime);
+    return { clip: this.h.clip, t: +t.toFixed(2), dur: +(+dur).toFixed(2), state: this.state };
+  };
+
+  var rafOn = false, lastEmit = 0;
+  function tick() {
+    if (rafOn) return;
+    rafOn = true;
+    requestAnimationFrame(function loop() {
+      var c = clips[cur() && cur().id];
+      if (!c || c.state !== "playing") { rafOn = false; emitState(); return; }
+      c.update(c.audio.currentTime);
+      var now = Date.now();
+      if (now - lastEmit > 250) { lastEmit = now; emitState(); }
+      requestAnimationFrame(loop);
+    });
+  }
+
+  /* ---- scene-owned clips: a scene may draw its own highlight and drive its own audio.
+     Two shapes are accepted (the two R2 studios):
+       { clip() -> { play, pause, playing, started, ended, render(t) } }
+       { media: { playing(), toggle() }, seek(t) }
+     The engine then never builds its own highlight for that scene; it only routes presses. */
+  var wordsCache = {}, sharedAudio = {};
+  function words(clip) {
+    if (wordsCache[clip]) return wordsCache[clip];
+    var el = document.getElementById("words-" + clip) || $("script[type='application/json'][data-words='" + clip + "']");
+    if (!el || !el.textContent.trim()) { console.error("deck: no timing JSON inlined for clip " + clip); return null; }
+    try { wordsCache[clip] = JSON.parse(el.textContent); } catch (e) { console.error("deck: bad timing JSON for " + clip); return null; }
+    return wordsCache[clip];
+  }
+  function clipSrc(clip) {
+    var cs = cur(), pools = cs ? [cs].concat(scenes) : scenes;
+    for (var i = 0; i < pools.length; i++) {
+      var ms = pools[i].media || [];
+      for (var k = 0; k < ms.length; k++) if (ms[k].clip === clip && ms[k].type === "audio") return ms[k].src;
+    }
+    return null;
+  }
+  function audioFor(clip) {
+    if (sharedAudio[clip]) return sharedAudio[clip];
+    var a = document.createElement("audio");
+    a.preload = "auto"; a.autoplay = false; a.setAttribute("data-clip", clip); a.setAttribute("data-shared", "1");
+    var src = clipSrc(clip);
+    if (!src) console.error("deck: Deck.audio(" + clip + "): no scene lists this clip in its media");
+    else a.src = src;
+    document.body.appendChild(a);
+    sharedAudio[clip] = a;
+    return a;
+  }
+  function sceneAudios(sc) {
+    var list = sc && sc._el ? $$("audio, video", sc._el) : [];
+    (sc && sc.media || []).forEach(function (m) { if (m.clip && sharedAudio[m.clip]) list.push(sharedAudio[m.clip]); });
+    return list;
+  }
+  function ownClip(sc) {
+    var r = sc && registry[sc.id];
+    if (!r) return null;
+    var auds = function () { return sceneAudios(sc).filter(function (a) { return a.tagName === "AUDIO"; }); };
+    var main = function () { var l = auds(); for (var i = 0; i < l.length; i++) if (l[i].currentTime > 0 || !l[i].paused) return l[i]; return l[0] || null; };
+    if (typeof r.clip === "function") {
+      var c = safe(function () { return r.clip(); }, "scene " + sc.id + " clip()");
+      if (!c) return null;
+      return { playing: function () { return !!c.playing(); }, started: function () { return !!(c.started ? c.started() : main() && main().currentTime > 0); },
+        ended: function () { return !!(c.ended ? c.ended() : main() && main().ended); },
+        pause: function () { c.pause(); }, resume: function () { c.play(); },
+        seek: function (t) { if (c.pause) c.pause(); if (c.render) c.render(t); },
+        hold: function () { if (c.render) c.render(Infinity); }, audio: main };
+    }
+    if (r.media && typeof r.media.playing === "function") {
+      return { playing: function () { return !!r.media.playing(); }, started: function () { var a = main(); return !!a && a.currentTime > 0; },
+        ended: function () { var a = main(); return !!a && (a.ended || (a.duration && a.currentTime >= a.duration - 0.05)); },
+        pause: function () { if (r.media.playing()) r.media.toggle(); }, resume: function () { if (!r.media.playing()) r.media.toggle(); },
+        seek: function (t) { if (typeof r.seek === "function") r.seek(t); },
+        hold: function () { var a = main(); if (typeof r.seek === "function") r.seek(a && a.duration ? a.duration : 1e6); }, audio: main };
+    }
+    return null;
+  }
+
+  function clipFor(i) {
+    var sc = scenes[i];
+    if (!sc || !sc.highlight || ownClip(sc)) return null;
+    if (!clips[sc.id]) clips[sc.id] = safe(function () { return new Clip(sc, sc._el); }, "clip " + sc.id) || null;
+    return clips[sc.id];
+  }
+
+  /* ------------------------------------------------------------------ navigation */
+  function callScene(id, fn, arg) {
+    var r = registry[id];
+    if (r && typeof r[fn] === "function") safe(function () { r[fn](arg); }, "scene " + id + " " + fn);
+  }
+
+  function finishTransition() {
+    if (transitionTimer) { clearTimeout(transitionTimer); transitionTimer = null; }
+    if (leavingEl) { leavingEl.classList.remove("is-leaving", "rev"); setT(leavingEl, null); leavingEl = null; }
+    $$(".scene.is-entering", stage).forEach(function (e) { e.classList.remove("is-entering", "rev"); setT(e, null); });
+  }
+
+  function setT(el, tr) {
+    ["fade", "slide-left", "push-up", "zoom", "cut"].forEach(function (t) { el.classList.remove("t-" + t); });
+    if (tr) el.classList.add("t-" + tr);
+  }
+
+  // how: "advance" (a Next press), "back" (a Prev press), "jump", "restore"
+  function go(i, step, how) {
+    if (i < 0 || i >= scenes.length) return;
+    finishTransition();
+    var prev = S.idx, prevEl = sceneEl(prev), sc = scenes[i], el = sc._el;
+    step = Math.max(1, Math.min(sc.steps, step || 1));
+    S.pausedByPress = false; S.ready = false;
+    if (prev !== i && prevEl) {
+      var pc = clips[scenes[prev].id]; if (pc) pc.stop();
+      callScene(scenes[prev].id, "leave");
+      stopMedia(prevEl);
+      sceneAudios(scenes[prev]).forEach(function (m) { m.pause(); try { m.currentTime = 0; } catch (e) { /* not loaded */ } });
+      prevEl.classList.remove("is-current", "active");
+      var tr = sc.transition || "fade";
+      if (tr !== "cut" && S.started && !document.documentElement.classList.contains("no-anim")) {
+        leavingEl = prevEl;
+        setT(prevEl, tr); setT(el, tr);
+        prevEl.classList.add("is-leaving");
+        el.classList.add("is-entering");
+        if (how === "back") { prevEl.classList.add("rev"); el.classList.add("rev"); }
+        transitionTimer = setTimeout(finishTransition, 700);
+      }
+    }
+    var entering = prev !== i;
+    S.idx = i; S.step = step;
+    el.classList.add("is-current", "active");
+    el.setAttribute("data-step", String(step));   // CSS-only scenes can style by [data-step="n"] on the section
+    if (entering) S.sceneStart = Date.now();
+    applySteps(el, step);
+    if (entering) {
+      callScene(sc.id, "enter", step);
+      // audio never starts on entry: a scene entered by a jump, a return or a reload waits for a press
+      var oc0 = ownClip(sc);
+      if (oc0 && oc0.playing()) { oc0.pause(); S.pausedByPress = true; }
+    }
+    var c = clipFor(i);
+    if (c) c.setStep(step, entering ? (how === "restore" ? "restore" : "enter") : how);
+    if (!entering) callScene(sc.id, "step", step);
+    if (!entering && how === "advance") learnClipStep(sc, step);
+    if (!entering && how === "back") readyOwnClip(sc, step);
+    updateHash();
+    emitState();
+  }
+
+  function setStep(n, how) { go(S.idx, n, how); }
+
+  function neighbour(dir) {
+    var list = listFor(S.mode === "appendix" ? "appendix" : "main");
+    var k = list.indexOf(S.idx);
+    if (k < 0) return -1;
+    var j = k + dir;
+    return j >= 0 && j < list.length ? list[j] : -1;
+  }
+
+  function startClockIfNeeded() { if (S.clockStart == null) S.clockStart = Date.now(); }
+
+  function next() {
+    if (S.mode === "index") { turnPage(1); return; }
+    if (S.mode === "main") startClockIfNeeded();
+    // a clicker has no Down key: its black button then Right ends a clip that is under way, and lifts the black
+    if (S.black && clipUnderWay()) { endClip(); toggleBlack(); return; }
+    var sc = cur(), c = clipFor(S.idx), oc = c ? null : ownClip(sc);
+    if (c && S.step === 2 && c.press()) { emitState(); return; }
+    var skipped = null;
+    if (oc) {
+      // round 8: Right during play SKIPS (stop, words lit, next step in the same press); a clip READY after a Left
+      // plays again; one paused by the appendix resumes; once the clip has ended, Right advances
+      var k = clipKey("next", { playing: oc.playing(), ready: S.ready, paused: S.pausedByPress && !oc.ended() });
+      if (k === "skip") { skipped = oc; oc.pause(); oc.hold(); sceneAudios(sc).forEach(function (m) { m.pause(); }); }
+      else if (k === "play") { replayOwnClip(sc); emitState(); return; }
+      else if (k === "resume") { oc.resume(); S.pausedByPress = false; emitState(); return; }
+    }
+    if (S.step < sc.steps) {
+      setStep(S.step + 1, "advance");
+      if (skipped) {
+        // the scene's step code may start the next part's sound: a skip lands on it with nothing playing
+        var idx = S.idx, to = S.step;
+        if (sceneAudios(sc).some(function (m) { return !m.paused; })) clipSteps(sc)[to] = true;   // clip k+1 lands READY
+        sceneAudios(sc).forEach(function (m) { m.pause(); });
+        S.pausedByPress = false;
+        if (skipped.playing()) skipped.pause();
+        if (clipSteps(sc)[to]) S.ready = true;
+        setTimeout(function () { if (S.idx === idx && S.step === to) sceneAudios(sc).forEach(function (m) { m.pause(); }); }, 0);
+      }
+      return;
+    }
+    var j = neighbour(1);
+    if (j >= 0) go(j, 1, "advance");
+    else if (NAV && S.mode === "main" && appIdx.length) {
+      // a shared copy reads on past the last main scene into the appendix (A from there returns to that last scene)
+      S.saved = { idx: S.idx, step: S.step }; S.mode = "appendix"; S.sel = 0;
+      go(appIdx[0], 1, "advance");
+    }
+  }
+
+  /* The one rule for a clip press (round 8 contract, briefs/04_skip_contract.md). A scene that runs several clips on its
+     own may call it with the key (an action string or a KeyboardEvent) and its clip's state:
+       Deck.clipKey("next", { playing, ready, paused })  -> "skip" | "play" | "resume" | "advance"
+       Deck.clipKey("down", { playing, started, ended }) -> "hold" | null
+       Deck.clipKey("prev", {})                          -> "back"  (the scene shows the clip READY: dim, silent)
+     Right never pauses. ↓ ends and holds. A clip that has ended on this visit lets Right advance. */
+  function clipKey(key, st) {
+    var a = typeof key === "string" ? key : keyAction(key);
+    st = st || {};
+    if (a === "next") return st.playing ? "skip" : st.ready ? "play" : st.paused ? "resume" : "advance";
+    if (a === "down") return st.playing || (st.started && !st.ended) ? "hold" : null;
+    if (a === "prev") return "back";
+    return null;
+  }
+
+  // Which steps of a scene-drawn clip scene play a clip: learnt when a forward press starts sound on a step, and
+  // step 2 for a scene with one audio clip in its media (s11, s12, s15, s27 play there).
+  var learntSteps = {};
+  function clipSteps(sc) {
+    var l = learntSteps[sc.id] || (learntSteps[sc.id] = {});
+    var n = (sc.media || []).filter(function (m) { return m.type === "audio" && m.clip; }).length;
+    if (n === 1 && l[2] == null) l[2] = true;
+    return l;
+  }
+  function learnClipStep(sc, step) {
+    if (!ownClip(sc)) return;
+    var l = clipSteps(sc);
+    setTimeout(function () { if (cur() === sc && S.step === step && sceneAudios(sc).some(function (m) { return !m.paused; })) l[step] = true; }, 60);
+  }
+  // Left onto a clip step: the scene's step code drew it heard; the engine makes it READY (dim, silent, at 0 s)
+  function readyOwnClip(sc, step) {
+    var oc = ownClip(sc);
+    if (!oc || registry[sc.id].keys || !clipSteps(sc)[step]) return;
+    sceneAudios(sc).forEach(function (m) { m.pause(); try { m.currentTime = 0; } catch (e) { /* not loaded */ } });
+    oc.seek(-1);
+    S.ready = true;
+  }
+  // Right on a READY clip: replay it through the scene's own forward path (its step before, then this step)
+  function replayOwnClip(sc) {
+    var n = S.step;
+    S.ready = false;
+    sceneAudios(sc).forEach(function (m) { m.pause(); try { m.currentTime = 0; } catch (e) { /* not loaded */ } });
+    callScene(sc.id, "step", Math.max(1, n - 1));
+    callScene(sc.id, "step", n);
+    var oc = ownClip(sc);
+    if (oc && !oc.playing()) setTimeout(function () { if (cur() === sc && S.step === n && !oc.playing()) oc.resume(); }, 0);
+  }
+
+  // the current scene's clip has started and not ended (playing or paused by a press)
+  function clipUnderWay() {
+    var sc = cur(), c = clipFor(S.idx);
+    if (c) return S.step === 2 && (c.state === "playing" || c.state === "paused");
+    var oc = ownClip(sc);
+    return !!oc && (oc.playing() || (oc.started() && !oc.ended()));
+  }
+
+  // Down (outside the appendix index): end the clip now and land on the hold step, text lit as at the clip's end.
+  // Works from step 1 too (skips the clip). Does nothing on a scene without a clip or already on the hold step.
+  function endClip() {
+    var sc = cur(), c = clipFor(S.idx), oc = c ? null : ownClip(sc);
+    var hasClip = c || oc || (sc && (sc.media || []).some(function (m) { return m.type === "audio" && m.clip; }));
+    if (!hasClip || S.step >= 3) return;
+    S.pausedByPress = false;
+    var oa = oc && oc.audio(), wasPlaying = !!oc && oc.playing();
+    if (wasPlaying) oc.pause();
+    if (sc.steps >= 3) setStep(3, "advance");
+    else if (c) { c.audio.pause(); c.state = "ended"; c.update(Infinity); }
+    // whatever the scene's own step code did, no sound continues on the hold
+    sceneAudios(sc).forEach(function (m) { m.pause(); });
+    if (oc) {
+      // a scene that repaints on its audio's "pause" event would draw the mid-clip moment over its hold;
+      // once that event has fired, paint the clip's end again (only if still on this scene's hold)
+      var idx = S.idx, paint = function () { if (S.idx === idx && S.step >= Math.min(3, sc.steps)) oc.hold(); };
+      if (wasPlaying && oa) oa.addEventListener("pause", function () { setTimeout(paint, 0); }, { once: true });
+      paint(); setTimeout(paint, 80);
+    }
+    emitState();
+  }
+
+  function prev() {
+    if (S.mode === "index") { turnPage(-1); return; }
+    if (S.step > 1) { setStep(S.step - 1, "back"); return; }
+    var j = neighbour(-1);
+    if (j >= 0) go(j, scenes[j].steps, "back");
+    else if (NAV && S.mode === "appendix" && mainIdx.length) {
+      var m = mainIdx[mainIdx.length - 1];
+      S.mode = "main"; S.saved = null;
+      go(m, scenes[m].steps, "back");
+    }
+  }
+
+  /* ------------------------------------------------------------------ appendix */
+  // The index is laid out when it opens, by measuring its rows: 48 px rows on one page in as many columns as fit;
+  // else 40 px (the appendix floor) on one page; else 48 px over pages (Right/PageDown, Left/PageUp turn them).
+  // A sub-scene (a17a under a17) sits as an indented row under its parent, its shared title prefix dropped.
+  // Nothing below the stage's bottom margin (984); the key hint sits under the last row.
+  var IX = { pages: 1, page: 0, pageOf: [], size: 48, cols: 1 }, IX_BOTTOM = 984, IX_GAP = 64, IX_MIN_COL = 440;
+  function buildIndex() {
+    indexEl.innerHTML = "<h1>Appendix</h1><div class='ix-pager'></div><div class='ix-body'></div><div class='hint'></div>";
+  }
+  function indexRows() {
+    var ids = appIdx.map(function (i) { return scenes[i].id; });
+    var rows = appIdx.map(function (i, k) {
+      var id = scenes[i].id, m = /^(a\d\d)[a-z]$/.exec(id);
+      return { k: k, id: id, title: scenes[i].title || "", parent: m && ids.indexOf(m[1]) >= 0 ? m[1] : null };
+    });
+    // drop "More moments: " when every sibling under the same parent shares it
+    var byParent = {};
+    rows.forEach(function (r) { if (r.parent) (byParent[r.parent] = byParent[r.parent] || []).push(r); });
+    Object.keys(byParent).forEach(function (p) {
+      var sib = byParent[p], pre = /^([^:]{1,40}:\s+)/.exec(sib[0].title);
+      if (pre && sib.every(function (r) { return r.title.indexOf(pre[1]) === 0 && r.title.length > pre[1].length; }))
+        sib.forEach(function (r) { r.title = r.title.slice(pre[1].length); });
+    });
+    rows.forEach(function (r) { r.kids = byParent[r.id] ? byParent[r.id].length : 0; });
+    return rows;
+  }
+  function rowEl(r) {
+    var li = document.createElement("li");
+    li.innerHTML = "<b></b><span></span>";
+    li.firstChild.textContent = r.id;
+    li.lastChild.textContent = r.title;
+    li.dataset.k = r.k;
+    if (r.parent) li.className = "sub";
+    return li;
+  }
+  // rows into columns of height H, cols to a page; a parent and its sub-rows start a new page rather than split, when they fit on one
+  function packIndex(rows, hs, cols, H) {
+    var pages = [[[]]], colH = 0;
+    function newCol() { var pg = pages[pages.length - 1]; if (pg.length < cols) pg.push([]); else pages.push([[]]); colH = 0; }
+    for (var j = 0; j < rows.length; j++) {
+      if (hs[j] > H) return null;
+      var pg = pages[pages.length - 1], col = pg[pg.length - 1];
+      if (rows[j].kids) {
+        var gh = 0; for (var g = j; g <= j + rows[j].kids && g < rows.length; g++) gh += hs[g];
+        var room = (H - colH) + (cols - pg.length) * H, pageEmpty = pg.length === 1 && !col.length;
+        if (gh > room && gh <= cols * H && !pageEmpty) { pages.push([[]]); colH = 0; pg = pages[pages.length - 1]; col = pg[0]; }
+      }
+      if (colH + hs[j] > H && col.length) { newCol(); pg = pages[pages.length - 1]; col = pg[pg.length - 1]; }
+      col.push(j); colH += hs[j];
+    }
+    return pages;
+  }
+  function layoutIndex() {
+    var rows = indexRows(), body = $(".ix-body", indexEl), hint = $(".hint", indexEl), pager = $(".ix-pager", indexEl);
+    var cs = getComputedStyle(indexEl);
+    var W = indexEl.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    var limit = Math.min(IX_BOTTOM - indexEl.offsetTop, indexEl.clientHeight - parseFloat(cs.paddingBottom));
+    var maxCols = Math.max(1, Math.floor((W + IX_GAP) / (IX_MIN_COL + IX_GAP)));
+    function hintText() { return "Up and down to choose, Enter to open, A to go back to the show"; }
+    function measure(size, cols) {
+      var colW = Math.floor((W - (cols - 1) * IX_GAP) / cols);
+      body.innerHTML = "";
+      var ol = document.createElement("ol");
+      ol.style.width = colW + "px"; ol.style.fontSize = size + "px";
+      rows.forEach(function (r) { ol.appendChild(rowEl(r)); });
+      body.appendChild(ol);
+      return { colW: colW, hs: $$("li", ol).map(function (li) { return li.offsetHeight; }) };
+    }
+    function room() {
+      hint.textContent = hintText();
+      var hh = hint.offsetHeight, gap = hh ? parseFloat(getComputedStyle(hint).marginTop) || 0 : 0;
+      return limit - body.offsetTop - hh - gap;
+    }
+    var pick = null;
+    [48, 40].some(function (size) {
+      for (var c = 1; c <= maxCols; c++) {
+        var m = measure(size, c), H = room(), p = packIndex(rows, m.hs, c, H);
+        if (p && p.length === 1) { pick = { size: size, cols: c, colW: m.colW, pages: p }; return true; }
+      }
+      return false;
+    });
+    // pages at 48 px (40 only if a 48 px row cannot fit): the column count that needs the fewest pages (fewer columns on a tie)
+    [48, 40].forEach(function (size) {
+      if (pick) return;
+      for (var c = 1; c <= maxCols && !(pick && pick.pages.length === 1); c++) {
+        var m = measure(size, c), p = packIndex(rows, m.hs, c, room());
+        if (p && (!pick || p.length < pick.pages.length)) pick = { size: size, cols: c, colW: m.colW, pages: p };
+      }
+    });
+    if (!pick) {
+      console.warn("deck: an appendix index row is taller than the stage allows");
+      pick = { size: 40, cols: 1, colW: W, pages: [[rows.map(function (r, j) { return j; })]] };
+    }
+    body.innerHTML = "";
+    IX.pageOf = [];
+    pick.pages.forEach(function (pg, pn) {
+      var pd = document.createElement("div");
+      pd.className = "ix-page"; pd.style.gap = IX_GAP + "px";
+      pg.forEach(function (col) {
+        var ol = document.createElement("ol");
+        ol.style.width = pick.colW + "px"; ol.style.fontSize = pick.size + "px";
+        col.forEach(function (j) { ol.appendChild(rowEl(rows[j])); IX.pageOf[rows[j].k] = pn; });
+        pd.appendChild(ol);
+      });
+      body.appendChild(pd);
+    });
+    IX.pages = pick.pages.length; IX.size = pick.size; IX.cols = pick.cols;
+    hint.textContent = hintText();
+    pager.style.display = IX.pages > 1 ? "" : "none";
+  }
+  function showPage(pn) {
+    IX.page = Math.max(0, Math.min(IX.pages - 1, pn));
+    $$(".ix-page", indexEl).forEach(function (pd, n) { pd.classList.toggle("is-on", n === IX.page); });
+    $(".ix-pager", indexEl).textContent = (IX.page + 1) + " of " + IX.pages + (IX.page + 1 < IX.pages ? ", Right for more" : ", Left to go back");
+  }
+  function showIndex() {
+    indexEl.classList.add("is-on");
+    layoutIndex();
+    showSel();
+  }
+  function showSel() {
+    $$("li", indexEl).forEach(function (li) { li.classList.toggle("is-sel", +li.dataset.k === S.sel); });
+    showPage(IX.pageOf[S.sel] || 0);
+  }
+  function moveSel(d) {
+    if (!appIdx.length) return;
+    S.sel = (S.sel + d + appIdx.length) % appIdx.length;
+    showSel(); emitState();
+  }
+  // Right and Left in the index: turn the page when there are pages (the selection goes to the page's first row), else move the selection
+  function turnPage(d) {
+    if (IX.pages < 2) { moveSel(d); return; }
+    var pn = IX.page + d;
+    if (pn < 0 || pn >= IX.pages) return;
+    S.sel = IX.pageOf.indexOf(pn);
+    showSel(); emitState();
+  }
+  function openIndex() {
+    if (S.mode === "main") {
+      var c = clips[cur() && cur().id];
+      S.saved = { idx: S.idx, step: S.step, clipT: c && c.state !== "idle" && c.state !== "ended" ? c.audio.currentTime : null, clipEnded: c && c.state === "ended" };
+      if (c) { c.audio.pause(); if (c.state === "playing") c.state = "paused"; }
+      var oc = c ? null : ownClip(cur());
+      if (oc && oc.playing()) { oc.pause(); S.pausedByPress = true; }
+      $$("video, audio", sceneEl(S.idx)).forEach(function (m) { m.pause(); });
+    }
+    S.mode = "index";
+    showIndex(); emitState(); updateHash();
+  }
+  function openAppendixScene(k) {
+    if (k < 0 || k >= appIdx.length) return;
+    if (S.mode === "main") openIndex();
+    S.sel = k; S.mode = "appendix";
+    indexEl.classList.remove("is-on");
+    go(appIdx[k], 1, "jump");
+  }
+  function returnToMain() {
+    indexEl.classList.remove("is-on");
+    if (!mainIdx.length) {
+      // an appendix-only deck: A leaves the index for the selected appendix scene
+      if (S.mode === "index") { S.mode = "appendix"; if (S.idx !== appIdx[S.sel]) go(appIdx[S.sel], 1, "jump"); else emitState(); }
+      return;
+    }
+    S.mode = "main";
+    var sv = S.saved || { idx: mainIdx[0], step: 1 };
+    S.saved = null;
+    if (S.idx === sv.idx) {
+      // never left the scene (index overlay only); the clip stays paused where it was
+      emitState(); updateHash(); return;
+    }
+    var sc = scenes[sv.idx], c = sc && sc.highlight ? clipFor(sv.idx) : null;
+    if (c) { c.restoreT = sv.clipT; c.restoreEnded = !!sv.clipEnded; }
+    go(sv.idx, sv.step, "restore");
+  }
+  function toggleAppendix() {
+    if (S.mode === "main") openIndex(); else returnToMain();
+  }
+
+  /* ------------------------------------------------------------------ other actions */
+  function toggleBlack() { S.black = !S.black; blackEl.classList.toggle("is-on", S.black); emitState(); }
+  // The safe-area guide (COS #C18.2): the 120 / 96 px margins and one line with its baseline at 984.
+  // Off by default; G or ?guide shows it. render.js never passes the flag and fails if it is ever on.
+  // Built from markup so the parser puts it in the SVG namespace itself: no namespace URL in the output (rm-deck B16, 19:19Z).
+  function makeGuide() {
+    var d = document.createElement("div");
+    d.innerHTML = '<svg id="guide" viewBox="0 0 1920 1080">' +
+      '<rect x="120" y="96" width="1680" height="888"/>' +
+      '<text x="960" y="984">If you can read this, the edges are safe</text></svg>';
+    guideEl = d.firstChild;
+    stage.appendChild(guideEl);
+    if (/[?&]guide(=|&|$)/.test(location.search)) guideEl.classList.add("is-on");
+  }
+  function toggleGuide() { guideEl.classList.toggle("is-on"); }
+  function toggleFullscreen() {
+    if (document.fullscreenElement) { document.exitFullscreen(); return; }
+    var p = document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();
+    if (p && p.catch) p.catch(function (e) { console.warn("deck: fullscreen refused: " + e.message); });
+  }
+  function openPresenter() {
+    presenterWin = window.open("presenter.html", "liveshow-presenter", "width=1280,height=800");
+    if (presenterWin) Sync.addPeer(presenterWin);
+    setTimeout(emitState, 400);
+  }
+  function startClock() { S.clockStart = Date.now(); emitState(); }
+
+  function mainNumber(n) {
+    // digits name the main scene: 12 -> s12; otherwise the n-th main scene
+    var id = "s" + (n < 10 ? "0" + n : "" + n);
+    if (byId[id] != null && !scenes[byId[id]].appendix) return byId[id];
+    return n >= 1 && n <= mainIdx.length ? mainIdx[n - 1] : -1;
+  }
+
+  function digit(d) {
+    digits = (digits + d).slice(-3);
+    gotoEl.textContent = digits; gotoEl.classList.add("is-on");
+    clearTimeout(digitTimer);
+    digitTimer = setTimeout(clearDigits, 4000);
+  }
+  function clearDigits() { digits = ""; gotoEl.classList.remove("is-on"); }
+  function commitDigits() {
+    if (!digits) { if (S.mode === "index") openAppendixScene(S.sel); return; }
+    var n = parseInt(digits, 10); clearDigits();
+    if (S.mode === "index") { openAppendixScene(appIdx.indexOf(byId["a" + (n < 10 ? "0" + n : n)])); return; }
+    var i = mainNumber(n);
+    if (i < 0) return;
+    if (S.mode === "appendix") { indexEl.classList.remove("is-on"); S.mode = "main"; S.saved = null; }
+    go(i, 1, "jump");
+  }
+
+  function act(a) {
+    if (!S.started) return;
+    if (a.indexOf("digit:") === 0) { digit(a.slice(6)); return; }
+    // a scene with several clips may take next / prev / down itself (round 8): register keys(action) -> true when used
+    if (S.mode !== "index" && !S.black && (a === "next" || a === "prev" || a === "down")) {
+      var r = cur() && registry[cur().id];
+      if (r && typeof r.keys === "function") {
+        if (a === "next" && S.mode === "main") startClockIfNeeded();
+        var used = safe(function () { return r.keys(a); }, "scene " + cur().id + " keys");
+        if (used) { emitState(); return; }
+      }
+    }
+    switch (a) {
+      case "next": next(); break;
+      case "prev": prev(); break;
+      case "down": if (S.mode === "index") moveSel(1); else endClip(); break;
+      case "up": if (S.mode === "index") moveSel(-1); break;
+      case "enter": commitDigits(); break;
+      case "appendix": toggleAppendix(); break;
+      case "index": if (S.mode === "appendix") { S.mode = "index"; showIndex(); emitState(); } break;
+      case "black": toggleBlack(); break;
+      case "fullscreen": toggleFullscreen(); break;
+      case "guide": toggleGuide(); break;
+      case "presenter": openPresenter(); break;
+      case "clock": startClock(); break;
+      case "home":
+      case "end":
+        if (!mainIdx.length) break;
+        if (S.mode !== "main") { indexEl.classList.remove("is-on"); S.mode = "main"; S.saved = null; }
+        go(a === "home" ? mainIdx[0] : mainIdx[mainIdx.length - 1], 1, "jump");
+        break;
+    }
+  }
+
+  /* ------------------------------------------------------------------ state out */
+  function snapshot() {
+    var sc = cur(), c = sc && clips[sc.id];
+    return {
+      type: "state", idx: S.idx, id: sc && sc.id, step: S.step, steps: sc && sc.steps, mode: S.mode,
+      sel: S.sel, selId: appIdx.length ? scenes[appIdx[S.sel]].id : null,
+      saved: S.saved ? { id: scenes[S.saved.idx].id, step: S.saved.step } : null,
+      black: S.black, clockStart: S.clockStart, sceneStart: S.sceneStart,
+      clip: c ? c.info() : ownInfo(sc), sent: Date.now()
+    };
+  }
+  function ownInfo(sc) {
+    var oc = ownClip(sc), a = oc && oc.audio();
+    if (!a) return null;
+    var st = oc.playing() ? "playing" : oc.ended() ? "ended" : a.currentTime > 0 ? "paused" : "idle";
+    var clip = a.getAttribute("data-clip") || "audio";
+    return { clip: clip, t: +a.currentTime.toFixed(2), dur: +(a.duration || 0).toFixed(2), state: st };
+  }
+  function emitState() { updateNav(); if (S.started) Sync.send(snapshot()); }
+
+  /* ------------------------------------------------------------------ share buttons (build.py --nav) */
+  // Back and Next for a copy opened from a link, off in the room copy. A press IS the key: it sends a Left or Right
+  // keydown through the document, so a scene that takes its own keys (s07, s08 and s10 listen on window) sees the same
+  // press as from the keyboard. A focused button takes Space and Enter as its own press, once, before any scene hears
+  // them; a mouse or touch press leaves no focus behind, so the next Space means Next again.
+  var NAV = null, NAV_BAR = 72, NAV_SIDE = 96;
+  var CHEVRON = { prev: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>',
+                  next: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>' };
+  function makeNav() {
+    var el = document.createElement("nav");
+    el.id = "deck-nav"; el.setAttribute("aria-label", "Move through the show");
+    el.innerHTML = '<button type="button" class="nav-back" data-act="prev" aria-label="Back, the previous page">' + CHEVRON.prev + '<span>Back</span></button>' +
+      '<span class="nav-pos" aria-live="polite"></span>' +
+      '<span class="nav-turn">Turn your phone sideways to see the slides larger.</span>' +
+      '<button type="button" class="nav-next" data-act="next" aria-label="Next page"><span>Next</span>' + CHEVRON.next + '</button>';
+    document.body.insertBefore(el, document.body.firstChild);   // first in the tab order: Back, then Next
+    document.documentElement.classList.add("has-nav");
+    NAV = { el: el, back: $(".nav-back", el), next: $(".nav-next", el), pos: $(".nav-pos", el), keyAt: 0 };
+    // a mouse press never takes focus; the click itself does the work
+    el.addEventListener("mousedown", function (e) { if (e.target.closest("button")) e.preventDefault(); });
+    el.addEventListener("click", function (e) {
+      var b = e.target.closest("button");
+      if (!b || b.disabled) return;
+      if (e.detail === 0 && Date.now() - NAV.keyAt < 500) return;   // the browser's own click for a key already taken
+      navPress(b);
+      if (e.detail > 0) b.blur();
+    });
+    // in a shared copy the appendix index rows open on a click or tap too
+    indexEl.addEventListener("click", function (e) {
+      var li = e.target.closest("li");
+      if (li && S.mode === "index") openAppendixScene(+li.dataset.k);
+    });
+  }
+  function navPress(b) {
+    var k = b.getAttribute("data-act") === "next" ? "ArrowRight" : "ArrowLeft";
+    document.dispatchEvent(new KeyboardEvent("keydown", { key: k, code: k, bubbles: true, cancelable: true }));
+  }
+  // registered on window, capturing, when this file runs in <head>: before any scene script adds its own key listener
+  function navKey(e) {
+    var b = NAV && e.target && e.target.closest && e.target.closest("#deck-nav button");
+    if (!b || !(e.key === " " || e.key === "Spacebar" || e.key === "Enter") || e.metaKey || e.ctrlKey || e.altKey) return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    NAV.keyAt = Date.now();
+    if (!b.disabled) navPress(b);
+  }
+  window.addEventListener("keydown", navKey, true);
+  // whether a press would move anything: Back is off on the first page, Next on the last
+  function canMove(dir) {
+    if (S.mode === "index") return IX.pages > 1 ? (dir > 0 ? IX.page < IX.pages - 1 : IX.page > 0) : appIdx.length > 1;
+    var sc = cur();
+    if (!sc) return false;
+    if (dir < 0) return S.step > 1 || neighbour(-1) >= 0 || (S.mode === "appendix" && mainIdx.length > 0);
+    return S.step < sc.steps || neighbour(1) >= 0 || (S.mode === "main" && appIdx.length > 0) || S.ready || clipUnderWay();
+  }
+  // the scene's place among the main scenes (a cover is not counted); in the appendix, "Appendix" over its page count
+  // (nav-qa IDEA 2), and "Appendix" alone in the index
+  function navLabel() {
+    if (S.mode === "index") return ["Appendix", ""];
+    if (S.mode === "appendix") { var a = appIdx.indexOf(S.idx); return ["Appendix", a < 0 ? "" : (a + 1) + " / " + appIdx.length]; }
+    var list = mainIdx.filter(function (i) { return scenes[i].id !== "cover"; }), k = list.indexOf(S.idx);
+    return ["", k < 0 ? "" : (k + 1) + " / " + list.length];
+  }
+  function updateNav() {
+    if (!NAV) return;
+    NAV.back.disabled = !canMove(-1);
+    NAV.next.disabled = !canMove(1);
+    var t = navLabel(), key = t.join("|");
+    if (NAV.pos.getAttribute("data-k") !== key) {
+      NAV.pos.setAttribute("data-k", key);
+      NAV.pos.innerHTML = (t[0] ? "<small></small>" : "") + "<span></span>";
+      if (t[0]) NAV.pos.firstChild.textContent = t[0];
+      NAV.pos.lastChild.textContent = t[1];
+    }
+  }
+
+  function updateHash() {
+    var sc = cur();
+    if (!sc) return;
+    var h = "#" + sc.id + (S.step > 1 ? "/" + S.step : "");
+    if (location.hash !== h) { try { history.replaceState(null, "", h); } catch (e) { /* file:// may refuse */ } }
+  }
+
+  /* ------------------------------------------------------------------ start */
+  // fonts load lazily and scenes start hidden, so the first heading would draw in a fallback and swap on screen;
+  // ask for every face the show uses before the first scene
+  var FACES = ["400 64px Fredoka", "500 64px Fredoka", "600 64px Fredoka", "700 64px Fredoka",
+               "400 48px Poppins", "500 48px Poppins", "600 48px Poppins", "400 64px 'Noto Nastaliq Urdu'"];
+  function preloadFonts() {
+    if (!document.fonts || !document.fonts.load) return;
+    FACES.forEach(function (f) {
+      document.fonts.load(f, /Nastaliq/.test(f) ? "\u0627\u0628\u067E" : "Ab1").catch(function () { /* reported by render.js */ });
+    });
+  }
+
+  // Warm every clip at load: each audio gets preload="auto" and one load(), so its first play does not wait on the
+  // decoder (a cold first play lagged about 240 ms in studio-a's scenes, which create their player on the press).
+  var durations = {};
+  function preloadClips() {
+    scenes.forEach(function (sc, i) {
+      (sc.media || []).forEach(function (m) {
+        if (m.type !== "audio" || !m.clip) return;
+        if (sc.highlight && !registry[sc.id]) clipFor(i); else if (!$("audio[data-clip='" + m.clip + "']", sc._el)) audioFor(m.clip);
+      });
+    });
+    $$("audio, video").forEach(function (a) {
+      if (a.dataset.warm === "1") return;
+      a.dataset.warm = "1";
+      a.preload = "auto";
+      var key = a.getAttribute("data-clip") || a.getAttribute("src");
+      a.addEventListener("loadedmetadata", function () { durations[key] = +a.duration.toFixed(2); }, { once: true });
+      try { a.load(); } catch (e) { /* reported on play */ }
+    });
+  }
+
+  function start() {
+    if (S.started) return;
+    preloadFonts();
+    M = readJSON("deck-manifest");
+    if (!M) { console.error("deck: no manifest"); return; }
+    viewport = $("#viewport"); stage = $("#stage");
+    blackEl = $("#black"); indexEl = $("#appendix-index"); gotoEl = $("#goto");
+    scenes = M.scenes;
+    scenes.forEach(function (sc, i) {
+      byId[sc.id] = i;
+      sc._el = $(".scene[data-id='" + sc.id + "']", stage);
+      if (!sc._el) console.error("deck: no <section class=\"scene\" data-id=\"" + sc.id + "\">");
+      (sc.appendix ? appIdx : mainIdx).push(i);
+    });
+    buildIndex();
+    makeGuide();
+    if (M.nav && !/[?&]nonav(=|&|$)/.test(location.search)) makeNav();
+    preloadClips();
+    fit();
+    window.addEventListener("resize", fit);
+    document.addEventListener("keydown", function (e) {
+      var a = keyAction(e);
+      if (!a) return;
+      e.preventDefault();
+      act(a);
+    });
+    Sync.on(function (msg) {
+      if (msg.type === "cmd" && msg.action) act(msg.action);
+      if (msg.type === "hello") emitState();
+    });
+    // start position: #s12 or #s12/2 (reload-safe); otherwise the first main scene
+    var m = /^#([sa]\d{2}[a-z]?|cover)(?:\/(\d+))?$/.exec(location.hash || "");
+    // an appendix-only deck (a test build) starts on its first appendix scene
+    var i0 = m && byId[m[1]] != null ? byId[m[1]] : (mainIdx.length ? mainIdx[0] : appIdx[0]);
+    if (scenes[i0] && scenes[i0].appendix) { S.saved = mainIdx.length ? { idx: mainIdx[0], step: 1 } : null; S.mode = "appendix"; S.sel = appIdx.indexOf(i0); }
+    go(i0, m && m[2] ? parseInt(m[2], 10) : 1, "jump");
+    S.started = true;
+    emitState();
+    setInterval(function () { var oc = ownClip(cur()); if (oc && oc.playing()) emitState(); }, 300);
+  }
+
+  var Deck = {
+    register: function (id, api) {
+      registry[id] = api || {};
+      // a scene script that runs after the scene became current (inline modules run late) still gets enter()
+      if (S.started && cur() && cur().id === id) callScene(id, "enter", S.step);
+    },
+    start: start,
+    act: act,
+    next: next, prev: prev,
+    go: function (id, step) { var i = byId[id]; if (i != null) { S.mode = scenes[i].appendix ? "appendix" : "main"; if (S.mode === "main") { S.saved = null; indexEl.classList.remove("is-on"); } go(i, step || 1, "jump"); } },
+    index: function () { return { pages: IX.pages, page: IX.page, size: IX.size, cols: IX.cols, entries: appIdx.length }; },
+    indexPage: function (pn) { if (S.mode === "index") showPage(pn); return IX.page; },
+    openAppendix: function (id) { var k = appIdx.indexOf(byId[id]); if (k >= 0) openAppendixScene(k); },
+    state: function () { return snapshot(); },
+    clip: function () { return clips[cur() && cur().id] || null; },
+    durations: function () { return durations; },
+    endClip: function () { endClip(); },
+    clipKey: clipKey,
+    ready: function () { return !!S.ready; },
+    guide: function () { return !!(guideEl && guideEl.classList.contains("is-on")); },
+    scenes: function () { return scenes.map(function (s) { return { id: s.id, steps: s.steps, appendix: s.appendix, highlight: !!s.highlight, clip: (s.media || []).some(function (m) { return m.type === "audio" && m.clip; }) }; }); },
+    // render and test hooks: show a clip step at time t without playing
+    words: words,
+    audio: audioFor,
+    owned: function () { return !!ownClip(cur()); },
+    clipId: function () { var m = ((cur() || {}).media || []).filter(function (x) { return x.type === "audio" && x.clip; })[0]; return m ? m.clip : null; },
+    seekClip: function (t) { var oc = ownClip(cur()); if (oc) { oc.seek(t); return true; } var c = clips[cur() && cur().id]; if (!c) return false; c.audio.pause(); c.state = "paused"; try { c.audio.currentTime = t; } catch (e) { /* not loaded */ } c.update(t); return true; },
+    onLit: null,
+    keyAction: keyAction,
+    Sync: Sync,
+    ROLES: ROLES
+  };
+  window.Deck = Deck;
+
+  // deck.js sits in <head>, so wait for the body; the presenter page has no #stage and never starts
+  function boot() { if (document.getElementById("stage")) start(); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else setTimeout(boot, 0);
+})();
+</script>
+<script>
+(function () {
+  "use strict";
+  var M = JSON.parse(document.getElementById("deck-manifest").textContent);
+  var scenes = M.scenes, byId = {};
+  scenes.forEach(function (s, i) { byId[s.id] = i; });
+  var st = null, lastHeard = 0, renderedKey = "", digits = "";
+  function $(id) { return document.getElementById(id); }
+  function mmss(ms) {
+    if (ms == null || ms < 0) ms = 0;
+    var s = Math.floor(ms / 1000);
+    return Math.floor(s / 60) + ":" + ("0" + (s % 60)).slice(-2);
+  }
+  function esc(t) { return String(t).replace(/[&<>]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; }); }
+
+  function noteHtml(sc, step) {
+    var n = sc.note || {};
+    var cues = (n.cues || []).map(esc).join("<br>");
+    var press = 0;
+    var body = esc(n.body || "(no note)").split("\n").map(function (line) {
+      if (line.trim() === "(press)") { press++; return "<span class='press" + (press < step ? " done" : "") + "'>press " + press + "</span>"; }
+      if (/^\s*\[[^\]]*in your own words/i.test(line)) {
+        // the label (what the moment is for) in the note's large type, the quoted brief under it at two thirds
+        var t = line.trim().replace(/^\[/, "").replace(/\]\s*$/, ""), k = t.indexOf("From your brief");
+        var lbl = k < 0 ? t : t.slice(0, k).trim(), q = k < 0 ? "" : t.slice(k).trim();
+        return "<span class='own'><span class='own-l'>" + lbl + "</span>" + (q ? "<span class='own-q'>" + q + "</span>" : "") + "</span>";
+      }
+      return line;
+    }).join("\n");
+    return (cues ? "<div class='cues'>" + cues + "</div>" : "") + body +
+      (n.sources ? "<div class='src'>Sources: " + esc(n.sources) + "</div>" : "");
+  }
+
+  function nextScene(i) {
+    var sc = scenes[i];
+    if (!sc) return null;
+    for (var j = i + 1; j < scenes.length; j++) if (scenes[j].appendix === sc.appendix) return scenes[j];
+    return null;
+  }
+
+  function render() {
+    if (!st) return;
+    var sc = scenes[st.idx];
+    if (!sc) return;
+    var key = st.idx + "/" + st.step + "/" + st.mode + "/" + st.sel;
+    if (key !== renderedKey) {
+      renderedKey = key;
+      $("pid").textContent = sc.id + " · " + sc.chapter;
+      $("ptitle").textContent = sc.title;
+      $("pstep").textContent = "step " + st.step + " of " + sc.steps;
+      $("pmode").textContent = st.mode === "index" ? "appendix index: " + (st.selId || "") : "appendix";
+      $("pmode").classList.toggle("on", st.mode !== "main");
+      $("pnote").innerHTML = noteHtml(sc, st.step);
+      $("pend").classList.toggle("on", !!sc.highlight || (sc.media || []).some(function (m) { return m.type === "audio" && m.clip; }));
+      var nx = st.mode === "index" ? scenes[byId[st.selId]] : nextScene(st.idx);
+      $("pnext").textContent = nx ? nx.id + " · " + nx.title : "(end)";
+      $("pnextl").textContent = nx && nx.note ? nx.note.first_line || "" : "";
+      // the part he is saying now starts at the top, so an own-words label is never scrolled away
+      var done = $("pnote").querySelectorAll(".press.done");
+      if (done.length) done[done.length - 1].scrollIntoView({ block: "start" }); else $("pnote").scrollTop = 0;
+    }
+    document.body.classList.toggle("black-on", !!st.black);
+  }
+
+  function clockTick() {
+    if (st) {
+      var now = Date.now();
+      $("pclock").firstChild.nodeValue = st.clockStart ? mmss(now - st.clockStart) : "0:00";
+      var sc = scenes[st.idx], el = now - st.sceneStart, dur = sc ? sc.duration_s * 1000 : 0;
+      var pct = dur ? el / dur : 0;
+      var se = $("pscene");
+      se.firstChild.nodeValue = mmss(el) + " / " + mmss(dur);
+      se.classList.toggle("amber", !sc.appendix && pct >= 1 && pct < 1.25);
+      se.classList.toggle("red", !sc.appendix && pct >= 1.25);
+      var c = st.clip;
+      $("pclip").classList.toggle("on", !!c);
+      if (c) {
+        var t = c.state === "playing" ? c.t + (now - st.sent) / 1000 : c.t;
+        t = Math.min(t, c.dur || t);
+        $("pclipbar").style.width = (c.dur ? 100 * t / c.dur : 0) + "%";
+        $("pcliplbl").textContent = "clip " + c.clip + " · " + c.state + " · " + mmss(t * 1000) + " / " + mmss(c.dur * 1000);
+      }
+      var ok = now - lastHeard < 5000;
+      $("plink").textContent = ok ? "link: on" + (Deck.Sync.hasChannel() ? " (channel)" : " (window)") : "link: lost, press any key in the show window";
+      $("plink").classList.toggle("off", !ok);
+    }
+    requestAnimationFrame(clockTick);
+  }
+
+  Deck.Sync.on(function (msg) {
+    if (msg.type === "state") { st = msg; lastHeard = Date.now(); render(); }
+    if (msg.type === "warn") { $("pwarn").textContent = msg.text; setTimeout(function () { $("pwarn").textContent = ""; }, 8000); }
+  });
+  // heartbeat so the link indicator stays honest while nothing moves
+  setInterval(function () { Deck.Sync.send({ type: "hello" }); }, 2000);
+
+  document.addEventListener("keydown", function (e) {
+    var a = Deck.keyAction(e);
+    if (!a) return;
+    e.preventDefault();
+    if (a === "presenter") return;
+    if (a === "fullscreen") {
+      if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen().catch(function () {});
+      return;
+    }
+    Deck.Sync.send({ type: "cmd", action: a });
+  });
+
+  // which copy is on the laptop: the manifest's build time, UTC to the minute (qa-run IDEA 2)
+  var bt = /T(\d\d):(\d\d)/.exec(M.built_at || "");
+  $("pbuild").textContent = bt ? "build " + bt[1] + ":" + bt[2] + "Z" : "";
+  Deck.Sync.send({ type: "hello" });
+  requestAnimationFrame(clockTick);
+  window.__presenter = { state: function () { return st; }, title: function () { return $("ptitle").textContent; } };
+})();
+</script>
+</body>
+</html>
