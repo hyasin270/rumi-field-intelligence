@@ -349,7 +349,7 @@ table.nr.co td{text-align:right;font-variant-numeric:tabular-nums;white-space:no
     <li><a href="#challenge">Jugnu’s Challenge</a><span>Who played, how they did, words a minute</span></li>
     <li><a href="#changes">What changed</a><span>Each change that reached children, by day</span></li>
     <li><a href="#newret">New and returning</a><span>Teachers and children, week by week since 6 September</span></li>
-    <li><a href="#cohorts">Who keeps coming back</a><span>Teachers who say yes again, and children who play again, week by week</span></li>
+    <li><a href="#cohorts">Who keeps coming back</a><span>Teachers and children who come back, week by week, on the WhatsApp quiz and on the web quiz page</span></li>
     <li><a href="#funnels">Two funnels</a><span>Teachers: offer to a child opening it. Children: first quiz to a friend joining</span></li>
     <li><a href="#scale">How far it has reached</a><span>The school map, by sector</span></li>
     <li><a href="#repeat">The same quiz again</a><span>Children who come back to a quiz they finished</span></li>
@@ -524,29 +524,37 @@ that cost nothing: replies a business sends inside a conversation the person has
 
 <section id="cohorts">
   <h2>Who keeps coming back</h2>
-  <p class="prose">These are standard weekly retention curves. Weeks run Monday to Sunday. Everyone starts in week 0, the
-    week of their first quiz, so every line begins at 100%. Each later point is the share of that group who came back at least once in
-    that week. Each thin line is one group of people whose first week was the same; the bold line is the average across all of them,
-    weighted by group size. Only finished weeks are drawn, so no point moves once it is on the chart; the week now running ends on
-    Sunday 1 Nov.</p>
+  <p class="prose">These are weekly retention curves, and the tables behind them. Weeks run Monday to Sunday, Pakistan time.
+    Everyone starts in week 0, the week of their first quiz, so every line and every row begins at 100%. Each later point is the
+    share of that group who came back at least once in that week. People are split by era: the WhatsApp quiz until 6 October, and
+    the web quiz page from 7 October. Only finished weeks are drawn, so no number moves once it is on a chart; the week now running
+    ends on Sunday 1 Nov.</p>
   <h3>Teachers <span class="unit">unit: one teacher</span></h3>
   <ul class="defs">
-    <li><b>A teacher returns</b> in a week if, on any day of it, they say yes to the afternoon quiz offer and get the quiz link.
-      Nothing else counts.</li>
+    <li><b>A teacher comes back</b> in a week if, on any day of it, they say yes to a lesson quiz and get its class link. A
+      teacher’s era is the era of their first link.</li>
   </ul>
-  <figure class="chart"><picture><source media="(max-width:640px)" srcset="charts/ret_teachers_weekly_m.png"><img src="charts/ret_teachers_weekly.png" alt="Teachers by the week of their first yes: share who said yes to a quiz offer and got the link again in each later week, with the average and the share offered a quiz" loading="lazy"></picture></figure>
-  <p class="prose">632 teachers have said yes to a quiz and got the link since 25 September.
-    13% of them did so again the week after their first, 10% in week 2, 9.1% in week 3, 8.2% in week 4. Part of that is how often they are asked: offers go out only on school days and only after a lesson plan, so
-    in weeks 1, 2, 3 and 4 only 41%, 29%, 30% and 29% of these teachers were offered a quiz at all (the orange dashed line). A teacher cannot say yes in a
-    week no offer reaches them.</p>
-  <h3>Children on the web quiz page <span class="unit">unit: one child</span></h3>
+  <figure class="chart"><picture><source media="(max-width:640px)" srcset="charts/ret_teachers_eras_m.png"><img src="charts/ret_teachers_eras.png" alt="Teachers by era: share who took a quiz link again in each week after their first, WhatsApp era against the web quiz era, with how many teachers each point rests on" loading="lazy"></picture></figure>
+  <p class="prose">1,550 teachers took their first quiz link in the WhatsApp era, from 7 September, and
+    177 since the web quiz page opened. 31% of the WhatsApp-era teachers took another link the week after their first, against 18% of the web-era teachers. By week 4, 17% of WhatsApp-era teachers were still taking a link that week; no web-era group has reached week 4 yet. The number under each point is how many teachers it
+    rests on; the web line rests on far fewer, so it moves more from week to week. The gap is not a clean measure of the web page
+    alone: teachers who started in October came later to the quiz than September’s, and quiz offers to teachers fell from about 1,360 a week in September to 535 in the week of 19 Oct.</p>
+  <figure class="chart"><picture><source media="(max-width:640px)" srcset="charts/ret_teachers_heatmap_m.png"><img src="charts/ret_teachers_heatmap.png" alt="Teachers by the week of their first quiz link: share of each starting week who took a link again in each later week; the switch week is outlined in red" loading="lazy"></picture></figure>
+  <p class="prose">Each row is one starting week. The red outline marks the week the quiz moved to the web page, 5–11 October. Every September starting week dropped in that week.</p>
+  <h3>Children <span class="unit">unit: one child</span></h3>
   <ul class="defs">
-    <li><b>A child returns</b> in a week if they start a quiz on the web quiz page on any day of it. One child is their student
-      record, or the phone and browser when a sitting has no student record. The page opened on Tuesday 7 October.</li>
+    <li><b>A child comes back</b> in a week if they start a quiz on any day of it. On the WhatsApp quiz one child is their student
+      record. On the web quiz page it is their student record, with records the same phone made again under the same typed name
+      counted as one child. The two routes share no key, so a child is followed only on the route they started on: WhatsApp-era
+      children up to 4 Oct, the last full week of
+      the chat quiz.</li>
   </ul>
-  <figure class="chart"><picture><source media="(max-width:640px)" srcset="charts/ret_children_web_weekly_m.png"><img src="charts/ret_children_web_weekly.png" alt="Children by the week of their first web quiz: share who started a quiz on the web page again in each later week, with the average" loading="lazy"></picture></figure>
-  <p class="prose">10,807 children have started a quiz on the web page since 7 October. 16% of them started a web quiz again the week after their first (1,293 of the 8,134 whose next week has finished).
-     Data to 25 Oct.</p>
+  <figure class="chart"><picture><source media="(max-width:640px)" srcset="charts/ret_children_eras_m.png"><img src="charts/ret_children_eras.png" alt="Children by era: share who started a quiz again in each week after their first, WhatsApp era against the web quiz page, with how many children each point rests on" loading="lazy"></picture></figure>
+  <p class="prose">37% of WhatsApp-era children started another quiz the week after their first, against 20% on the web quiz page. Week 4 cannot be measured for WhatsApp-era children: the chat quiz closed before the oldest
+    September group reached it, and a child who moved to the web page started a new record there.</p>
+  <figure class="chart"><picture><source media="(max-width:640px)" srcset="charts/ret_children_heatmap_m.png"><img src="charts/ret_children_heatmap.png" alt="Children by the week of their first quiz: share of each starting week who started a quiz again in each later week; the switch week is outlined in red and weeks after the chat quiz closed are hatched" loading="lazy"></picture></figure>
+  <p class="prose">The four August rows are children who played the video-library quizzes before the lesson quiz began on 7 September. Hatched
+    cells are weeks after the chat quiz closed. Data to 25 Oct.</p>
 </section>
 
 <section id="funnels">
