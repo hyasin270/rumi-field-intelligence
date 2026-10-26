@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>Stakeholder Map</title>
+<style id="gate-css">
+  #gate{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0f2136;margin:0;
+    font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif;color:#13202f}
+  #gate form{background:#fff;border-radius:14px;padding:28px 26px;width:min(380px,calc(100vw - 32px));box-sizing:border-box;
+    box-shadow:0 12px 40px rgba(0,0,0,.35)}
+  #gate h1{font-size:21px;margin:0 0 4px}
+  #gate p{margin:0 0 18px;color:#556;font-size:14px}
+  #gate input[type=password]{width:100%;box-sizing:border-box;font-size:16px;padding:11px 12px;border:1px solid #c7ccd4;
+    border-radius:9px;margin-bottom:12px}
+  #gate label{display:flex;gap:8px;align-items:center;font-size:14px;color:#445;margin-bottom:16px}
+  #gate button{width:100%;font-size:16px;font-weight:600;padding:11px;border:0;border-radius:9px;background:#0f2136;color:#fff;cursor:pointer}
+  #gate button[disabled]{opacity:.6;cursor:wait}
+  #gate .msg{min-height:20px;margin-top:12px;font-size:14px;color:#b42318}
+  #gate .foot{margin-top:14px;font-size:12px;color:#778}
+  body{margin:0}
+</style>
+</head>
+<body>
+<div id="gate">
+  <form id="f" autocomplete="on">
+    <h1>Stakeholder Map</h1>
+    <p>Taleemabad internal. Enter the team password.</p>
+    <input id="pw" type="password" autocomplete="current-password" placeholder="Password" aria-label="Password" autofocus>
+    <label><input id="rem" type="checkbox"> Remember on this device</label>
+    <button id="go" type="submit">Open the map</button>
+    <div id="msg" class="msg" role="alert"></div>
+    <div class="foot" id="built"></div>
+  </form>
+</div>
+<script>
+(function () {
+  const META = {"salt": "9WA4eDGuTmcIQyjt7SB7kg==", "iter": 600000, "built": "2026-10-26T10:42Z"};
+  const KEY_SLOT = 'stkmap-key-' + META.salt.slice(0, 8);
+  const $ = id => document.getElementById(id);
+  $('built').textContent = 'Data built ' + META.built;
+  const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+  const toB64 = buf => btoa(String.fromCharCode(...new Uint8Array(buf)));
+
+  async function derive(pw) {
+    const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+    return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64(META.salt), iterations: META.iter, hash: 'SHA-256' },
+      base, { name: 'AES-GCM', length: 256 }, true, ['decrypt']);
+  }
+  async function open(key, url) {
+    const res = await fetch(url, { cache: 'no-cache' });
+    if (!res.ok) throw new Error('fetch ' + url + ' ' + res.status);
+    const buf = new Uint8Array(await res.arrayBuffer());
+    const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: buf.slice(0, 12) }, key, buf.slice(12));
+    const text = await new Response(new Blob([plain]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+    return JSON.parse(text);
+  }
+  function blobs(files) {
+    const m = {};
+    for (const [p, data] of Object.entries(files)) m[p] = URL.createObjectURL(new Blob([b64(data)], { type: p.endsWith('.png') ? 'image/png' : 'image/jpeg' }));
+    return m;
+  }
+  function runScript(text) { const s = document.createElement('script'); s.textContent = text; document.body.appendChild(s); }
+
+  async function start(key) {
+    const core = await open(key, 'core.bin');
+    const urls = blobs(core.files);
+    document.getElementById('gate-css').remove();
+    document.body.innerHTML = '';
+    runScript(core.data);
+    const D = window.STKMAP_DATA, waiting = [];
+    const fix = rec => {
+      for (const k of Object.keys(rec)) {
+        const v = rec[k];
+        if (typeof v !== 'string' || !/^data\/(photos|logos)\//.test(v)) continue;
+        if (urls[v]) rec[k] = urls[v];
+        else if (/-400\.jpg$/.test(v)) { waiting.push([rec, k, v]); rec[k] = urls[v.replace(/-400\.jpg$/, '-160.jpg')] || ''; }
+      }
+    };
+    (D.people || []).forEach(fix); (D.orgs || []).forEach(fix);
+    const st = document.createElement('style'); st.textContent = core.css; document.head.appendChild(st);
+    document.body.innerHTML = core.body;
+    window.__T0 = performance.now();
+    core.scripts.forEach(runScript);
+    if (core.draft) {
+      const b = document.createElement('div');
+      b.textContent = 'Draft, ' + core.built + ': facts not yet verified. Check before you rely on a card.';
+      b.style.cssText = 'position:fixed;left:50%;bottom:10px;transform:translateX(-50%);z-index:9999;background:#fff4d6;color:#5c3c00;' +
+        'border:1px solid #e8c56a;border-radius:8px;padding:6px 12px;font:13px/1.3 -apple-system,Segoe UI,Arial,sans-serif;' +
+        'box-shadow:0 2px 10px rgba(0,0,0,.15);max-width:calc(100vw - 32px);text-align:center;pointer-events:none';
+      document.body.appendChild(b);
+    }
+    open(key, 'big.bin').then(big => {
+      const bigUrls = blobs(big.files);
+      waiting.forEach(([rec, k, v]) => { if (bigUrls[v]) rec[k] = bigUrls[v]; });
+    }).catch(() => {});
+  }
+
+  async function auto() {
+    const saved = sessionStorage.getItem(KEY_SLOT) || localStorage.getItem(KEY_SLOT);
+    if (!saved) return;
+    try {
+      const key = await crypto.subtle.importKey('raw', b64(saved), 'AES-GCM', true, ['decrypt']);
+      await start(key);
+    } catch (e) { sessionStorage.removeItem(KEY_SLOT); localStorage.removeItem(KEY_SLOT); }
+  }
+
+  $('f').addEventListener('submit', async ev => {
+    ev.preventDefault();
+    const pw = $('pw').value.trim(); if (!pw) return;
+    const go = $('go'), msg = $('msg'), remember = $('rem').checked;
+    go.disabled = true; msg.textContent = ''; go.textContent = 'Opening…';
+    let key;
+    try { key = await derive(pw); } catch (e) { msg.textContent = 'This browser cannot open the map (no Web Crypto).'; return; }
+    const raw = toB64(await crypto.subtle.exportKey('raw', key));
+    try {
+      await start(key);
+    } catch (e) {
+      if (!document.body.contains(go)) throw e;          // the map itself failed after unlocking: surface it
+      go.disabled = false; go.textContent = 'Open the map';
+      msg.textContent = /fetch/.test(String(e && e.message)) ? 'Could not load the map. Check your connection and try again.'
+        : 'That password did not work.';
+      return;
+    }
+    sessionStorage.setItem(KEY_SLOT, raw);
+    if (remember) localStorage.setItem(KEY_SLOT, raw);
+  });
+  auto();
+})();
+</script>
+</body>
+</html>
