@@ -1,357 +1,202 @@
 {
  "title": "FICO v2: what the pilot showed",
- "built_at": "2026-10-25T05:09:47Z",
+ "built_at": "2026-10-26T14:53:50Z",
  "stage": [
   1920,
   1080
  ],
  "scenes": [
   {
-   "id": "s01",
-   "title": "Same lesson. Same score.",
-   "chapter": "open",
+   "id": "p01",
+   "title": "The question",
+   "chapter": "question",
    "duration_s": 45,
-   "appendix": false,
-   "steps": 5,
-   "transition": "cut",
-   "sensitive": false,
-   "owner": "sg-open",
-   "status": "built",
-   "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "45 s",
-    "cues": [
-     "press 1: \"lesson.\" joins \"Same\"",
-     "press 2: the second \"Same\" appears",
-     "press 3: \"score.\" appears, in the teacher's colour",
-     "press 4: the rule draws and the chorus line appears: \"whoever observes, however they observe\"",
-     "press 5: moves to s02"
-    ],
-    "body": "[Let the room settle. Say each word as it lands.]\nSame.\n(press)\nLesson.\n(press)\nSame.\n(press)\nScore.\n(press)\nWhen a teacher is observed, their score should mean the same thing whoever observes, however they observe. One coach or another; a coach in the room or a recording on a phone.\nThis bar is on the form and on the evidence. It is never a bar on a coach. When two honest observers of one lesson disagree, that tells us something useful about the form.\nSay it with me. Same lesson. Same score.\n(press)",
-    "first_line": "Same."
-   }
-  },
-  {
-   "id": "s02",
-   "title": "The teacher at the centre",
-   "chapter": "open",
-   "duration_s": 30,
    "appendix": false,
    "steps": 2,
    "transition": "cut",
    "sensitive": false,
-   "owner": "sg-open",
+   "owner": "plain-build-a",
    "status": "built",
    "media": [],
    "highlight": null,
    "note": {
-    "planned": "30 s (own words; budget two to three times the label, never cut)",
+    "planned": "45 s",
     "cues": [
-     "press 1: \"120 teachers observed with the new form, 5 to 24 October\" and \"each gets a level on 17 rows; it should not depend on who observed\" appear",
-     "press 2: moves to s03"
+     "press 1: under the strip of 20 squares (\"5 October\", \"24 October\", \"Each square is one day.\"), the answer: \"Scores now come from what the coach saw; it is not finished, and we give it to more coaches in steps.\"",
+     "press 2: moves to p02"
     ],
-    "body": "This is who the score belongs to: a teacher in a government school in Islamabad, who gets a level on each of 17 rows after one lesson.\n(press)\nIn this pilot, 120 teachers were observed with the new form (240 visits, every account, 5 to 24 October).\n[Presenter, in your own words: why the score is the teacher's, and why it must not depend on who held the phone. From the 1 October call: \"coaching reports are not fair, they're not accurate\"]\n(press)",
-    "first_line": "This is who the score belongs to: a teacher in a government school in Islamabad, who gets a level on each of 17 rows after one lesson."
+    "body": "**Coaches have scored lessons a new way for three weeks; here is what happened.**\nThree weeks ago coaches stopped checking a form Rumi filled in, and started writing what they saw. So, did it work, and what do we do now?\n(press)\nThe short answer: scores now come from what the coach saw; it is not finished, and we give it to more coaches in steps. The next nine screens show why, one answer each. Every number behind them is in the appendix.\n[Presenter, in your own words: why a fair score matters to the teacher who is observed next week.]\n(press)",
+    "first_line": "**Coaches have scored lessons a new way for three weeks; here is what happened.** Three weeks ago coaches stopped checking a form Rumi filled in, and started writing what they saw."
    }
   },
   {
-   "id": "s03",
-   "title": "The form arrived filled in",
+   "id": "p02",
+   "title": "Why we changed",
    "chapter": "why",
-   "duration_s": 40,
+   "duration_s": 60,
    "appendix": false,
-   "steps": 3,
+   "steps": 4,
    "transition": "cut",
    "sensitive": false,
-   "owner": "sg-why",
+   "owner": "plain-build-a",
    "status": "built",
    "media": [
     {
      "type": "image",
-     "src": "assets/out/published-gen/scenes/s03/stills/old_form.png",
+     "src": "assets/out/published-gen/scenes/p02/stills/old_form_plain.png",
      "autoplay": false
     }
    ],
    "highlight": null,
    "note": {
-    "planned": "40 s",
+    "planned": "60 s",
     "cues": [
-     "press 1: \"Rumi filled it in.\" appears",
-     "press 2: \"The coach reviewed it and sent it.\" appears",
-     "press 3: moves to s04"
+     "press 1: the old-form still, \"The old form: 37 scores, every one already filled in\"",
+     "press 2: the grid of 100 dots, \"left as Rumi set it\" and \"changed by the coach\", with \"86 of every 100 scores Rumi filled in were left as they were\"",
+     "press 3: \"Leaders believed coaches disagreed with each other more than with Rumi; nobody had measured it.\"",
+     "press 4: moves to p03"
     ],
-    "body": "Before the pilot, this is what a coach opened after a visit. The old form: 37 rows, and every level already chosen.\n(press)\nRumi listened to the recording and filled it in.\n(press)\nThe coach reviewed it and pressed send. Thirty-seven rows on a phone, after a full lesson, with the next class waiting. For two months, that was the job.\nKeep this screen in mind for the next three numbers.\n(press)",
-    "first_line": "Before the pilot, this is what a coach opened after a visit."
+    "body": "**The old form came already filled in by Rumi; coaches left most scores unchanged.**\n(press)\nThis is the old form. Rumi listened to the recording and filled in all 37 scores before the coach had said a word.\n(press)\nAcross all coaches on the old form, out of every 100 scores Rumi filled in, 86 were left exactly as they were. And 41 forms in 100 went back inside five minutes. So a score often told the teacher what Rumi guessed, not what the coach saw.\n(press)\nWe also believed coaches disagreed with each other more than with Rumi. Nobody had ever measured that. The new form lets us.\n(press)",
+    "first_line": "**The old form came already filled in by Rumi; coaches left most scores unchanged.** This is the old form."
    }
   },
   {
-   "id": "s04",
-   "title": "What coaches did with it",
+   "id": "p03",
+   "title": "What changed",
    "chapter": "why",
-   "duration_s": 45,
+   "duration_s": 60,
    "appendix": false,
    "steps": 4,
    "transition": "cut",
    "sensitive": false,
-   "owner": "sg-why",
-   "status": "built",
-   "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "45 s",
-    "cues": [
-     "press 1: \"41 in 100 forms sent back within five minutes\" appears",
-     "press 2: \"about 4 points out of 100 above the pre-fill\" appears, median +1.5",
-     "press 3: the device, small, with \"Never was.\"",
-     "press 4: moves to s05"
-    ],
-    "body": "**86 in 100 pre-filled scores were left as they were** (2,288 forms, 29 August to 27 September).\n(press)\n41 in 100 forms were sent within five minutes.\n(press)\nAnd the final score sat about 4 points out of 100 above Rumi's draft, on average.\nWith 37 rows on a phone after a lesson, most of us would accept the draft. So the old form never measured two coaches independently: the score was mostly the pre-fill.\n(press)\nSo, against our bar, the old form: never was.\n(press)",
-    "first_line": "**86 in 100 pre-filled scores were left as they were** (2,288 forms, 29 August to 27 September)."
-   }
-  },
-  {
-   "id": "s05",
-   "title": "What the planning calls decided",
-   "chapter": "why",
-   "duration_s": 45,
-   "appendix": false,
-   "steps": 3,
-   "transition": "cut",
-   "sensitive": false,
-   "owner": "sg-why",
-   "status": "built",
-   "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "45 s",
-    "cues": [
-     "press 1: the second quote appears (impact lead, standards and evals)",
-     "press 2: \"So we decided four things\": the four lines",
-     "press 3: moves to s06"
-    ],
-    "body": "On the planning call on 29 September the worry was this: agreement between coaches, what we call IRR. Does a teacher get the same level whoever observes?\nEarlier in September, agreement came out at about 90 in 100, judged too high to be realistic. Most likely, that figure was agreement with Rumi's draft.\n(press)\nThe answer from standards and evals was simple. Coaches capture the evidence; that is their job in the room.\n(press)\nSo we decided four things. Evidence first. A form in two parts. Counts, not ranges. Seventeen rows, with no codes.\n(press)",
-    "first_line": "On the planning call on 29 September the worry was this: agreement between coaches, what we call IRR."
-   }
-  },
-  {
-   "id": "s06",
-   "title": "The new form in four screens",
-   "chapter": "why",
-   "duration_s": 50,
-   "appendix": false,
-   "steps": 4,
-   "transition": "cut",
-   "sensitive": false,
-   "owner": "sg-why",
+   "owner": "plain-build-a",
    "status": "built",
    "media": [
     {
      "type": "image",
-     "src": "assets/out/published-gen/scenes/s06/stills/new_1_counts.png",
+     "src": "assets/out/published-gen/scenes/p03/stills/new_1_counts.png",
      "autoplay": false
     },
     {
      "type": "image",
-     "src": "assets/out/published-gen/scenes/s06/stills/new_2_ticks.png",
+     "src": "assets/out/published-gen/scenes/p03/stills/new_2_ticks.png",
      "autoplay": false
     },
     {
      "type": "image",
-     "src": "assets/out/published-gen/scenes/s06/stills/new_3_seal.png",
+     "src": "assets/out/published-gen/scenes/p03/stills/new_3_seal.png",
      "autoplay": false
     },
     {
      "type": "image",
-     "src": "assets/out/published-gen/scenes/s06/stills/new_4_moments.png",
+     "src": "assets/out/published-gen/scenes/p03/stills/new_4_moments.png",
      "autoplay": false
     }
    ],
    "highlight": null,
    "note": {
-    "planned": "50 s (four phone mock-ups, fixture text)",
+    "planned": "60 s",
     "cues": [
-     "press 1: the second screen: \"Part 2: ticks\"",
-     "press 2: the third screen: \"The seal\"",
-     "press 3: the fourth screen: \"Rumi's moments\", only after the seal",
-     "press 4: moves to s07"
+     "press 1: phone screen 2, \"After the lesson\": \"A checklist of 17 things the teacher does, down from 37, such as who gets to answer.\"",
+     "press 2: phone screen 3, \"Then the coach sends the form\": \"They pick the one thing the teacher should improve next and send the form, so Rumi's quotes cannot change their scores.\"",
+     "press 3: phone screen 4, \"Only then, Rumi\": \"Rumi then shows short quotes from the recording, each for the coach to agree or disagree with.\"",
+     "press 4: moves to p04"
     ],
-    "body": "This is the new form, and it starts blank. Part one runs during the lesson: numbers and a few taps, such as how many children spoke.\n(press)\nPart two covers independent practice and the wrap-up. Every question describes something the coach can see, in plain words. No indicator names, no codes.\n(press)\nBefore leaving the room the coach picks what the teacher should work on first, and seals the form. From then on, the record is locked.\n(press)\nOnly after the seal does Rumi show what it heard: a quote, the minute, and a yes or no for the coach. Then the coach sees the proposed levels and can change any of them.\n(press)",
-    "first_line": "This is the new form, and it starts blank."
+    "body": "**The coach now writes what they see first; then Rumi shows quotes to check.**\n[Say: these phone screens are mock-ups; no real teacher, child or school is on them.]\nThe form starts blank. During the lesson the coach types simple counts as they watch.\n(press)\nAfter the lesson comes a checklist of 17 things the teacher does, down from 37, such as who gets to answer, each in plain words.\n(press)\nThen the coach picks the one thing the teacher should improve next, and sends the form, so Rumi's quotes cannot change their scores.\n(press)\nOnly then does Rumi show short quotes from the recording, each for the coach to agree or disagree with. The recording comes afterwards, and only as a check. Rumi can no longer put words in the coach's mouth.\n(press)",
+    "first_line": "**The coach now writes what they see first; then Rumi shows quotes to check.** The form starts blank."
    }
   },
   {
-   "id": "s07",
-   "title": "The pilot by numbers",
-   "chapter": "built",
-   "duration_s": 40,
+   "id": "p04",
+   "title": "How we checked",
+   "chapter": "how",
+   "duration_s": 55,
    "appendix": false,
    "steps": 4,
    "transition": "cut",
    "sensitive": false,
-   "owner": "sg-why",
+   "owner": "plain-build-a",
    "status": "built",
    "media": [],
    "highlight": null,
    "note": {
-    "planned": "40 s",
+    "planned": "55 s",
     "cues": [
-     "press 1: \"240 visits, 223 of them by the 12\" appears (25 accounts in all, 120 teachers)",
-     "press 2: \"15 pairs checked the same lesson; 13 filled apart\" appears",
-     "press 3: the footnote line: a fallback model most likely from 22 October, 25 of 26",
-     "press 4: moves to s08"
+     "press 1: 12 coach marks and 223 visit dots, \"12 coaches, 223 visits in three weeks\"",
+     "press 2: three reader marks beside one recording, \"It scored each recording without seeing the coach's scores, so we could compare the two.\"",
+     "press 3: pairs of coach marks over one classroom, \"On 13 lessons two coaches scored the same class separately\"",
+     "press 4: moves to p05"
     ],
-    "body": "**These are the 12 coaches who kept using the new form, from 5 October; figures now describe them unless the screen says otherwise.**\n(press)\nThis one counts everyone: 240 visits by all 25 accounts, 223 by the 12; 120 teachers.\n(press)\nFifteen pairs of coaches checked the same lesson; 13 filled forms apart.\n(press)\nOne footnote: from 22 October a fallback model most likely took over; 25 of 26 recorded visits since still have moments.\n(press)",
-    "first_line": "**These are the 12 coaches who kept using the new form, from 5 October; figures now describe them unless the screen says otherwise.** This one counts everyone: 240 visits by all 25 accounts, 223 by th"
+    "body": "**Twelve coaches used the new form; a second AI, not Rumi, scored the recordings.**\n(press)\nTwelve coaches used the new form most, and between them made 223 visits in three weeks.\n(press)\nA second AI, not Rumi, also scored the recorded lessons. It scored each recording without seeing the coach's scores, so we could compare the two.\n(press)\nAnd 13 times, two coaches scored the same lesson separately, so we can see whether they agree. Because that is AI too, a person checks it next; that is the last scene.\n(press)",
+    "first_line": "**Twelve coaches used the new form; a second AI, not Rumi, scored the recordings.** Twelve coaches used the new form most, and between them made 223 visits in three weeks."
    }
   },
   {
-   "id": "s08",
-   "title": "Three blind reads of every lesson",
-   "chapter": "built",
-   "duration_s": 45,
-   "appendix": false,
-   "steps": 4,
-   "transition": "cut",
-   "sensitive": false,
-   "owner": "sg-why",
-   "status": "built",
-   "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "45 s",
-    "cues": [
-     "press 1: reader 2: \"Same transcript\", smaller model",
-     "press 2: reader 3: \"Transcript and photos\"",
-     "press 3: \"Rumi's moments\" and \"No coach's level leaked: 0 in 1,851 strings\"",
-     "press 4: moves to s09"
-    ],
-    "body": "AI readers then judged every recorded lesson blind, with only what a self-serve coach would get. They stand in for the plan's three reference coaches and the coach's own re-score, which never ran.\nThe first reader had the transcript.\n(press)\nThe second, the same transcript on a smaller model of the same family, to see how much readers wobble.\n(press)\nThe third had the transcript and the coach's photos.\n(press)\nA fourth checked Rumi's moments against the transcript. 187 recordings, each read three times blind, and no coach's level leaked: 0 in 1,851 strings.\nDid all go well? What went wrong and what held: page a13.\n(press)",
-    "first_line": "AI readers then judged every recorded lesson blind, with only what a self-serve coach would get."
-   }
-  },
-  {
-   "id": "s09",
-   "title": "The rules we set first",
-   "chapter": "built",
-   "duration_s": 35,
-   "appendix": false,
-   "steps": 4,
-   "transition": "cut",
-   "sensitive": false,
-   "owner": "sg-why",
-   "status": "built",
-   "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "35 s",
-    "cues": [
-     "press 1: rule 2: \"the coaching priority matches at least 70% of the time\"",
-     "press 2: rule 3: Rumi's evidence items, 90% correct, under 5% wrong",
-     "press 3: rule 4: the self-serve coach scores a row in 4 of every 5 lessons",
-     "press 4: moves to s10"
-    ],
-    "body": "First, the plan's rules, written before any result. Two coaches within one level at least 80 in 100 times; two unrelated lessons reach 81 by chance.\n(press)\nThe same first thing to work on, 70 in 100.\n(press)\nRumi's moments right at least 90 in 100 times; accepted ones wrong under 5 in 100.\n(press)\nThe AI coach scoring a row in 4 lessons in 5.\nThe first rule is met by chance alone, so now we ask for agreement beyond chance.\n(press)",
-    "first_line": "First, the plan's rules, written before any result."
-   }
-  },
-  {
-   "id": "s10",
-   "title": "Two coaches, one lesson",
-   "chapter": "evidence",
-   "duration_s": 80,
-   "appendix": false,
-   "steps": 5,
-   "transition": "fade",
-   "sensitive": false,
-   "owner": "sg-evidence",
-   "status": "built",
-   "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "80 s (a text moment on arrival, counts only, no audio)",
-    "cues": [
-     "press 1: the chart: \"a kappa of 0.43\", interval 0.32 to 0.55, chance 0.23, the bar 0.40",
-     "press 2: by kind of row: \"what they counted came out highest\", 0.52 · 0.36 · 0.08",
-     "press 3: \"The same thing to work on first: 6 of 13\", the bar 70 in 100",
-     "press 4: the summary line, the device, small, with \"Not yet.\" and \"Next read: 15 pairs on two phones, about 6 November.\"",
-     "press 5: moves to s11"
-    ],
-    "body": "[Say: one lesson, two coaches. No school, no names, no day.]\nOn part 1 of the form, one coach typed that 47 of 53 children spoke; the other, in the same room, typed 20.\nBoth watched honestly; the gap is about the form, never either coach.\n(press)\n**Two coaches on one lesson reach agreement beyond chance, a kappa of 0.43, where two unrelated lessons give 0.23** (13 pairs, 212 levels). Our bar is 0.40; the range, 0.32 to 0.55, reaches below it: not shown yet.\nExact match 58 in 100 against 49 by chance; within one level, 90 against 81 by chance.\n(press)\nBy kind: what the coaches count, 0.52; what rests on Rumi's moments, 0.36; their own picks, 0.08. Against chance, only what they count clears it; the ranges overlap.\n(press)\nThe same thing to work on first: 6 of 13 pairs. The plan asked for 70 in 100; its chance figure is not computed yet.\n(press)\nSo, two coaches: not yet. Thirteen pairs is short of the plan's 15, and the old form never scored two coaches apart, so better or worse is unknown. Next read: 15 pairs on two phones, about 6 November.\n(press)",
-    "first_line": "On part 1 of the form, one coach typed that 47 of 53 children spoke; the other, in the same room, typed 20."
-   }
-  },
-  {
-   "id": "s11",
-   "title": "What a recording can judge",
-   "chapter": "evidence",
+   "id": "p05",
+   "title": "Do two coaches agree now?",
+   "chapter": "found",
    "duration_s": 75,
    "appendix": false,
    "steps": 5,
-   "transition": "fade",
+   "transition": "cut",
    "sensitive": false,
-   "owner": "sg-evidence",
+   "owner": "plain-build-a",
    "status": "built",
    "media": [],
    "highlight": null,
    "note": {
     "planned": "75 s",
     "cues": [
-     "press 1: the 17 rows, grey, each with its n, and the key",
-     "press 2: four rows fill orange: C1, D1, D2, D4, cannot be judged reliably",
-     "press 3: twelve rows fill: needs the room; F1 dashed; the key counts 0 · 0 · 12 · 4 · 1",
-     "press 4: the honest line, the strip, the photo line, at right \"AI readers stand in for reference coaches; no person has checked them yet. Nearest: group work, kappa 0.38, bar 0.40.\", the device, small, with \"Not yet.\" and the next read",
-     "press 5: moves to s12"
+     "press 1: two bars, \"Same lesson: about 6 in 10 scores match.\" and \"Different lessons: about 5 in 10. This is what guessing gives.\"",
+     "press 2: the 13 pairs of shapes, 6 filled under \"same\", 7 plain under \"different\", \"Not yet well enough: on the one thing the teacher should improve next, pairs agreed only about half the time.\"",
+     "press 3: \"We cannot compare with the old form: Rumi filled it in first, so coaches never scored it alone.\"",
+     "press 4: \"If coaches keep pairing up as they do now, we will know more by about 6 November.\"",
+     "press 5: moves to p06"
     ],
-    "body": "**For most rows, neither a recording nor a second coach is shown to agree beyond chance yet. From a recording alone, today: 0 of 17 rows.**\nA raised hand makes no sound.\n(press)\nSeventeen rows, each with its visits scored blind by an AI reader standing in for the plan's reference coaches.\n(press)\nFour rows cannot be judged reliably as they stand. The teacher's questions, from a gap in our code; three others, because their wording lets honest readers part ways.\n(press)\nTwelve need the room: on none does a recording reader agree with the coach well enough to stand in. The nearest is group work, a kappa of 0.38 (162 visits). The last, accuracy, is not enough yet.\n(press)\nAI readers agree with each other at 0.78 to 0.87, with the coach only at 0.30 (149 lessons), and no person has checked them yet.\nPhotos as coaches took them were not shown to change levels (131 visits). A photo we ask for: never tried. So a recording or a photo: not yet.\n(press)",
-    "first_line": "**For most rows, neither a recording nor a second coach is shown to agree beyond chance yet."
+    "body": "**Two coaches now agree better than guessing, but not yet well enough.**\n[Say: two coaches, one lesson; no teacher, coach or school is named.]\nFirst, the better than guessing.\n(press)\nWhen two coaches score the same lesson, about 6 in 10 of their scores match. For two different lessons it is about 5 in 10, and that is what guessing gives. The gap is small, but it is clearly there.\n(press)\nNow the not well enough. This is a different question: each coach picks the one thing the teacher should improve next. On that, pairs agreed only about half the time; the filled pairs are the ones that matched. Our plan asked for 7 in 10.\n(press)\nWe cannot compare with the old form, because Rumi filled it in first, so two coaches never scored a lesson on their own.\n(press)\nIf coaches keep pairing up as they do now, we will know more by about 6 November. The full figures are on appendix page 10.\n(press)",
+    "first_line": "**Two coaches now agree better than guessing, but not yet well enough.** First, the better than guessing."
    }
   },
   {
-   "id": "s12",
-   "title": "The rubric: three changes",
-   "chapter": "evidence",
+   "id": "p06",
+   "title": "What can a recording alone judge?",
+   "chapter": "found",
    "duration_s": 70,
    "appendix": false,
    "steps": 4,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-evidence",
+   "owner": "plain-build-b",
    "status": "built",
    "media": [],
    "highlight": null,
    "note": {
-    "planned": "70 s (two text moments, no audio; about 15 s of reading held)",
+    "planned": "70 s",
     "cues": [
-     "press 1: the second moment: \"The teacher asks how; one child explains.\"; 51 in 100, \"27 in 100 once the line is added\"",
-     "press 2: Accuracy: \"0 of 166\"; \"A reader flags the minute; a person listens.\"",
-     "press 3: \"What a teacher is told\": scored both ways, side by side",
-     "press 4: moves to s13"
+     "press 1: 17 boxes, 12 discs \"coach in the room\" and 5 triangles \"nobody can judge these well until the form changes\", with \"Each box is one of the 17 things.\"",
+     "press 2: \"The second AI was not good enough on any. Twelve need a coach in the room; five need the form fixed first.\"",
+     "press 3: a drawn camera, \"Photos as coaches took them made no clear difference.\" and \"Asking coaches for particular photos has not been tried yet.\"",
+     "press 4: moves to p07"
     ],
-    "body": "[Say: one class, then another; one teacher each. No school, no names, no day. Let the room read the lines; count three.]\nIn one lesson the class answers as one, again and again; the coach counted children who spoke.\nSo we count children who answered alone. Scored that way, 65 of 166 visits fall a level (39 in 100), with no change in the teaching.\n(press)\n[Let the room read; count three.]\nIn another, the teacher asks how; one child explains. Our code gave such follow-ups no credit, so 51 visits in 100 sit on a placeholder level for the teacher's questions. Once the line is added, 27 in 100.\n(press)\nAccuracy: coaches reported an error on 0 of 166 visits; two blind readers found real errors in two lessons. So a reader flags the minute, and a person listens.\n(press)\nBefore any teacher sees a new level, last month's lessons are scored both ways, side by side.\n(press)",
-    "first_line": "In one lesson the class answers as one, again and again; the coach counted children who spoke."
+    "body": "**Nothing on the form can yet be judged from the recording alone.**\nFor each of the 17 things, we asked: does the AI, working from the recording alone, agree with the coach well beyond guessing?\n(press)\nEach box is one of the 17 things coaches look for. None of them can be judged from a recording alone yet.\n(press)\nThe second AI was not good enough on any of them. Twelve need a coach in the room, such as who gets to answer. The other five need the form fixed first: as it stands, not even two coaches in the room can judge them well. The closest is group work, and even there the AI falls just short. And no person has checked the AI yet.\n(press)\nPhotos, as coaches took them, made no clear difference. Asking coaches for particular photos has not been tried yet. All 17 are listed on appendix page 5.\n(press)",
+    "first_line": "**Nothing on the form can yet be judged from the recording alone.** For each of the 17 things, we asked: does the AI, working from the recording alone, agree with the coach well beyond guessing?"
    }
   },
   {
-   "id": "s13",
-   "title": "Time, and the funnel",
-   "chapter": "evidence",
+   "id": "p07",
+   "title": "Did it slow coaches down?",
+   "chapter": "found",
    "duration_s": 65,
    "appendix": false,
-   "steps": 5,
+   "steps": 4,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-evidence",
+   "owner": "plain-build-b",
    "status": "built",
    "media": [
     {
      "type": "image",
-     "src": "assets/out/published-gen/scenes/s13/s13-time.png",
-     "autoplay": false
-    },
-    {
-     "type": "image",
-     "src": "assets/out/published-gen/scenes/s13/s13-funnel.png",
+     "src": "assets/out/published-gen/scenes/p07/p07-time.png",
      "autoplay": false
     }
    ],
@@ -359,121 +204,88 @@
    "note": {
     "planned": "65 s",
     "cues": [
-     "press 1: the funnel: \"81.9 in 100 sealed forms got a lesson recording\"; 99.3 checked; the bar 90",
-     "press 2: \"On day one, 19 coaches tried it; 7 kept it.\" (19 discs)",
-     "press 3: visits a coach-week: \"+0.3 (−2.1 to +2.9). A fall is not shown.\"",
-     "press 4: the device, small, with \"Not yet.\" and \"Next read: the second cohort's seven bars, two weeks.\"",
-     "press 5: moves to s14"
+     "press 1: standing caption \"the 12 coaches who used the new form most\"; the time picture (drawn, no caption): during the lesson nothing before and about 7 minutes now; after the lesson about 7 minutes before and about 3 now",
+     "press 2: two bars, \"about 7 minutes\" before and \"about 11 minutes\" now, \"A visit now takes a few minutes longer.\"",
+     "press 3: a third bar, \"later visits\", \"about 8 minutes\" (\"now\" fades and loses its label), \"Later visits: still longer than before.\"",
+     "press 4: moves to p08"
     ],
-    "body": "**These are the 12 coaches who kept using the form.**\nDuring the lesson, about 7 minutes that are new: 7.2 (167 forms). And about 4 minutes less after it: 6.7 before, 3.0 now (391 old forms). All told, phone time went from 6.7 to 11.0 minutes; 8.4 from the 16th form on.\n(press)\n81.9 in 100 sealed forms got a lesson recording (145 of 177); the bar is 90, and the gap is in the product. Once recorded, 99.3 in 100 are checked.\n(press)\nOn day one 19 coaches tried it and 7 kept it; the other 12 went back after one to five forms. That tells us about the form.\n(press)\nVisits a coach-week: 8.8 before, 9.1 during. A fall is not shown, though the range allows one of up to 24 in 100.\n(press)\nSo for every coach: not yet. Next read: the second cohort's seven bars, two weeks.\n(press)",
-    "first_line": "**These are the 12 coaches who kept using the form.** During the lesson, about 7 minutes that are new: 7.2 (167 forms)."
+    "body": "**Coaches spend about 7 minutes more during the lesson, about 4 fewer after.**\nThese are the 12 coaches who used the new form most.\n(press)\nDuring the lesson the old form asked nothing; the new one takes about 7 minutes of phone work. After the lesson, the work fell from about 7 minutes to about 3.\n(press)\nSo in all, a whole visit went from about 7 minutes to about 11, a few minutes longer. These are typical times, so the parts do not add up exactly.\n(press)\nAnd coaches get faster. In later visits, from a coach's sixteenth form on, a whole visit takes about 8 minutes, still longer than before. We cannot see a fall in visits a week, though three weeks is too short to rule one out. Appendix page 14 has it all.\n(press)",
+    "first_line": "**Coaches spend about 7 minutes more during the lesson, about 4 fewer after.** These are the 12 coaches who used the new form most."
    }
   },
   {
-   "id": "s14",
-   "title": "What the self-serve coach may score",
-   "chapter": "evidence",
-   "duration_s": 65,
+   "id": "p08",
+   "title": "Are Rumi's quotes right?",
+   "chapter": "found",
+   "duration_s": 60,
    "appendix": false,
    "steps": 4,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-evidence",
-   "status": "built",
-   "media": [
-    {
-     "type": "image",
-     "src": "assets/out/published-gen/scenes/s14/s14-scores.png",
-     "autoplay": false
-    }
-   ],
-   "highlight": null,
-   "note": {
-    "planned": "65 s (the one sentence is said on the last press, before s15; lead-verdict 20261024T234202)",
-    "cues": [
-     "press 1: \"One lesson, three scores\": 64 · 53 · 43, and under them \"37 rows against 9; the coach's read was not blind.\"",
-     "press 2: \"Rows it may score from a recording today: 0 of 17.\" and the plan: count, mark not observed, switch on after a re-measure; 41 in 100 moments come back",
-     "press 3: the device, small, with \"Not yet.\" and \"Next read: the shadow run, two weeks, then the re-measure.\" Hold: count three after \"Not yet.\"",
-     "press 4: moves to s15, after the one sentence"
-    ],
-    "body": "[Say: one lesson, one teacher. No school, no names, no day.]\n**From a recording alone, the self-serve coach may score 0 of 17 rows today.**\nIt scores 37 rows, and anything unseen scores 1; 9 in 100 of its scores are a 1 (826 sessions).\n(press)\nOne lesson, three scores: the old 37 rows, 64; a blind reader on a 9-row set, 53; the coach in the room, 43.\n(press)\nWe count with fixed rules, mark the unseen as not observed, and switch a row on only after a re-measure. Run twice, Rumi repeats 41 in 100 moments.\n(press)\nNot yet.\n[Hold: count three. Then the one sentence, slowly. s15 opens on line a.]\n**We changed the form so a score comes from what the coach saw and heard instead of a pre-filled guess; two coaches now agree moderately and beyond chance, a recording alone cannot yet reach the coach's score on any row, and we decided to fix the form, check the moments with a person, and stage the rollout before every coach gets it.**\n(press)",
-    "first_line": "**From a recording alone, the self-serve coach may score 0 of 17 rows today.** It scores 37 rows, and anything unseen scores 1; 9 in 100 of its scores are a 1 (826 sessions)."
-   }
-  },
-  {
-   "id": "s15",
-   "title": "Six decisions",
-   "chapter": "decide",
-   "duration_s": 60,
-   "appendix": false,
-   "steps": 6,
-   "transition": "fade",
-   "sensitive": false,
-   "owner": "sg-decide",
+   "owner": "plain-build-b",
    "status": "built",
    "media": [],
    "highlight": null,
    "note": {
-    "planned": "60 s (arrives on line a; the sentence was said on s14)",
+    "planned": "60 s",
     "cues": [
-     "press 1: b: \"Can be judged: Yes-if a person checks accuracy.\" medium (line a cedes; its gloss \"15 pairs on two phones, about 6 Nov.\" stays)",
-     "press 2: c: \"The rubric: Yes-if 40 visits confirm it.\" and \"And no teacher sees a new level before the 166 are rescored side by side.\" medium",
-     "press 3: d: \"Every coach: Yes-if, staged.\" and \"Fixes; then the 12 who went back, two weeks, seven bars.\" medium, with \"low for the next 43\" under it",
-     "press 4: e: \"Self-serve coach: Yes-if it runs in shadow first.\" medium",
-     "press 5: +: \"Why we switched: The story, told.\" high",
-     "press 6: moves to s16"
+     "press 1: the before bar, \"Before Rumi was fixed on 16 October, about 4 in 10 were right.\"",
+     "press 2: the since bar added, \"Since the fix, about 9 in 10.\"",
+     "press 3: the bars leave, \"Right, but ask Rumi twice about one lesson and at least half its quotes differ. So scores should come from the whole lesson, not single quotes.\"",
+     "press 4: moves to p09"
     ],
-    "body": "[Read each line as it lands, then its confidence word.]\n**Did agreement between coaches improve? Not enough yet: 13 pairs, and 15 on two phones by about 6 November.** How sure: medium. Against the old form, low, because the old form never scored two coaches apart.\n(press)\nWhat we can judge: yes, once a person checks accuracy. Medium.\n(press)\nThe final rubric: yes, once the new wording is tried on 40 visits, and no teacher sees a new level before the 166 checked visits are rescored side by side. Medium.\n(press)\nEvery coach: yes, staged. Fixes first, then the 12 who went back, for two weeks against seven bars, then the rest. Medium; for the next 43, low.\n(press)\nThe self-serve coach: yes, once it runs in shadow. Medium; on which rows will score, low.\n(press)\nAnd why we switched: the form arrived filled in. That one is high.\n(press)",
-    "first_line": "**Did agreement between coaches improve?"
+    "body": "**The quotes Rumi picks from lessons are now right about 9 times in 10.**\n[Say: one lesson's quote at most; no teacher, child or school is named.]\nThese are the short quotes Rumi picks out of a recording, such as a child explaining why.\n(press)\nBefore Rumi was fixed on 16 October, about 4 in 10 of those quotes were what Rumi said they were.\n(press)\nSince the fix, about 9 in 10 are, as judged by the AI. A person checks that this week.\n(press)\nRight, but ask Rumi twice about one lesson and at least half its quotes differ. Each quote it picks is usually right; it just picks different ones each time. So scores should come from the whole lesson, not single quotes.\n(press)",
+    "first_line": "**The quotes Rumi picks from lessons are now right about 9 times in 10.** These are the short quotes Rumi picks out of a recording, such as a child explaining why."
    }
   },
   {
-   "id": "s16",
-   "title": "What happens Monday",
+   "id": "p09",
+   "title": "What we do",
+   "chapter": "decide",
+   "duration_s": 60,
+   "appendix": false,
+   "steps": 4,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "plain-build-b",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "60 s",
+    "cues": [
+     "press 1: the three coach stones, \"Known fixes include recordings that get lost.\"",
+     "press 2: the stone \"new wording\", \"New wording for all 17 things is drafted. Teachers see no new scores until it is checked.\"",
+     "press 3: the stone \"coaching for teachers\", \"Rumi also coaches teachers on their own recordings. That coaching will use the new form, hidden from teachers until checked.\"",
+     "press 4: moves to p10"
+    ],
+    "body": "**Fix the form, test it with 12 more coaches, then give it to everyone.**\nEvery answer today comes with a condition, so the plan is in steps.\n(press)\nFirst we fix what we know is broken: recordings that get lost, visits linked to the wrong lesson plan, and a few more on appendix page 12. Then two weeks with 12 more coaches. Then every coach.\n(press)\nNew wording for all 17 things is drafted, and none is dropped. Teachers see no new scores until it is checked. First we score the 166 visits coaches already checked again, and show teachers old and new side by side.\n(press)\nRumi also coaches teachers on their own recordings. That coaching will use the new form, hidden from teachers until a person has checked it.\n[Presenter, in your own words: what you ask of coaches over the next two weeks.]\n(press)",
+    "first_line": "**Fix the form, test it with 12 more coaches, then give it to everyone.** Every answer today comes with a condition, so the plan is in steps."
+   }
+  },
+  {
+   "id": "p10",
+   "title": "This week",
    "chapter": "decide",
    "duration_s": 50,
    "appendix": false,
-   "steps": 5,
+   "steps": 4,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-decide",
+   "owner": "plain-build-b",
    "status": "built",
    "media": [],
    "highlight": null,
    "note": {
     "planned": "50 s",
     "cues": [
-     "press 1: \"Product engineers and the engineering lead\": fixes first",
-     "press 2: \"ICT programme lead\": the 12 who went back, two weeks, seven bars; then the other 31",
-     "press 3: \"The standards and evals team\": the new wording on 40 visits; six photo asks; under it \"For the teacher observed next week: no new level until the 166 checked visits are rescored side by side.\"",
-     "press 4: \"Next read\": the four lines",
-     "press 5: moves to s17"
+     "press 1: the 74 cards and \"This person trains coaches, did not use the new form, and will not see the coaches' scores\"",
+     "press 2: the cards dim, \"It checks quotes coaches agreed with. If 5 or more in 100 are wrong, the next 12 coaches wait until Rumi's quotes are fixed.\"",
+     "press 3: six lesson cards, \"Afterwards the same person reads six whole lessons, a second check on what we found.\"",
+     "press 4: moves to s18"
     ],
-    "body": "Monday: a coach trainer from outside the pilot, blind to every level, checks 74 of Rumi's moments, then reads six lessons.\n(press)\nFixes first: failed recordings finish, round 7 goes live, the AI service returns, the teacher's-questions rule.\n(press)\nThen the 12 who went back after day one: two weeks, seven bars, then the other 31. Under 80 in 100 uptake in week 2, we extend.\n(press)\nStandards and evals: new wording on 40 visits; six photo asks. No teacher sees a new level before the 166 are rescored.\n(press)\nThe next reads: 15 pairs on two phones by about 6 November; 30, partners rotated weekly, by about 9 November; then the re-measure, the cohort's bars, the shadow run.\n(press)",
-    "first_line": "Monday: a coach trainer from outside the pilot, blind to every level, checks 74 of Rumi's moments, then reads six lessons."
-   }
-  },
-  {
-   "id": "s17",
-   "title": "Same lesson. Same score.",
-   "chapter": "close",
-   "duration_s": 30,
-   "appendix": false,
-   "steps": 2,
-   "transition": "cut",
-   "sensitive": false,
-   "owner": "sg-open",
-   "status": "built",
-   "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "30 s (own words; budget two to three times the label, never cut)",
-    "cues": [
-     "press 1: under the device: \"Here is the bar. Here is what gets us there.\" and \"For the teacher observed next week: no new level until the 166 checked visits are rescored side by side.\"",
-     "press 2: moves to s18"
-    ],
-    "body": "Same lesson. Same score.\nWe have not reached it yet, between two coaches or from a recording, and we now know what to fix first. We owe that to the teacher we observe next week.\n(press)\n[Presenter, in your own words: what this bar means for a teacher, and what you ask of the room this week. From the 2 October go-live call: \"the jury is out right now on whether this will become permanent or not\"]\nThank you.\n(press)",
-    "first_line": "Same lesson."
+    "body": "**This week one person spends an hour checking 74 quotes Rumi picked from lessons.**\n(press)\n[Say: one quote, one lesson; no teacher, child or school is named.]\nThis person trains coaches, did not use the new form, and will not see the coaches' scores.\n(press)\nIt checks quotes coaches agreed with. If 5 or more in 100 are wrong, the next 12 coaches wait until Rumi's quotes are fixed. 9 in 10 right sounds like 1 in 10 wrong, but that is one AI reader's view; the person's check decides.\n(press)\nAfterwards the same person reads six whole lessons, a second check on what we found. It could change our answers on how many children spoke, getting the facts right and the teacher's questions.\n(press)",
+    "first_line": "**This week one person spends an hour checking 74 quotes Rumi picked from lessons.** This person trains coaches, did not use the new form, and will not see the coaches' scores."
    }
   },
   {
@@ -835,7 +647,7 @@
    }
   }
  ],
- "main_total_s": 875,
+ "main_total_s": 605,
  "excluded_sensitive": [],
  "nav": true,
  "warnings": [
