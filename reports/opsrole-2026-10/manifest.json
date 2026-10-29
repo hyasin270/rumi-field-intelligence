@@ -1,6 +1,6 @@
 {
  "title": "Own. Ship. Prove. The operator role",
- "built_at": "2026-10-29T06:59:57Z",
+ "built_at": "2026-10-29T07:08:32Z",
  "stage": [
   1920,
   1080
@@ -227,17 +227,33 @@
    "sensitive": false,
    "owner": "rev-people",
    "status": "built",
-   "media": [],
+   "media": [
+    {
+     "type": "image",
+     "src": "assets/scenes/s07c/img/board.jpg",
+     "autoplay": false
+    },
+    {
+     "type": "image",
+     "src": "assets/scenes/s07c/img/talk.jpg",
+     "autoplay": false
+    },
+    {
+     "type": "image",
+     "src": "assets/scenes/s07c/img/work.jpg",
+     "autoplay": false
+    }
+   ],
    "highlight": null,
    "note": {
     "planned": "70 s (speaking 70 s, word ceiling 161)",
     "cues": [
-     "press 1: Improve: the conversation with the teacher",
-     "press 2: Learn: the children's work",
+     "press 1: Improve: the conversation, with its photo",
+     "press 2: Learn: the children's work, with its photo",
      "press 3: \"Afterwards, agree with your regional team what changes.\"",
      "press 4: moves to s08"
     ],
-    "body": "Visit a school once a fortnight. It is not optional.\n[Privacy: no teacher, child or school by name; no story that points to one classroom.]\nA visit is where you see Teach Well, Improve and Learn happen in a real room. Run the school-visits skill before you go. In the classroom, look at the board and the lesson as it is taught. That is Teach Well.\n(press)\nImprove is the conversation with the teacher afterwards: what helped them today, and what got in the way.\n(press)\nLearn is the children's work. Look at what they wrote, what they got right, and where they got stuck.\n(press)\nAfterwards, agree with your regional team what changes. Bring what you saw to the next huddle, so the visit turns into something we build. Take pictures of boards and of the room from the back, and keep faces and school names out of them.\n(press)\n\n[Appendix: a05 the rituals calendar. Press A, the number, Enter.]",
+    "body": "Visit a school once a fortnight. It is not optional.\n[Privacy: no teacher, child or school by name; no story that points to one classroom.]\nA visit is where you see Teach Well, Improve and Learn happen in a real room. Run the school-visits skill before you go. These pictures are from team visits, with faces blurred. In the classroom, look at the board and the lesson as it is taught. That is Teach Well.\n(press)\nImprove is the conversation with the teacher afterwards: what helped them today, and what got in the way.\n(press)\nLearn is the children's work. Look at what they wrote, what they got right, and where they got stuck.\n(press)\nAfterwards, agree with your regional team what changes. Bring what you saw to the next huddle, so the visit turns into something we build. Take pictures of boards and of the room from the back, and keep faces and school names out of them.\n(press)\n\n[Appendix: a05 the rituals calendar. Press A, the number, Enter.]",
     "first_line": "Visit a school once a fortnight. It is not optional."
    }
   },
@@ -265,7 +281,7 @@
      "press 6: \"With the FSPs: a hypothesis. Ship it, measure it, prove it.\"",
      "press 7: moves to s12"
     ],
-    "body": "Prove it: measure against the hypothesis, and the number shows in the weekly charts.\nProving starts before you ship. You write the hypothesis with the FSPs, and you write down what result would prove it wrong.\n(press)\nThen everyone measures against that hypothesis: you, the FSPs and the builders, all looking at the number you named before you shipped.\n(press)\nWhere you can, run an A/B test: some teachers get the change and some do not, and you compare. Run it at a scale where the difference means something, and set the bar before day one. Our lesson-plan test in Islamabad in October ended in a tie, and the team said so.\n(press)\nAnd the number should show in the region's weekly charts, the same charts every week. Getting it there is the main goal of the operator team.\n(press)\nHere is what those charts look like, for Tanzania last week. Teach Well: the share of teachers who made a lesson plan each day, ward by ward. These are totals; no teacher is named.\n(press)\nImprove: the coaching score over eight weeks, set against what human observers scored. A hypothesis about coaching shows up here.\n(press)\nSo the job, in one line: with the FSPs, a hypothesis. Ship it, measure it, prove it.\n(press)\n\n[Appendix: a12 a sprint goal is a hypothesis. Press A, the number, Enter.]",
+    "body": "Prove it: measure against the hypothesis, and the number shows in the weekly charts.\nProving starts before you ship. You write the hypothesis with the FSPs, and you write down what result would prove it wrong.\n(press)\nThen everyone measures against that hypothesis: you, the FSPs and the builders, all looking at the number you named before you shipped.\n(press)\nWhere you can, run an A/B test: some teachers get the change and some do not, and you compare. Run it at a scale where the difference means something, and set the bar before day one. Our lesson-plan test in Islamabad in October ended in a tie, and the team said so.\n(press)\nAnd the number should show in the region's weekly report, the one named on the screen: the same charts, every week. Getting it there is the main goal of the operator team.\n(press)\nHere is what those charts look like, for Tanzania last week. Teach Well: the share of teachers who made a lesson plan each day, ward by ward. These are totals; no teacher is named.\n(press)\nImprove: the coaching score over eight weeks, set against what human observers scored. A hypothesis about coaching shows up here.\n(press)\nSo the job, in one line: with the FSPs, a hypothesis. Ship it, measure it, prove it.\n(press)\n\n[Appendix: a12 a sprint goal is a hypothesis. Press A, the number, Enter.]",
     "first_line": "Prove it: measure against the hypothesis, and the number shows in the weekly charts."
    }
   },
