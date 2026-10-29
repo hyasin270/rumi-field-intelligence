@@ -212,7 +212,7 @@
     if (bar) return;
     var css = document.createElement("style");
     css.textContent =
-      "#seal-bar{position:fixed;top:0;left:0;right:0;z-index:70;display:flex;align-items:center;gap:18px;padding:14px 28px;" +
+      "#seal-bar{position:fixed !important;top:0 !important;left:0;right:0;z-index:70;display:flex;align-items:center;gap:18px;padding:14px 28px;" +
       "background:var(--card,#131F45);color:var(--ink,#F5F2EA);border-bottom:1px solid var(--card-line,#2A3A6E);font-size:20px;line-height:1.35}" +
       "#seal-bar.hidden{display:none}#seal-bar .seal-text{flex:1;min-width:0}#seal-bar form{display:flex;gap:10px;align-items:center}" +
       "#seal-bar input{font:inherit;font-size:20px;padding:8px 12px;border-radius:8px;border:1px solid var(--card-line,#2A3A6E);background:#0A1128;color:var(--ink,#F5F2EA);min-width:220px}" +
@@ -224,7 +224,7 @@
       '<div class="seal-text">The children’s clips on this page are sealed. Type the password you were given to hear them; the page works without their sound until then.</div>' +
       '<form id="seal-form" autocomplete="off"><input id="seal-pw" type="password" placeholder="password" autocomplete="off" aria-label="password"><button type="submit">Open</button></form>' +
       '<div class="seal-msg" id="seal-msg"></div>';
-    document.body.appendChild(bar);
+    document.body.insertBefore(bar, document.body.firstChild);
     input = bar.querySelector("#seal-pw"); msg = bar.querySelector("#seal-msg");
     bar.querySelector("#seal-form").addEventListener("submit", function (e) {
       e.preventDefault();
