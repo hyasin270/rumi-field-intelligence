@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Can Rumi hear the classroom?</title>
+<meta name="description" content="Waveforms, lanes, a lifted child and an LLM's timeline for 212 Islamabad lessons, October 2026.">
+<link rel="stylesheet" href="assets/app.css">
+<link rel="icon" type="image/png" href="assets/brand/rumi-mark-navy-trimmed.png">
+</head>
+<body>
+<a class="skip" href="#a">Skip to the answers</a>
+
+<header class="top">
+  <div class="top-in">
+    <img class="mark" src="assets/brand/rumi-mark-navy-trimmed.png" alt="Rumi" height="26">
+    <div class="top-txt">
+      <h1>Can Rumi hear the classroom?</h1>
+      <p class="sub" id="hero-sub">212 lessons, Islamabad, October 2026</p>
+    </div>
+  </div>
+  <div class="chips" id="hero-chips" aria-label="The four answers"></div>
+  <p class="copy-note" id="copy-note"></p>
+</header>
+
+<nav class="rail" aria-label="Sections">
+  <a href="#a"><span class="n">a</span><span class="t">Answers</span></a>
+  <a href="#b"><span class="n">b</span><span class="t">Listen</span></a>
+  <a href="#c"><span class="n">c</span><span class="t">Side by side</span></a>
+  <a href="#d"><span class="n">d</span><span class="t">Evidence</span></a>
+  <a href="#e"><span class="n">e</span><span class="t">Label</span></a>
+  <a href="#f"><span class="n">f</span><span class="t">Roll out</span></a>
+  <a href="#g"><span class="n">g</span><span class="t">Method</span></a>
+</nav>
+
+<main>
+<section id="a" class="sec">
+  <h2 class="sec-h">Four questions, four answers</h2>
+  <div class="cards" id="answer-cards"></div>
+  <p class="lede" style="margin-top:14px">Tonight's evidence, on silver labels. Label mode is how your ears can overturn any of these.</p>
+</section>
+
+<section id="b" class="sec">
+  <h2 class="sec-h">Follow one lesson with your eyes closed</h2>
+  <p class="lede">Pick a lesson, press play. Every track shares one clock. The coloured bands say who the waveform thinks is speaking; the thin row under them is what today's transcript says.</p>
+  <div class="ex" id="explorer">
+    <div class="ex-pick" id="ex-pick" role="tablist" aria-label="Lessons"></div>
+    <div class="ex-why" id="ex-why"></div>
+    <div class="ex-bar">
+      <button class="btn play" id="ex-play" aria-label="Play">Play</button>
+      <span class="clock" id="ex-clock">0:00 / 0:00</span>
+      <div class="seg" role="group" aria-label="Sound">
+        <button class="seg-b on" data-mode="raw" id="ex-raw" aria-pressed="true">Raw</button>
+        <button class="seg-b" data-mode="lifted" id="ex-lifted" aria-pressed="false">Child lifted</button>
+      </div>
+      <div class="seg" role="group" aria-label="Zoom">
+        <button class="seg-b on" data-zoom="0">Whole</button>
+        <button class="seg-b" data-zoom="300">5 min</button>
+        <button class="seg-b" data-zoom="30">30 s</button>
+      </div>
+      <div class="seg" role="group" aria-label="Speed">
+        <button class="seg-b on" data-rate="1">1x</button>
+        <button class="seg-b" data-rate="0.75">0.75x</button>
+      </div>
+    </div>
+    <div class="ex-jump">
+      <button class="btn ghost" data-jump="child">Next child</button>
+      <button class="btn ghost" data-jump="chorus">Next chorus</button>
+      <button class="btn ghost" data-jump="disagree">Next disagreement</button>
+      <button class="btn ghost" data-jump="lifted">Next lifted answer</button>
+      <span class="ex-status" id="ex-status" aria-live="polite"></span>
+    </div>
+    <div class="ex-body">
+      <div class="tracks" id="tracks">
+        <div class="trk" data-trk="wave"><div class="trk-l">Waveform</div><canvas></canvas></div>
+        <div class="trk" data-trk="spec"><div class="trk-l">Spectrogram <small>0 to 8 kHz</small></div><canvas></canvas></div>
+        <div class="trk" data-trk="pitch"><div class="trk-l">Pitch <small id="pitch-scale">70 to 600 Hz</small></div><canvas></canvas></div>
+        <div class="trk tall" data-trk="lanes"><div class="trk-l">Who is speaking</div><canvas></canvas></div>
+        <div class="trk" data-trk="phases"><div class="trk-l">What the LLM thinks happened</div><canvas></canvas></div>
+        <div class="axis" id="axis"></div>
+        <div class="playhead" id="playhead" aria-hidden="true"></div>
+        <div class="hover-tip" id="hover-tip" hidden></div>
+      </div>
+      <div class="side">
+        <div class="side-tabs" role="tablist">
+          <button class="side-t on" data-side="tx" role="tab" aria-selected="true">Transcript</button>
+          <button class="side-t" data-side="rc" role="tab" aria-selected="false">The LLM's account</button>
+        </div>
+        <div class="side-p" id="tx" role="tabpanel" aria-label="Transcript following the playhead"></div>
+        <div class="side-p" id="rc" role="tabpanel" hidden>
+          <div class="seg small" role="group" aria-label="Input" id="rc-inputs"></div>
+          <div id="rc-body"></div>
+        </div>
+      </div>
+    </div>
+    <div class="legend" id="legend"></div>
+    <audio id="ex-audio" preload="none"></audio>
+  </div>
+</section>
+
+<section id="c" class="sec">
+  <h2 class="sec-h">Teacher, one child, chorus, chatter: hear the difference</h2>
+  <p class="lede" id="c-lede">Each column is one kind of voice. Top row raw, bottom row the same seconds lifted. "Chosen to show" clips were picked by the lanes; "draw another" pulls one at random from a pool of that kind.</p>
+  <div class="grid4" id="grid4"></div>
+</section>
+
+<section id="d" class="sec">
+  <h2 class="sec-h">The evidence, question by question</h2>
+  <div id="evidence"></div>
+</section>
+
+<section id="e" class="sec">
+  <h2 class="sec-h">Be the gold: label what you hear</h2>
+  <p class="lede">No human has labelled who speaks in these recordings yet, so every number above is checked against machine-made labels. Your ears fix that. Listen, pick who is speaking, save. The system's guess appears only after you save.</p>
+  <div class="lab" id="lab"></div>
+</section>
+
+<section id="f" class="sec">
+  <h2 class="sec-h">What we would switch on, and what it costs</h2>
+  <div id="rollout"></div>
+</section>
+
+<section id="g" class="sec">
+  <h2 class="sec-h">How we know, and what we do not know yet</h2>
+  <div id="method"></div>
+</section>
+</main>
+
+<footer class="foot">
+  <img src="assets/brand/rumi-mark-navy-trimmed.png" alt="" height="18">
+  <span id="foot-txt">Rumi, classroom audio study, round 6. Built 28 October 2026.</span>
+</footer>
+
+<nav class="tabbar" aria-label="Sections">
+  <a href="#a">Answers</a><a href="#b">Listen</a><a href="#c">Compare</a><a href="#d">Evidence</a><a href="#e">Label</a><a href="#f">Roll out</a>
+</nav>
+
+<script>
+/* Seal shim (COS, 22 Oct 2026). The children's clips on this published copy are sealed: AES-GCM files, the key derived from the
+   page password by PBKDF2 (250,000 iterations, SHA-256), exactly as workbench/seal.py writes them. The engine creates <audio>
+   elements and sets .src to assets/clips/audio/<clip>.mp3; this patch maps a sealed clip's src to a short silent stub until the
+   password is typed, then to a blob URL of the decrypted file. The show runs without their sound until then; nothing else changes.
+   No network address appears in this file: the page is served from its own folder. */
+(function () {
+  var SEALED = {"c00b4c21e8e":1,"c00dc7236a1":1,"c0463865916":1,"c04cc0a6b2a":1,"c082026d296":1,"c08a760e0c2":1,"c090f456ecf":1,"c0a690f7352":1,"c0b655cd5bc":1,"c0dd9eca467":1,"c0e483e496d":1,"c0ef872f2cd":1,"c0fa468032e":1,"c1328233516":1,"c14813f9820":1,"c1572735e44":1,"c15f6004143":1,"c1664d57cfd":1,"c16b4ffdd9d":1,"c18f5dbc4fd":1,"c19c408ec8d":1,"c1cf799c438":1,"c1e5f92e891":1,"c1e732b7893":1,"c206bff2c13":1,"c225cf417a7":1,"c2285ed70db":1,"c23bab0a7f0":1,"c2831f24ec5":1,"c28400161a7":1,"c29247dc6fb":1,"c298e4fac96":1,"c2aebcf0b38":1,"c2b1dbfa81b":1,"c2b2eb565d6":1,"c2b3ec6ff95":1,"c2c5d55c50d":1,"c2cc9495b61":1,"c2d30844194":1,"c2e7d861b6e":1,"c30b44eee1f":1,"c33f80bcfb7":1,"c34cbf0e711":1,"c35676671a9":1,"c35c3361306":1,"c36a612dc36":1,"c36ba015177":1,"c3918dde095":1,"c3ada04dccc":1,"c3ce5cca171":1,"c403b701820":1,"c4bb455a349":1,"c4e31666fc5":1,"c4f8d8f1524":1,"c50114c145a":1,"c52e8af8e32":1,"c5b86404310":1,"c5d542b5865":1,"c5ef827bfd1":1,"c618fed990f":1,"c6252cbab19":1,"c645705b7b3":1,"c64defc6e1d":1,"c64efcfcb46":1,"c657fd9488e":1,"c65a24bc173":1,"c664facc9d9":1,"c66c8dd574f":1,"c6812a1dbf6":1,"c68cd1e8927":1,"c6928a83382":1,"c69fe1ae90e":1,"c6a6ea990d9":1,"c6bbc3ee4b9":1,"c6e560cf0ca":1,"c6ec87a1d63":1,"c71c07578bd":1,"c7a6843066c":1,"c7bc0ef8d60":1,"c7ca9d13e56":1,"c8120a596f4":1,"c8403a60717":1,"c87432dc05b":1,"c8ab555645b":1,"c8cceaddf2f":1,"c8d5fb5c2c6":1,"c8eecbb96ab":1,"c952f9c0ba8":1,"c9570f22ad5":1,"c9591f0b283":1,"c9a06412d56":1,"c9ab7fcb3dc":1,"c9c5899ebe3":1,"c9d8b54f20c":1,"c9f9494cfc9":1,"ca031c210a3":1,"ca08faae0d0":1,"ca38df955f2":1,"ca52a653bb0":1,"ca74c193a3f":1,"ca981c50699":1,"caa186a55b4":1,"caa2521fd66":1,"cac342a5b3c":1,"cacda923cda":1,"cae02dde6ed":1,"cb40fa765e7":1,"cb44d9e260a":1,"cb5225b1971":1,"cb538b90add":1,"cb543e6b192":1,"cb9d1cf2e9e":1,"cb9de54e16f":1,"cba05c0cbc7":1,"cba7dbc830b":1,"cbb059eee74":1,"cbb11fd1ba2":1,"cbb48f64a2c":1,"cbb56825927":1,"cbcb4690e65":1,"cbcbb1c6a24":1,"cbcdef5107c":1,"cbef37d0ad2":1,"cc1ebb05526":1,"cc1f15ce6bf":1,"cc738c6471d":1,"cc7fdc65f1b":1,"cca5370e37c":1,"ccca47a49cd":1,"cce6eac8d8b":1,"cd0789974cc":1,"cd2526881ca":1,"cd62755a8d0":1,"cd6639b9f8d":1,"cd95205436f":1,"cdde9406e8d":1,"ce030403d66":1,"ce128be1e3a":1,"ce1aa1c9f67":1,"ce33a43fd20":1,"ce62e13092f":1,"ce888d40396":1,"ce9ef97cd5a":1,"cea690595b2":1,"cea9f7756e2":1,"cebb3089d25":1,"cec51c39192":1,"cee54e62ba2":1,"cefb4f4de9a":1,"cefbe28a9be":1,"cf17ed63e9b":1,"cf2e3455740":1,"cf39694619e":1,"cf4fee77bf8":1,"cf6a137a6f0":1,"cf8b95f2402":1,"cf91f5c94d0":1,"cffe06246db":1,"l0b1a71785b":1,"l0ff3c7d92d":1,"l1256189b1e":1,"l21b5c603d9":1,"l257dc55080":1,"l25ceb7d136":1,"l2e2d3c3202":1,"l2f232ec32a":1,"l36b0438025":1,"l376ecb881d":1,"l3f87e7d62b":1,"l4838990ae6":1,"l50e403b8ff":1,"l522d71b511":1,"l54df79c540":1,"l5d8615839e":1,"l5e395f9896":1,"l63c0d3d8cd":1,"l6403ad45cc":1,"l64a4a5dbc3":1,"l6588b09248":1,"l6f67c2437e":1,"l72699422fe":1,"l728788dd40":1,"l7b53ccb6f7":1,"l7c148bb9a3":1,"l8590c421ce":1,"l8c3a00171f":1,"l8f82284777":1,"l9278e1d696":1,"l92ab228eb7":1,"l947b10599b":1,"l956f3ee498":1,"l96b2d3b17d":1,"l9e3464b8ec":1,"l9e55cb9f8c":1,"l9f13909eb4":1,"l9fd84940ca":1,"la5044e5e54":1,"la57c59faa0":1,"la5f0223b10":1,"lac8c10fc76":1,"lb261cef50e":1,"lb8cca82231":1,"lba5ec62478":1,"lbcf4a71b02":1,"lc0598c3629":1,"lc69c2774fc":1,"lc832f772ff":1,"lc9cf9130c5":1,"lcbddbf7315":1,"lcd85d50d94":1,"ld22fc4d1b1":1,"ld3825e412b":1,"ldc45a1a75b":1,"le8c80d37ac":1,"leb8899cce1":1,"lee61dc5179":1,"lefbd79c350":1,"lf464795509":1,"lf66dd47708":1,"lf725343f18":1,"lf94591261f":1,"lfd200c647e":1};
+  var DIR = "assets/clips/sealed/";
+  var SILENT = "data:audio/wav;base64,UklGRvQHAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YdAHAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA==";
+  var urls = {}, pending = [], unlocked = false, meta = null;
+  var proto = HTMLMediaElement.prototype;
+  var desc = Object.getOwnPropertyDescriptor(proto, "src");
+
+  function sealedId(v) { var m = /assets\/clips\/audio\/([a-z0-9]+)\.mp3$/.exec(String(v || "")); return m && SEALED[m[1]] ? m[1] : null; }
+
+  Object.defineProperty(proto, "src", {
+    configurable: true,
+    get: function () { return desc.get.call(this); },
+    set: function (v) {
+      var id = sealedId(v);
+      if (!id) { desc.set.call(this, v); return; }
+      this.setAttribute("data-sealed", id);
+      if (urls[id]) { desc.set.call(this, urls[id]); return; }
+      pending.push(this);
+      desc.set.call(this, SILENT);
+    }
+  });
+  var origSetAttr = proto.setAttribute;
+  proto.setAttribute = function (k, v) {
+    if (String(k).toLowerCase() === "src" && sealedId(v)) { this.src = v; return; }
+    return origSetAttr.call(this, k, v);
+  };
+
+  function b64(s) { var b = atob(s), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; }
+  function loadMeta() {
+    if (meta) return Promise.resolve(meta);
+    return fetch(DIR + "seal.json").then(function (r) { if (!r.ok) throw new Error("seal.json"); return r.json(); }).then(function (m) { meta = m; return m; });
+  }
+  function keyFor(pw, m) {
+    return crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]).then(function (base) {
+      return crypto.subtle.deriveKey({ name: "PBKDF2", salt: b64(m.salt), iterations: m.iter, hash: "SHA-256" }, base,
+        { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+    });
+  }
+  function open(key, u) { return crypto.subtle.decrypt({ name: "AES-GCM", iv: u.slice(0, 12) }, key, u.slice(12)); }
+
+  function unlockWith(pw) {
+    return loadMeta().then(function (m) {
+      return keyFor(pw, m).then(function (key) {
+        return open(key, b64(m.check)).then(function (pt) {
+          if (new TextDecoder().decode(pt) !== "ok") throw new Error("bad");
+          return Promise.all(Object.keys(SEALED).map(function (id) {
+            return fetch(DIR + id + ".mp3.bin").then(function (r) { if (!r.ok) throw new Error(id); return r.arrayBuffer(); })
+              .then(function (buf) { return open(key, new Uint8Array(buf)); })
+              .then(function (pt) { urls[id] = URL.createObjectURL(new Blob([pt], { type: "audio/mpeg" })); });
+          }));
+        });
+      });
+    }).then(function () {
+      unlocked = true;
+      pending.forEach(function (a) { var id = a.getAttribute("data-sealed"); if (id && urls[id]) { desc.set.call(a, urls[id]); a.load(); } });
+      pending = [];
+    });
+  }
+
+  /* The lock bar. Typing in it must never reach the deck's key handlers (Right, A, B, digits...), so the first listener on the
+     window, in the capture phase, swallows key events whose target is the password field. */
+  var bar, input, msg;
+  window.addEventListener("keydown", guard, true); window.addEventListener("keyup", guard, true); window.addEventListener("keypress", guard, true);
+  function guard(e) { if (input && e.target === input) e.stopImmediatePropagation(); }
+
+  function build() {
+    if (bar) return;
+    var css = document.createElement("style");
+    css.textContent =
+      "#seal-bar{position:fixed;top:0;left:0;right:0;z-index:70;display:flex;align-items:center;gap:18px;padding:14px 28px;" +
+      "background:var(--card,#131F45);color:var(--ink,#F5F2EA);border-bottom:1px solid var(--card-line,#2A3A6E);font-size:20px;line-height:1.35}" +
+      "#seal-bar.hidden{display:none}#seal-bar .seal-text{flex:1;min-width:0}#seal-bar form{display:flex;gap:10px;align-items:center}" +
+      "#seal-bar input{font:inherit;font-size:20px;padding:8px 12px;border-radius:8px;border:1px solid var(--card-line,#2A3A6E);background:#0A1128;color:var(--ink,#F5F2EA);min-width:220px}" +
+      "#seal-bar button{font:inherit;font-size:20px;padding:8px 18px;border-radius:8px;border:0;background:var(--lit,#EFAF22);color:#0A1128;cursor:pointer}" +
+      "#seal-bar .seal-msg{min-width:200px;color:var(--ink-quiet,#B8C1DA);font-size:18px}";
+    document.head.appendChild(css);
+    bar = document.createElement("div"); bar.id = "seal-bar"; bar.setAttribute("role", "dialog"); bar.setAttribute("aria-label", "Sealed clips");
+    bar.innerHTML =
+      '<div class="seal-text">The children’s clips on this page are sealed. Type the password you were given to hear them; the page works without their sound until then.</div>' +
+      '<form id="seal-form" autocomplete="off"><input id="seal-pw" type="password" placeholder="password" autocomplete="off" aria-label="password"><button type="submit">Open</button></form>' +
+      '<div class="seal-msg" id="seal-msg"></div>';
+    document.body.appendChild(bar);
+    input = bar.querySelector("#seal-pw"); msg = bar.querySelector("#seal-msg");
+    bar.querySelector("#seal-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var pw = input.value;
+      if (!pw) return;
+      msg.textContent = "Opening…";
+      unlockWith(pw).then(function () {
+        try { sessionStorage.setItem("seal-pw", pw); } catch (err) {}
+        msg.textContent = "";
+        bar.classList.add("hidden");
+        input.blur();
+      }, function () {
+        msg.textContent = "That password did not open it. Check with whoever sent you the link.";
+        input.select();
+      });
+    });
+  }
+  function boot() {
+    build();
+    var saved = null;
+    try { saved = sessionStorage.getItem("seal-pw"); } catch (err) {}
+    if (saved) unlockWith(saved).then(function () { bar.classList.add("hidden"); }, function () { try { sessionStorage.removeItem("seal-pw"); } catch (err) {} });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+
+  window.__seal = { unlocked: function () { return unlocked; }, ids: Object.keys(SEALED), url: function (id) { return urls[id] || null; }, unlock: unlockWith };
+})();
+
+</script>
+<script src="assets/data/site.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
