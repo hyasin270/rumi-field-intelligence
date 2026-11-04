@@ -1,6 +1,6 @@
 {
  "title": "OPEN Forum, November 2026",
- "built_at": "2026-11-04T10:10:19Z",
+ "built_at": "2026-11-04T13:14:49Z",
  "stage": [
   1920,
   1080
@@ -15,8 +15,6 @@
    "steps": 1,
    "transition": "fade",
    "sensitive": false,
-   "owner": "rm-show3",
-   "status": "built",
    "media": [
     {
      "type": "image",
@@ -24,15 +22,7 @@
      "autoplay": false
     }
    ],
-   "highlight": null,
-   "note": {
-    "planned": "30 s · Nadir",
-    "cues": [
-     "press 1: moves to s02 (the first picture, on the dark ground)"
-    ],
-    "body": "[Both of you, salaam, in your own words.] We're Nadir and Sania, two of the founders of The Friends of Pakistan: a network and a fund, started this year by Pakistanis at home and abroad. We find the people already solving Pakistan's biggest problems, and help them grow to reach millions.\n(press)",
-    "first_line": ""
-   }
+   "highlight": null
   },
   {
    "id": "s02",
@@ -43,8 +33,6 @@
    "steps": 2,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-nadir3",
-   "status": "built",
    "media": [
     {
      "type": "image",
@@ -62,16 +50,7 @@
      "autoplay": false
     }
    ],
-   "highlight": null,
-   "note": {
-    "planned": "50 s · Nadir",
-    "cues": [
-     "press 1: the right half comes into focus, Rizq's food system; the left racks out of focus and drains to black and white",
-     "press 2: moves to s03"
-    ],
-    "body": "It's 2022. Pakistan is hit by floods of a scale we thought we'd see once in a century. Thirty-three million people affected. Eight million forced from their homes. And what happens next is extraordinary. The Edhi Foundation runs rescues. Islamic Relief brings food, clean water and shelter. When Pakistan is in need, Pakistanis show up.\n[Say the left half as something you are proud this room did.]\n(press)\n[Must say, as the cart comes into focus: the room needs Rizq's name on this picture.]\nBut amid the relief, some people ask a different question. Not only how do we feed this family today, but how do we make sure this family doesn't go hungry tomorrow? Take Rizq, started by young LUMS graduates. They rescue surplus food, work with farmers, and build kitchens and food carts. Rizq says it has served more than twenty million meals.\n(press)",
-    "first_line": "It's 2022."
-   }
+   "highlight": null
   },
   {
    "id": "s03",
@@ -82,8 +61,6 @@
    "steps": 2,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-nadir3",
-   "status": "built",
    "media": [
     {
      "type": "image",
@@ -101,16 +78,7 @@
      "autoplay": false
     }
    ],
-   "highlight": null,
-   "note": {
-    "planned": "50 s · Nadir",
-    "cues": [
-     "press 1: the right half comes into focus, ChildLife's telemedicine; the left racks out of focus and drains to black and white",
-     "press 2: moves to s04"
-    ],
-    "body": "It's not only floods. A thousand children under five die in Pakistan every day, many from things a doctor could have treated. And once again, Pakistanis step up. Think of Indus Hospital, of Koohi Goth, and the doctors and nurses caring for families who couldn't otherwise pay.\n[Your countdown line stays out: this session asks for no guilt. It is yours to restore.]\n(press)\nBut again, some leaders ask a different question. What needs to change so families aren't without care in the first place? ChildLife Foundation rebuilt thirteen children's emergency rooms in public hospitals, then linked three hundred more hospitals to specialists by video. More than a million consultations. They didn't just improve a hospital. They found a way to bring expertise to the family.\n(press)",
-    "first_line": "It's not only floods."
-   }
+   "highlight": null
   },
   {
    "id": "s04",
@@ -121,8 +89,6 @@
    "steps": 2,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-nadir3",
-   "status": "built",
    "media": [
     {
      "type": "image",
@@ -131,7 +97,7 @@
     },
     {
      "type": "image",
-     "src": "assets/pictures/n3-right-v3-phone-hands.jpg",
+     "src": "assets/pictures/n3-right-v3-teacher-phone-blurred.jpg",
      "autoplay": false
     },
     {
@@ -140,16 +106,7 @@
      "autoplay": false
     }
    ],
-   "highlight": null,
-   "note": {
-    "planned": "50 s · Nadir",
-    "cues": [
-     "press 1: the right half comes into focus: a teacher's hands holding a phone, a lesson lit on it; the left (a school, \"Photo: The Citizens Foundation\") racks out of focus and drains to black and white",
-     "press 2: moves to s05"
-    ],
-    "body": "You could build a school. This room has built thousands of them. That is how The Citizens Foundation began: a few schools, and people like you behind them. The country needed every one.\n(press)\nOr you could lift what is taught in every public school, on a phone in the teacher's hands: the government schools, where most of Pakistan's children already sit. Haroon will show you what that looks like.\n(press)",
-    "first_line": "You could build a school."
-   }
+   "highlight": null
   },
   {
    "id": "s05",
@@ -160,8 +117,6 @@
    "steps": 2,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-nadir3",
-   "status": "built",
    "media": [
     {
      "type": "image",
@@ -170,7 +125,7 @@
     },
     {
      "type": "image",
-     "src": "assets/pictures/n4-right-v3-amal-session.jpg",
+     "src": "assets/pictures/n4-right-v3-amal-corridor.jpg",
      "autoplay": false
     },
     {
@@ -179,16 +134,7 @@
      "autoplay": false
     }
    ],
-   "highlight": null,
-   "note": {
-    "planned": "50 s · Nadir",
-    "cues": [
-     "press 1: the right half comes into focus, a career-readiness class in a public university; the left racks out of focus and drains to black and white",
-     "press 2: moves to s06"
-    ],
-    "body": "You could help one graduate find their first job. That changes a family.\n(press)\nOr you could back the people teaching every public-university class how to find work. Amal Academy, one of our Skardu fellows, does exactly that. It reports that eight in ten of its sixteen thousand graduates start meaningful work within three months.\n(press)",
-    "first_line": "You could help one graduate find their first job."
-   }
+   "highlight": null
   },
   {
    "id": "s06",
@@ -199,20 +145,8 @@
    "steps": 3,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-nadir3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "20 s · Nadir",
-    "cues": [
-     "press 1: the honour line recedes; the one-to-many picture: one lit mark becomes a field",
-     "press 2: the device line arrives alone: \"Back what reaches millions.\"",
-     "press 3: moves to s10 (Sania; the ground turns to paper)"
-    ],
-    "body": "Pakistan is the seventh most generous country on earth, says this year's World Giving Report. Four times you could do one good thing, and four times the same heart could reach every family.\n(press)\nThere is a new way of doing good.\n(press)\nBack what reaches millions. Sania.\n(press)",
-    "first_line": "Pakistan is the seventh most generous country on earth, says this year's World Giving Report."
-   }
+   "highlight": null
   },
   {
    "id": "s10",
@@ -223,22 +157,8 @@
    "steps": 5,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-sania3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "55 s · Sania",
-    "cues": [
-     "press 1: the axes; the steady line draws, \"Steady\": \"the village school you sponsor\"",
-     "press 2: the linear line draws, \"Linear\": \"more schools every year\"; steady recedes",
-     "press 3: the exponential curve draws, \"Exponential\": \"how every school in Pakistan teaches\"; both earlier lines recede",
-     "press 4: the chart recedes; \"Exponential, not linear. A trajectory, not a number.\"",
-     "press 5: moves to s11"
-    ],
-    "body": "Nadir started us off with a new way of doing good. I know scale is a buzzword, so we have one definition: the sustained acceleration towards the full potential of your idea. Scale has a shape; Kevin Starr at Mulago draws it in three lines.\n(press)\nThe first scenario is steady impact. Think of the village whose students you sponsored. Deep, and limited in reach.\n(press)\nThen linear growth: more and more schools every year. Most of us call this scale. [If it is true for you: \"I did too.\"] But the problem, I promise you, is outpacing it.\n[Your original, if you want it back: \"Sorry to burst the bubble here, but it's not.\"]\n(press)\nExponential is when the solution overtakes the problem. Not one village, not a few thousand schools: how education is delivered across all of Pakistan. Now that's exciting.\n(press)\nIt's exponential, not linear. A trajectory, not a number. All three kinds of doing good are important. Only one keeps up with the problem.\n(press)",
-    "first_line": "Nadir started us off with a new way of doing good."
-   }
+   "highlight": null
   },
   {
    "id": "s11",
@@ -249,22 +169,8 @@
    "steps": 5,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-sania3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "45 s · Sania",
-    "cues": [
-     "press 1: \"The government takes it into its budget.\"",
-     "press 2: \"Or others copy the model.\"; the first recedes",
-     "press 3: the money line draws: \"An organisation's budget levels off.\"",
-     "press 4: the impact line draws: \"Its impact goes through the roof.\"",
-     "press 5: moves to s12"
-    ],
-    "body": "Organisations aiming that high know they can't do it alone. So they ask early: who delivers this at scale, and who pays for it?\n(press)\nEither the government takes it on and puts it in its budget.\n(press)\nOr they create a marketplace where other organisations copy the model.\n(press)\nEither way, the organisation's budget can level off,\n(press)\neven as its impact goes through the roof.\n(press)",
-    "first_line": "Organisations aiming that high know they can't do it alone."
-   }
+   "highlight": null
   },
   {
    "id": "s12",
@@ -275,21 +181,8 @@
    "steps": 4,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-sania3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "40 s · Sania",
-    "cues": [
-     "press 1: foreign aid arrives beside the remittance bar; the remittance figure recedes",
-     "press 2: foreign investment arrives; the aid figure recedes",
-     "press 3: the IMF programme arrives; the investment figure recedes",
-     "press 4: moves to s13"
-    ],
-    "body": "Here is what Pakistanis abroad already send home: more than forty billion dollars a year, a record. Most of it is wages to family, and it should be.\n(press)\nThat is more than all the foreign aid Pakistan receives.\n(press)\nMore than all the foreign investment.\n(press)\nMore than the whole IMF programme the country argues about, seven billion over three years.\n(press)",
-    "first_line": "Here is what Pakistanis abroad already send home: more than forty billion dollars a year, a record."
-   }
+   "highlight": null
   },
   {
    "id": "s13",
@@ -300,19 +193,8 @@
    "steps": 2,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-sania3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "20 s · Sania",
-    "cues": [
-     "press 1: \"Ten times the impact out.\"; the one mark becomes ten",
-     "press 2: moves to s14"
-    ],
-    "body": "We all give in a portfolio: a family, a school, a ward, relief. Keep all of it. The question is what portion backs what can scale.\n(press)\nBecause when you back real scale, your dollar stretches. In our experience, for a dollar in, you get ten times the impact out.\n(press)",
-    "first_line": "We all give in a portfolio: a family, a school, a ward, relief."
-   }
+   "highlight": null
   },
   {
    "id": "s14",
@@ -323,19 +205,8 @@
    "steps": 2,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-sania3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "35 s · Sania",
-    "cues": [
-     "press 1: the second card, Ireland; India recedes",
-     "press 2: moves to s15"
-    ],
-    "body": "Other communities like ours did this, on purpose. Indian-Americans give four billion dollars a year, and Pratham, one of those they back, reaches seven million children.\n(press)\nOne donor: Chuck Feeney, one man, through Atlantic Philanthropies. It gave Ireland 1.6 billion euros, most of it to its universities, and on the research it backed, the state added five dollars for each one the donor gave. None of them stopped giving to family.\n(press)",
-    "first_line": "Other communities like ours did this, on purpose."
-   }
+   "highlight": null
   },
   {
    "id": "s15",
@@ -346,23 +217,8 @@
    "steps": 6,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-sania3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "55 s · Sania",
-    "cues": [
-     "press 1: \"Find. Refine. Fund.\" fills the gap between $100 and $10 million",
-     "press 2: Mehfooz AI",
-     "press 3: Taskeen; Mehfooz AI recedes in place",
-     "press 4: Soby Agro",
-     "press 5: Sehat Kahani",
-     "press 6: moves to s16"
-    ],
-    "body": "That's why we started The Friends of Pakistan. We know how to give a hundred dollars. We know how to invest ten million. But who backs the builder whose idea already works?\n(press)\nWe scour Pakistan for them, the next generation with the chops to scale, charities and businesses both. Find. Refine. Fund.\n(press)\nYou might be thinking: nice try, those organisations don't exist in Pakistan. Except they do. Nadir and I have met the leaders and vetted their work. Mehfooz AI: legal help for women leaving abusive marriages. The chatbot prepares the complete court-ready file, and certified lawyers review it before filing.\n(press)\nTaskeen: a mental-health phone help-line that is opening up access to psychologists. Twenty-five thousand people helped.\n(press)\nSoby Agro: a one-stop shop for high-productivity farm products, so farmers become profitable.\n(press)\nSehat Kahani: telemedicine clinics, so everyone has good healthcare within walking distance.\n[Yours, if you want it (not on screen; Nadir says the number at the close): \"Across our first months, we helped unlock four million dollars for three organisations.\" Never \"these three\".]\n(press)",
-    "first_line": "That's why we started The Friends of Pakistan."
-   }
+   "highlight": null
   },
   {
    "id": "s16",
@@ -373,18 +229,8 @@
    "steps": 1,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-sania3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "15 s · Sania",
-    "cues": [
-     "press 1: moves to s20, Haroon's cover (Haroon walks on)"
-    ],
-    "body": "Back what reaches millions. And to really prove it to you, I'm thrilled to bring a dear friend and visionary entrepreneur, Haroon Yasin, to the stage. Taleemabad is a Pakistani non-profit making sure every child reaches grade-level reading and maths, rapidly scaling across Pakistan's public schools: built in Pakistan, and now exported to the world. Haroon.\n[Yours to word, if you want it: \"Haroon advises us; that is how we know this work from the inside.\"]\n(press)",
-    "first_line": "Back what reaches millions."
-   }
+   "highlight": null
   },
   {
    "id": "s20",
@@ -395,18 +241,8 @@
    "steps": 1,
    "transition": "fade",
    "sensitive": false,
-   "owner": "cartographer",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "5 s · Haroon",
-    "cues": [
-     "press 1: moves to s21 (the stage goes near-dark)"
-    ],
-    "body": "[Walk up on the cover. Thank Sania in your own words, one line.] Taleemabad: it means a city of learning.\n[If asked about the structure: \"We began as a company and raised seed money in 2023. We stopped raising for-profit money and restructured as a non-profit, with a US 501(c)(3).\"]\n(press)",
-    "first_line": ""
-   }
+   "highlight": null
   },
   {
    "id": "s21",
@@ -417,8 +253,6 @@
    "steps": 3,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-voice",
-   "status": "built",
    "media": [
     {
      "type": "audio",
@@ -427,17 +261,7 @@
      "autoplay": false
     }
    ],
-   "highlight": null,
-   "note": {
-    "planned": "18 s (clip 10 s, speaking 8 s, at most 20 words) · Haroon",
-    "cues": [
-     "press 1: the clip plays, the Urdu lines light as spoken with the English under them · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
-     "press 2: holds; \"Classes of fifty. One teacher. No help for either.\"",
-     "press 3: moves to s22"
-    ],
-    "body": "[Say nothing. Press when the room is quiet.]\n(press)\n[Say nothing until it ends. Let two seconds pass.]\n(press)\nA public-school classroom, this year. Not every one. And the system fails the teacher too.\n[If asked where: a government school in Islamabad that we work in, recorded by the teacher on their own phone this October. We hear it because we listen; before this, nobody did. In our recordings it is rare, and every one is heard.]\n(press)",
-    "first_line": "A public-school classroom, this year."
-   }
+   "highlight": null
   },
   {
    "id": "s22",
@@ -448,8 +272,6 @@
    "steps": 3,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-voice",
-   "status": "built",
    "media": [
     {
      "type": "audio",
@@ -458,17 +280,7 @@
      "autoplay": false
     }
    ],
-   "highlight": null,
-   "note": {
-    "planned": "21 s (clip 16 s, speaking 5 s, at most 12 words) · Haroon",
-    "cues": [
-     "press 1: the Urdu clip plays, the words light as read · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
-     "press 2: holds; the caption \"Grade 4. Reading on a phone. 2026.\"",
-     "press 3: moves to s22a"
-    ],
-    "body": "[Say nothing. Press.]\n(press)\n[Let it end.]\n(press)\nA child in grade four.\n(press)",
-    "first_line": "A child in grade four."
-   }
+   "highlight": null
   },
   {
    "id": "s22a",
@@ -479,21 +291,8 @@
    "steps": 4,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-h4-3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "14 s · Haroon",
-    "cues": [
-     "press 1: the first ring draws outward: \"home\"",
-     "press 2: the second ring: \"teacher\"; the home line recedes",
-     "press 3: the third ring: \"government\"; the teacher line recedes",
-     "press 4: moves to s23"
-    ],
-    "body": "Why can't they read?\n(press)\nAt home, parents who never had school, working long hours.\n(press)\nA teacher trained once, long ago, with fifty children.\n(press)\nAnd a government that can't see who is learning.\n(press)",
-    "first_line": "Why can't they read?"
-   }
+   "highlight": null
   },
   {
    "id": "s23",
@@ -504,8 +303,6 @@
    "steps": 3,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-h1-3",
-   "status": "built",
    "media": [
     {
      "type": "image",
@@ -523,17 +320,7 @@
      "autoplay": false
     }
    ],
-   "highlight": null,
-   "note": {
-    "planned": "12 s · Haroon",
-    "cues": [
-     "press 1: Georgetown arrives; the childhood picture recedes",
-     "press 2: the school in the slum, full frame, no words",
-     "press 3: moves to s24"
-    ],
-    "body": "[Only if ahead of the clock: \"I grew up in a middle-class family in Islamabad.\" Otherwise press straight on.]\n(press)\nGeorgetown gave me a scholarship. I came home for a year to do good.\n(press)\nI set up a school in a slum. One of those first students now builds the software we send around the world.\n(press)",
-    "first_line": "Georgetown gave me a scholarship."
-   }
+   "highlight": null
   },
   {
    "id": "s24",
@@ -544,20 +331,8 @@
    "steps": 3,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-h1-3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "10 s · Haroon",
-    "cues": [
-     "press 1: \"25 million\" more, not in school",
-     "press 2: ten dots, seven lit: \"7 in 10\"",
-     "press 3: moves to s25"
-    ],
-    "body": "[In your own words, if you want it: \"I'd seen the magic, and I couldn't unsee it.\"] Fifty-eight million children in school.\n(press)\nTwenty-five million not in school at all.\n(press)\nSeven in ten can't read a simple story.\n(press)",
-    "first_line": "Twenty-five million not in school at all."
-   }
+   "highlight": null
   },
   {
    "id": "s25",
@@ -568,8 +343,6 @@
    "steps": 4,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-h1-3",
-   "status": "built",
    "media": [
     {
      "type": "image",
@@ -582,18 +355,7 @@
      "autoplay": false
     }
    ],
-   "highlight": null,
-   "note": {
-    "planned": "12 s · Haroon",
-    "cues": [
-     "press 1: the map with dots, framed at its own size; the TV screen recedes",
-     "press 2: \"8 million children watched, every week\" arrives in the left panel; the map holds still",
-     "press 3: the palace, small inset",
-     "press 4: moves to s26"
-    ],
-    "body": "Our first try: we copied Sesame Street, a cartoon on national television.\n(press)\n[Let the map land.]\n(press)\nEight million children watched, every week.\n(press)\n[Only if ahead of the clock: \"We were recognised at Buckingham Palace.\"] But ten minutes a day was never going to change a child's life.\n(press)",
-    "first_line": "Our first try: we copied Sesame Street, a cartoon on national television."
-   }
+   "highlight": null
   },
   {
    "id": "s26",
@@ -604,17 +366,15 @@
    "steps": 3,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-h1-3",
-   "status": "built",
    "media": [
     {
      "type": "image",
-     "src": "assets/pictures/h-harvard.jpg",
+     "src": "assets/pictures/h-harvard-school-sr.jpg",
      "autoplay": false
     },
     {
      "type": "image",
-     "src": "assets/pictures/h-stanford.jpg",
+     "src": "assets/pictures/h-stanford-school-sr.jpg",
      "autoplay": false
     },
     {
@@ -624,26 +384,16 @@
     },
     {
      "type": "image",
-     "src": "assets/pictures/h-lowfee-gandhara.jpg",
+     "src": "assets/pictures/h-lowfee-gandhara-sign.jpg",
      "autoplay": false
     },
     {
      "type": "image",
-     "src": "assets/pictures/h-lowfee-mountain.jpg",
+     "src": "assets/pictures/h-lowfee-mountain-full.jpg",
      "autoplay": false
     }
    ],
-   "highlight": null,
-   "note": {
-    "planned": "12 s · Haroon",
-    "cues": [
-     "press 1: the Stanford school alone, no text; Harvard leaves",
-     "press 2: the three schools, with \"200 schools in the first year\"",
-     "press 3: moves to s27"
-    ],
-    "body": "Back to schools. Pakistan has a Harvard at five dollars a month.\n(press)\nAnd a rundown Stanford, a dollar more.\n(press)\nIn a year, two hundred schools carried our name.\n(press)",
-    "first_line": "Back to schools."
-   }
+   "highlight": null
   },
   {
    "id": "s27",
@@ -654,19 +404,8 @@
    "steps": 2,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-h1-3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "10 s · Haroon",
-    "cues": [
-     "press 1: under the headline, the two bars grow: the school next door 41%, Taleemabad schools 64%",
-     "press 2: moves to s40"
-    ],
-    "body": "This time we measured, against the school next door. Fifty per cent more children reading at grade level.\n(press)\n[If challenged: grades one to three, in English, 2023; on our original schools alone, forty-four per cent more.]\nAnd eight dollars a child a year: that is what it cost to run the whole thing. When something is this cheap and works, do you know what happens?\n(press)",
-    "first_line": "This time we measured, against the school next door."
-   }
+   "highlight": null
   },
   {
    "id": "s40",
@@ -677,21 +416,8 @@
    "steps": 4,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-h3-3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "12 s · Haroon",
-    "cues": [
-     "press 1: the two conditions, on a panel: \"a whole district\" · \"and they pay for it\"",
-     "press 2: \"$8 a child a year\" · \"422 schools, 4,000 teachers\"",
-     "press 3: \"More than half of Pakistan's children are in government schools.\"",
-     "press 4: moves to s40a"
-    ],
-    "body": "[Clock: 3:35. If past 4:05, take the shortest line on every scene from here.] The state comes calling.\n[Pause for the laugh. The smile is at ourselves.]\n(press)\nWe said: a whole district, and you pay. They said yes.\n(press)\nFour thousand teachers, eight dollars a child.\n(press)\nMost children are in public schools: a different beast. So we started helping the teachers in them.\n(press)",
-    "first_line": "We said: a whole district, and you pay."
-   }
+   "highlight": null
   },
   {
    "id": "s40a",
@@ -702,19 +428,8 @@
    "steps": 2,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-product",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "10 s · Haroon",
-    "cues": [
-     "press 1: the three rings fill, one after another: \"Lesson plans. Coaching.\" · \"Learning at home.\" · \"The data.\"",
-     "press 2: moves to s40b"
-    ],
-    "body": "What we built, around that child.\n(press)\nFor the teacher, a plan and a coach. For the home, learning on a parent's phone. For the government, data.\n(press)",
-    "first_line": "What we built, around that child."
-   }
+   "highlight": null
   },
   {
    "id": "s40b",
@@ -725,20 +440,8 @@
    "steps": 3,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-product",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "10 s · Haroon",
-    "cues": [
-     "press 1: the plan arrives: a card and a voice note",
-     "press 2: the plan opened, zoomed: an English lesson, describing words; the caption \"In their language: Urdu, English or Sindhi.\"",
-     "press 3: moves to s40c"
-    ],
-    "body": "A teacher asks by voice note.\n(press)\nThe plan comes back, for exactly what they teach tomorrow.\n(press)\nIn Urdu, English or Sindhi, whichever they prefer. This one is in English.\n(press)",
-    "first_line": "A teacher asks by voice note."
-   }
+   "highlight": null
   },
   {
    "id": "s40c",
@@ -749,8 +452,6 @@
    "steps": 4,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-product",
-   "status": "built",
    "media": [
     {
      "type": "audio",
@@ -759,18 +460,7 @@
      "autoplay": false
     }
    ],
-   "highlight": null,
-   "note": {
-    "planned": "21 s (clip 7 s, speaking 14 s, at most 35 words) · Haroon",
-    "cues": [
-     "press 1: the coaching voice note plays, its words lighting with the English under · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
-     "press 2: \"Another teacher's note: what worked.\", the real line with its English under; the Urdu recedes once its English lands",
-     "press 3: the loop's name, alone",
-     "press 4: moves to s40d"
-    ],
-    "body": "Every day, they record the lesson. That evening, a voice note comes back.\n(press)\n[Let it play: one thing to try tomorrow.]\n(press)\nAnd here is another teacher, a different lesson: what worked.\n(press)\nTeach. Get coached. Teach better. Every day. [Only if ahead, in your own words: some teachers even vent to it when they are stressed.]\n(press)",
-    "first_line": "Every day, they record the lesson."
-   }
+   "highlight": null
   },
   {
    "id": "s40d",
@@ -781,20 +471,8 @@
    "steps": 3,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-product",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "10 s · Haroon",
-    "cues": [
-     "press 1: the child's quiz, opened from the link; the answer lit with the product's own praise line",
-     "press 2: the report opened; who learned, by badge",
-     "press 3: moves to s41"
-    ],
-    "body": "And a quiz goes home to the parent's phone: the same WhatsApp you use with your family.\n(press)\nThe child answers.\n(press)\nAnd the teacher sees who learned.\n(press)",
-    "first_line": "And a quiz goes home to the parent's phone: the same WhatsApp you use with your family."
-   }
+   "highlight": null
   },
   {
    "id": "s41",
@@ -805,8 +483,6 @@
    "steps": 3,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-voice",
-   "status": "built",
    "media": [
     {
      "type": "audio",
@@ -821,17 +497,7 @@
      "autoplay": false
     }
    ],
-   "highlight": null,
-   "note": {
-    "planned": "21 s (clip 13 s, speaking 8 s, at most 20 words) · Haroon",
-    "cues": [
-     "press 1: the teacher's voice note plays, its words lighting with the English under, then Rumi's voice reply the same way · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
-     "press 2: holds; the caption",
-     "press 3: moves to s41a"
-    ],
-    "body": "It's all voice, because teachers talk. Listen.\n(press)\n[Let it play: the teacher, then the reply.]\n(press)\nA real teacher, this term, in Urdu.\n[No name is heard. If asked who, never a name or a school. If asked about the reply: the words are Rumi's real reply; the product keeps replies as text, so it is voiced again in the same voice teachers hear.]\n(press)",
-    "first_line": "It's all voice, because teachers talk."
-   }
+   "highlight": null
   },
   {
    "id": "s41a",
@@ -842,19 +508,8 @@
    "steps": 2,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-h3-3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "10 s · Haroon",
-    "cues": [
-     "press 1: the header becomes the government's: \"NIETE Teaching Assistant\"; ours recedes",
-     "press 2: moves to s41b"
-    ],
-    "body": "Then we did something founders hate.\n(press)\nWe gave the government our brand. In Islamabad it carries the name of NIETE, the government's own institute for teachers.\n[If asked: NIETE is the National Institute of Excellence in Teacher Education.]\n(press)",
-    "first_line": "Then we did something founders hate."
-   }
+   "highlight": null
   },
   {
    "id": "s41b",
@@ -865,19 +520,8 @@
    "steps": 2,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-h3-3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "8 s · Haroon",
-    "cues": [
-     "press 1: the photograph recedes; the appraisal line alone",
-     "press 2: moves to s41c"
-    ],
-    "body": "In 2024 the government gave the teachers who had improved most a medal: Ustaad-e-Mohtaram, respected teacher.\n(press)\nAnd what our data shows now counts in a teacher's appraisal.\n[Only if asked, in your own words: the teacher in a remote village in Balochistan who received a national civil award after the team pressed for teachers to be honoured. Not one of our classes; no name, no award class.]\n(press)",
-    "first_line": "In 2024 the government gave the teachers who had improved most a medal: Ustaad-e-Mohtaram, respected teacher."
-   }
+   "highlight": null
   },
   {
    "id": "s41c",
@@ -888,18 +532,8 @@
    "steps": 1,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-h3-3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "8 s · Haroon",
-    "cues": [
-     "press 1: moves to s42"
-    ],
-    "body": "[Only if ahead of the clock; otherwise press straight on.] This is everyone who had to say yes for one district to change. We learned every name on it.\n[Never name an official here, even if asked: the map stays the shape of it.]\n(press)",
-    "first_line": ""
-   }
+   "highlight": null
   },
   {
    "id": "s42",
@@ -910,22 +544,8 @@
    "steps": 5,
    "transition": "fade",
    "sensitive": false,
-   "owner": "cartographer",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "12 s · Haroon",
-    "cues": [
-     "press 1: Islamabad lights, full green",
-     "press 2: Balochistan, soft green",
-     "press 3: Punjab, soft green",
-     "press 4: Sindh, soft green",
-     "press 5: moves to s43"
-    ],
-    "body": "[Clock: 6:15.] Pakistan has four provinces, each its own country to work in, and word travelled.\n(press)\nIslamabad, where the government pays for every school.\n(press)\nBalochistan.\n(press)\nPunjab.\n(press)\nAnd Sindh.\n[Only if ahead of the clock. In your own words, if you want it: people warned you Sindh would be the hardest, and \"we found it to be one of the easiest\".]\n(press)",
-    "first_line": "Islamabad, where the government pays for every school."
-   }
+   "highlight": null
   },
   {
    "id": "s43",
@@ -936,44 +556,20 @@
    "steps": 2,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-h4-3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "8 s · Haroon",
-    "cues": [
-     "press 1: the same figure counts down in place: \"$8\" becomes \"$3 a child a year\"",
-     "press 2: moves to s43a"
-    ],
-    "body": "Eight dollars a child, in Islamabad.\n(press)\nIn Rawalpindi, the next district, three dollars a child a year. That fits a government budget.\n[Never say Islamabad now costs three dollars: they are two districts.]\n(press)",
-    "first_line": "Eight dollars a child, in Islamabad."
-   }
+   "highlight": null
   },
   {
    "id": "s43a",
-   "title": "Who pays for it",
+   "title": "Who pays for it?",
    "chapter": "proof",
    "duration_s": 14,
    "appendix": false,
    "steps": 4,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-h4-3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "14 s · Haroon",
-    "cues": [
-     "press 1: the 2025 bar beside 2024: the government's share taller, the children above",
-     "press 2: \"The children doubled. The money grew by half.\"",
-     "press 3: the chart recedes; \"Open source. More than 50 organisations have cloned it.\"",
-     "press 4: moves to s44"
-    ],
-    "body": "And the government pays. In 2024, almost half of all our income.\n(press)\nIn 2025 the children doubled, the money grew by half, and the state paid forty in every hundred.\n(press)\n[In your own words, if you want it: \"Giving no longer has to grow as fast as the children do.\"]\n(press)\nAnd it's all open source. More than fifty organisations have cloned it.\n(press)",
-    "first_line": "And the government pays."
-   }
+   "highlight": null
   },
   {
    "id": "s44",
@@ -984,23 +580,8 @@
    "steps": 6,
    "transition": "fade",
    "sensitive": false,
-   "owner": "cartographer",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "14 s · Haroon",
-    "cues": [
-     "press 1: Tanzania lights",
-     "press 2: Kenya lights",
-     "press 3: Palestine lights: \"5,000 teachers\"",
-     "press 4: the world frame settles: Pakistan deepest green, the three destinations, a ring on Palestine",
-     "press 5: the map recedes; \"Built in Pakistan, exported to the world.\"",
-     "press 6: moves to s44a"
-    ],
-    "body": "[Clock: 7:20. If you are past it, skip the Kiswahili pair on the next scene.] Then other countries found it.\n(press)\nTanzania.\n(press)\nKenya.\n(press)\nAnd Palestine: five thousand teachers across the West Bank.\n[In your own words, a breath: what it means to you that this was built in Pakistan. Anything about what the West Bank has lived this year is yours to say or leave.]\n(press)\n[Let the world settle. A beat.]\n(press)\nBuilt in Pakistan, exported to the world.\n[If asked: more than three thousand teachers in Palestine use it already; developers in India and Niger have built on the open code.]\n(press)",
-    "first_line": "Tanzania."
-   }
+   "highlight": null
   },
   {
    "id": "s44a",
@@ -1011,8 +592,6 @@
    "steps": 4,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-voice",
-   "status": "built",
    "media": [
     {
      "type": "audio",
@@ -1039,18 +618,7 @@
      "autoplay": false
     }
    ],
-   "highlight": null,
-   "note": {
-    "planned": "27 s (clip 19 s, speaking 8 s, at most 20 words) · Haroon",
-    "cues": [
-     "press 1: Kiswahili: the teacher's voice note plays, then Rumi's reply · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
-     "press 2: Arabic: the teacher's voice note plays, then Rumi's reply · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
-     "press 3: holds; the captions",
-     "press 4: moves to s45"
-    ],
-    "body": "[Kiswahili plays unless the clock at s44 read past 7:20. To skip it: press once, then at once press again; Kiswahili stops and the Arabic waits, silent. Say the West Bank line, then press: the Arabic teacher plays.]\nA teacher in Tanzania, in Kiswahili.\n(press)\n[Let it play: the teacher, then the reply.] A teacher in Palestine, in the West Bank, in Arabic.\n(press)\n[Let it play: the teacher, then the reply.]\n(press)\nThe same product, built in Pakistan.\n(press)",
-    "first_line": "A teacher in Tanzania, in Kiswahili."
-   }
+   "highlight": null
   },
   {
    "id": "s45",
@@ -1061,20 +629,8 @@
    "steps": 3,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-h3-3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "10 s · Haroon",
-    "cues": [
-     "press 1: your quote from the Claude website, large; the page recedes",
-     "press 2: the Financial Times masthead; Claude recedes",
-     "press 3: moves to s46"
-    ],
-    "body": "Anthropic, one of the big AI labs and the makers of Claude, features us on its website.\n(press)\nThat sentence is mine. And we work with their applied-AI team on the coaching.\n[Only if ahead of the clock, in your own words: the classroom audio. From your brief: \"we had just recorded 50,000 hours of classroom audio all across the world\".]\n[If asked about the small print on the Claude page (16,000 teachers, 418,000 learners, six countries): that page counts every teacher and learner in all six countries where Rumi runs, as of October; tonight's 280,000 is Pakistan's children alone, in 2025. Different scope, both true.]\n(press)\n[Only if ahead of the clock; otherwise press on.] The Financial Times came to Sindh to see it work.\n(press)",
-    "first_line": "Anthropic, one of the big AI labs and the makers of Claude, features us on its website."
-   }
+   "highlight": null
   },
   {
    "id": "s46",
@@ -1085,24 +641,8 @@
    "steps": 7,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-h4-3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "20 s · Haroon",
-    "cues": [
-     "press 1: the metric, half one: \"how much more a child learns\"",
-     "press 2: half two: \"for every $100\"",
-     "press 3: the league table, twelve teaching programmes, five named with their figures, Argentina at the top",
-     "press 4: two examples lit, one at a time: Kenya's Tusome; Brazil's coaching",
-     "press 5: our row, the only lit bar among twelve, no figure: \"Eight programmes do better per dollar, today.\"",
-     "press 6: our row climbs to the top and ends in 20, the 2028 goal: \"2028: first in the world.\" · among programmes that work through teachers",
-     "press 7: moves to s47"
-    ],
-    "body": "[Take your time here: seven presses.] One public table ranks the world's education programmes.\n(press)\nHow much more a child learns,\n(press)\nfor every hundred dollars spent.\n(press)\nAmong teaching programmes, Argentina is top.\n(press)\nKenya's national reading programme. Brazil's coaching.\n(press)\nOn our own numbers, eight do better than us today.\n(press)\nBy 2028, our goal is to be first.\n[If asked: our figure is not on the published table yet. It is our own before-and-after, and outside studies come in 2027.]\n(press)",
-    "first_line": "How much more a child learns, for every hundred dollars spent."
-   }
+   "highlight": null
   },
   {
    "id": "s47",
@@ -1113,8 +653,6 @@
    "steps": 5,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-voice",
-   "status": "built",
    "media": [
     {
      "type": "audio",
@@ -1129,19 +667,7 @@
      "autoplay": false
     }
    ],
-   "highlight": null,
-   "note": {
-    "planned": "45 s (clip 39 s, speaking 6 s, at most 15 words) · Haroon",
-    "cues": [
-     "press 1: the good class plays, lines lighting as spoken, the child's answers lit and fading · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
-     "press 2: the Urdu passage from s22 returns, dim",
-     "press 3: a child reads it fluently, every word lighting · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
-     "press 4: holds; the caption \"Grade 4. The same story. A child reading well.\"",
-     "press 5: moves to s48"
-    ],
-    "body": "[Clock: 8:45 (the clips here do not stretch). The ask must be heard: if you are past 9:15, go straight from here to the ask on s48.]\n[Say nothing. Press.]\n(press)\n[Let it end.]\n(press)\nThe same story.\n(press)\n[Let it end. Two seconds.]\n(press)\nTwo children, one month. What every child can sound like.\n(press)",
-    "first_line": "The same story."
-   }
+   "highlight": null
   },
   {
    "id": "s48",
@@ -1152,20 +678,8 @@
    "steps": 3,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-h4-3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "14 s · Haroon",
-    "cues": [
-     "press 1: \"Built in Pakistan, exported to the world.\"; the rings recede",
-     "press 2: the one sentence large, the device beneath; the two marks small",
-     "press 3: holds through the Q&A; the end of Haroon's section"
-    ],
-    "body": "A child learns when home, teacher and government all act for the child.\n[In your own words, fifteen seconds at most: the ask.]\n(press)\nBuilt in Pakistan, exported to the world.\n(press)\nNadir and Sania are the door. Pakistan already has answers that work. Back what reaches millions.\n(press)",
-    "first_line": "A child learns when home, teacher and government all act for the child."
-   }
+   "highlight": null
   },
   {
    "id": "s07",
@@ -1176,8 +690,6 @@
    "steps": 4,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-nadir3",
-   "status": "built",
    "media": [
     {
      "type": "image",
@@ -1185,18 +697,7 @@
      "autoplay": false
     }
    ],
-   "highlight": null,
-   "note": {
-    "planned": "30 s · Nadir",
-    "cues": [
-     "press 1: \"One slice of what you give.\" with the four organisations' marks",
-     "press 2: \"The Friends of Pakistan table, today.\" and the web address",
-     "press 3: the device alone, in two lines",
-     "press 4: holds; the end of the session"
-    ],
-    "body": "[After the Q&A. Thank Haroon and the room in your own words.] This year we trained fifteen organisations to grow, and helped unlock four million dollars for three organisations. That is our own count.\n(press)\nSo here is your role. One slice of what you give. Back one of them, open a door for them, or join us.\n(press)\nOur table is just outside, all day.\n(press)\nBack what reaches millions. [Introduce the next speaker.]\n[If asked about tax: gifts from the US go through the fiscal host named on our donate page. If asked about zakat: your own answer, as the Friends of Pakistan's policy.]\n(press)",
-    "first_line": "So here is your role."
-   }
+   "highlight": null
   },
   {
    "id": "a01",
@@ -1207,8 +708,6 @@
    "steps": 5,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-voice",
-   "status": "built",
    "media": [
     {
      "type": "audio",
@@ -1223,19 +722,7 @@
      "autoplay": false
     }
    ],
-   "highlight": null,
-   "note": {
-    "planned": "90 s (clip 68 s, speaking 22 s) · Haroon",
-    "cues": [
-     "press 1: the English story printed, dim (ready)",
-     "press 2: the English clip plays (29 s), the words light as read · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
-     "press 3: the Urdu story replaces it, dim",
-     "press 4: the Urdu clip plays (39 s), the stuck word and the restart show · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
-     "press 5: holds; the caption. A then back to the index"
-    ],
-    "body": "If someone asks to hear the children at length: both readings, longer, from the same reading game.\n(press)\nA child in grade 3, in English.\n(press)\n(press)\nAnd a child in grade 4, in Urdu.\n(press)\n(press)",
-    "first_line": "If someone asks to hear the children at length: both readings, longer, from the same reading game."
-   }
+   "highlight": null
   },
   {
    "id": "a02",
@@ -1246,18 +733,8 @@
    "steps": 1,
    "transition": "cut",
    "sensitive": false,
-   "owner": "sg-h1-3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "60 s · Haroon",
-    "cues": [
-     "press 1: back to the index"
-    ],
-    "body": "We measure two ways: our own schools against the schools next door, and Islamabad's classes before and after. Here is what each shows, and what a full trial would add.\n(press)",
-    "first_line": "We measure two ways: our own schools against the schools next door, and Islamabad's classes before and after."
-   }
+   "highlight": null
   },
   {
    "id": "a03",
@@ -1268,18 +745,8 @@
    "steps": 1,
    "transition": "cut",
    "sensitive": false,
-   "owner": "sg-h3-3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "60 s · Haroon",
-    "cues": [
-     "press 1: back to the index"
-    ],
-    "body": "The government isn't one thing. We mapped everyone who had to say yes, gave them the brand and the credit, and gave them the data, so a teacher's improvement can count in their appraisal.\n(press)",
-    "first_line": "The government isn't one thing."
-   }
+   "highlight": null
   },
   {
    "id": "a04",
@@ -1290,18 +757,8 @@
    "steps": 1,
    "transition": "cut",
    "sensitive": false,
-   "owner": "sg-h4-3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "60 s · Haroon",
-    "cues": [
-     "press 1: back to the index"
-    ],
-    "body": "Learning per dollar means years of good schooling gained for every hundred dollars spent. Here is the full table, and how we measure our own number.\n(press)",
-    "first_line": "Learning per dollar means years of good schooling gained for every hundred dollars spent."
-   }
+   "highlight": null
   },
   {
    "id": "a06",
@@ -1312,18 +769,8 @@
    "steps": 1,
    "transition": "fade",
    "sensitive": false,
-   "owner": "sg-h1",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "60 s · Haroon",
-    "cues": [
-     "press 1: back to the index"
-    ],
-    "body": "Every child is born with the same potential. Between them and reading stand the home, the teacher and the government. Here is what goes wrong at each one.\n(press)",
-    "first_line": "Every child is born with the same potential."
-   }
+   "highlight": null
   },
   {
    "id": "a07",
@@ -1331,30 +778,13 @@
    "chapter": "appendix",
    "duration_s": 60,
    "appendix": true,
-   "steps": 1,
+   "steps": 2,
    "transition": "cut",
    "sensitive": false,
-   "owner": "sg-sania3",
-   "status": "built",
    "media": [],
-   "highlight": null,
-   "note": {
-    "planned": "60 s · Sania",
-    "cues": [
-     "press 1: back to the index"
-    ],
-    "body": "This is how The Friends of Pakistan works, what we've done so far, and the ten Skardu fellows, one line each.\n(press)",
-    "first_line": "This is how The Friends of Pakistan works, what we've done so far, and the ten Skardu fellows, one line each."
-   }
+   "highlight": null
   }
  ],
  "main_total_s": 1048,
- "excluded_sensitive": [],
- "nav": true,
- "warnings": [
-  "s22a: title differs, SCENES.md \"Why can't they read?\" vs scene.json 'Why can’t they read?'",
-  "s22a: note title \"Why can't they read?\" differs from scene title 'Why can’t they read?'",
-  "NOTES.md has an entry for a05, which SCENES.md does not list"
- ],
- "sensitive_handling": {}
+ "nav": true
 }
