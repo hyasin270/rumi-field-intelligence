@@ -1,6 +1,6 @@
 {
  "title": "OPEN Forum, November 2026",
- "built_at": "2026-11-04T14:44:50Z",
+ "built_at": "2026-11-04T14:56:13Z",
  "stage": [
   1920,
   1080
@@ -41,7 +41,7 @@
     },
     {
      "type": "image",
-     "src": "assets/pictures/n1-right-v3-rizq-cart-tight.jpg",
+     "src": "assets/pictures/n1-right-v3-rizq-khana-busy.jpg",
      "autoplay": false
     },
     {
@@ -74,7 +74,7 @@
     },
     {
      "type": "image",
-     "src": "assets/pictures/marks/childlife-lockup-white.png",
+     "src": "assets/pictures/marks/childlife-mark-oneline-white.png",
      "autoplay": false
     }
    ],
@@ -102,7 +102,7 @@
     },
     {
      "type": "image",
-     "src": "assets/pictures/marks/taleemabad-wordmark.png",
+     "src": "assets/pictures/marks/taleemabad-wordmark-white.png",
      "autoplay": false
     }
    ],
@@ -346,7 +346,17 @@
    "media": [
     {
      "type": "image",
-     "src": "assets/pictures/h-broadcast-tv-home.jpg",
+     "src": "assets/pictures/h-cartoon-hd-girl-reading.jpg",
+     "autoplay": false
+    },
+    {
+     "type": "image",
+     "src": "assets/pictures/h-cartoon-hd-boy-park.jpg",
+     "autoplay": false
+    },
+    {
+     "type": "image",
+     "src": "assets/pictures/h-cartoon-450.jpg",
      "autoplay": false
     },
     {
@@ -384,12 +394,12 @@
     },
     {
      "type": "image",
-     "src": "assets/pictures/h-lowfee-gandhara-sign.jpg",
+     "src": "assets/pictures/h-lowfee-gandhara-signend.jpg",
      "autoplay": false
     },
     {
      "type": "image",
-     "src": "assets/pictures/h-lowfee-mountain-full.jpg",
+     "src": "assets/pictures/h-lowfee-mountain-wing.jpg",
      "autoplay": false
     }
    ],
@@ -455,8 +465,8 @@
    "media": [
     {
      "type": "audio",
-     "src": "assets/clips/audio/p1r3.mp3",
-     "clip": "p1r3",
+     "src": "assets/clips/audio/p1e.mp3",
+     "clip": "p1e",
      "autoplay": false
     }
    ],
