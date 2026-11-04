@@ -1,6 +1,6 @@
 {
  "title": "OPEN Forum, November 2026",
- "built_at": "2026-11-03T23:08:21Z",
+ "built_at": "2026-11-04T00:15:05Z",
  "stage": [
   1920,
   1080
@@ -44,7 +44,7 @@
    "transition": "fade",
    "sensitive": false,
    "owner": "sg-nadir",
-   "status": "design-pass",
+   "status": "built",
    "media": [
     {
      "type": "image",
@@ -53,7 +53,7 @@
     },
     {
      "type": "image",
-     "src": "assets/pictures/n1-right.jpg",
+     "src": "assets/pictures/n1-right-gen.jpg",
      "autoplay": false
     }
    ],
@@ -78,7 +78,7 @@
    "transition": "fade",
    "sensitive": false,
    "owner": "sg-nadir",
-   "status": "design-pass",
+   "status": "built",
    "media": [
     {
      "type": "image",
@@ -112,7 +112,7 @@
    "transition": "fade",
    "sensitive": false,
    "owner": "sg-nadir",
-   "status": "design-pass",
+   "status": "built",
    "media": [
     {
      "type": "image",
@@ -146,7 +146,7 @@
    "transition": "fade",
    "sensitive": false,
    "owner": "sg-nadir",
-   "status": "design-pass",
+   "status": "built",
    "media": [
     {
      "type": "image",
@@ -180,7 +180,7 @@
    "transition": "fade",
    "sensitive": false,
    "owner": "sg-nadir",
-   "status": "design-pass",
+   "status": "built",
    "media": [],
    "highlight": null,
    "note": {
@@ -811,7 +811,7 @@
    ],
    "highlight": null,
    "note": {
-    "planned": "47 s (clip 33 s, speaking 14 s, at most 32 words) · Haroon",
+    "planned": "39 s (clip 33 s, speaking 6 s, at most 14 words) · Haroon",
     "cues": [
      "press 1: the good class plays, lines lighting as spoken · press again: skips to the next (or moves on when it has ended) · ↓ ends it and holds the words · Left back: ready to play again",
      "press 2: the Urdu passage from s22 returns, dim",
@@ -819,7 +819,7 @@
      "press 4: holds; the caption \"Grade 4. The same story, on a phone. 2026.\"",
      "press 5: moves to s48"
     ],
-    "body": "[Presenter clock: about 8:15 (the clips here do not stretch). The ask must be heard: if you are late, go straight from here to the device.]\n[Say nothing. Press.]\n(press)\n[Let it end.]\n(press)\nThe same story.\n(press)\n[Let it end. Two seconds.]\n(press)\nTwo children, the same month. The second is what every child can sound like.\n(press)",
+    "body": "[Presenter clock: about 8:45 (the clips here do not stretch). The ask must be heard: if you are past 9:15, go straight from here to the ask on s48.]\n[Say nothing. Press.]\n(press)\n[Let it end.]\n(press)\nThe same story.\n(press)\n[Let it end. Two seconds.]\n(press)\nTwo children, the same month. The second is what every child can sound like.\n(press)",
     "first_line": "The same story."
    }
   },
@@ -925,7 +925,7 @@
     "cues": [
      "press 1: back to the index"
     ],
-    "body": "The government isn't one thing. We mapped the people in it, gave them the brand and the credit, and helped change the promotion rules so teachers who improve their class move up.\n(press)",
+    "body": "The government isn't one thing. We mapped the people in it, gave them the brand and the credit, and gave them the data, so a teacher's improvement can count in their appraisal.\n(press)",
     "first_line": "The government isn't one thing."
    }
   },
@@ -1001,6 +1001,14 @@
  "nav": true,
  "warnings": [
   "s06: title differs, SCENES.md 'Back what grows' vs scene.json 'Back what grows.'",
+  "s10: steps differ, SCENES.md 5 vs scene.json 4",
+  "s11: steps differ, SCENES.md 5 vs scene.json 3",
+  "s13: steps differ, SCENES.md 4 vs scene.json 3",
+  "s15: steps differ, SCENES.md 5 vs scene.json 3",
+  "s41: title differs, SCENES.md \"The product, in a teacher's own voice\" vs scene.json 'The product a teacher holds'",
+  "s43: steps differ, SCENES.md 2 vs scene.json 4",
+  "s46: steps differ, SCENES.md 5 vs scene.json 3",
+  "s48: steps differ, SCENES.md 5 vs scene.json 2",
   "NOTES.md has an entry for a05, which SCENES.md does not list"
  ],
  "sensitive_handling": {
