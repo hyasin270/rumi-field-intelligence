@@ -6507,7 +6507,7 @@ html.no-anim section[data-id="s43b"] *, html.no-anim section[data-id="s43b"] *::
     html += '<div class="s43b-seg g">' + (gin ? '<b class="f">' + money(d.g) + '</b><span class="nm">' + GN + '</span>' : "") + '</div>';
     html += '<div class="s43b-seg q">' + (qin ? '<b class="f">' + money(d.q) + '</b><span class="nm">' + QN + '</span>' : "") + '</div>';
     if (!qin) html += '<div class="s43b-top q" style="bottom:' + (gh + qh + 16) + 'px"><b class="f">' + money(d.q) + '</b><span class="nm">' + QN + '</span></div>';
-    if (!gin) html += '<div class="s43b-out" style="top:' + (H - (d.g ? gh / 2 + 32 : 26)) + 'px">'   // the figure centred on its own green segment, the name running below it (COS RC2 audit)
+    if (!gin) html += '<div class="s43b-out" style="top:' + (H - (d.g ? gh / 2 + 32 : 26)) + 'px">'   // the figure centred on its own green segment, the name running below it
                     + '' + (d.g ? '<b class="f">' + money(d.g) + '</b><span class="nm">' + GN + '</span>' : '<span class="nm">' + GN1 + ': none yet</span>') + '</div>';
     if (!d.g) html += '<p class="s43b-g4 none">none yet</p>';
     else { var g4 = document.createElement("p"); g4.className = "s43b-g4 fig"; g4.textContent = money(d.g);
