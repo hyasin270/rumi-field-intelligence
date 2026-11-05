@@ -1,6 +1,6 @@
 {
  "title": "OPEN Forum, November 2026",
- "built_at": "2026-11-05T06:21:14Z",
+ "built_at": "2026-11-05T09:20:12Z",
  "stage": [
   1920,
   1080
@@ -125,7 +125,7 @@
     },
     {
      "type": "image",
-     "src": "assets/pictures/n4-right-v3-amal-corridor.jpg",
+     "src": "assets/pictures/n4-right-v3-amal-corridor-soft.jpg",
      "autoplay": false
     },
     {
@@ -346,12 +346,12 @@
    "media": [
     {
      "type": "video",
-     "src": "assets/out/release/scenes/s25/stills/cartoon-loop-count-one.mp4",
+     "src": "assets/out/release/scenes/s25/stills/cartoon-loop-fish-one.mp4",
      "autoplay": false
     },
     {
      "type": "image",
-     "src": "assets/pictures/h-cartoon-place-value-437.jpg",
+     "src": "assets/pictures/h-cartoon-hundred-sixty.jpg",
      "autoplay": false
     },
     {
