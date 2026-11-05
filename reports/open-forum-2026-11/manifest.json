@@ -1,6 +1,6 @@
 {
  "title": "OPEN Forum, November 2026",
- "built_at": "2026-11-04T14:56:13Z",
+ "built_at": "2026-11-05T06:21:14Z",
  "stage": [
   1920,
   1080
@@ -102,7 +102,7 @@
     },
     {
      "type": "image",
-     "src": "assets/pictures/marks/taleemabad-wordmark-white.png",
+     "src": "assets/pictures/marks4/taleemabad-wordmark.png",
      "autoplay": false
     }
    ],
@@ -306,12 +306,12 @@
    "media": [
     {
      "type": "image",
-     "src": "assets/pictures/h-childhood-native.jpg",
+     "src": "assets/pictures/h-childhood-pair-sr.jpg",
      "autoplay": false
     },
     {
      "type": "image",
-     "src": "assets/pictures/h-georgetown-native.jpg",
+     "src": "assets/pictures/h-georgetown-pair-sr.jpg",
      "autoplay": false
     },
     {
@@ -338,25 +338,20 @@
    "id": "s25",
    "title": "On national television",
    "chapter": "proof",
-   "duration_s": 20,
+   "duration_s": 24,
    "appendix": false,
-   "steps": 4,
+   "steps": 5,
    "transition": "fade",
    "sensitive": false,
    "media": [
     {
-     "type": "image",
-     "src": "assets/pictures/h-cartoon-hd-girl-reading.jpg",
+     "type": "video",
+     "src": "assets/out/release/scenes/s25/stills/cartoon-loop-count-one.mp4",
      "autoplay": false
     },
     {
      "type": "image",
-     "src": "assets/pictures/h-cartoon-hd-boy-park.jpg",
-     "autoplay": false
-    },
-    {
-     "type": "image",
-     "src": "assets/pictures/h-cartoon-450.jpg",
+     "src": "assets/pictures/h-cartoon-place-value-437.jpg",
      "autoplay": false
     },
     {
@@ -431,11 +426,23 @@
   },
   {
    "id": "s40a",
-   "title": "What we built.",
+   "title": "What we built, around the child.",
    "chapter": "proof",
-   "duration_s": 8,
+   "duration_s": 10,
    "appendix": false,
-   "steps": 2,
+   "steps": 4,
+   "transition": "fade",
+   "sensitive": false,
+   "media": [],
+   "highlight": null
+  },
+  {
+   "id": "s40d",
+   "title": "Quizzes at home.",
+   "chapter": "proof",
+   "duration_s": 10,
+   "appendix": false,
+   "steps": 3,
    "transition": "fade",
    "sensitive": false,
    "media": [],
@@ -443,21 +450,28 @@
   },
   {
    "id": "s40b",
-   "title": "A lesson plan for today",
+   "title": "Lesson plans.",
    "chapter": "proof",
-   "duration_s": 10,
+   "duration_s": 22,
    "appendix": false,
    "steps": 3,
    "transition": "fade",
    "sensitive": false,
-   "media": [],
+   "media": [
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/lp3.mp3",
+     "clip": "lp3",
+     "autoplay": false
+    }
+   ],
    "highlight": null
   },
   {
    "id": "s40c",
-   "title": "Teach. Get coached. Teach better.",
+   "title": "Coaching.",
    "chapter": "proof",
-   "duration_s": 21,
+   "duration_s": 40,
    "appendix": false,
    "steps": 4,
    "transition": "fade",
@@ -465,23 +479,17 @@
    "media": [
     {
      "type": "audio",
-     "src": "assets/clips/audio/p1e.mp3",
-     "clip": "p1e",
+     "src": "assets/clips/audio/cl1.mp3",
+     "clip": "cl1",
+     "autoplay": false
+    },
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/rc1.mp3",
+     "clip": "rc1",
      "autoplay": false
     }
    ],
-   "highlight": null
-  },
-  {
-   "id": "s40d",
-   "title": "Learning at home",
-   "chapter": "proof",
-   "duration_s": 10,
-   "appendix": false,
-   "steps": 3,
-   "transition": "fade",
-   "sensitive": false,
-   "media": [],
    "highlight": null
   },
   {
@@ -490,7 +498,7 @@
    "chapter": "proof",
    "duration_s": 24,
    "appendix": false,
-   "steps": 3,
+   "steps": 2,
    "transition": "fade",
    "sensitive": false,
    "media": [
@@ -502,8 +510,8 @@
     },
     {
      "type": "audio",
-     "src": "assets/clips/audio/c-ur-b3.mp3",
-     "clip": "c-ur-b3",
+     "src": "assets/clips/audio/c-ur-b4.mp3",
+     "clip": "c-ur-b4",
      "autoplay": false
     }
    ],
@@ -542,7 +550,15 @@
    "steps": 1,
    "transition": "fade",
    "sensitive": false,
-   "media": [],
+   "media": [
+    {
+     "type": "video",
+     "src": "assets/out/release/scenes/s41c/stills/stakeholder-map-680.mp4",
+     "autoplay": false,
+     "loop": true,
+     "poster": "assets/out/release/scenes/s41c/stills/stakeholder-map-680-poster.jpg"
+    }
+   ],
    "highlight": null
   },
   {
@@ -552,6 +568,18 @@
    "duration_s": 20,
    "appendix": false,
    "steps": 5,
+   "transition": "fade",
+   "sensitive": false,
+   "media": [],
+   "highlight": null
+  },
+  {
+   "id": "s43a",
+   "title": "Our reach.",
+   "chapter": "proof",
+   "duration_s": 12,
+   "appendix": false,
+   "steps": 3,
    "transition": "fade",
    "sensitive": false,
    "media": [],
@@ -570,7 +598,7 @@
    "highlight": null
   },
   {
-   "id": "s43a",
+   "id": "s43b",
    "title": "Who pays for it?",
    "chapter": "proof",
    "duration_s": 14,
@@ -582,8 +610,20 @@
    "highlight": null
   },
   {
+   "id": "s43c",
+   "title": "Open source",
+   "chapter": "proof",
+   "duration_s": 10,
+   "appendix": false,
+   "steps": 2,
+   "transition": "fade",
+   "sensitive": false,
+   "media": [],
+   "highlight": null
+  },
+  {
    "id": "s44",
-   "title": "The export pan",
+   "title": "Pakistan to the world",
    "chapter": "proof",
    "duration_s": 25,
    "appendix": false,
@@ -605,26 +645,26 @@
    "media": [
     {
      "type": "audio",
-     "src": "assets/clips/audio/c-sw-t3.mp3",
-     "clip": "c-sw-t3",
+     "src": "assets/clips/audio/c-sw-t4.mp3",
+     "clip": "c-sw-t4",
      "autoplay": false
     },
     {
      "type": "audio",
-     "src": "assets/clips/audio/c-sw-bs.mp3",
-     "clip": "c-sw-bs",
+     "src": "assets/clips/audio/c-sw-bv.mp3",
+     "clip": "c-sw-bv",
      "autoplay": false
     },
     {
      "type": "audio",
-     "src": "assets/clips/audio/c-ar-t3.mp3",
-     "clip": "c-ar-t3",
+     "src": "assets/clips/audio/c-ar-t5.mp3",
+     "clip": "c-ar-t5",
      "autoplay": false
     },
     {
      "type": "audio",
-     "src": "assets/clips/audio/c-ar-b3.mp3",
-     "clip": "c-ar-b3",
+     "src": "assets/clips/audio/c-ar-b5s.mp3",
+     "clip": "c-ar-b5s",
      "autoplay": false
     }
    ],
@@ -648,7 +688,7 @@
    "chapter": "proof",
    "duration_s": 20,
    "appendix": false,
-   "steps": 7,
+   "steps": 6,
    "transition": "fade",
    "sensitive": false,
    "media": [],
@@ -688,22 +728,38 @@
    "steps": 3,
    "transition": "fade",
    "sensitive": false,
-   "media": [],
+   "media": [
+    {
+     "type": "image",
+     "src": "assets/pictures/marks4/fop-name-green.png",
+     "autoplay": false
+    },
+    {
+     "type": "image",
+     "src": "assets/pictures/marks4/taleemabad-wordmark.png",
+     "autoplay": false
+    }
+   ],
    "highlight": null
   },
   {
    "id": "s07",
    "title": "One slice of what you give",
    "chapter": "close",
-   "duration_s": 40,
+   "duration_s": 45,
    "appendix": false,
-   "steps": 4,
+   "steps": 5,
    "transition": "fade",
    "sensitive": false,
    "media": [
     {
      "type": "image",
-     "src": "assets/pictures/marks/fop-wordmark-green.png",
+     "src": "assets/pictures/marks4/fop-name-green.png",
+     "autoplay": false
+    },
+    {
+     "type": "image",
+     "src": "assets/pictures/marks4/taleemabad-wordmark.png",
      "autoplay": false
     }
    ],
@@ -755,7 +811,15 @@
    "steps": 1,
    "transition": "cut",
    "sensitive": false,
-   "media": [],
+   "media": [
+    {
+     "type": "video",
+     "src": "assets/out/release/scenes/a03/stills/stakeholder-map-680.mp4",
+     "autoplay": false,
+     "loop": true,
+     "poster": "assets/out/release/scenes/a03/stills/stakeholder-map-680-poster.jpg"
+    }
+   ],
    "highlight": null
   },
   {
@@ -795,6 +859,6 @@
    "highlight": null
   }
  ],
- "main_total_s": 1048,
+ "main_total_s": 1112,
  "nav": true
 }
