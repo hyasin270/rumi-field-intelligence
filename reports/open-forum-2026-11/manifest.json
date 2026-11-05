@@ -1,6 +1,6 @@
 {
  "title": "OPEN Forum, November 2026",
- "built_at": "2026-11-05T09:20:12Z",
+ "built_at": "2026-11-05T09:49:34Z",
  "stage": [
   1920,
   1080
@@ -306,12 +306,12 @@
    "media": [
     {
      "type": "image",
-     "src": "assets/pictures/h-childhood-pair-sr.jpg",
+     "src": "assets/pictures/h-childhood-pair-ls.jpg",
      "autoplay": false
     },
     {
      "type": "image",
-     "src": "assets/pictures/h-georgetown-pair-sr.jpg",
+     "src": "assets/pictures/h-georgetown-pair-ls.jpg",
      "autoplay": false
     },
     {
@@ -663,8 +663,8 @@
     },
     {
      "type": "audio",
-     "src": "assets/clips/audio/c-ar-b5s.mp3",
-     "clip": "c-ar-b5s",
+     "src": "assets/clips/audio/c-ar-b5.mp3",
+     "clip": "c-ar-b5",
      "autoplay": false
     }
    ],
