@@ -1358,8 +1358,14 @@ html .vp .vp-t .latrun { font-family: var(--font-body); unicode-bidi: isolate; d
 
 html .vp-transcript .vp-line.gone, html .vp-passage .vp-line.gone, html .vp-passage .vp-line.far { transition: none !important; }
 
-html .vp-msg .vp-line.hint .vp-g { visibility: hidden; }
+html section .vp .vp-msg .vp-line.hint .vp-g { visibility: visible; color: var(--ink-quiet); }   
 html section .vp.vp-ltr .vp-msg .vp-g, html section .vp.vp-ltr .vp-msg.playing .vp-g, html section .vp.vp-ltr .vp-line.on:not(.prev) .vp-g { color: var(--ink-quiet); font-size: calc(var(--size-clip-gloss) * 0.86); }
+
+html section .vp.vp-rtl .vp-bar { transform-origin: right center; }
+html section .vp .vp-bar.vp-bar-held { opacity: 0.3; transition: opacity var(--t-fade) var(--ease); }
+html .vp-transcript .vp-who + .vp-t::before { content: none; display: none; }
+html section .vp .vp-t:not([dir="rtl"]) .w { padding-bottom: 0.2em; margin-bottom: -0.2em; }
+html section .vp .vp-win.vp-held .vp-g { color: var(--ink-quiet) !important; }   
 
 
 
@@ -1719,71 +1725,71 @@ html {
 @keyframes v4-fill { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 .g-rings .w-home, .g-rings .w-teacher, .g-rings .w-government, .g-rings .w-child { transition: color var(--v4-t-dim) var(--ease); }
 
-.g-rings.v4 .g-rw { transition: opacity var(--t-in) var(--ease) calc(var(--t-draw) + 100ms), color var(--v4-t-dim) var(--ease) calc(var(--v4-t-fill) * 0.6 + var(--wi, 0) * var(--v4-stagger)) !important; }
-.g-rings.v4 .g-core { transition: color var(--v4-t-dim) var(--ease) calc(var(--v4-t-fill) * 0.6 + var(--wi, 0) * var(--v4-stagger)); }
+.g-rings.v4 .g-rw { transition: opacity var(--t-in) var(--ease) calc(var(--t-draw) + 100ms), color var(--hl-t) var(--ease) calc(var(--v4-t-fill) * 0.2 + var(--wi, 0) * var(--v4-stagger)) !important; }   
+.g-rings.v4 .g-core { transition: color var(--hl-t) var(--ease) calc(var(--v4-t-fill) * 0.2 + var(--wi, 0) * var(--v4-stagger)); }
 .g-rings .w-child { color: var(--child); }
 [data-step="1"] .g-rings[data-lit-1~="home"] .b-home { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="1"] .g-rings[data-lit-1~="home"] .w-home { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="1"] .g-rings[data-lit-1~="home"] .w-home { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="1"] .g-rings[data-lit-1~="teacher"] .b-teacher { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="1"] .g-rings[data-lit-1~="teacher"] .w-teacher { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="1"] .g-rings[data-lit-1~="teacher"] .w-teacher { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="1"] .g-rings[data-lit-1~="government"] .b-government { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="1"] .g-rings[data-lit-1~="government"] .w-government { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="1"] .g-rings[data-lit-1~="government"] .w-government { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="1"] .g-rings[data-lit-1~="child"] .b-child { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
 [data-step="1"] .g-rings[data-lit-1~="child"] .w-child { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="2"] .g-rings[data-lit-2~="home"] .b-home { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="2"] .g-rings[data-lit-2~="home"] .w-home { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="2"] .g-rings[data-lit-2~="home"] .w-home { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="2"] .g-rings[data-lit-2~="teacher"] .b-teacher { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="2"] .g-rings[data-lit-2~="teacher"] .w-teacher { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="2"] .g-rings[data-lit-2~="teacher"] .w-teacher { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="2"] .g-rings[data-lit-2~="government"] .b-government { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="2"] .g-rings[data-lit-2~="government"] .w-government { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="2"] .g-rings[data-lit-2~="government"] .w-government { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="2"] .g-rings[data-lit-2~="child"] .b-child { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
 [data-step="2"] .g-rings[data-lit-2~="child"] .w-child { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="3"] .g-rings[data-lit-3~="home"] .b-home { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="3"] .g-rings[data-lit-3~="home"] .w-home { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="3"] .g-rings[data-lit-3~="home"] .w-home { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="3"] .g-rings[data-lit-3~="teacher"] .b-teacher { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="3"] .g-rings[data-lit-3~="teacher"] .w-teacher { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="3"] .g-rings[data-lit-3~="teacher"] .w-teacher { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="3"] .g-rings[data-lit-3~="government"] .b-government { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="3"] .g-rings[data-lit-3~="government"] .w-government { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="3"] .g-rings[data-lit-3~="government"] .w-government { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="3"] .g-rings[data-lit-3~="child"] .b-child { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
 [data-step="3"] .g-rings[data-lit-3~="child"] .w-child { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="4"] .g-rings[data-lit-4~="home"] .b-home { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="4"] .g-rings[data-lit-4~="home"] .w-home { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="4"] .g-rings[data-lit-4~="home"] .w-home { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="4"] .g-rings[data-lit-4~="teacher"] .b-teacher { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="4"] .g-rings[data-lit-4~="teacher"] .w-teacher { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="4"] .g-rings[data-lit-4~="teacher"] .w-teacher { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="4"] .g-rings[data-lit-4~="government"] .b-government { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="4"] .g-rings[data-lit-4~="government"] .w-government { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="4"] .g-rings[data-lit-4~="government"] .w-government { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="4"] .g-rings[data-lit-4~="child"] .b-child { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
 [data-step="4"] .g-rings[data-lit-4~="child"] .w-child { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="5"] .g-rings[data-lit-5~="home"] .b-home { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="5"] .g-rings[data-lit-5~="home"] .w-home { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="5"] .g-rings[data-lit-5~="home"] .w-home { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="5"] .g-rings[data-lit-5~="teacher"] .b-teacher { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="5"] .g-rings[data-lit-5~="teacher"] .w-teacher { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="5"] .g-rings[data-lit-5~="teacher"] .w-teacher { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="5"] .g-rings[data-lit-5~="government"] .b-government { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="5"] .g-rings[data-lit-5~="government"] .w-government { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="5"] .g-rings[data-lit-5~="government"] .w-government { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="5"] .g-rings[data-lit-5~="child"] .b-child { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
 [data-step="5"] .g-rings[data-lit-5~="child"] .w-child { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="6"] .g-rings[data-lit-6~="home"] .b-home { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="6"] .g-rings[data-lit-6~="home"] .w-home { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="6"] .g-rings[data-lit-6~="home"] .w-home { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="6"] .g-rings[data-lit-6~="teacher"] .b-teacher { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="6"] .g-rings[data-lit-6~="teacher"] .w-teacher { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="6"] .g-rings[data-lit-6~="teacher"] .w-teacher { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="6"] .g-rings[data-lit-6~="government"] .b-government { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="6"] .g-rings[data-lit-6~="government"] .w-government { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="6"] .g-rings[data-lit-6~="government"] .w-government { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="6"] .g-rings[data-lit-6~="child"] .b-child { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
 [data-step="6"] .g-rings[data-lit-6~="child"] .w-child { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="7"] .g-rings[data-lit-7~="home"] .b-home { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="7"] .g-rings[data-lit-7~="home"] .w-home { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="7"] .g-rings[data-lit-7~="home"] .w-home { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="7"] .g-rings[data-lit-7~="teacher"] .b-teacher { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="7"] .g-rings[data-lit-7~="teacher"] .w-teacher { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="7"] .g-rings[data-lit-7~="teacher"] .w-teacher { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="7"] .g-rings[data-lit-7~="government"] .b-government { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="7"] .g-rings[data-lit-7~="government"] .w-government { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="7"] .g-rings[data-lit-7~="government"] .w-government { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="7"] .g-rings[data-lit-7~="child"] .b-child { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
 [data-step="7"] .g-rings[data-lit-7~="child"] .w-child { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="8"] .g-rings[data-lit-8~="home"] .b-home { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="8"] .g-rings[data-lit-8~="home"] .w-home { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="8"] .g-rings[data-lit-8~="home"] .w-home { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="8"] .g-rings[data-lit-8~="teacher"] .b-teacher { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="8"] .g-rings[data-lit-8~="teacher"] .w-teacher { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="8"] .g-rings[data-lit-8~="teacher"] .w-teacher { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="8"] .g-rings[data-lit-8~="government"] .b-government { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
-[data-step="8"] .g-rings[data-lit-8~="government"] .w-government { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.6 + var(--i, 0) * var(--v4-stagger)); }
+[data-step="8"] .g-rings[data-lit-8~="government"] .w-government { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="8"] .g-rings[data-lit-8~="child"] .b-child { opacity: 1; animation: v4-fill var(--v4-t-fill) var(--ease) both; animation-delay: calc(var(--i, 0) * var(--v4-stagger)); transition: stroke var(--v4-t-dim) var(--ease); }
 [data-step="8"] .g-rings[data-lit-8~="child"] .w-child { color: var(--ground); transition-delay: calc(var(--v4-t-fill) * 0.2 + var(--i, 0) * var(--v4-stagger)); }
 [data-step="2"] .g-rings.keep[data-lit-1~="home"] .b-home { opacity: 1; stroke: var(--v4-visited); }
@@ -1966,6 +1972,39 @@ html section .vp-passage .vp-line.next.hint .vp-g { opacity: 1; }
 html section[data-id="s48"] .g-rings.v4 .m-ring { stroke: var(--ground); }
 
 html section .vp.vp-ltr .vp-line .vp-g, html section .vp.vp-ltr .vp-msg .vp-g { font-size: calc(var(--size-clip-gloss) * 0.8); }
+
+
+
+html .g-rings.v4 .g-core { font-size: 53px; }
+[data-step="1"] .g-rings.v4[data-lit-1~="home"] .m-ring:nth-of-type(5) { stroke: var(--ground); }
+[data-step="1"] .g-rings.v4[data-lit-1~="teacher"] .m-ring:nth-of-type(6) { stroke: var(--ground); }
+[data-step="1"] .g-rings.v4[data-lit-1~="government"] .m-ring:nth-of-type(7) { stroke: var(--ground); }
+[data-step="2"] .g-rings.v4[data-lit-2~="home"] .m-ring:nth-of-type(5), [data-step="2"] .g-rings.v4.keep[data-lit-1~="home"] .m-ring:nth-of-type(5) { stroke: var(--ground); }
+[data-step="2"] .g-rings.v4[data-lit-2~="teacher"] .m-ring:nth-of-type(6), [data-step="2"] .g-rings.v4.keep[data-lit-1~="teacher"] .m-ring:nth-of-type(6) { stroke: var(--ground); }
+[data-step="2"] .g-rings.v4[data-lit-2~="government"] .m-ring:nth-of-type(7), [data-step="2"] .g-rings.v4.keep[data-lit-1~="government"] .m-ring:nth-of-type(7) { stroke: var(--ground); }
+[data-step="3"] .g-rings.v4[data-lit-3~="home"] .m-ring:nth-of-type(5), [data-step="3"] .g-rings.v4.keep[data-lit-1~="home"] .m-ring:nth-of-type(5), [data-step="3"] .g-rings.v4.keep[data-lit-2~="home"] .m-ring:nth-of-type(5) { stroke: var(--ground); }
+[data-step="3"] .g-rings.v4[data-lit-3~="teacher"] .m-ring:nth-of-type(6), [data-step="3"] .g-rings.v4.keep[data-lit-1~="teacher"] .m-ring:nth-of-type(6), [data-step="3"] .g-rings.v4.keep[data-lit-2~="teacher"] .m-ring:nth-of-type(6) { stroke: var(--ground); }
+[data-step="3"] .g-rings.v4[data-lit-3~="government"] .m-ring:nth-of-type(7), [data-step="3"] .g-rings.v4.keep[data-lit-1~="government"] .m-ring:nth-of-type(7), [data-step="3"] .g-rings.v4.keep[data-lit-2~="government"] .m-ring:nth-of-type(7) { stroke: var(--ground); }
+[data-step="4"] .g-rings.v4[data-lit-4~="home"] .m-ring:nth-of-type(5), [data-step="4"] .g-rings.v4.keep[data-lit-1~="home"] .m-ring:nth-of-type(5), [data-step="4"] .g-rings.v4.keep[data-lit-2~="home"] .m-ring:nth-of-type(5), [data-step="4"] .g-rings.v4.keep[data-lit-3~="home"] .m-ring:nth-of-type(5) { stroke: var(--ground); }
+[data-step="4"] .g-rings.v4[data-lit-4~="teacher"] .m-ring:nth-of-type(6), [data-step="4"] .g-rings.v4.keep[data-lit-1~="teacher"] .m-ring:nth-of-type(6), [data-step="4"] .g-rings.v4.keep[data-lit-2~="teacher"] .m-ring:nth-of-type(6), [data-step="4"] .g-rings.v4.keep[data-lit-3~="teacher"] .m-ring:nth-of-type(6) { stroke: var(--ground); }
+[data-step="4"] .g-rings.v4[data-lit-4~="government"] .m-ring:nth-of-type(7), [data-step="4"] .g-rings.v4.keep[data-lit-1~="government"] .m-ring:nth-of-type(7), [data-step="4"] .g-rings.v4.keep[data-lit-2~="government"] .m-ring:nth-of-type(7), [data-step="4"] .g-rings.v4.keep[data-lit-3~="government"] .m-ring:nth-of-type(7) { stroke: var(--ground); }
+[data-step="5"] .g-rings.v4[data-lit-5~="home"] .m-ring:nth-of-type(5), [data-step="5"] .g-rings.v4.keep[data-lit-1~="home"] .m-ring:nth-of-type(5), [data-step="5"] .g-rings.v4.keep[data-lit-2~="home"] .m-ring:nth-of-type(5), [data-step="5"] .g-rings.v4.keep[data-lit-3~="home"] .m-ring:nth-of-type(5), [data-step="5"] .g-rings.v4.keep[data-lit-4~="home"] .m-ring:nth-of-type(5) { stroke: var(--ground); }
+[data-step="5"] .g-rings.v4[data-lit-5~="teacher"] .m-ring:nth-of-type(6), [data-step="5"] .g-rings.v4.keep[data-lit-1~="teacher"] .m-ring:nth-of-type(6), [data-step="5"] .g-rings.v4.keep[data-lit-2~="teacher"] .m-ring:nth-of-type(6), [data-step="5"] .g-rings.v4.keep[data-lit-3~="teacher"] .m-ring:nth-of-type(6), [data-step="5"] .g-rings.v4.keep[data-lit-4~="teacher"] .m-ring:nth-of-type(6) { stroke: var(--ground); }
+[data-step="5"] .g-rings.v4[data-lit-5~="government"] .m-ring:nth-of-type(7), [data-step="5"] .g-rings.v4.keep[data-lit-1~="government"] .m-ring:nth-of-type(7), [data-step="5"] .g-rings.v4.keep[data-lit-2~="government"] .m-ring:nth-of-type(7), [data-step="5"] .g-rings.v4.keep[data-lit-3~="government"] .m-ring:nth-of-type(7), [data-step="5"] .g-rings.v4.keep[data-lit-4~="government"] .m-ring:nth-of-type(7) { stroke: var(--ground); }
+[data-step="6"] .g-rings.v4[data-lit-6~="home"] .m-ring:nth-of-type(5), [data-step="6"] .g-rings.v4.keep[data-lit-1~="home"] .m-ring:nth-of-type(5), [data-step="6"] .g-rings.v4.keep[data-lit-2~="home"] .m-ring:nth-of-type(5), [data-step="6"] .g-rings.v4.keep[data-lit-3~="home"] .m-ring:nth-of-type(5), [data-step="6"] .g-rings.v4.keep[data-lit-4~="home"] .m-ring:nth-of-type(5), [data-step="6"] .g-rings.v4.keep[data-lit-5~="home"] .m-ring:nth-of-type(5) { stroke: var(--ground); }
+[data-step="6"] .g-rings.v4[data-lit-6~="teacher"] .m-ring:nth-of-type(6), [data-step="6"] .g-rings.v4.keep[data-lit-1~="teacher"] .m-ring:nth-of-type(6), [data-step="6"] .g-rings.v4.keep[data-lit-2~="teacher"] .m-ring:nth-of-type(6), [data-step="6"] .g-rings.v4.keep[data-lit-3~="teacher"] .m-ring:nth-of-type(6), [data-step="6"] .g-rings.v4.keep[data-lit-4~="teacher"] .m-ring:nth-of-type(6), [data-step="6"] .g-rings.v4.keep[data-lit-5~="teacher"] .m-ring:nth-of-type(6) { stroke: var(--ground); }
+[data-step="6"] .g-rings.v4[data-lit-6~="government"] .m-ring:nth-of-type(7), [data-step="6"] .g-rings.v4.keep[data-lit-1~="government"] .m-ring:nth-of-type(7), [data-step="6"] .g-rings.v4.keep[data-lit-2~="government"] .m-ring:nth-of-type(7), [data-step="6"] .g-rings.v4.keep[data-lit-3~="government"] .m-ring:nth-of-type(7), [data-step="6"] .g-rings.v4.keep[data-lit-4~="government"] .m-ring:nth-of-type(7), [data-step="6"] .g-rings.v4.keep[data-lit-5~="government"] .m-ring:nth-of-type(7) { stroke: var(--ground); }
+[data-step="7"] .g-rings.v4[data-lit-7~="home"] .m-ring:nth-of-type(5), [data-step="7"] .g-rings.v4.keep[data-lit-1~="home"] .m-ring:nth-of-type(5), [data-step="7"] .g-rings.v4.keep[data-lit-2~="home"] .m-ring:nth-of-type(5), [data-step="7"] .g-rings.v4.keep[data-lit-3~="home"] .m-ring:nth-of-type(5), [data-step="7"] .g-rings.v4.keep[data-lit-4~="home"] .m-ring:nth-of-type(5), [data-step="7"] .g-rings.v4.keep[data-lit-5~="home"] .m-ring:nth-of-type(5), [data-step="7"] .g-rings.v4.keep[data-lit-6~="home"] .m-ring:nth-of-type(5) { stroke: var(--ground); }
+[data-step="7"] .g-rings.v4[data-lit-7~="teacher"] .m-ring:nth-of-type(6), [data-step="7"] .g-rings.v4.keep[data-lit-1~="teacher"] .m-ring:nth-of-type(6), [data-step="7"] .g-rings.v4.keep[data-lit-2~="teacher"] .m-ring:nth-of-type(6), [data-step="7"] .g-rings.v4.keep[data-lit-3~="teacher"] .m-ring:nth-of-type(6), [data-step="7"] .g-rings.v4.keep[data-lit-4~="teacher"] .m-ring:nth-of-type(6), [data-step="7"] .g-rings.v4.keep[data-lit-5~="teacher"] .m-ring:nth-of-type(6), [data-step="7"] .g-rings.v4.keep[data-lit-6~="teacher"] .m-ring:nth-of-type(6) { stroke: var(--ground); }
+[data-step="7"] .g-rings.v4[data-lit-7~="government"] .m-ring:nth-of-type(7), [data-step="7"] .g-rings.v4.keep[data-lit-1~="government"] .m-ring:nth-of-type(7), [data-step="7"] .g-rings.v4.keep[data-lit-2~="government"] .m-ring:nth-of-type(7), [data-step="7"] .g-rings.v4.keep[data-lit-3~="government"] .m-ring:nth-of-type(7), [data-step="7"] .g-rings.v4.keep[data-lit-4~="government"] .m-ring:nth-of-type(7), [data-step="7"] .g-rings.v4.keep[data-lit-5~="government"] .m-ring:nth-of-type(7), [data-step="7"] .g-rings.v4.keep[data-lit-6~="government"] .m-ring:nth-of-type(7) { stroke: var(--ground); }
+[data-step="8"] .g-rings.v4[data-lit-8~="home"] .m-ring:nth-of-type(5), [data-step="8"] .g-rings.v4.keep[data-lit-1~="home"] .m-ring:nth-of-type(5), [data-step="8"] .g-rings.v4.keep[data-lit-2~="home"] .m-ring:nth-of-type(5), [data-step="8"] .g-rings.v4.keep[data-lit-3~="home"] .m-ring:nth-of-type(5), [data-step="8"] .g-rings.v4.keep[data-lit-4~="home"] .m-ring:nth-of-type(5), [data-step="8"] .g-rings.v4.keep[data-lit-5~="home"] .m-ring:nth-of-type(5), [data-step="8"] .g-rings.v4.keep[data-lit-6~="home"] .m-ring:nth-of-type(5), [data-step="8"] .g-rings.v4.keep[data-lit-7~="home"] .m-ring:nth-of-type(5) { stroke: var(--ground); }
+[data-step="8"] .g-rings.v4[data-lit-8~="teacher"] .m-ring:nth-of-type(6), [data-step="8"] .g-rings.v4.keep[data-lit-1~="teacher"] .m-ring:nth-of-type(6), [data-step="8"] .g-rings.v4.keep[data-lit-2~="teacher"] .m-ring:nth-of-type(6), [data-step="8"] .g-rings.v4.keep[data-lit-3~="teacher"] .m-ring:nth-of-type(6), [data-step="8"] .g-rings.v4.keep[data-lit-4~="teacher"] .m-ring:nth-of-type(6), [data-step="8"] .g-rings.v4.keep[data-lit-5~="teacher"] .m-ring:nth-of-type(6), [data-step="8"] .g-rings.v4.keep[data-lit-6~="teacher"] .m-ring:nth-of-type(6), [data-step="8"] .g-rings.v4.keep[data-lit-7~="teacher"] .m-ring:nth-of-type(6) { stroke: var(--ground); }
+[data-step="8"] .g-rings.v4[data-lit-8~="government"] .m-ring:nth-of-type(7), [data-step="8"] .g-rings.v4.keep[data-lit-1~="government"] .m-ring:nth-of-type(7), [data-step="8"] .g-rings.v4.keep[data-lit-2~="government"] .m-ring:nth-of-type(7), [data-step="8"] .g-rings.v4.keep[data-lit-3~="government"] .m-ring:nth-of-type(7), [data-step="8"] .g-rings.v4.keep[data-lit-4~="government"] .m-ring:nth-of-type(7), [data-step="8"] .g-rings.v4.keep[data-lit-5~="government"] .m-ring:nth-of-type(7), [data-step="8"] .g-rings.v4.keep[data-lit-6~="government"] .m-ring:nth-of-type(7), [data-step="8"] .g-rings.v4.keep[data-lit-7~="government"] .m-ring:nth-of-type(7) { stroke: var(--ground); }
+html .vp .vp-t:not([dir="rtl"]) .w { padding-bottom: 0.14em; margin-bottom: -0.14em; }
+
+
+
+html .g-sidering .band { transform: rotate(180deg); transform-origin: 540px 540px; }
 
 </style>
 <script>
@@ -3421,7 +3460,8 @@ html section .vp.vp-ltr .vp-line .vp-g, html section .vp.vp-ltr .vp-msg .vp-g { 
       var gloss = L.en || L.gloss || "", g = null;
       var br = p.cfg.breaks && p.cfg.breaks[self.id] && p.cfg.breaks[self.id][String(li)];
       if (br && br.replace(/\s+/g, " ").trim() === gloss.replace(/\s+/g, " ").trim()) gloss = br;
-      if (p.gloss !== false && gloss) {
+      var same = gloss.replace(/[^A-Za-z]+/g, " ").trim().toLowerCase() === String(L.text || "").replace(/[^A-Za-z]+/g, " ").trim().toLowerCase();
+      if (p.gloss !== false && gloss && !same) {
         g = el("p", "vp-g", gloss); line.appendChild(g);
       }
       box.appendChild(line);
@@ -3520,6 +3560,7 @@ html section .vp.vp-ltr .vp-line .vp-g, html section .vp.vp-ltr .vp-msg .vp-g { 
   Unit.prototype.paintSlots = function (t, hint) {
     var cur = this.curLine(t), n = this.lines.length, slot = this.slot, slots = Math.max(1, this.slots);
     var held = t === Infinity && this.part.pc && this.part.pc.hold != null && this.part.scene.cur > this.part.step;
+    if (this.part.bar) this.part.bar.classList.toggle("vp-bar-held", t === Infinity && this.part.scene.cur > this.part.step);
     if (held) cur = Math.min(n - 1, +this.part.pc.hold);
     var top = cur < 0 ? 0 : Math.max(0, cur - (slots - 1));
     for (var i = 0; i < n; i++) {
@@ -3540,6 +3581,13 @@ html section .vp.vp-ltr .vp-line .vp-g, html section .vp.vp-ltr .vp-msg .vp-g { 
   };
   Unit.prototype.paintPassage = function (t, hint) {
     var cur = this.curLine(t), n = this.lines.length, slot = this.slot, slots = this.slots;
+    var hold = t === Infinity && this.part.scene.cur > this.part.step;
+    if (hold) { slot = this.slotHold || slot; slots = this.slotsHold || slots; }
+    if (hold !== this._hold) {
+      this._hold = hold; if (this.part.bar) this.part.bar.classList.toggle("vp-bar-held", hold);
+      if (this.win) this.win.style.height = (hold ? Math.min(slots, n) * slot - 16 : this.winH) + "px";
+      if (this.win) this.win.classList.toggle("vp-held", hold);
+    }
     var jump = this._rr || (this._pcur != null && this._prr && cur !== this._pcur) || (this._pcur != null && cur === this._pcur + 1 && !!this.lines[cur] && !!this.lines[cur].cut); this._prr = this._rr; this._pcur = cur;
     var top = cur < 0 ? 0 : (slots >= 2 ? Math.max(0, cur - 1) : cur);
     if (t === Infinity && cur >= 0) top = Math.max(0, cur - (slots - 1));
@@ -3571,6 +3619,8 @@ html section .vp.vp-ltr .vp-line .vp-g, html section .vp.vp-ltr .vp-msg .vp-g { 
     var floorH = text + (this.part.gloss === false ? 0 : 70);
     this.slot = Math.max(h, floorH) + 16 + (passage && this.part.dir === "rtl" && this.part.lang !== "ar" ? 24 : 0);
     if (passage) { var room = this.part.mount ? this.part.mount.clientHeight + 16 : 0; this.slots = Math.max(1, Math.min(3, Math.floor(room / this.slot) || 1)); }
+    this.slotHold = Math.max(h, floorH) + 16; this.slotsHold = this.slots;
+    if (passage) { var room2 = this.part.mount ? this.part.mount.clientHeight + 16 : 0; this.slotsHold = Math.max(1, Math.min(3, Math.floor(room2 / this.slotHold) || 1)); }
     else this.slots = this.part.layout === "chat" ? 1 : 2;
     var k = Math.min(this.slots, Math.max(1, this.lines.length));
     this.winH = k * this.slot - 16;
@@ -3649,8 +3699,8 @@ html section .vp.vp-ltr .vp-line .vp-g, html section .vp.vp-ltr .vp-msg .vp-g { 
     });
   };
   Part.prototype.placeBar = function () {
-    if (!this.bar || !this.units[0]) return; var h = this.units[0].winH || 0;
-    this.bar.style.top = this.layout === "transcript" ? "calc(50% + " + Math.round(h / 2 + 40) + "px)" : Math.round(h + 40) + "px";
+    if (!this.bar || !this.units[0] || !this.mount) return;
+    this.bar.style.top = Math.round(966 - this.mount.offsetTop) + "px";
   };
   Part.prototype.unmeasured = function () { return this.layout !== "chat" && this.units.some(function (u) { return u.lines.length && (!u.lineH || Math.max.apply(null, u.lineH.concat([0])) === 0); }); };
   Part.prototype.unit = function () { return this.cur >= 0 ? this.units[this.cur] : null; };
@@ -3744,6 +3794,7 @@ html section .vp.vp-ltr .vp-line .vp-g, html section .vp.vp-ltr .vp-msg .vp-g { 
   Scene.prototype.draw = function (n, how) {
     var self = this; n = Math.max(1, Math.min(this.last, n | 0));
     this.sec.removeAttribute("data-vp-state");
+    var was = this.cur; this.cur = n;
     if (how === "enter") { this.sec.classList.add("no-anim"); void this.sec.offsetWidth; }
     this.parts.forEach(function (p) {
       if (p.step < n) { if (p.held && how === "silent" && p.layout !== "passage") p.lightLater(); else p.finish(); }
@@ -3751,7 +3802,7 @@ html section .vp.vp-ltr .vp-line .vp-g, html section .vp.vp-ltr .vp-msg .vp-g { 
       else if (p.step === n + 1) { p.ready(); }
       else { p.build(); p.stop(); p.cur = 0; p.state = "ready"; p.units.forEach(function (u) { if (p.layout === "chat") p.hide(u); u.paint(-1, false); }); if (p.bar && p.layout !== "chat" && !self.partAt(n)) p.paintBar(-1); }
     });
-    this.cur = n;
+    void was;
     if (this.hooks.draw) this.hooks.draw(n, how !== "enter", { playing: how === "forward" && !!this.partAt(n) });
     if (how === "enter") setTimeout(function () { self.sec.classList.remove("no-anim"); }, 40);
   };
@@ -3807,7 +3858,7 @@ html section .vp.vp-ltr .vp-line .vp-g, html section .vp.vp-ltr .vp-msg .vp-g { 
 </script>
 </head>
 <body>
-<script type="application/json" id="deck-manifest">{"title":"OPEN Forum, November 2026","built_at":"2026-11-05T09:49:34Z","stage":[1920,1080],"scenes":[{"id":"s01","title":"Cover","chapter":"open","duration_s":30,"appendix":false,"steps":1,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/marks/fop-calligraphy-white-clean.png","autoplay":false}],"highlight":null},{"id":"s02","title":"Flood relief, then food every day","chapter":"nadir","duration_s":50,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/n1-left-v3-edhi.jpg","autoplay":false},{"type":"image","src":"assets/pictures/n1-right-v3-rizq-khana-busy.jpg","autoplay":false},{"type":"image","src":"assets/pictures/marks/rizq-white.png","autoplay":false}],"highlight":null},{"id":"s03","title":"A ward, then expertise brought to the family","chapter":"nadir","duration_s":50,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/n2-left-v3-indus-ward.jpg","autoplay":false},{"type":"image","src":"assets/pictures/n2-right-v3-childlife-hub.jpg","autoplay":false},{"type":"image","src":"assets/pictures/marks/childlife-mark-oneline-white.png","autoplay":false}],"highlight":null},{"id":"s04","title":"A school, then the teacher in every school that stands","chapter":"nadir","duration_s":50,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/n3-left-v3-tcf-school-nosign.jpg","autoplay":false},{"type":"image","src":"assets/pictures/n3-right-v3-teacher-phone-blurred.jpg","autoplay":false},{"type":"image","src":"assets/pictures/marks4/taleemabad-wordmark.png","autoplay":false}],"highlight":null},{"id":"s05","title":"One graduate, then every graduate ready","chapter":"nadir","duration_s":50,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/n4-left-v3-office-helped.jpg","autoplay":false},{"type":"image","src":"assets/pictures/n4-right-v3-amal-corridor-soft.jpg","autoplay":false},{"type":"image","src":"assets/pictures/marks/amal-white.png","autoplay":false}],"highlight":null},{"id":"s06","title":"Back what reaches millions","chapter":"nadir","duration_s":25,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s10","title":"Scale has a shape","chapter":"mind","duration_s":55,"appendix":false,"steps":5,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s11","title":"Who delivers it, and who pays","chapter":"mind","duration_s":45,"appendix":false,"steps":5,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s12","title":"What Pakistanis abroad send home","chapter":"mind","duration_s":40,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s13","title":"A dollar in. Many times the impact out.","chapter":"mind","duration_s":20,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s14","title":"Other communities did this","chapter":"mind","duration_s":35,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s15","title":"The Friends of Pakistan, and the next generation","chapter":"mind","duration_s":55,"appendix":false,"steps":6,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s16","title":"This is what it looks like","chapter":"mind","duration_s":15,"appendix":false,"steps":1,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s20","title":"Taleemabad","chapter":"proof","duration_s":10,"appendix":false,"steps":1,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s21","title":"A classroom in Pakistan","chapter":"proof","duration_s":25,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[{"type":"audio","src":"assets/clips/audio/h1.mp3","clip":"h1","autoplay":false}],"highlight":null},{"id":"s22","title":"A child reads","chapter":"proof","duration_s":30,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[{"type":"audio","src":"assets/clips/audio/r1us.mp3","clip":"r1us","autoplay":false}],"highlight":null},{"id":"s22a","title":"Why can’t they read?","chapter":"proof","duration_s":14,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s23","title":"Where I started","chapter":"proof","duration_s":35,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/h-childhood-pair-ls.jpg","autoplay":false},{"type":"image","src":"assets/pictures/h-georgetown-pair-ls.jpg","autoplay":false},{"type":"image","src":"assets/pictures/h-akhuwat-teach-blur.jpg","autoplay":false}],"highlight":null},{"id":"s24","title":"The size of it","chapter":"proof","duration_s":20,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s25","title":"On national television","chapter":"proof","duration_s":24,"appendix":false,"steps":5,"transition":"fade","sensitive":false,"media":[{"type":"video","src":"assets/out/release/scenes/s25/stills/cartoon-loop-fish-one.mp4","autoplay":false},{"type":"image","src":"assets/pictures/h-cartoon-hundred-sixty.jpg","autoplay":false},{"type":"image","src":"assets/pictures/h-palace.jpg","autoplay":false}],"highlight":null},{"id":"s26","title":"Low-fee schools","chapter":"proof","duration_s":20,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/h-harvard-school-sr.jpg","autoplay":false},{"type":"image","src":"assets/pictures/h-stanford-school-sr.jpg","autoplay":false},{"type":"image","src":"assets/pictures/h-lowfee-gate.jpg","autoplay":false},{"type":"image","src":"assets/pictures/h-lowfee-gandhara-signend.jpg","autoplay":false},{"type":"image","src":"assets/pictures/h-lowfee-mountain-wing.jpg","autoplay":false}],"highlight":null},{"id":"s27","title":"Measured","chapter":"proof","duration_s":14,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s40","title":"The state comes calling","chapter":"proof","duration_s":12,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s40a","title":"What we built, around the child.","chapter":"proof","duration_s":10,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s40d","title":"Quizzes at home.","chapter":"proof","duration_s":10,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s40b","title":"Lesson plans.","chapter":"proof","duration_s":22,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[{"type":"audio","src":"assets/clips/audio/lp3.mp3","clip":"lp3","autoplay":false}],"highlight":null},{"id":"s40c","title":"Coaching.","chapter":"proof","duration_s":40,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"media":[{"type":"audio","src":"assets/clips/audio/cl1.mp3","clip":"cl1","autoplay":false},{"type":"audio","src":"assets/clips/audio/rc1.mp3","clip":"rc1","autoplay":false}],"highlight":null},{"id":"s41","title":"The product a teacher holds","chapter":"proof","duration_s":24,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[{"type":"audio","src":"assets/clips/audio/c-ur-t3.mp3","clip":"c-ur-t3","autoplay":false},{"type":"audio","src":"assets/clips/audio/c-ur-b4.mp3","clip":"c-ur-b4","autoplay":false}],"highlight":null},{"id":"s41a","title":"The government's name","chapter":"proof","duration_s":10,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s41b","title":"Teacher awards","chapter":"proof","duration_s":8,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s41c","title":"Everyone who had to say yes","chapter":"proof","duration_s":8,"appendix":false,"steps":1,"transition":"fade","sensitive":false,"media":[{"type":"video","src":"assets/out/release/scenes/s41c/stills/stakeholder-map-680.mp4","autoplay":false,"loop":true,"poster":"assets/out/release/scenes/s41c/stills/stakeholder-map-680-poster.jpg"}],"highlight":null},{"id":"s42","title":"The provinces light up","chapter":"proof","duration_s":20,"appendix":false,"steps":5,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s43a","title":"Our reach.","chapter":"proof","duration_s":12,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s43","title":"$8 to $3","chapter":"proof","duration_s":8,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s43b","title":"Who pays for it?","chapter":"proof","duration_s":14,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s43c","title":"Open source","chapter":"proof","duration_s":10,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s44","title":"Pakistan to the world","chapter":"proof","duration_s":25,"appendix":false,"steps":6,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s44a","title":"The same coach, in their languages","chapter":"proof","duration_s":30,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"media":[{"type":"audio","src":"assets/clips/audio/c-sw-t4.mp3","clip":"c-sw-t4","autoplay":false},{"type":"audio","src":"assets/clips/audio/c-sw-bv.mp3","clip":"c-sw-bv","autoplay":false},{"type":"audio","src":"assets/clips/audio/c-ar-t5.mp3","clip":"c-ar-t5","autoplay":false},{"type":"audio","src":"assets/clips/audio/c-ar-b5.mp3","clip":"c-ar-b5","autoplay":false}],"highlight":null},{"id":"s45","title":"The world noticed","chapter":"proof","duration_s":10,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s46","title":"Learning per dollar","chapter":"proof","duration_s":20,"appendix":false,"steps":6,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s47","title":"A good class, and a child reading well","chapter":"proof","duration_s":48,"appendix":false,"steps":5,"transition":"fade","sensitive":false,"media":[{"type":"audio","src":"assets/clips/audio/g1t3.mp3","clip":"g1t3","autoplay":false},{"type":"audio","src":"assets/clips/audio/f1us.mp3","clip":"f1us","autoplay":false}],"highlight":null},{"id":"s48","title":"The ask","chapter":"proof","duration_s":14,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/marks4/fop-name-green.png","autoplay":false},{"type":"image","src":"assets/pictures/marks4/taleemabad-wordmark.png","autoplay":false}],"highlight":null},{"id":"s07","title":"One slice of what you give","chapter":"close","duration_s":45,"appendix":false,"steps":5,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/marks4/fop-name-green.png","autoplay":false},{"type":"image","src":"assets/pictures/marks4/taleemabad-wordmark.png","autoplay":false}],"highlight":null},{"id":"a01","title":"The readers","chapter":"appendix","duration_s":90,"appendix":true,"steps":5,"transition":"fade","sensitive":false,"media":[{"type":"audio","src":"assets/clips/audio/r1e.mp3","clip":"r1e","autoplay":false},{"type":"audio","src":"assets/clips/audio/r1u.mp3","clip":"r1u","autoplay":false}],"highlight":null},{"id":"a02","title":"How we measure","chapter":"appendix","duration_s":60,"appendix":true,"steps":1,"transition":"cut","sensitive":false,"media":[],"highlight":null},{"id":"a03","title":"Working with the government","chapter":"appendix","duration_s":60,"appendix":true,"steps":1,"transition":"cut","sensitive":false,"media":[{"type":"video","src":"assets/out/release/scenes/a03/stills/stakeholder-map-680.mp4","autoplay":false,"loop":true,"poster":"assets/out/release/scenes/a03/stills/stakeholder-map-680-poster.jpg"}],"highlight":null},{"id":"a04","title":"Learning per dollar: the method","chapter":"appendix","duration_s":60,"appendix":true,"steps":1,"transition":"cut","sensitive":false,"media":[],"highlight":null},{"id":"a06","title":"Why the problem exists","chapter":"appendix","duration_s":60,"appendix":true,"steps":1,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"a07","title":"Find. Refine. Fund.","chapter":"appendix","duration_s":60,"appendix":true,"steps":2,"transition":"cut","sensitive":false,"media":[],"highlight":null}],"main_total_s":1112,"nav":true}</script>
+<script type="application/json" id="deck-manifest">{"title":"OPEN Forum, November 2026","built_at":"2026-11-05T11:39:17Z","stage":[1920,1080],"scenes":[{"id":"s01","title":"Cover","chapter":"open","duration_s":30,"appendix":false,"steps":1,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/marks/fop-calligraphy-white-clean.png","autoplay":false}],"highlight":null},{"id":"s02","title":"Flood relief, then food every day","chapter":"nadir","duration_s":50,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/n1-left-v3-edhi.jpg","autoplay":false},{"type":"image","src":"assets/pictures/n1-right-v3-rizq-khana-busy.jpg","autoplay":false},{"type":"image","src":"assets/pictures/marks/rizq-white.png","autoplay":false}],"highlight":null},{"id":"s03","title":"A ward, then expertise brought to the family","chapter":"nadir","duration_s":50,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/n2-left-v3-indus-ward.jpg","autoplay":false},{"type":"image","src":"assets/pictures/n2-right-v3-childlife-hub.jpg","autoplay":false},{"type":"image","src":"assets/pictures/marks/childlife-mark-oneline-white.png","autoplay":false}],"highlight":null},{"id":"s04","title":"A school, then the teacher in every school that stands","chapter":"nadir","duration_s":50,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/n3-left-v3-tcf-school-nosign.jpg","autoplay":false},{"type":"image","src":"assets/pictures/n3-right-v3-teacher-phone-blurred.jpg","autoplay":false},{"type":"image","src":"assets/pictures/marks4/taleemabad-wordmark.png","autoplay":false}],"highlight":null},{"id":"s05","title":"One graduate, then every graduate ready","chapter":"nadir","duration_s":50,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/n4-left-v3-office-helped.jpg","autoplay":false},{"type":"image","src":"assets/pictures/n4-right-v3-amal-corridor-soft.jpg","autoplay":false},{"type":"image","src":"assets/pictures/marks/amal-white.png","autoplay":false}],"highlight":null},{"id":"s06","title":"Back what reaches millions","chapter":"nadir","duration_s":25,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s10","title":"Scale has a shape","chapter":"mind","duration_s":55,"appendix":false,"steps":5,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s11","title":"Who delivers it, and who pays","chapter":"mind","duration_s":45,"appendix":false,"steps":5,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s12","title":"What Pakistanis abroad send home","chapter":"mind","duration_s":40,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s13","title":"A dollar in. Many times the impact out.","chapter":"mind","duration_s":20,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s14","title":"Other communities did this","chapter":"mind","duration_s":35,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s15","title":"The Friends of Pakistan, and the next generation","chapter":"mind","duration_s":55,"appendix":false,"steps":6,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s16","title":"This is what it looks like","chapter":"mind","duration_s":15,"appendix":false,"steps":1,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s20","title":"Taleemabad","chapter":"proof","duration_s":10,"appendix":false,"steps":1,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s21","title":"A classroom in Pakistan","chapter":"proof","duration_s":25,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[{"type":"audio","src":"assets/clips/audio/h1.mp3","clip":"h1","autoplay":false}],"highlight":null},{"id":"s22","title":"A child reads","chapter":"proof","duration_s":30,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[{"type":"audio","src":"assets/clips/audio/r1us.mp3","clip":"r1us","autoplay":false}],"highlight":null},{"id":"s22a","title":"Why can’t they read?","chapter":"proof","duration_s":14,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s23","title":"Where I started","chapter":"proof","duration_s":35,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/h-childhood-pair-ls.jpg","autoplay":false},{"type":"image","src":"assets/pictures/h-georgetown-pair-ls.jpg","autoplay":false},{"type":"image","src":"assets/pictures/h-akhuwat-teach-blur.jpg","autoplay":false}],"highlight":null},{"id":"s24","title":"The size of it","chapter":"proof","duration_s":20,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s25","title":"On national television","chapter":"proof","duration_s":24,"appendix":false,"steps":5,"transition":"fade","sensitive":false,"media":[{"type":"video","src":"assets/out/release/scenes/s25/stills/cartoon-loop-sum-25-32.mp4","autoplay":false},{"type":"image","src":"assets/pictures/h-cartoon-hundred-sixty.jpg","autoplay":false},{"type":"image","src":"assets/pictures/h-palace.jpg","autoplay":false}],"highlight":null},{"id":"s26","title":"Low-fee schools","chapter":"proof","duration_s":20,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/h-harvard-school-sr.jpg","autoplay":false},{"type":"image","src":"assets/pictures/h-stanford-school-sr.jpg","autoplay":false},{"type":"image","src":"assets/pictures/h-lowfee-gate.jpg","autoplay":false},{"type":"image","src":"assets/pictures/h-lowfee-gandhara-signend-us.jpg","autoplay":false},{"type":"image","src":"assets/pictures/h-lowfee-mountain-wing.jpg","autoplay":false}],"highlight":null},{"id":"s27","title":"Measured","chapter":"proof","duration_s":14,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s40","title":"The state comes calling","chapter":"proof","duration_s":12,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s40a","title":"What we built, around the child.","chapter":"proof","duration_s":10,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s40d","title":"Quizzes at home.","chapter":"proof","duration_s":10,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s40b","title":"Lesson plans.","chapter":"proof","duration_s":22,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[{"type":"audio","src":"assets/clips/audio/lp3.mp3","clip":"lp3","autoplay":false}],"highlight":null},{"id":"s40c","title":"Coaching.","chapter":"proof","duration_s":40,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"media":[{"type":"audio","src":"assets/clips/audio/cl1.mp3","clip":"cl1","autoplay":false},{"type":"audio","src":"assets/clips/audio/rc1.mp3","clip":"rc1","autoplay":false}],"highlight":null},{"id":"s41","title":"The product a teacher holds","chapter":"proof","duration_s":24,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[{"type":"audio","src":"assets/clips/audio/c-ur-t3.mp3","clip":"c-ur-t3","autoplay":false},{"type":"audio","src":"assets/clips/audio/c-ur-b4.mp3","clip":"c-ur-b4","autoplay":false}],"highlight":null},{"id":"s41a","title":"The government's name","chapter":"proof","duration_s":10,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s41b","title":"Teacher awards","chapter":"proof","duration_s":8,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s41c","title":"Everyone who had to say yes","chapter":"proof","duration_s":8,"appendix":false,"steps":1,"transition":"fade","sensitive":false,"media":[{"type":"video","src":"assets/out/release/scenes/s41c/stills/stakeholder-map-680.mp4","autoplay":false,"loop":true,"poster":"assets/out/release/scenes/s41c/stills/stakeholder-map-680-poster.jpg"}],"highlight":null},{"id":"s42","title":"The provinces light up","chapter":"proof","duration_s":20,"appendix":false,"steps":5,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s43a","title":"Our reach.","chapter":"proof","duration_s":12,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s43","title":"$8 to $3","chapter":"proof","duration_s":8,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s43b","title":"Who pays for it?","chapter":"proof","duration_s":14,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s43c","title":"Open source","chapter":"proof","duration_s":10,"appendix":false,"steps":2,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s44","title":"Pakistan to the world","chapter":"proof","duration_s":25,"appendix":false,"steps":6,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s44a","title":"The same coach, in their languages","chapter":"proof","duration_s":30,"appendix":false,"steps":4,"transition":"fade","sensitive":false,"media":[{"type":"audio","src":"assets/clips/audio/c-sw-t4.mp3","clip":"c-sw-t4","autoplay":false},{"type":"audio","src":"assets/clips/audio/c-sw-bv.mp3","clip":"c-sw-bv","autoplay":false},{"type":"audio","src":"assets/clips/audio/c-ar-t5.mp3","clip":"c-ar-t5","autoplay":false},{"type":"audio","src":"assets/clips/audio/c-ar-b5.mp3","clip":"c-ar-b5","autoplay":false}],"highlight":null},{"id":"s45","title":"The world noticed","chapter":"proof","duration_s":10,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s46","title":"Learning per dollar","chapter":"proof","duration_s":20,"appendix":false,"steps":6,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"s47","title":"A good class, and a child reading well","chapter":"proof","duration_s":48,"appendix":false,"steps":5,"transition":"fade","sensitive":false,"media":[{"type":"audio","src":"assets/clips/audio/g1t3.mp3","clip":"g1t3","autoplay":false},{"type":"audio","src":"assets/clips/audio/f1us.mp3","clip":"f1us","autoplay":false}],"highlight":null},{"id":"s48","title":"The ask","chapter":"proof","duration_s":14,"appendix":false,"steps":3,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/marks4/fop-name-green.png","autoplay":false},{"type":"image","src":"assets/pictures/marks4/taleemabad-wordmark.png","autoplay":false}],"highlight":null},{"id":"s07","title":"One slice of what you give","chapter":"close","duration_s":45,"appendix":false,"steps":5,"transition":"fade","sensitive":false,"media":[{"type":"image","src":"assets/pictures/marks4/fop-name-green.png","autoplay":false},{"type":"image","src":"assets/pictures/marks4/taleemabad-wordmark.png","autoplay":false}],"highlight":null},{"id":"a01","title":"The readers","chapter":"appendix","duration_s":90,"appendix":true,"steps":5,"transition":"fade","sensitive":false,"media":[{"type":"audio","src":"assets/clips/audio/r1e.mp3","clip":"r1e","autoplay":false},{"type":"audio","src":"assets/clips/audio/r1u.mp3","clip":"r1u","autoplay":false}],"highlight":null},{"id":"a02","title":"How we measure","chapter":"appendix","duration_s":60,"appendix":true,"steps":1,"transition":"cut","sensitive":false,"media":[],"highlight":null},{"id":"a03","title":"Working with the government","chapter":"appendix","duration_s":60,"appendix":true,"steps":1,"transition":"cut","sensitive":false,"media":[{"type":"video","src":"assets/out/release/scenes/a03/stills/stakeholder-map-680.mp4","autoplay":false,"loop":true,"poster":"assets/out/release/scenes/a03/stills/stakeholder-map-680-poster.jpg"}],"highlight":null},{"id":"a04","title":"Learning per dollar: the method","chapter":"appendix","duration_s":60,"appendix":true,"steps":1,"transition":"cut","sensitive":false,"media":[],"highlight":null},{"id":"a06","title":"Why the problem exists","chapter":"appendix","duration_s":60,"appendix":true,"steps":1,"transition":"fade","sensitive":false,"media":[],"highlight":null},{"id":"a07","title":"Find. Refine. Fund.","chapter":"appendix","duration_s":60,"appendix":true,"steps":2,"transition":"cut","sensitive":false,"media":[],"highlight":null}],"main_total_s":1112,"nav":true}</script>
 <script type="application/json" id="words-c-ar-b5">{"id":"c-ar-b5","kind":"speech","duration":14.73,"lang":"ar","dir":"rtl","words":[{"w":"فكرةٌ","start":1.0,"end":1.46,"status":"said","speaker":"AI coach","line":0},{"w":"رائعة!","start":1.48,"end":2.56,"status":"said","speaker":"AI coach","line":0},{"w":"قبلَ","start":2.58,"end":3.96,"status":"said","speaker":"AI coach","line":1},{"w":"أن","start":3.98,"end":4.1,"status":"said","speaker":"AI coach","line":1},{"w":"تبدئي،","start":4.12,"end":4.7,"status":"said","speaker":"AI coach","line":1},{"w":"قدِّمي","start":4.72,"end":5.64,"status":"said","speaker":"AI coach","line":1},{"w":"مثالًا","start":5.66,"end":6.14,"status":"said","speaker":"AI coach","line":1},{"w":"واحدًا","start":6.16,"end":6.64,"status":"said","speaker":"AI coach","line":1},{"w":"بنفسِكِ،","start":6.66,"end":7.22,"status":"said","speaker":"AI coach","line":1},{"w":"ثم","start":7.24,"end":8.14,"status":"said","speaker":"AI coach","line":2},{"w":"قولي","start":8.16,"end":8.48,"status":"said","speaker":"AI coach","line":2},{"w":"لطلابِكِ:","start":8.5,"end":9.32,"status":"said","speaker":"AI coach","line":2},{"w":"ارموا","start":9.34,"end":10.22,"status":"said","speaker":"AI coach","line":2},{"w":"حجرَ النرد،","start":10.24,"end":11.24,"status":"said","speaker":"AI coach","line":2},{"w":"اقرؤوا","start":11.26,"end":12.1,"status":"said","speaker":"AI coach","line":2},{"w":"الرقم،","start":12.12,"end":12.62,"status":"said","speaker":"AI coach","line":2},{"w":"ونفِّذوا","start":12.64,"end":13.56,"status":"said","speaker":"AI coach","line":2},{"w":"المهمة.","start":13.58,"end":14.14,"status":"said","speaker":"AI coach","line":2}],"lines":[{"speaker":"AI coach","start":1.0,"end":2.56,"text":"فكرةٌ رائعة!","words":[0,1],"en":"A wonderful idea!"},{"speaker":"AI coach","start":2.58,"end":7.22,"text":"قبلَ أن تبدئي، قدِّمي مثالًا واحدًا بنفسِكِ،","words":[2,8],"en":"Before you start, model one example yourself,"},{"speaker":"AI coach","start":7.24,"end":14.14,"text":"ثم قولي لطلابِكِ: ارموا حجرَ النرد، اقرؤوا الرقم، ونفِّذوا المهمة.","words":[9,17],"en":"then tell your pupils: roll the dice, read the number, do the task."}],"caption":"Rumi's reply, translated.","excerpt":true}</script>
 <script type="application/json" id="words-c-ar-t5">{"id":"c-ar-t5","kind":"speech","duration":12.11,"lang":"ar","dir":"rtl","words":[{"w":"أنا","start":1.0,"end":1.49,"status":"said","speaker":"teacher","line":0},{"w":"عملت","start":1.49,"end":1.91,"status":"said","speaker":"teacher","line":0},{"w":"استراتيجية","start":1.91,"end":2.63,"status":"said","speaker":"teacher","line":0},{"w":"حجر النرد،","start":2.63,"end":3.29,"status":"said","speaker":"teacher","line":0},{"w":"رمية","start":3.29,"end":3.93,"status":"said","speaker":"teacher","line":0},{"w":"حجر","start":3.93,"end":4.25,"status":"said","speaker":"teacher","line":0},{"w":"النرد","start":4.25,"end":4.57,"status":"said","speaker":"teacher","line":0},{"w":"للطلاب،","start":4.57,"end":5.37,"status":"said","speaker":"teacher","line":0},{"w":"وعندي","start":6.43,"end":7.23,"status":"said","speaker":"teacher","line":1},{"w":"أنا","start":7.23,"end":7.43,"status":"said","speaker":"teacher","line":1},{"w":"ورقة","start":7.43,"end":8.19,"status":"said","speaker":"teacher","line":1},{"w":"معلّقة","start":8.19,"end":8.89,"status":"said","speaker":"teacher","line":1},{"w":"على","start":8.89,"end":9.05,"status":"said","speaker":"teacher","line":1},{"w":"الحائط","start":9.05,"end":9.61,"status":"said","speaker":"teacher","line":1},{"w":"محطوطة،","start":9.61,"end":10.07,"status":"said","speaker":"teacher","line":1},{"w":"فعليها","start":10.07,"end":10.57,"status":"said","speaker":"teacher","line":1},{"w":"أرقام","start":10.57,"end":10.95,"status":"said","speaker":"teacher","line":1},{"w":"من","start":10.97,"end":11.07,"status":"said","speaker":"teacher","line":1},{"w":"1","start":11.07,"end":11.25,"status":"said","speaker":"teacher","line":1},{"w":"إلى","start":11.25,"end":11.41,"status":"said","speaker":"teacher","line":1},{"w":"6.","start":11.41,"end":11.93,"status":"said","speaker":"teacher","line":1}],"lines":[{"speaker":"teacher","start":1.0,"end":5.37,"text":"أنا عملت استراتيجية حجر النرد، رمية حجر النرد للطلاب،","words":[0,7],"en":"I made a dice strategy: the pupils roll a dice,"},{"speaker":"teacher","start":6.43,"end":11.93,"text":"وعندي أنا ورقة معلّقة على الحائط محطوطة، فعليها أرقام من 1 إلى 6.","words":[8,20],"en":"and I have a sheet stuck on the wall, with the numbers one to six on it."}],"caption":"A teacher, by voice note. Excerpt.","excerpt":true}</script>
 <script type="application/json" id="words-c-sw-bv">{"id":"c-sw-bv","kind":"speech","duration":11.69,"lang":"sw","dir":"ltr","words":[{"w":"Hilo","start":1.0,"end":1.18,"status":"said","speaker":"AI coach","line":0},{"w":"ni","start":1.2,"end":1.32,"status":"said","speaker":"AI coach","line":0},{"w":"jambo","start":1.34,"end":1.66,"status":"said","speaker":"AI coach","line":0},{"w":"zuri","start":1.68,"end":2.02,"status":"said","speaker":"AI coach","line":0},{"w":"sana.","start":2.04,"end":2.22,"status":"said","speaker":"AI coach","line":0},{"w":"Mifano","start":2.5,"end":3.38,"status":"said","speaker":"AI coach","line":1},{"w":"halisi","start":3.4,"end":3.88,"status":"said","speaker":"AI coach","line":1},{"w":"kama","start":3.9,"end":4.38,"status":"said","speaker":"AI coach","line":1},{"w":"ndizi","start":4.4,"end":4.88,"status":"said","speaker":"AI coach","line":1},{"w":"na","start":4.9,"end":5.36,"status":"said","speaker":"AI coach","line":1},{"w":"mua","start":5.38,"end":5.86,"status":"said","speaker":"AI coach","line":1},{"w":"huwasaidia","start":6.1,"end":7.0,"status":"said","speaker":"AI coach","line":1},{"w":"wanafunzi","start":7.02,"end":7.58,"status":"said","speaker":"AI coach","line":1},{"w":"kuelewa","start":7.6,"end":8.04,"status":"said","speaker":"AI coach","line":1},{"w":"fumbo,","start":8.06,"end":8.6,"status":"said","speaker":"AI coach","line":1},{"w":"na","start":8.62,"end":9.0,"status":"said","speaker":"AI coach","line":2},{"w":"kuona","start":9.02,"end":9.46,"status":"said","speaker":"AI coach","line":2},{"w":"kitu","start":9.48,"end":9.88,"status":"said","speaker":"AI coach","line":2},{"w":"kizima","start":9.9,"end":10.48,"status":"said","speaker":"AI coach","line":2},{"w":"kwa","start":10.5,"end":10.78,"status":"said","speaker":"AI coach","line":2},{"w":"urahisi.","start":10.8,"end":11.24,"status":"said","speaker":"AI coach","line":2}],"lines":[{"speaker":"AI coach","start":1.0,"end":2.22,"text":"Hilo ni jambo zuri sana.","words":[0,4],"en":"That's a very good point."},{"speaker":"AI coach","start":2.5,"end":8.6,"text":"Mifano halisi kama ndizi na mua huwasaidia wanafunzi kuelewa fumbo,","words":[5,14],"en":"Real examples, like bananas and sugarcane, help pupils understand the problem"},{"speaker":"AI coach","start":8.62,"end":11.24,"text":"na kuona kitu kizima kwa urahisi.","words":[15,20],"en":"and see the whole easily."}],"caption":"Rumi, by voice note.","excerpt":true}</script>
@@ -3848,7 +3899,7 @@ html section .vp.vp-ltr .vp-line .vp-g, html section .vp.vp-ltr .vp-msg .vp-g { 
   
   <div class="g-pair n-pair">
     <div class="half left has-credit" data-clip-ok><img data-overflow-ok data-src="assets/pictures/n1-left-v3-edhi.jpg" alt="An Edhi volunteer steering a rescue boat through a flooded street in Pakistan"><span class="g-credit on-dark" data-margin-ok>Photo: Edhi Foundation</span></div>
-    <div class="half right has-credit has-mark" data-clip-ok><img data-overflow-ok data-src="assets/pictures/n1-right-v3-rizq-khana-busy.jpg" alt="A Rizq Khana food cart under its yellow umbrella serving daal chawal to a queue on a city pavement"><span class="g-credit on-dark m-in m-still" data-at="2" data-margin-ok>Photo: Rizq</span><img class="org-mark m-in m-still" data-at="2" data-src="assets/pictures/marks/rizq-white.png" alt="Rizq"></div>
+    <div class="half right has-credit has-mark" data-clip-ok><img data-overflow-ok data-src="assets/pictures/n1-right-v3-rizq-khana-busy.jpg" alt="A Rizq Khana food cart under its yellow umbrella serving daal chawal to a queue on a city pavement"><img class="org-mark m-in m-still" data-at="2" data-src="assets/pictures/marks/rizq-white.png" alt="Rizq"></div>
   </div>
 </section>
 <style>
@@ -3866,7 +3917,7 @@ section[data-id="s02"] .n-pair .half.right .g-credit { right: 32px; }
   
   <div class="g-pair n-pair">
     <div class="half left has-credit" data-clip-ok><img data-overflow-ok data-src="assets/pictures/n2-left-v3-indus-ward.jpg" alt="A nurse and a doctor, masked, at a patient's bed on a ward at Indus Hospital"><span class="g-credit on-dark" data-margin-ok>Photo: Indus Hospital &amp; Health Network</span></div>
-    <div class="half right has-credit has-mark" data-clip-ok><img data-overflow-ok data-src="assets/pictures/n2-right-v3-childlife-hub.jpg" alt="A doctor on a headset at ChildLife Foundation's telemedicine hub, taking a call from a district hospital"><span class="g-credit on-dark m-in m-still" data-at="2" data-margin-ok>Photo: ChildLife Foundation</span><img class="org-mark m-in m-still" data-at="2" data-src="assets/pictures/marks/childlife-mark-oneline-white.png" alt="ChildLife Foundation"></div>
+    <div class="half right has-credit has-mark" data-clip-ok><img data-overflow-ok data-src="assets/pictures/n2-right-v3-childlife-hub.jpg" alt="A doctor on a headset at ChildLife Foundation's telemedicine hub, taking a call from a district hospital"><img class="org-mark m-in m-still" data-at="2" data-src="assets/pictures/marks/childlife-mark-oneline-white.png" alt="ChildLife Foundation"></div>
   </div>
 </section>
 <style>
@@ -3884,7 +3935,7 @@ section[data-id="s03"] .n-pair .half.right .g-credit { right: 32px; }
   
   <div class="g-pair n-pair">
     <div class="half left has-credit" data-clip-ok><img data-overflow-ok data-src="assets/pictures/n3-left-v3-tcf-school-nosign.jpg" alt="A TCF school building in Pakistan, brick arches and a lawn under a blue sky"><span class="g-credit on-dark" data-margin-ok>Photo: The Citizens Foundation</span></div>
-    <div class="half right has-credit has-mark" data-clip-ok><img data-overflow-ok data-src="assets/pictures/n3-right-v3-teacher-phone-blurred.jpg" alt="A teacher in front of her class, the day's lesson lit on a phone on the desk"><span class="g-credit on-dark m-in m-still" data-at="2" data-margin-ok>Photo: Taleemabad</span><img class="org-mark m-in m-still" data-at="2" data-src="assets/pictures/marks4/taleemabad-wordmark.png" alt="Taleemabad"></div>
+    <div class="half right has-credit has-mark" data-clip-ok><img data-overflow-ok data-src="assets/pictures/n3-right-v3-teacher-phone-blurred.jpg" alt="A teacher in front of her class, the day's lesson lit on a phone on the desk"><img class="org-mark m-in m-still" data-at="2" data-src="assets/pictures/marks4/taleemabad-wordmark.png" alt="Taleemabad"></div>
   </div>
 </section>
 <style>
@@ -3902,7 +3953,7 @@ section[data-id="s04"] .n-pair .half.right .g-credit { right: 32px; }
   
   <div class="g-pair n-pair">
     <div class="half left has-credit" data-clip-ok><img data-overflow-ok data-src="assets/pictures/n4-left-v3-office-helped.jpg" alt="A young woman at an office computer with a trainer leaning in to show her the screen"><span class="g-credit on-dark" data-margin-ok>Photo: USAID Pakistan</span></div>
-    <div class="half right has-credit has-mark" data-clip-ok><img data-overflow-ok data-src="assets/pictures/n4-right-v3-amal-corridor-soft.jpg" alt="Thirty Amal Academy fellows lined along a university corridor"><span class="g-credit on-dark m-in m-still" data-at="2" data-margin-ok>Photo: Amal Academy</span><img class="org-mark m-in m-still" data-at="2" data-src="assets/pictures/marks/amal-white.png" alt="Amal Academy"></div>
+    <div class="half right has-credit has-mark" data-clip-ok><img data-overflow-ok data-src="assets/pictures/n4-right-v3-amal-corridor-soft.jpg" alt="Thirty Amal Academy fellows lined along a university corridor"><img class="org-mark m-in m-still" data-at="2" data-src="assets/pictures/marks/amal-white.png" alt="Amal Academy"></div>
   </div>
 </section>
 <style>
@@ -4729,6 +4780,7 @@ section[data-id="s11"][data-step="1"] .s11-head { top: 430px; font-size: 89px; l
 section[data-id="s11"] .s11-impact-g { opacity: 0; transition: opacity var(--t-in) var(--ease); }
 section[data-id="s11"][data-step="5"] .s11-impact-g { opacity: 1; }
 section[data-id="s11"] .s11-ax-x { font-weight: 400; }   
+section[data-id="s11"] .s11-ax-y { font-weight: 400; }   
 
 html section[data-id="s11"][data-step="4"] .s11-rule[data-at][class], html section[data-id="s11"][data-step="5"] .s11-rule[data-at][class] { opacity: var(--g-recede-opacity); transition: opacity var(--t-cede) var(--ease); }
 </style>
@@ -4791,7 +4843,7 @@ section[data-id="s13"] .s13-field { position: absolute; left: 0; top: 0; }
 section[data-id="s13"] .s13-field .coin circle { fill: var(--green); }
 section[data-id="s13"] .s13-field .coin text { fill: var(--ground); font-family: var(--font-big); font-weight: 600; font-size: 60px; }
 section[data-id="s13"] .s13-field .kids use { fill: var(--green); opacity: 0; transition: opacity 300ms var(--ease); transition-delay: calc(var(--d) * 1000ms + 150ms); }
-section[data-id="s13"][data-step="2"] .s13-field .kids use { opacity: 0.9; }
+section[data-id="s13"][data-step="2"] .s13-field .kids use { opacity: 1; }   
 html.no-anim section[data-id="s13"] .s13-field .kids use { transition: none !important; }
 
 section[data-id="s13"][data-step="2"] .s13-in { left: 120px; top: 470px; font-size: var(--size-title); opacity: var(--g-recede-opacity); transition: opacity var(--t-cede) var(--ease); }
@@ -4821,6 +4873,8 @@ section[data-id="s14"] .s14-who { margin: 0 0 6px; font-family: var(--font-body)
 section[data-id="s14"] .s14-small { margin: 0 0 16px; font-family: var(--font-body); font-size: var(--size-body); line-height: var(--lh-latin); color: var(--ink); max-width: 1600px; }
 section[data-id="s14"] .s14-hero { margin: 0 0 16px; font-family: var(--font-big); font-weight: 600; font-size: var(--size-hero); line-height: 1.1; letter-spacing: -0.01em; color: var(--ink); }
 section[data-id="s14"] .s14-b2 .s14-hero { margin: 0; }   
+
+section[data-id="s14"] .s14-b1, section[data-id="s14"] .s14-b2 { top: 400px; }
 </style>
 
 <section data-id="s15" class="scene sa-scene">
@@ -4952,6 +5006,8 @@ html section[data-id="s15"] .s15-orgs .s15-org .s15-id { left: 920px; top: 412px
 html section[data-id="s15"] .s15-orgs .s15-org .s15-mark { height: 90px; }
 html section[data-id="s15"] .s15-orgs .s15-o4 .s15-mark { height: 100px; }
 html section[data-id="s15"] .s15-orgs .s15-org .s15-line { left: 920px; top: 548px; max-width: 760px; }
+
+html section[data-id="s15"] .s15-orgs .s15-org .s15-tag { font-size: 48px; line-height: 1.2; }
 </style>
 
 <section data-id="s16" class="scene sa-scene">
@@ -4994,7 +5050,7 @@ section[data-id="s16"] .s16-line { position: absolute; left: 0; right: 0; top: 7
 section[data-id="s20"] .s20-world { position: absolute; left: 820px; top: 0; width: 1100px; height: 1080px; overflow: hidden; }
 section[data-id="s20"] .s20-world .s20-halo path { fill: var(--v4-map-cover, #579654); stroke: var(--v4-map-cover, #579654); stroke-width: 10px; stroke-linejoin: round; vector-effect: non-scaling-stroke; opacity: 0.5; }   
 section[data-id="s20"] .s20-world .mk-land { fill: #EFEDE7; stroke: none; }   
-section[data-id="s20"] .s20-world .cty { fill: var(--v4-map-cover, #579654); stroke: var(--ground); stroke-width: 1.5px; stroke-linejoin: round; vector-effect: non-scaling-stroke; }   
+section[data-id="s20"] .s20-world .cty { fill: var(--v4-map-cover, #579654); stroke: var(--ground); stroke-width: 3px; stroke-linejoin: round; vector-effect: non-scaling-stroke; }   
 
 section[data-id="s20"] .s20-world .cty-ps { stroke: var(--v4-map-cover, #579654); stroke-width: 5px; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
 section[data-id="s20"] .s20-world .mk-border { fill: none; stroke: var(--map-line); stroke-width: 1.5px; vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round; }
@@ -5027,13 +5083,13 @@ section[data-id="s21"][data-step="3"] .vp { opacity: 0.3; }
 <section data-id="s22" class="scene sa-scene">
   
   <h1 class="sa-title m-in m-still" data-step="1" data-until="2">A child in grade 4 reads a story.</h1>
-  <h1 class="sa-title m-in m-still m-swap" data-step="3">Grade 4.</h1>
+  <h1 class="sa-title m-in m-still m-swap" data-step="3">Grade 4. Still learning to read.</h1>
   <div class="vp-mount s22-mount" data-vp="a"></div>
   <script type="application/json" class="vp-cfg">{"last": 3, "parts": [{"step": 2, "layout": "passage", "clips": ["r1us"], "mount": "a", "lang": "ur", "dir": "rtl"}]}</script>
 </section>
 <style>
 section[data-id="s22"] .vp-mount { left: var(--margin-x); right: var(--margin-x); }   
-section[data-id="s22"] .s22-mount { top: 250px; bottom: 96px; }
+section[data-id="s22"] .s22-mount { top: 226px; bottom: 96px; }   
 section[data-id="s22"] .vp { transition: opacity var(--t-fade) var(--ease); }
 section[data-id="s22"][data-step="3"] .vp { opacity: var(--vp-recede); }
 </style>
@@ -5131,7 +5187,9 @@ html.no-anim section[data-id="s24"] .s24-in { transition: none !important; }
   
   
   
-  <div class="sa-photo s25-frame s25-loop m-in m-still" data-at="1" data-until="1"><video data-loop data-loop-at="1" data-loop-still="5.5" muted playsinline preload="auto" poster="assets/out/release/scenes/s25/stills/cartoon-loop-fish-one-poster.jpg" data-src="assets/out/release/scenes/s25/stills/cartoon-loop-fish-one.mp4" aria-label="Our cartoon, playing: a father and son fishing on a beach catch one fish, and the numeral 1 appears beside it"></video></div>
+  
+  
+  <div class="sa-photo s25-frame s25-loop m-in m-still" data-at="1" data-until="1"><video data-loop data-loop-at="1" data-loop-still="5" muted playsinline preload="auto" poster="assets/out/release/scenes/s25/stills/cartoon-loop-sum-25-32-poster.jpg" data-src="assets/out/release/scenes/s25/stills/cartoon-loop-sum-25-32.mp4" aria-label="Our cartoon, playing: the sum 25 plus 32 worked in tens and units to make 57, then a teacher at a blackboard under a school tree with her class"></video></div>
   <div class="sa-photo s25-frame s25-pv m-in m-still" data-at="2" data-until="2"><img data-src="assets/pictures/h-cartoon-hundred-sixty.jpg" alt="Our cartoon: a hundred counters in a square beside six rows of ten, labelled 100 and 60"></div>
   <p class="s25-cap m-in m-still" data-at="1" data-until="2" style="--i:1">Our cartoon, on national television.</p>
   <div class="s25-mapbox m-in m-still m-swap g-centre" data-at="3" data-until="3">
@@ -5154,7 +5212,7 @@ html.no-anim section[data-id="s24"] .s24-in { transition: none !important; }
   <p class="s25-label m-in m-still m-swap" data-at="3" data-until="3">Where the lessons were used.</p>
   <div class="s25-num m-in m-still m-swap" data-at="4" data-until="4"><span class="n"><span class="g">8 million</span></span><span class="l">children watched it on TV,<br>every week</span></div>
   <div class="sa-photo s25-palace m-in m-still m-swap" data-at="5"><img data-src="assets/pictures/h-palace.jpg" alt="Receiving the award at Buckingham Palace, 2018"></div>
-  <div class="s25-award m-in m-still" data-at="5" style="--i:1"><p class="lead">Buckingham Palace, 2018</p><p class="line">The Queen’s Young Leaders Award</p></div>
+  <div class="s25-award m-in m-still" data-at="5" style="--i:1"><p class="lead">Buckingham Palace, 2018</p><p class="line">The Queen’s Young<br>Leaders Award</p></div>
 </section>
 <style>
 
@@ -5163,7 +5221,7 @@ section[data-id="s25"] .s25-frame img, section[data-id="s25"] .s25-frame video {
 section[data-id="s25"] .s25-cap { position: absolute; left: 240px; top: 906px; margin: 0; width: 1440px; white-space: nowrap; text-align: center;
   font-family: var(--font-body); font-size: var(--size-gloss); line-height: var(--lh-gloss); color: var(--ink-quiet); }   
 
-section[data-id="s25"] .s25-mapbox { position: absolute; left: 860px; top: 96px; width: 1000px; height: 888px; transition: opacity var(--t-in) var(--ease) var(--t-out), visibility 0s linear var(--t-out); }   
+section[data-id="s25"] .s25-mapbox { position: absolute; left: 480px; top: 72px; width: 960px; height: 800px; transition: opacity var(--t-in) var(--ease) var(--t-out), visibility 0s linear var(--t-out); }   
 
 section[data-id="s25"] .s25-mapbox.is-gone { transition-delay: 0s, var(--t-out); }
 
@@ -5174,21 +5232,21 @@ section[data-id="s25"] .mk-inner { fill: none; stroke: var(--ground); stroke-wid
 section[data-id="s25"] .mk-outline { fill: none; stroke: var(--map-line); stroke-width: 3px; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
 section[data-id="s25"] .mk-loc { fill: none; stroke: var(--map-line); stroke-width: 3px; stroke-dasharray: 10 8; vector-effect: non-scaling-stroke; }
 section[data-id="s25"] .s25-dots { fill: var(--green); fill-opacity: 0.7; }
-section[data-id="s25"] .s25-label { position: absolute; left: var(--margin-x); bottom: var(--margin-bottom); margin: 0; max-width: 760px; white-space: nowrap;
+section[data-id="s25"] .s25-label { position: absolute; left: 240px; width: 1440px; text-align: center; top: 886px; margin: 0; white-space: nowrap;
   font-family: var(--font-body); font-size: var(--size-gloss); line-height: var(--lh-gloss); color: var(--ink-quiet); }
 
-section[data-id="s25"] .s25-num { position: absolute; left: 240px; width: 1440px; top: 380px; margin: 0; text-align: center; }   
-section[data-id="s25"] .s25-num .n { display: block; font-family: var(--font-big); font-weight: 600; font-size: var(--size-hero); line-height: 1; margin-bottom: 24px; }
+section[data-id="s25"] .s25-num { position: absolute; left: 240px; width: 1440px; top: 340px; margin: 0; text-align: center; }   
+section[data-id="s25"] .s25-num .n { display: block; font-family: var(--font-big); font-weight: 600; font-size: var(--size-num); line-height: 1; margin-bottom: 24px; }   
 section[data-id="s25"] .s25-num .l { white-space: nowrap; }
 section[data-id="s25"] .s25-num .g { color: var(--green); }
 section[data-id="s25"] .s25-num .l { display: block; font-family: var(--font-body); font-size: var(--size-label); line-height: var(--lh-gloss); color: var(--ink); }
 
 section[data-id="s25"] .s25-palace { left: var(--margin-x); top: 96px; width: 1100px; height: 880px; background: var(--ground); }
 section[data-id="s25"] .s25-palace img { object-fit: contain; }
-section[data-id="s25"] .s25-award { position: absolute; left: 1268px; top: 96px; width: 532px; margin: 0; }
+section[data-id="s25"] .s25-award { position: absolute; left: 1268px; top: 96px; width: 556px; margin: 0; }   
 section[data-id="s25"] .s25-award p { margin: 0; }
 section[data-id="s25"] .s25-award .lead { font-family: var(--font-big); font-weight: 600; font-size: var(--size-title); line-height: var(--lh-serif); letter-spacing: -0.005em; color: var(--ink); }
-section[data-id="s25"] .s25-award .line { margin-top: 24px; font-family: var(--font-body); font-size: var(--size-label); line-height: var(--lh-gloss); color: var(--ink-quiet); }
+section[data-id="s25"] .s25-award .line { white-space: nowrap; margin-top: 24px; font-family: var(--font-body); font-size: var(--size-label); line-height: var(--lh-gloss); color: var(--ink-quiet); }
 </style>
 
 <section data-id="s26" class="scene sa-scene">
@@ -5197,7 +5255,7 @@ section[data-id="s25"] .s25-award .line { margin-top: 24px; font-family: var(--f
   <div class="sa-photo s26-one s26-hv s26-x" data-at="1"><img data-src="assets/pictures/h-harvard-school-sr.jpg" alt="A school called The Harvard School: girls performing on a stage under the school's banner"></div>
   <div class="sa-photo s26-one s26-st s26-x" data-at="2"><img data-src="assets/pictures/h-stanford-school-sr.jpg" alt="A school called Stanford International: a plain two-storey front on an unpaved lane"></div>
   <div class="sa-photo crop s26-t s26-t1 m-in m-still m-swap" data-at="3" style="--i:0"><img data-src="assets/pictures/h-lowfee-gate.jpg" alt="A Taleemabad School gate, blue and yellow"></div>
-  <div class="sa-photo crop s26-t s26-t2 m-in m-still m-swap" data-at="3" style="--i:1"><img data-src="assets/pictures/h-lowfee-gandhara-signend.jpg" alt="A school yard with balloons, its sign: powered by Taleemabad"></div>
+  <div class="sa-photo crop s26-t s26-t2 m-in m-still m-swap" data-at="3" style="--i:1"><img data-src="assets/pictures/h-lowfee-gandhara-signend-us.jpg" alt="A school yard with balloons, its sign: powered by Taleemabad"></div>
   <div class="sa-photo crop s26-t s26-t3 m-in m-still m-swap" data-at="3" style="--i:2"><img data-src="assets/pictures/h-lowfee-mountain-wing.jpg" alt="A yellow school wing under a mountain, Pakistan painted on its wall"></div>
   <div class="sa-num s26-num m-in m-still m-swap" data-at="3" style="--i:3"><p class="n"><span class="g">200</span> Taleemabad schools</p><p class="l">low-fee and private, in our first year</p></div>
 </section>
@@ -5246,7 +5304,7 @@ section[data-id="s27"] .s27-bars .bar { margin-right: 300px; }
   
   <div class="sa-photo s40-photo is-on" data-until="1"><img data-src="assets/pictures/h-gov-class-real-writing-half.jpg" alt="A girl in a government school in Sindh writing in her exercise book, seen from behind, crown to pen, the classroom behind her; no face. A real photograph from the FT visit, October 2026."></div>
   <h1 class="sa-title s40-title m-in m-still is-on" data-until="1">The state<br>comes calling.</h1>
-  <div class="sa-photo s40-bleed m-in m-still" data-at="2" data-until="2"><img data-src="assets/pictures/h-public-class-senior-dof.jpg" alt="A government girls' school classroom in Pakistan: plaster walls, wooden shutters, health posters, girls in white-and-green uniform at their desks; the front row out of focus."></div>
+  <div class="sa-photo s40-bleed m-in m-still" data-at="2" data-until="2"><img data-src="assets/pictures/h-public-class-back.jpg" alt="A government girls' classroom in Pakistan, seen from the back row: girls in blue-and-white uniform at wooden desks, one with a prefect's sash, the teacher's desk and the green chalkboard ahead."></div>
   <p class="sa-hero s40-hero m-in m-still" data-at="3" data-until="3">More than half<br>of Pakistan’s students<br>are in public schools.</p>
   <p class="s40-deal m-in m-still m-swap" data-at="4">Our terms:<br>a whole district, or nothing.<br>And they pay.</p>
   <p class="s40-facts m-in m-still g-after" data-at="4">Islamabad: 422 schools</p>
@@ -5258,7 +5316,7 @@ section[data-id="s40"] .s40-photo img { object-fit: cover; }
 section[data-id="s40"] .s40-title { left: 1080px; width: 720px; }
 
 section[data-id="s40"] .s40-bleed { left: 0; top: 0; width: 1920px; height: 1080px; z-index: 2; }
-section[data-id="s40"] .s40-bleed img { object-fit: cover; object-position: center 40%; }
+section[data-id="s40"] .s40-bleed img { object-fit: cover; object-position: center center; }
 section[data-id="s40"] .s40-bleed::after { content: ""; position: absolute; left: 0; right: 0; top: 700px; bottom: 0; pointer-events: none;
   background: linear-gradient(to bottom, rgb(0 0 0 / 0) 0%, rgb(0 0 0 / 0.18) 100%); }   
 
@@ -5266,7 +5324,7 @@ section[data-id="s40"] .s40-deal { position: absolute; left: var(--margin-x); ri
   font-family: var(--font-big); font-weight: 600; font-size: 96px; line-height: var(--lh-serif); letter-spacing: -0.01em; color: var(--ink); }
 section[data-id="s40"] .s40-facts { position: absolute; left: var(--margin-x); right: var(--margin-x); top: 660px; margin: 0; white-space: nowrap;
   font-family: var(--font-big); font-weight: 600; font-size: var(--size-title); line-height: var(--lh-serif); color: var(--ink); }
-section[data-id="s40"] .s40-hero { top: 380px; max-width: 1600px; }   
+section[data-id="s40"] .s40-hero { top: 250px; max-width: 1600px; }   
 @media (prefers-reduced-motion: reduce) { section[data-id="s40"] * { transition: none !important; } }
 </style>
 
@@ -5297,8 +5355,11 @@ section[data-id="s40a"] .sa-title { max-width: 640px; }
 section[data-id="s40a"] .s40a-rings { top: 174px; transform: scale(0.66); --rx: 468px; }   
 section[data-id="s40a"] .g-rings-line { left: calc(var(--margin-x) + 96px); right: var(--margin-x); }   
 section[data-id="s40a"] .s40a-rings .g-rw { font-size: calc(var(--size-label) * 0.75 / 0.66); }
-section[data-id="s40a"] .s40a-rings .g-core { font-size: calc(var(--size-title) * 0.6 / 0.66); }   
-section[data-id="s40a"] .s40a-rings .g-rw-1 { font-size: 58px; line-height: 1; }   
+section[data-id="s40a"] .s40a-rings .g-rw-1 { font-size: 58px; line-height: 1; }
+html section[data-id="s40a"] .s40a-rings .g-rw { transition: color 200ms var(--ease) 0ms, opacity var(--t-in) var(--ease) calc(var(--t-draw) + 100ms) !important; }   
+html section[data-id="s40a"][data-step="2"] .s40a-rings .w-home, html section[data-id="s40a"][data-step="3"] .s40a-rings .w-teacher, html section[data-id="s40a"][data-step="4"] .s40a-rings .w-government { transition-delay: 120ms, calc(var(--t-draw) + 100ms) !important; }   
+html.no-anim section[data-id="s40a"][data-step] .s40a-rings .g-rw, html.no-anim section[data-id="s40a"][data-step] .s40a-rings .band { transition: none !important; }   
+section[data-id="s40a"] .s40a-rings .band { transform: rotate(180deg); transform-origin: 540px 540px; }   
 html.no-anim section[data-id="s40a"] .s40a-rings .g-rw, html.no-anim section[data-id="s40a"] .s40a-rings .band { transition: none !important; }   
 </style>
 
@@ -5441,6 +5502,7 @@ section[data-id="s40d"] .pp-lift .lm .t.en { margin: 0; font-family: var(--font-
 section[data-id="s40d"] .pp-lift .lm .t.en.q { font-weight: 500; }
 section[data-id="s40d"] .pp-lift .lm .g { white-space: pre-line; margin: 12px 0 0; font-size: var(--size-clip-gloss); line-height: var(--lh-gloss); color: var(--ink-quiet); direction: ltr; unicode-bidi: isolate; }
 section[data-id="s40d"] .pp-lift .lm .g { text-align: left; }
+section[data-id="s40d"] .pp-lift .lm .t[dir="rtl"] + .g { text-align: right; }   
 section[data-id="s40d"] .pp-lift .lm .lvoice { display: flex; align-items: center; gap: 24px; height: 72px; margin-bottom: 16px; }
 section[data-id="s40d"] .pp-lift .lm .lvoice:last-child { margin-bottom: 0; }
 section[data-id="s40d"] .pp-lift .lm .lvoice .vdp { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; flex: none; background: #8696A0; }
@@ -5693,6 +5755,7 @@ section[data-id="s40b"] .pp-lift .lm .t.en { margin: 0; font-family: var(--font-
 section[data-id="s40b"] .pp-lift .lm .t.en.q { font-weight: 500; }
 section[data-id="s40b"] .pp-lift .lm .g { white-space: pre-line; margin: 12px 0 0; font-size: var(--size-clip-gloss); line-height: var(--lh-gloss); color: var(--ink-quiet); direction: ltr; unicode-bidi: isolate; }
 section[data-id="s40b"] .pp-lift .lm .g { text-align: left; }
+section[data-id="s40b"] .pp-lift .lm .t[dir="rtl"] + .g { text-align: right; }   
 section[data-id="s40b"] .pp-lift .lm .lvoice { display: flex; align-items: center; gap: 24px; height: 72px; margin-bottom: 16px; }
 section[data-id="s40b"] .pp-lift .lm .lvoice:last-child { margin-bottom: 0; }
 section[data-id="s40b"] .pp-lift .lm .lvoice .vdp { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; flex: none; background: #8696A0; }
@@ -5941,6 +6004,7 @@ section[data-id="s40c"] .pp-lift .lm .t.en { margin: 0; font-family: var(--font-
 section[data-id="s40c"] .pp-lift .lm .t.en.q { font-weight: 500; }
 section[data-id="s40c"] .pp-lift .lm .g { white-space: pre-line; margin: 12px 0 0; font-size: var(--size-clip-gloss); line-height: var(--lh-gloss); color: var(--ink-quiet); direction: ltr; unicode-bidi: isolate; }
 section[data-id="s40c"] .pp-lift .lm .g { text-align: left; }
+section[data-id="s40c"] .pp-lift .lm .t[dir="rtl"] + .g { text-align: right; }   
 section[data-id="s40c"] .pp-lift .lm .lvoice { display: flex; align-items: center; gap: 24px; height: 72px; margin-bottom: 16px; }
 section[data-id="s40c"] .pp-lift .lm .lvoice:last-child { margin-bottom: 0; }
 section[data-id="s40c"] .pp-lift .lm .lvoice .vdp { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; flex: none; background: #8696A0; }
@@ -6386,7 +6450,7 @@ section[data-id="s43b"] .s43b-t { opacity: 0; transition: opacity var(--t-out) v
 section[data-id="s43b"] .s43b-t.is-on { opacity: 1; transition: opacity var(--t-in) var(--ease) var(--t-out); }
 section[data-id="s43b"] .s43b-basis { position: absolute; left: var(--margin-x); top: 232px; margin: 0; font-family: var(--font-body); font-size: var(--size-gloss); line-height: 1; color: var(--ink-quiet); }
 section[data-id="s43b"] .s43b-chart { position: absolute; left: 0; right: 0; top: 0; bottom: 0; }
-section[data-id="s43b"] .s43b-col { position: absolute; bottom: 200px; width: 360px; height: 560px; translate: -50% 0; transition: opacity var(--g-t-recede) var(--ease); }
+section[data-id="s43b"] .s43b-col { position: absolute; bottom: 240px; width: 360px;    height: 560px; translate: -50% 0; transition: opacity var(--g-t-recede) var(--ease); }
 section[data-id="s43b"] .s43b-col.is-past { opacity: 0.45; }
 section[data-id="s43b"] .s43b-col.is-far { opacity: var(--g-recede-opacity); }
 section[data-id="s43b"] .s43b-seg { position: absolute; left: 0; right: 0; height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; row-gap: 4px; transition: height var(--g-t-grow) var(--ease), bottom var(--g-t-grow) var(--ease), opacity var(--g-t-recede) var(--ease); }
@@ -6403,7 +6467,7 @@ section[data-id="s43b"] .s43b-col:not(.is-now) span.nm { transition-delay: 0ms; 
 
 section[data-id="s43b"] .s43b-top { position: absolute; left: 0; right: 0; display: flex; flex-direction: column; align-items: center; row-gap: 4px; transition: opacity var(--g-t-recede) var(--ease); }
 section[data-id="s43b"] .s43b-top.q b.f, section[data-id="s43b"] .s43b-top.q span.nm { color: var(--ink); }
-section[data-id="s43b"] .s43b-out { position: absolute; left: calc(100% + 32px); bottom: 0; display: flex; flex-direction: column; row-gap: 4px; }
+section[data-id="s43b"] .s43b-out { position: absolute; left: calc(100% + 32px); display: flex; flex-direction: column; row-gap: 4px; }
 section[data-id="s43b"] .s43b-out b.f, section[data-id="s43b"] .s43b-out span.nm { color: var(--green); text-align: left; }
 section[data-id="s43b"] .s43b-col.is-on.is-now .s43b-out b.f, section[data-id="s43b"] .s43b-col.is-on.is-now .s43b-out span.nm { opacity: 1; transition-delay: 700ms; transition-duration: 500ms; }
 section[data-id="s43b"] .s43b-col:not(.is-now) .s43b-out b.f, section[data-id="s43b"] .s43b-col:not(.is-now) .s43b-out span.nm { opacity: 0 !important; transition-delay: 0ms; transition-duration: 120ms; }   
@@ -6415,8 +6479,11 @@ section[data-id="s43b"].s43b-four .s43b-col { opacity: 1; }
 section[data-id="s43b"].s43b-four .s43b-seg.q, section[data-id="s43b"].s43b-four .s43b-top { opacity: var(--g-recede-opacity); }
 
 section[data-id="s43b"] .s43b-g4 { position: absolute; left: 0; right: 0; margin: 0; text-align: center; font-family: var(--font-big); font-weight: 600; font-size: 64px; line-height: 1; color: #fff; white-space: nowrap; opacity: 0; transition: opacity var(--t-out) var(--ease); }
-section[data-id="s43b"] .s43b-g4.none { font-family: var(--font-body); font-weight: 400; font-size: var(--size-gloss); color: var(--green); }
-section[data-id="s43b"] .s43b-col.is-past .s43b-g4:not(.none), section[data-id="s43b"].s43b-four .s43b-g4 { opacity: 1; transition: opacity 500ms var(--ease) 400ms; }      
+section[data-id="s43b"] .s43b-g4.none { top: calc(100% + 90px); bottom: auto !important; font-family: var(--font-body); font-weight: 400; font-size: 44px; color: var(--green); }   
+section[data-id="s43b"].s43b-four .s43b-g4.none { opacity: 1; transition: opacity 500ms var(--ease) 400ms; }
+section[data-id="s43b"] .s43b-g4.fig { position: absolute; z-index: 2; }
+section[data-id="s43b"] .s43b-g4.fig.is-on { opacity: 1; transition: opacity 500ms var(--ease) 400ms; }   
+section[data-id="s43b"] .s43b-g4.fig.is-pale { color: var(--ink); }      
 section[data-id="s43b"].s43b-four .q b.f, section[data-id="s43b"].s43b-four .s43b-top b.f, section[data-id="s43b"].s43b-four span.nm { opacity: 0 !important; transition-delay: 0ms; transition-duration: 150ms; }
 html.no-anim section[data-id="s43b"] *, html.no-anim section[data-id="s43b"] *::before { transition: none !important; }
 @media (prefers-reduced-motion: reduce) { section[data-id="s43b"] * { transition: none !important; } }
@@ -6440,9 +6507,11 @@ html.no-anim section[data-id="s43b"] *, html.no-anim section[data-id="s43b"] *::
     html += '<div class="s43b-seg g">' + (gin ? '<b class="f">' + money(d.g) + '</b><span class="nm">' + GN + '</span>' : "") + '</div>';
     html += '<div class="s43b-seg q">' + (qin ? '<b class="f">' + money(d.q) + '</b><span class="nm">' + QN + '</span>' : "") + '</div>';
     if (!qin) html += '<div class="s43b-top q" style="bottom:' + (gh + qh + 16) + 'px"><b class="f">' + money(d.q) + '</b><span class="nm">' + QN + '</span></div>';
-    if (!gin) html += '<div class="s43b-out">' + (d.g ? '<b class="f">' + money(d.g) + '</b><span class="nm">' + GN + '</span>' : '<span class="nm">' + GN1 + ': none yet</span>') + '</div>';
-    html += d.g ? '<p class="s43b-g4" style="bottom:' + Math.max(0, (gh - 64) / 2) + 'px">' + money(d.g) + '</p>'   // the government's figure inside its green (white), once the column has been read
-                : '<p class="s43b-g4 none" style="bottom:' + (qh + 20) + 'px">none yet</p>';
+    if (!gin) html += '<div class="s43b-out" style="top:' + (H - (d.g ? gh / 2 + 32 : 26)) + 'px">'   // the figure centred on its own green segment, the name running below it (COS RC2 audit)
+                    + '' + (d.g ? '<b class="f">' + money(d.g) + '</b><span class="nm">' + GN + '</span>' : '<span class="nm">' + GN1 + ': none yet</span>') + '</div>';
+    if (!d.g) html += '<p class="s43b-g4 none">none yet</p>';
+    else { var g4 = document.createElement("p"); g4.className = "s43b-g4 fig"; g4.textContent = money(d.g);
+      g4.style.left = (X[i] - 180) + "px"; g4.style.width = "360px"; g4.style.bottom = (240 + Math.max(0, (gh - 64) / 2)) + "px"; chart.appendChild(g4); c._g4 = g4; }
     html += '<p class="s43b-yr">' + d.y + '</p>';
     c.innerHTML = html; c._g = gh; c._q = qh; chart.appendChild(c); return c;
   });
@@ -6456,6 +6525,7 @@ html.no-anim section[data-id="s43b"] *, html.no-anim section[data-id="s43b"] *::
       c.classList.toggle("is-on", on); c.classList.toggle("is-now", k === m && n < 4);
       c.classList.toggle("is-past", n < 4 && k === m - 1); c.classList.toggle("is-far", n < 4 && k < m - 1);
       g.style.height = on ? c._g + "px" : "0px";
+      if (c._g4) { var show = n === 4 || (n < 4 && k === m - 1); c._g4.classList.toggle("is-on", show); c._g4.classList.toggle("is-pale", n < 4); }
       q.style.bottom = on ? c._g + "px" : "0px"; q.style.height = on ? c._q + "px" : "0px";
     });
   }
@@ -6859,7 +6929,7 @@ html section[data-id="s45"][data-step="3"] .g-after { transition-delay: calc(var
   
   <div class="s46-head">How much more a <span class="c">child</span> learns, for every&nbsp;$100</div>
   <h1 class="sa-title s46-goal-h">Our goal: first in the world by 2028.</h1>
-  <p class="s46-sub s46-sub1">years of learning per $100, among programmes that train teachers</p>
+  <p class="s46-sub s46-sub1">years of learning, among the world’s programmes that train teachers</p>
   <p class="s46-sub s46-sub2">among the world’s programmes that train teachers</p>
   <div class="s46-board"></div>
 </section>
@@ -6874,6 +6944,7 @@ section[data-id="s46"] .s46-goal-h::after { display: none; }
 section[data-id="s46"].s46-s6 .s46-goal-h { opacity: 1; transition: opacity var(--t-fade) var(--ease) 800ms; }      
 section[data-id="s46"] .s46-sub { position: absolute; left: var(--margin-x); top: 272px; margin: 0; white-space: nowrap; font-family: var(--font-body); font-size: var(--size-gloss); line-height: 1; color: var(--ink-quiet); opacity: 0; transition: opacity var(--t-out) var(--ease); }
 section[data-id="s46"] .s46-sub2 { top: 196px; }
+section[data-id="s46"] .s46-sub1 { font-size: 46px; top: 276px; }   
 section[data-id="s46"].s46-s2:not(.s46-s6) .s46-sub1 { opacity: 1; transition: opacity var(--t-fade) var(--ease) var(--g-t-move); }
 section[data-id="s46"].s46-s2.s46-lit .s46-sub1, section[data-id="s46"].s46-s2.s46-lit .s46-head { opacity: var(--g-recede-opacity); transition: opacity var(--g-t-recede) var(--ease), transform var(--g-t-move) var(--ease); }   
 section[data-id="s46"].s46-s6 .s46-sub2 { opacity: 1; transition: opacity var(--t-fade) var(--ease) 800ms; }
@@ -6883,7 +6954,7 @@ section[data-id="s46"] .s46-r { position: absolute; left: 0; right: 0; top: 0; h
 section[data-id="s46"] .s46-r .bar { position: absolute; left: 640px; top: 0; height: 28px; width: 0; border-radius: 3px; background: var(--bar); opacity: 0.4; transition: width var(--g-t-grow) var(--ease), background-color var(--g-t-recede) var(--ease), opacity var(--g-t-recede) var(--ease); }
 section[data-id="s46"] .s46-r .nm { position: absolute; right: calc(100% - 600px); top: 50%; translate: 0 -50%; white-space: nowrap; font-family: var(--font-body); font-size: var(--size-label); line-height: 1; color: var(--ink); opacity: 0; transition: opacity var(--t-fade) var(--ease); }
 section[data-id="s46"] .s46-r .fig { position: absolute; top: 50%; translate: 0 -50%; white-space: nowrap; font-family: var(--font-big); font-weight: 600; font-size: 60px; line-height: 1; color: var(--ink); opacity: 0; transition: opacity var(--t-fade) var(--ease), left var(--g-t-pull) var(--ease); }
-section[data-id="s46"] .s46-r .fig small.own { opacity: 0.5; }   
+section[data-id="s46"] .s46-r .fig small.own { position: absolute; left: 0; top: calc(100% + 14px); margin-left: 0; font-size: var(--size-label); color: var(--ink); opacity: 0.5; }      
 section[data-id="s46"] .s46-r .fig small { font-family: var(--font-body); font-weight: 400; font-size: var(--size-gloss); color: var(--ink-quiet); margin-left: 24px; }
 section[data-id="s46"] .s46-r .ex { position: absolute; left: 640px; top: 40px; white-space: nowrap; font-family: var(--font-body); font-size: var(--size-gloss); line-height: 1; color: var(--ink-quiet); opacity: 0; transition: opacity var(--t-fade) var(--ease); }
 section[data-id="s46"] .s46-r.is-on .bar { transition-delay: var(--d, 0ms); }
@@ -6985,7 +7056,7 @@ html.no-anim section[data-id="s46"] *, html.no-anim section[data-id="s46"] .s46-
 section[data-id="s47"] .vp-mount { left: var(--margin-x); right: var(--margin-x); }   
 section[data-id="s47"] .s47-a { top: 300px; bottom: 100px; }
 section[data-id="s47"] .sa-over { bottom: calc(var(--margin-bottom) + 14px); }   
-section[data-id="s47"] .s47-b { top: 250px; bottom: 96px; }
+section[data-id="s47"] .s47-b { top: 226px; bottom: 96px; }   
 section[data-id="s47"] .s47-b .vp { transition: opacity var(--t-fade) var(--ease); }
 section[data-id="s47"][data-step="5"] .s47-b .vp { opacity: 1; }   
 section[data-id="s47"][data-step="5"] .s47-b .vp-line.prev { opacity: 1; transition: opacity var(--t-fade) var(--ease); }
@@ -7033,10 +7104,12 @@ section[data-id="s48"] .s48-rings .g-rw { opacity: 1; transition: none; }
 section[data-id="s48"] { --s48-t0: 300ms; --v4-stagger: 550ms; }   
 section[data-id="s48"][data-step="1"] .s48-rings .band { opacity: 1; transition: none; animation: v4-fill var(--v4-t-fill) var(--ease) calc(var(--s48-t0) + var(--i, 0) * var(--v4-stagger)) both; }
 html section[data-id="s48"][data-step="1"] .s48-rings .band.b-child { animation-name: v4-disc; }   
-section[data-id="s48"][data-step="1"] .s48-rings :is(.w-government, .w-teacher, .w-home) { animation: s48-paper 200ms var(--ease) both; }
-section[data-id="s48"][data-step="1"] .s48-rings .w-government { animation-delay: calc(var(--s48-t0) + var(--v4-t-fill) * 0.6); }
-section[data-id="s48"][data-step="1"] .s48-rings .w-teacher { animation-delay: calc(var(--s48-t0) + var(--v4-t-fill) * 0.6 + var(--v4-stagger)); }
-section[data-id="s48"][data-step="1"] .s48-rings .w-home { animation-delay: calc(var(--s48-t0) + var(--v4-t-fill) * 0.6 + 2 * var(--v4-stagger)); }
+
+section[data-id="s48"] .s48-rings svg { transform: rotate(90deg); }
+section[data-id="s48"][data-step="1"] .s48-rings :is(.w-government, .w-teacher, .w-home) { animation: s48-paper 120ms var(--ease) both; }
+section[data-id="s48"][data-step="1"] .s48-rings .w-government { animation-delay: calc(var(--s48-t0) + var(--v4-t-fill) * 0.1); }
+section[data-id="s48"][data-step="1"] .s48-rings .w-teacher { animation-delay: calc(var(--s48-t0) + var(--v4-t-fill) * 0.1 + var(--v4-stagger)); }
+section[data-id="s48"][data-step="1"] .s48-rings .w-home { animation-delay: calc(var(--s48-t0) + var(--v4-t-fill) * 0.1 + 2 * var(--v4-stagger)); }
 section[data-id="s48"][data-step="1"] .s48-rings .w-child { transition: none; animation: s48-paper-kid 200ms var(--ease) calc(var(--s48-t0) + var(--v4-t-fill) * 0.2 + 3 * var(--v4-stagger)) both; }   
 
 
@@ -7183,17 +7256,17 @@ section[data-id="a02"] .apx-v b { font-weight: 600; color: var(--ink); }
   <div class="apx-rows apx-foot">
     <div class="apx-row"><p class="apx-k">The data</p><p class="apx-v">Every officer sees which schools need help, and where it is working.</p></div>
     <div class="apx-row"><p class="apx-k">Appraisal</p><p class="apx-v">In Islamabad, our data now feeds teachers’ appraisals.</p></div>
-    <div class="apx-row"><p class="apx-k">Today</p><p class="apx-v">Islamabad, paid since December 2023: <b>422</b> schools. Rawalpindi: <b>261</b> schools, <b>$3</b> a child. Balochistan: winter schools. Sindh: a pilot.</p></div>
+    <div class="apx-row"><p class="apx-k">Today</p><p class="apx-v">Islamabad, paid since December 2023: <b>422</b>&nbsp;schools. Rawalpindi: <b>261</b>&nbsp;schools, <b>$3</b>&nbsp;a&nbsp;child. Balochistan: winter schools. Sindh: a pilot.</p></div>
   </div>
 </section>
 <style>
-section[data-id="a03"] .apx-lead { position: absolute; left: var(--margin-x); right: var(--margin-x); top: 204px; margin: 0; font-family: var(--font-body); font-size: var(--size-ap-body); line-height: var(--lh-latin); color: var(--ink-quiet); max-width: 1680px; }
-section[data-id="a03"] .apx-map { position: absolute; left: var(--margin-x); top: 280px; width: 680px; height: 380px; overflow: hidden; border-radius: var(--radius); box-shadow: 0 0 0 2px var(--card-line); background: var(--ground-lift); }
+section[data-id="a03"] .apx-lead { position: absolute; left: var(--margin-x); right: var(--margin-x); top: 230px;    margin: 0; font-family: var(--font-body); font-size: var(--size-ap-body); line-height: var(--lh-latin); color: var(--ink-quiet); max-width: 1680px; }
+section[data-id="a03"] .apx-map { position: absolute; left: var(--margin-x); top: 296px; width: 680px; height: 380px; overflow: hidden; border-radius: var(--radius); box-shadow: 0 0 0 2px var(--card-line); background: var(--ground-lift); }
 section[data-id="a03"] .apx-map video { display: block; width: 680px; height: 380px; }
 section[data-id="a03"] .apx-rows { position: absolute; display: grid; row-gap: 10px; }
-section[data-id="a03"] .apx-side { left: 860px; right: var(--margin-x); top: 280px; }
+section[data-id="a03"] .apx-side { left: 860px; right: var(--margin-x); top: 296px; }
 section[data-id="a03"] .apx-side .apx-row { grid-template-columns: 1fr; row-gap: 4px; }
-section[data-id="a03"] .apx-foot { left: var(--margin-x); right: var(--margin-x); top: 708px; }
+section[data-id="a03"] .apx-foot { left: var(--margin-x); right: var(--margin-x); top: 704px; }
 section[data-id="a03"] .apx-row { display: grid; grid-template-columns: 260px 1fr; column-gap: 40px; align-items: start; padding-top: 10px; border-top: 2px solid var(--hair); }
 section[data-id="a03"] .apx-row p { margin: 0; font-size: var(--size-ap-body); line-height: var(--lh-latin); }
 section[data-id="a03"] .apx-k { font-family: var(--font-big); font-weight: 600; color: var(--green); }
@@ -7206,18 +7279,18 @@ section[data-id="a03"] .apx-v b { font-weight: 600; color: var(--ink); }
   <h1 class="ap-title">Learning per dollar: the method</h1>
   <div class="apx-rows">
     <div class="apx-row"><p class="apx-k">The measure</p><p class="apx-v">How much more a child learns, for every <b>$100</b>, in years of learning.</p></div>
-    <div class="apx-row"><p class="apx-k">The table</p><p class="apx-v"><b>86</b> programmes with a causal study behind them, ranked. Oxford, 2023.</p></div>
-    <div class="apx-row"><p class="apx-k">The top</p><p class="apx-v">The first five rows train no teachers. Of the <b>12</b> that train teachers, Argentina is first at <b>15.4</b>.</p></div>
+    <div class="apx-row"><p class="apx-k">The table</p><p class="apx-v"><b>86</b> programmes with a causal study behind them, ranked. Oxford,&nbsp;2023.</p></div>
+    <div class="apx-row"><p class="apx-k">The top</p><p class="apx-v">The first <b>5</b> rows train no teachers. Of the <b>12</b> that train teachers, Argentina is first at <b>15.4</b>.</p></div>
     <div class="apx-row"><p class="apx-k">Our own figure</p><p class="apx-v"><b>4.3</b> per $100 (4.25 before rounding): Islamabad, our own measurement, before and after, at <b>$8.24</b> a child. No outside study yet; studies are planned for 2027.</p></div>
-    <div class="apx-row"><p class="apx-k">Where we sit</p><p class="apx-v"><b>Eight</b> of the twelve programmes that train teachers score higher: ninth of thirteen.</p></div>
+    <div class="apx-row"><p class="apx-k">Where we sit</p><p class="apx-v"><b>8</b> of the <b>12</b> programmes that train teachers score higher: <b>9th</b> of <b>13</b>.</p></div>
     <div class="apx-row"><p class="apx-k">The target</p><p class="apx-v"><b>20</b> by the end of 2028: first among programmes that train teachers.</p></div>
     <div class="apx-row"><p class="apx-k">Open source</p><p class="apx-v">github.com/Orenda-Project/rumi-platform</p></div>
   </div>
 </section>
 <style>
-section[data-id="a04"] .apx-rows { position: absolute; left: var(--margin-x); right: var(--margin-x); top: 216px; display: grid; row-gap: 2px; }
-section[data-id="a04"] .apx-row { display: grid; grid-template-columns: 300px 1fr; column-gap: 40px; align-items: start; padding-top: 4px; border-top: 2px solid var(--hair); }
-section[data-id="a04"] .apx-row p { margin: 0; font-size: var(--size-ap-body); line-height: 1.3; }
+section[data-id="a04"] .apx-rows { position: absolute; left: var(--margin-x); right: var(--margin-x); top: 244px; display: grid; row-gap: 0; }
+section[data-id="a04"] .apx-row { display: grid; grid-template-columns: 300px 1fr; column-gap: 40px; align-items: start; padding: 6px 0 10px; border-top: 2px solid var(--hair); }
+section[data-id="a04"] .apx-row p { margin: 0; font-size: var(--size-ap-body); line-height: 1.22; }
 section[data-id="a04"] .apx-k { font-family: var(--font-big); font-weight: 600; color: var(--green); }
 section[data-id="a04"] .apx-v { font-family: var(--font-body); color: var(--ink); }
 section[data-id="a04"] .apx-v b { font-weight: 600; color: var(--ink); }
@@ -7226,7 +7299,7 @@ section[data-id="a04"] .apx-v b { font-weight: 600; color: var(--ink); }
 <section data-id="a06" class="scene ap-scene">
   
   <h1 class="ap-title">Why the problem exists</h1>
-  <p class="a06-lead">Every child is born with the same potential. Three layers around them decide what happens to it.</p>
+  <p class="a06-lead">Every child is born with the same potential.<br>Three layers around them decide what happens to it.</p>
   <div class="a06-rows">
     <div class="a06-row"><p class="a06-k">The home</p><p class="a06-v">Parents who could not go to school themselves, working long hours, often speaking a different language from the one the school teaches in.</p></div>
     <div class="a06-row"><p class="a06-k">The teacher</p><p class="a06-v">Trained once in fifteen to twenty years. Fifty children in the room. No structured materials for teaching reading.</p></div>
