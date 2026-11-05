@@ -1,6 +1,6 @@
 {
  "title": "OPEN Forum, November 2026",
- "built_at": "2026-11-05T14:00:11Z",
+ "built_at": "2026-11-05T18:50:13Z",
  "stage": [
   1920,
   1080
@@ -275,8 +275,8 @@
    "media": [
     {
      "type": "audio",
-     "src": "assets/clips/audio/r1us.mp3",
-     "clip": "r1us",
+     "src": "assets/clips/audio/egra-s1t.mp3",
+     "clip": "egra-s1t",
      "autoplay": false
     }
    ],
@@ -510,8 +510,8 @@
     },
     {
      "type": "audio",
-     "src": "assets/clips/audio/c-ur-b4.mp3",
-     "clip": "c-ur-b4",
+     "src": "assets/clips/audio/c-ur-b5.mp3",
+     "clip": "c-ur-b5",
      "autoplay": false
     }
    ],
@@ -553,10 +553,10 @@
    "media": [
     {
      "type": "video",
-     "src": "assets/out/release/scenes/s41c/stills/stakeholder-map-680.mp4",
+     "src": "assets/out/release/scenes/s41c/stills/stakeholder-map-1360.mp4",
      "autoplay": false,
      "loop": true,
-     "poster": "assets/out/release/scenes/s41c/stills/stakeholder-map-680-poster.jpg"
+     "poster": "assets/out/release/scenes/s41c/stills/stakeholder-map-1360-poster.jpg"
     }
    ],
    "highlight": null
@@ -577,9 +577,9 @@
    "id": "s43a",
    "title": "Our reach.",
    "chapter": "proof",
-   "duration_s": 12,
+   "duration_s": 14,
    "appendix": false,
-   "steps": 3,
+   "steps": 4,
    "transition": "fade",
    "sensitive": false,
    "media": [],
@@ -625,9 +625,9 @@
    "id": "s44",
    "title": "Pakistan to the world",
    "chapter": "proof",
-   "duration_s": 25,
+   "duration_s": 35,
    "appendix": false,
-   "steps": 6,
+   "steps": 8,
    "transition": "fade",
    "sensitive": false,
    "media": [],
@@ -686,9 +686,9 @@
    "id": "s46",
    "title": "Learning per dollar",
    "chapter": "proof",
-   "duration_s": 20,
+   "duration_s": 24,
    "appendix": false,
-   "steps": 6,
+   "steps": 7,
    "transition": "fade",
    "sensitive": false,
    "media": [],
@@ -712,8 +712,8 @@
     },
     {
      "type": "audio",
-     "src": "assets/clips/audio/f1us.mp3",
-     "clip": "f1us",
+     "src": "assets/clips/audio/egra-f2.mp3",
+     "clip": "egra-f2",
      "autoplay": false
     }
    ],
@@ -723,9 +723,9 @@
    "id": "s48",
    "title": "The ask",
    "chapter": "proof",
-   "duration_s": 14,
+   "duration_s": 40,
    "appendix": false,
-   "steps": 3,
+   "steps": 6,
    "transition": "fade",
    "sensitive": false,
    "media": [
@@ -777,14 +777,14 @@
    "media": [
     {
      "type": "audio",
-     "src": "assets/clips/audio/r1e.mp3",
-     "clip": "r1e",
+     "src": "assets/clips/audio/egra-s1t.mp3",
+     "clip": "egra-s1t",
      "autoplay": false
     },
     {
      "type": "audio",
-     "src": "assets/clips/audio/r1u.mp3",
-     "clip": "r1u",
+     "src": "assets/clips/audio/egra-f2.mp3",
+     "clip": "egra-f2",
      "autoplay": false
     }
    ],
@@ -859,6 +859,6 @@
    "highlight": null
   }
  ],
- "main_total_s": 1112,
+ "main_total_s": 1154,
  "nav": true
 }
