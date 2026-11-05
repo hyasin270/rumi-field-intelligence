@@ -1,6 +1,6 @@
 {
  "title": "OPEN Forum, November 2026",
- "built_at": "2026-11-05T18:50:13Z",
+ "built_at": "2026-11-05T20:56:35Z",
  "stage": [
   1920,
   1080
@@ -553,10 +553,10 @@
    "media": [
     {
      "type": "video",
-     "src": "assets/out/release/scenes/s41c/stills/stakeholder-map-1360.mp4",
+     "src": "assets/out/release/scenes/s41c/stills/stakeholder-map-1360s.mp4",
      "autoplay": false,
      "loop": true,
-     "poster": "assets/out/release/scenes/s41c/stills/stakeholder-map-1360-poster.jpg"
+     "poster": "assets/out/release/scenes/s41c/stills/stakeholder-map-1360s-poster.jpg"
     }
    ],
    "highlight": null
