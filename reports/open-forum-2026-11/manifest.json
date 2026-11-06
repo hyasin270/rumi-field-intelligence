@@ -1,6 +1,6 @@
 {
  "title": "OPEN Forum, November 2026",
- "built_at": "2026-11-05T22:39:47Z",
+ "built_at": "2026-11-06T00:24:59Z",
  "stage": [
   1920,
   1080
@@ -149,34 +149,34 @@
    "highlight": null
   },
   {
-   "id": "s10",
-   "title": "Scale has a shape",
-   "chapter": "mind",
-   "duration_s": 55,
+   "id": "s06a",
+   "title": "A new way of doing good",
+   "chapter": "nadir",
+   "duration_s": 10,
    "appendix": false,
-   "steps": 5,
+   "steps": 1,
    "transition": "fade",
    "sensitive": false,
    "media": [],
    "highlight": null
   },
   {
-   "id": "s11",
-   "title": "Who delivers it, and who pays",
+   "id": "s10s",
+   "title": "Scale",
+   "chapter": "mind",
+   "duration_s": 15,
+   "appendix": false,
+   "steps": 1,
+   "transition": "fade",
+   "sensitive": false,
+   "media": [],
+   "highlight": null
+  },
+  {
+   "id": "s10",
+   "title": "Steady, linear, exponential",
    "chapter": "mind",
    "duration_s": 45,
-   "appendix": false,
-   "steps": 5,
-   "transition": "fade",
-   "sensitive": false,
-   "media": [],
-   "highlight": null
-  },
-  {
-   "id": "s12",
-   "title": "What Pakistanis abroad send home",
-   "chapter": "mind",
-   "duration_s": 40,
    "appendix": false,
    "steps": 4,
    "transition": "fade",
@@ -186,45 +186,9 @@
   },
   {
    "id": "s13",
-   "title": "A dollar in. Many times the impact out.",
+   "title": "$1 in. 10x impact out.",
    "chapter": "mind",
    "duration_s": 20,
-   "appendix": false,
-   "steps": 2,
-   "transition": "fade",
-   "sensitive": false,
-   "media": [],
-   "highlight": null
-  },
-  {
-   "id": "s14",
-   "title": "Other communities did this",
-   "chapter": "mind",
-   "duration_s": 35,
-   "appendix": false,
-   "steps": 2,
-   "transition": "fade",
-   "sensitive": false,
-   "media": [],
-   "highlight": null
-  },
-  {
-   "id": "s15",
-   "title": "The Friends of Pakistan, and the next generation",
-   "chapter": "mind",
-   "duration_s": 55,
-   "appendix": false,
-   "steps": 6,
-   "transition": "fade",
-   "sensitive": false,
-   "media": [],
-   "highlight": null
-  },
-  {
-   "id": "s16",
-   "title": "This is what it looks like",
-   "chapter": "mind",
-   "duration_s": 15,
    "appendix": false,
    "steps": 1,
    "transition": "fade",
@@ -748,7 +712,7 @@
    "chapter": "close",
    "duration_s": 45,
    "appendix": false,
-   "steps": 5,
+   "steps": 6,
    "transition": "fade",
    "sensitive": false,
    "media": [
@@ -859,6 +823,6 @@
    "highlight": null
   }
  ],
- "main_total_s": 1154,
+ "main_total_s": 979,
  "nav": true
 }
