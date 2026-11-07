@@ -1,6 +1,6 @@
 {
  "title": "OPEN Forum, November 2026",
- "built_at": "2026-11-07T16:02:49Z",
+ "built_at": "2026-11-07T19:20:26Z",
  "stage": [
   1920,
   1080
@@ -252,7 +252,7 @@
    "chapter": "proof",
    "duration_s": 20,
    "appendix": false,
-   "steps": 3,
+   "steps": 2,
    "transition": "fade",
    "sensitive": false,
    "media": [],
@@ -264,7 +264,7 @@
    "chapter": "proof",
    "duration_s": 24,
    "appendix": false,
-   "steps": 5,
+   "steps": 4,
    "transition": "fade",
    "sensitive": false,
    "media": [
@@ -342,7 +342,7 @@
    "chapter": "proof",
    "duration_s": 12,
    "appendix": false,
-   "steps": 3,
+   "steps": 2,
    "transition": "fade",
    "sensitive": false,
    "media": [],
@@ -417,31 +417,6 @@
    "highlight": null
   },
   {
-   "id": "s41",
-   "title": "The product a teacher holds",
-   "chapter": "proof",
-   "duration_s": 24,
-   "appendix": false,
-   "steps": 2,
-   "transition": "fade",
-   "sensitive": false,
-   "media": [
-    {
-     "type": "audio",
-     "src": "assets/clips/audio/c-ur-t3.mp3",
-     "clip": "c-ur-t3",
-     "autoplay": false
-    },
-    {
-     "type": "audio",
-     "src": "assets/clips/audio/c-ur-b6.mp3",
-     "clip": "c-ur-b6",
-     "autoplay": false
-    }
-   ],
-   "highlight": null
-  },
-  {
    "id": "s41a",
    "title": "The government's name",
    "chapter": "proof",
@@ -501,21 +476,9 @@
    "id": "s43a",
    "title": "Our reach.",
    "chapter": "proof",
-   "duration_s": 14,
+   "duration_s": 12,
    "appendix": false,
-   "steps": 4,
-   "transition": "fade",
-   "sensitive": false,
-   "media": [],
-   "highlight": null
-  },
-  {
-   "id": "s43",
-   "title": "$8 to $3",
-   "chapter": "proof",
-   "duration_s": 8,
-   "appendix": false,
-   "steps": 2,
+   "steps": 1,
    "transition": "fade",
    "sensitive": false,
    "media": [],
@@ -559,26 +522,14 @@
   },
   {
    "id": "s44a",
-   "title": "The same coach, in their languages",
+   "title": "The same coach, in Arabic",
    "chapter": "proof",
-   "duration_s": 30,
+   "duration_s": 22,
    "appendix": false,
-   "steps": 4,
+   "steps": 3,
    "transition": "fade",
    "sensitive": false,
    "media": [
-    {
-     "type": "audio",
-     "src": "assets/clips/audio/c-sw-t4.mp3",
-     "clip": "c-sw-t4",
-     "autoplay": false
-    },
-    {
-     "type": "audio",
-     "src": "assets/clips/audio/c-sw-bv.mp3",
-     "clip": "c-sw-bv",
-     "autoplay": false
-    },
     {
      "type": "audio",
      "src": "assets/clips/audio/c-ar-t5.mp3",
@@ -600,7 +551,7 @@
    "chapter": "proof",
    "duration_s": 10,
    "appendix": false,
-   "steps": 3,
+   "steps": 2,
    "transition": "fade",
    "sensitive": false,
    "media": [],
@@ -703,6 +654,6 @@
    "highlight": null
   }
  ],
- "main_total_s": 894,
+ "main_total_s": 852,
  "nav": true
 }
