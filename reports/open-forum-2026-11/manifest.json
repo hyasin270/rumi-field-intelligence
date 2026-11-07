@@ -1,6 +1,6 @@
 {
  "title": "OPEN Forum, November 2026",
- "built_at": "2026-11-07T07:24:34Z",
+ "built_at": "2026-11-07T08:42:26Z",
  "stage": [
   1920,
   1080
@@ -82,27 +82,17 @@
   },
   {
    "id": "s04",
-   "title": "A school, then the teacher in every school that stands",
+   "title": "A school",
    "chapter": "nadir",
-   "duration_s": 50,
+   "duration_s": 25,
    "appendix": false,
-   "steps": 2,
+   "steps": 1,
    "transition": "fade",
    "sensitive": false,
    "media": [
     {
      "type": "image",
      "src": "assets/pictures/n3-left-v3-tcf-school-nosign.jpg",
-     "autoplay": false
-    },
-    {
-     "type": "image",
-     "src": "assets/pictures/n3-right-v3-teacher-phone-blurred.jpg",
-     "autoplay": false
-    },
-    {
-     "type": "image",
-     "src": "assets/pictures/marks4/taleemabad-wordmark.png",
      "autoplay": false
     }
    ],
@@ -227,8 +217,8 @@
    "media": [
     {
      "type": "audio",
-     "src": "assets/clips/audio/egra-s6.mp3",
-     "clip": "egra-s6",
+     "src": "assets/clips/audio/egra-s6q.mp3",
+     "clip": "egra-s6q",
      "autoplay": false
     }
    ],
@@ -731,6 +721,6 @@
    "highlight": null
   }
  ],
- "main_total_s": 944,
+ "main_total_s": 919,
  "nav": true
 }
