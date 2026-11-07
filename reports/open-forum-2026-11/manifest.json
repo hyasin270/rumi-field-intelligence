@@ -1,6 +1,6 @@
 {
  "title": "OPEN Forum, November 2026",
- "built_at": "2026-11-06T03:48:50Z",
+ "built_at": "2026-11-07T07:24:34Z",
  "stage": [
   1920,
   1080
@@ -137,18 +137,6 @@
    "highlight": null
   },
   {
-   "id": "s06",
-   "title": "Back what reaches millions",
-   "chapter": "nadir",
-   "duration_s": 25,
-   "appendix": false,
-   "steps": 3,
-   "transition": "fade",
-   "sensitive": false,
-   "media": [],
-   "highlight": null
-  },
-  {
    "id": "s06a",
    "title": "A new way of doing good",
    "chapter": "nadir",
@@ -239,8 +227,8 @@
    "media": [
     {
      "type": "audio",
-     "src": "assets/clips/audio/egra-s1t.mp3",
-     "clip": "egra-s1t",
+     "src": "assets/clips/audio/egra-s6.mp3",
+     "clip": "egra-s6",
      "autoplay": false
     }
    ],
@@ -435,9 +423,9 @@
    "id": "s40c",
    "title": "Coaching.",
    "chapter": "proof",
-   "duration_s": 40,
+   "duration_s": 30,
    "appendix": false,
-   "steps": 4,
+   "steps": 3,
    "transition": "fade",
    "sensitive": false,
    "media": [
@@ -474,8 +462,8 @@
     },
     {
      "type": "audio",
-     "src": "assets/clips/audio/c-ur-b5.mp3",
-     "clip": "c-ur-b5",
+     "src": "assets/clips/audio/c-ur-b6.mp3",
+     "clip": "c-ur-b6",
      "autoplay": false
     }
    ],
@@ -689,21 +677,10 @@
    "chapter": "proof",
    "duration_s": 40,
    "appendix": false,
-   "steps": 6,
+   "steps": 5,
    "transition": "fade",
    "sensitive": false,
-   "media": [
-    {
-     "type": "image",
-     "src": "assets/pictures/marks4/fop-name-green.png",
-     "autoplay": false
-    },
-    {
-     "type": "image",
-     "src": "assets/pictures/marks4/taleemabad-wordmark.png",
-     "autoplay": false
-    }
-   ],
+   "media": [],
    "highlight": null
   },
   {
@@ -712,7 +689,7 @@
    "chapter": "close",
    "duration_s": 45,
    "appendix": false,
-   "steps": 6,
+   "steps": 5,
    "transition": "fade",
    "sensitive": false,
    "media": [
@@ -727,75 +704,6 @@
      "autoplay": false
     }
    ],
-   "highlight": null
-  },
-  {
-   "id": "a01",
-   "title": "The readers",
-   "chapter": "appendix",
-   "duration_s": 90,
-   "appendix": true,
-   "steps": 5,
-   "transition": "fade",
-   "sensitive": false,
-   "media": [
-    {
-     "type": "audio",
-     "src": "assets/clips/audio/egra-s1t.mp3",
-     "clip": "egra-s1t",
-     "autoplay": false
-    },
-    {
-     "type": "audio",
-     "src": "assets/clips/audio/egra-f2.mp3",
-     "clip": "egra-f2",
-     "autoplay": false
-    }
-   ],
-   "highlight": null
-  },
-  {
-   "id": "a02",
-   "title": "How we measure",
-   "chapter": "appendix",
-   "duration_s": 60,
-   "appendix": true,
-   "steps": 1,
-   "transition": "cut",
-   "sensitive": false,
-   "media": [],
-   "highlight": null
-  },
-  {
-   "id": "a03",
-   "title": "Working with the government",
-   "chapter": "appendix",
-   "duration_s": 60,
-   "appendix": true,
-   "steps": 1,
-   "transition": "cut",
-   "sensitive": false,
-   "media": [
-    {
-     "type": "video",
-     "src": "assets/out/release/scenes/a03/stills/stakeholder-map-680.mp4",
-     "autoplay": false,
-     "loop": true,
-     "poster": "assets/out/release/scenes/a03/stills/stakeholder-map-680-poster.jpg"
-    }
-   ],
-   "highlight": null
-  },
-  {
-   "id": "a04",
-   "title": "Learning per dollar: the method",
-   "chapter": "appendix",
-   "duration_s": 60,
-   "appendix": true,
-   "steps": 1,
-   "transition": "cut",
-   "sensitive": false,
-   "media": [],
    "highlight": null
   },
   {
@@ -823,6 +731,6 @@
    "highlight": null
   }
  ],
- "main_total_s": 979,
+ "main_total_s": 944,
  "nav": true
 }
