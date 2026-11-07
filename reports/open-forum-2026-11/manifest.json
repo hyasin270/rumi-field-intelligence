@@ -1,6 +1,6 @@
 {
  "title": "OPEN Forum, November 2026",
- "built_at": "2026-11-07T08:42:26Z",
+ "built_at": "2026-11-07T09:15:49Z",
  "stage": [
   1920,
   1080
@@ -75,24 +75,6 @@
     {
      "type": "image",
      "src": "assets/pictures/marks/childlife-mark-oneline-white.png",
-     "autoplay": false
-    }
-   ],
-   "highlight": null
-  },
-  {
-   "id": "s04",
-   "title": "A school",
-   "chapter": "nadir",
-   "duration_s": 25,
-   "appendix": false,
-   "steps": 1,
-   "transition": "fade",
-   "sensitive": false,
-   "media": [
-    {
-     "type": "image",
-     "src": "assets/pictures/n3-left-v3-tcf-school-nosign.jpg",
      "autoplay": false
     }
    ],
@@ -721,6 +703,6 @@
    "highlight": null
   }
  ],
- "main_total_s": 919,
+ "main_total_s": 894,
  "nav": true
 }
