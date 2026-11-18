@@ -1,6 +1,6 @@
 {
  "title": "How Rumi works",
- "built_at": "2026-11-18T07:21:26Z",
+ "built_at": "2026-11-18T08:28:35Z",
  "stage": [
   1920,
   1080
@@ -239,7 +239,7 @@
    ],
    "highlight": null,
    "note": {
-    "planned": "The child at the end of the loop: the passage, the reading, the morning, then the quiz film.",
+    "planned": "The child at the end of the loop: the passage, the reading, the morning, then the film of the reading screen.",
     "cues": [],
     "body": "",
     "first_line": ""
@@ -408,33 +408,6 @@
    }
   },
   {
-   "id": "s16a",
-   "title": "A helper at work, filmed.",
-   "chapter": "how",
-   "duration_s": 31,
-   "appendix": false,
-   "steps": 2,
-   "transition": "fade",
-   "sensitive": false,
-   "owner": "deck-live",
-   "status": "built",
-   "media": [
-    {
-     "type": "video",
-     "src": "assets/clips/video/builder_helper_film.mp4",
-     "autoplay": false,
-     "poster": "assets/clips/video/builder_helper_film_poster.jpg"
-    }
-   ],
-   "highlight": null,
-   "note": {
-    "planned": "The builder's helper, as a film made elsewhere shows it; said in his Doc's words on screen.",
-    "cues": [],
-    "body": "",
-    "first_line": ""
-   }
-  },
-  {
    "id": "s17",
    "title": "Where it is today.",
    "chapter": "today",
@@ -468,7 +441,7 @@
    "media": [],
    "highlight": null,
    "note": {
-    "planned": "The league a press at a time, then the climb to first by the end of 2028.",
+    "planned": "Thirteen bars from the start, lit one a press, then the climb to first by the end of 2028 with the mark at 4.3.",
     "cues": [],
     "body": "",
     "first_line": ""
@@ -515,7 +488,7 @@
    }
   }
  ],
- "main_total_s": 1007,
+ "main_total_s": 976,
  "excluded_sensitive": [],
  "nav": true,
  "warnings": [],
