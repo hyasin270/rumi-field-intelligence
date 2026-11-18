@@ -1,0 +1,523 @@
+{
+ "title": "How Rumi works",
+ "built_at": "2026-11-18T07:21:26Z",
+ "stage": [
+  1920,
+  1080
+ ],
+ "scenes": [
+  {
+   "id": "s01",
+   "title": "How Rumi works.",
+   "chapter": "open",
+   "duration_s": 23,
+   "appendix": false,
+   "steps": 1,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "The cover. The mark, the title, who it is for, how to use the show.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s02",
+   "title": "The teacher.",
+   "chapter": "why",
+   "duration_s": 39,
+   "appendix": false,
+   "steps": 3,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "Why a teacher needs a coach, and why the coach never came.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s03",
+   "title": "What changed.",
+   "chapter": "why",
+   "duration_s": 47,
+   "appendix": false,
+   "steps": 4,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "The four kinds of software, one a press, then what they add up to.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s04",
+   "title": "A contact on WhatsApp.",
+   "chapter": "how",
+   "duration_s": 47,
+   "appendix": false,
+   "steps": 4,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "What Rumi is, on the phone the teacher already has: the chat list, then the chat, typed live.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s05",
+   "title": "Before class: today’s lesson.",
+   "chapter": "how",
+   "duration_s": 65,
+   "appendix": false,
+   "steps": 4,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/lp3.mp3",
+     "clip": "lp3",
+     "autoplay": false
+    },
+    {
+     "type": "video",
+     "src": "assets/clips/video/islamabad_lessons_menu.mp4",
+     "autoplay": false,
+     "poster": "assets/clips/video/islamabad_lessons_menu_poster.jpg"
+    }
+   ],
+   "highlight": null,
+   "note": {
+    "planned": "The day's lesson: the real request, the real page, then the Islamabad film.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s06",
+   "title": "In class: record, put the phone on the desk, teach.",
+   "chapter": "how",
+   "duration_s": 57,
+   "appendix": false,
+   "steps": 3,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/cl1.mp3",
+     "clip": "cl1",
+     "autoplay": false
+    }
+   ],
+   "highlight": null,
+   "note": {
+    "planned": "The recording: a running timer, a real lesson playing while it runs, then send.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s07",
+   "title": "A few minutes later, a voice note comes back.",
+   "chapter": "how",
+   "duration_s": 73,
+   "appendix": false,
+   "steps": 5,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/rc1.mp3",
+     "clip": "rc1",
+     "autoplay": false
+    },
+    {
+     "type": "video",
+     "src": "assets/clips/video/islamabad_coaching_report.mp4",
+     "autoplay": false,
+     "poster": "assets/clips/video/islamabad_coaching_report_poster.jpg"
+    }
+   ],
+   "highlight": null,
+   "note": {
+    "planned": "What comes back: the voice note, the written focus area, the ask, the answer, then the Islamabad film.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s08",
+   "title": "The same coach, in Arabic.",
+   "chapter": "how",
+   "duration_s": 75,
+   "appendix": false,
+   "steps": 3,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/c-ar-t5.mp3",
+     "clip": "c-ar-t5",
+     "autoplay": false
+    },
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/c-ar-b5.mp3",
+     "clip": "c-ar-b5",
+     "autoplay": false
+    }
+   ],
+   "highlight": null,
+   "note": {
+    "planned": "The same coach in another language: the OPEN s44a pair, unchanged.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s09",
+   "title": "At home: the reading check.",
+   "chapter": "how",
+   "duration_s": 65,
+   "appendix": false,
+   "steps": 4,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [
+    {
+     "type": "audio",
+     "src": "assets/clips/audio/egra-s6q.mp3",
+     "clip": "egra-s6q",
+     "autoplay": false
+    },
+    {
+     "type": "video",
+     "src": "assets/clips/video/quiz_home_demo.mp4",
+     "autoplay": false,
+     "poster": "assets/clips/video/quiz_home_demo_poster.jpg"
+    }
+   ],
+   "highlight": null,
+   "note": {
+    "planned": "The child at the end of the loop: the passage, the reading, the morning, then the quiz film.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s10",
+   "title": "The logo at work.",
+   "chapter": "how",
+   "duration_s": 31,
+   "appendix": false,
+   "steps": 2,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [
+    {
+     "type": "video",
+     "src": "assets/clips/video/sticker_listen.mp4",
+     "autoplay": false,
+     "loop": true,
+     "poster": "assets/clips/video/sticker_listen_poster.jpg"
+    },
+    {
+     "type": "video",
+     "src": "assets/clips/video/sticker_read.mp4",
+     "autoplay": false,
+     "loop": true,
+     "poster": "assets/clips/video/sticker_read_poster.jpg"
+    }
+   ],
+   "highlight": null,
+   "note": {
+    "planned": "The feeling is real in use: the mark listens and reads.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s11",
+   "title": "Who sees what.",
+   "chapter": "how",
+   "duration_s": 39,
+   "appendix": false,
+   "steps": 3,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "His wording, one row a press, then the story that made the rule.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s12",
+   "title": "Once a week.",
+   "chapter": "how",
+   "duration_s": 39,
+   "appendix": false,
+   "steps": 3,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "The rhythm, and the honest finding beside it.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s13",
+   "title": "Rumi the builder, for partners.",
+   "chapter": "turn",
+   "duration_s": 47,
+   "appendix": false,
+   "steps": 4,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "The turn from the coach to the builder, in his three categories.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s14",
+   "title": "A year of lessons in 2 to 4 weeks.",
+   "chapter": "how",
+   "duration_s": 55,
+   "appendix": false,
+   "steps": 5,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [
+    {
+     "type": "video",
+     "src": "assets/clips/video/islamabad_lessons_menu.mp4",
+     "autoplay": false,
+     "poster": "assets/clips/video/islamabad_lessons_menu_poster.jpg"
+    }
+   ],
+   "highlight": null,
+   "note": {
+    "planned": "The lesson writer: the steps, a real page out, then the real film of the menu in Islamabad.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s15",
+   "title": "Each working day, one message.",
+   "chapter": "how",
+   "duration_s": 47,
+   "appendix": false,
+   "steps": 4,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "The builder's daily message, chart by chart.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s16",
+   "title": "A request from the field.",
+   "chapter": "how",
+   "duration_s": 39,
+   "appendix": false,
+   "steps": 3,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "The builder's third job: a request typed, built, checked, live.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s16a",
+   "title": "A helper at work, filmed.",
+   "chapter": "how",
+   "duration_s": 31,
+   "appendix": false,
+   "steps": 2,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [
+    {
+     "type": "video",
+     "src": "assets/clips/video/builder_helper_film.mp4",
+     "autoplay": false,
+     "poster": "assets/clips/video/builder_helper_film_poster.jpg"
+    }
+   ],
+   "highlight": null,
+   "note": {
+    "planned": "The builder's helper, as a film made elsewhere shows it; said in his Doc's words on screen.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s17",
+   "title": "Where it is today.",
+   "chapter": "today",
+   "duration_s": 47,
+   "appendix": false,
+   "steps": 4,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "The map, one country a press, the numbers beside.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s18",
+   "title": "Where it is going.",
+   "chapter": "head",
+   "duration_s": 71,
+   "appendix": false,
+   "steps": 7,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "The league a press at a time, then the climb to first by the end of 2028.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s19",
+   "title": "Given away.",
+   "chapter": "how",
+   "duration_s": 47,
+   "appendix": false,
+   "steps": 4,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "The code, given away, and who runs it.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  },
+  {
+   "id": "s20",
+   "title": "What a partner gets.",
+   "chapter": "close",
+   "duration_s": 23,
+   "appendix": false,
+   "steps": 1,
+   "transition": "fade",
+   "sensitive": false,
+   "owner": "deck-live",
+   "status": "built",
+   "media": [],
+   "highlight": null,
+   "note": {
+    "planned": "The minute a designer tells a colleague.",
+    "cues": [],
+    "body": "",
+    "first_line": ""
+   }
+  }
+ ],
+ "main_total_s": 1007,
+ "excluded_sensitive": [],
+ "nav": true,
+ "warnings": [],
+ "sensitive_handling": "none: every recording plays in the clear (operator decision 23 Oct 06:4xZ, COS #C23)"
+}
