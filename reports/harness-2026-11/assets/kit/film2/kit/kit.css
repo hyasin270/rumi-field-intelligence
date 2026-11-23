@@ -1,0 +1,68 @@
+/* Operator Harness Show, 23 Nov: the show's 48 px floor for words in the world (pins, glosses, questions, units); credits 40 px.
+   kit.css (film2 kit, v2-kit): the stage and the type layer. Type values from v2-visuals' prototype (proto/ui.css) until
+   VISUAL_LANGUAGE_v2 sets them; change only with a CHANGELOG line. Local fonts only (../../fonts/fonts.css). */
+:root { --page: #FBFAF7; --ink: #001F3F; --ink-quiet: #3B4D66; --grey: #7A7F87; --green: #001F3F; --amber: #F5B301; --amber-ink: #B87400; --coral: #F06E42; }
+html, body { margin: 0; background: var(--page); overflow: hidden; }
+#stage { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--page); }
+canvas#c { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+#screens, #ui, #fx { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; pointer-events: none; }
+#ui, #fx { font-family: 'Poppins', sans-serif; color: var(--ink); }
+#ui .abs, #fx .fxm { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform, opacity; }
+.fxm svg { width: 100%; height: 100%; display: block; overflow: visible; }
+
+/* the name card (VL 8): a white card; the name 104 px green serif; the gloss 42 px #3C424B */
+.namecard { background: #fff; border-radius: 26px; padding: 30px 44px 34px; box-shadow: 0 30px 80px rgba(60,40,10,.22), 0 6px 18px rgba(60,40,10,.10); white-space: nowrap; }
+.namecard .name { font-family: 'Fredoka', serif; font-weight: 600; font-size: 104px; line-height: 1.02; letter-spacing: -0.012em; color: var(--green); white-space: nowrap; }
+.namecard .gloss { font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 48px; line-height: 1.22; color: #3C424B; margin-top: 0; max-height: 0; white-space: nowrap; }
+.namecard .num { margin-top: 18px; font-size: 128px; }
+.namecard .small, .stamp { font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 40px; color: var(--ink-quiet); margin-top: 12px; }
+
+/* the five questions */
+.qlist { display: flex; flex-direction: column; gap: 0; width: 700px; }
+.qlist .q { display: flex; align-items: center; gap: 16px; height: 76px; font-weight: 500; font-size: 48px; line-height: 1.1; letter-spacing: -0.01em; color: var(--ink); white-space: nowrap; }
+.qlist .q.wrap { height: auto; align-items: flex-start; padding-top: 12px; }   /* VL 15.78: line 5 on two lines, its disc level with the first, the second 50 px below */
+.qlist .q.wrap .tx { line-height: 50px; margin-top: 1px; }
+.qlist .q .tx { flex: 1 1 auto; overflow: visible; }
+.qlist .q.on { font-weight: 600; }
+.qlist .q.done { color: var(--ink-quiet); }
+.qlist .q .n { flex: 0 0 auto; display: inline-flex; width: 52px; height: 52px; border-radius: 50%; align-items: center; justify-content: center; border: 3px solid var(--ink); font-size: 30px; font-weight: 700; }
+.qlist .q.on .n { background: var(--ink); color: #fff; }
+.qlist .q { position: relative; }
+.qlist .q .tk { position: absolute; left: 0; top: 12px; display: inline-flex; width: 52px; height: 52px; border-radius: 50%; background: #E8A200; color: #fff; align-items: center; justify-content: center; font-size: 32px; font-weight: 700; transform-origin: 50% 50%; }   /* the tick sits in the number's circle, so the block stays 656 px */
+
+/* the number card */
+.numcard .num, .namecard .num { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 150px; line-height: .95; color: var(--green); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.numcard .unit, .namecard .unit { font-weight: 500; font-size: 48px; color: var(--ink); margin-top: 6px; }
+
+/* pinned labels */
+.pin { font-weight: 600; font-size: 48px; line-height: 1.05; color: var(--ink); white-space: nowrap; }
+.pin small { display: block; font-weight: 500; font-size: 36px; color: var(--ink-quiet); margin-top: 5px; }
+.pin.r { text-align: right; }
+.lead { position: absolute; height: 3px; background: var(--ink); border-radius: 2px; transform-origin: 0 50%; }
+.dot { position: absolute; width: 16px; height: 16px; border-radius: 50%; background: var(--ink); margin: -8px 0 0 -8px; box-shadow: 0 0 0 5px rgba(251,250,247,.9); }
+
+/* screens: a mounted 1920x1080 root, pushed in from a device */
+.scrwrap { position: absolute; overflow: hidden; background: #fff; box-shadow: 0 2px 0 rgba(17,20,24,.04), 0 30px 80px rgba(60,40,10,.22), 0 6px 18px rgba(60,40,10,.10); }
+.scr { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; overflow: hidden; background: #fff; }
+.proofmark { position: absolute; right: 28px; top: 22px; font-size: 20px; color: #8a8f96; letter-spacing: .04em; }
+
+/* the one line (VL 7: serif names and titles) */
+.title { text-align: center; white-space: nowrap; }
+.title { max-width: 1500px; }
+.title .line { font-family: 'Fredoka', serif; font-weight: 600; font-size: 84px; line-height: 1.12; color: var(--ink); letter-spacing: -0.01em; white-space: nowrap; text-wrap: balance; }
+.title .small { font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 36px; color: var(--ink-quiet); margin-top: 18px; }
+/* a strip of steps */
+.dots { display: flex; gap: 80px; }
+.dots .d { display: flex; flex-direction: column; align-items: center; gap: 12px; font-weight: 500; font-size: 36px; color: var(--ink-quiet); }
+.dots .d i { display: block; width: 30px; height: 30px; border-radius: 50%; border: 3px solid var(--ink); background: var(--page); }
+.dots .d.on i { background: #E8A200; border-color: #E8A200; }
+.dots .d.on { color: var(--ink); }
+
+/* the pull card (VL 9.10, from the prototype) */
+.pull { background: #fff; border-radius: 22px; padding: 26px 30px; width: 500px; box-shadow: 0 24px 60px rgba(60,40,10,.24), 0 4px 14px rgba(60,40,10,.10); font-family: 'Poppins', sans-serif; white-space: normal; }
+.pull .t { font-weight: 600; font-size: 40px; line-height: 1.12; color: #111418; }
+.pull .by { display: inline-block; margin-top: 18px; background: #F06E42; color: #fff; font-weight: 600; font-size: 34px; border-radius: 12px; padding: 6px 16px; }
+.pull .pw { font-size: 30px; color: #4a5059; margin-top: 12px; }
+
+/* speech dashes (VL 15.7): navy, 28 x 6 px */
+.dash { width: 28px; height: 6px; border-radius: 3px; background: #34507A; transform-origin: 14px 3px; }

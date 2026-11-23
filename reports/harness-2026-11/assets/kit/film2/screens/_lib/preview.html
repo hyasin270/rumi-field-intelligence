@@ -1,0 +1,50 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>screen preview</title>
+<!-- film2/screens/_lib/preview.html?screen=<id>[&t=<ms>][&ev=<json>][&opt=<json>]
+     Mounts one screen full frame and keeps the kit's page contract for render tools:
+     window.FILM.ready (promise), FILM.dur (ms), FILM.draw(ms), FILM.events. -->
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="screens.css">
+<style>html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#fff}</style>
+<script src="sdk.js"></script>
+</head><body><div id="root"></div>
+<script>
+(function () {
+  const q = new URLSearchParams(location.search);
+  const id = q.get("screen");
+  const opt = q.get("opt") ? JSON.parse(q.get("opt")) : {};
+  if (q.get("ev")) opt.events = JSON.parse(q.get("ev"));
+  const load = (src) => new Promise((ok, no) => { const s = document.createElement("script"); s.src = src; s.onload = ok; s.onerror = () => no(new Error(src)); document.head.appendChild(s); });
+  window.FILM = {};
+  FILM.ready = (async () => {
+    // screens/<id>/uses.js (optional) sets SCREEN.uses[id] = ["_lib/slack.js", ...]: the helpers to load first.
+    // Script tags only, so this works from file:// as well as http.
+    SCREEN.uses = SCREEN.uses || {};
+    try { await load(`../${id}/uses.js`); } catch (e) {}
+    for (const u of (SCREEN.uses[id] || [])) await load(u.startsWith("_lib/") ? u.slice(5) : `../${u}`);
+    await load(`../${id}/screen.js`);
+    const m = SCREEN.mount(id, document.getElementById("root"), opt);
+    await document.fonts.ready;
+    await Promise.all([...document.images].map((im) => im.complete ? 0 : new Promise((r) => { im.onload = im.onerror = r; })));
+    FILM.dur = m.dur; FILM.events = m.ev; FILM.draw = (ms) => m.draw(ms);
+    // &sim={"rect":{x,y,w,h},"full":[t,dur]}: proof only. Puts the screen in a kit-like panel (contain fit, the kit's
+    // io lerp to Full) so a docked state can be seen as the shot will show it. Not the kit; the shot's render is the truth.
+    if (q.get("sim")) {
+      const sim = JSON.parse(q.get("sim")), R = sim.rect, el = document.getElementById("root");
+      const host = document.createElement("div"); host.style.cssText = "position:absolute;overflow:hidden;background:#fff;box-shadow:0 30px 80px rgba(60,40,10,.22)";
+      document.body.style.background = "#F3EFE6"; el.parentNode.insertBefore(host, el); host.appendChild(el);
+      const rootEl = el;
+      const io = (u) => (u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2), c = (u) => Math.max(0, Math.min(1, u));
+      FILM.draw = (ms) => {
+        const fa = sim.full ? io(c((ms - sim.full[0]) / (sim.full[1] || 600))) : 0, L = (a, b) => a + (b - a) * fa;
+        const r = { x: L(R.x, 0), y: L(R.y, 0), w: L(R.w, 1920), h: L(R.h, 1080) }, sc = sim.fit === "cover" ? Math.max(r.w / 1920, r.h / 1080) : Math.min(r.w / 1920, r.h / 1080);
+        Object.assign(host.style, { left: r.x + "px", top: r.y + "px", width: r.w + "px", height: r.h + "px", borderRadius: 26 * (1 - fa) + "px" });
+        rootEl.style.transformOrigin = "0 0"; rootEl.style.transform = `translate(${(r.w - 1920 * sc) / 2}px,${(r.h - 1080 * sc) / 2}px) scale(${sc})`;
+        m.draw(ms);
+      };
+    }
+    m.draw(+(q.get("t") || 0));
+    return true;
+  })();
+})();
+</script></body></html>
