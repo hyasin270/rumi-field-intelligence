@@ -11,7 +11,7 @@ SCREEN.define({ id: "q5-team-board",
     const L = SCREEN.lib;
     const pg = (root._pg = PL.page(root));
     const KIND = [["finding", "#E3ECF5", "#1F4A73"], ["idea", "#F6EDD6", "#6E520F"], ["challenge", "#F7E3D9", "#8A3F1C"], ["ready", "#DDEFE5", "#1F5E42"], ["answer", "#ECE5F5", "#553A80"]];
-    const ROLES = ["Director", "Art lead", "Voice lead", "Screens", "Shot builder", "Checker", "Cold viewer", "Cutter", "Chief of staff"];
+    
     const col = (root._col = L.el("div", "abs", null, pg));
     Object.assign(col.style, { left: "260px", top: "0px", width: "1400px" });
     const N = 22, PITCH = 196;
@@ -19,18 +19,20 @@ SCREEN.define({ id: "q5-team-board",
     const SENT = { 5: [5, 0], 7: [6, 0] };
     root._sentRow = 5; root._pitch = PITCH;
     for (let i = 0; i < N; i++) {
-      let k = KIND[Math.floor(L.noise(i, 11) * KIND.length)];
-      let a = Math.floor(L.noise(i, 23) * ROLES.length);
-      let b = Math.floor(L.noise(i, 37) * ROLES.length); if (b === a) b = (b + 1 + i) % ROLES.length; if (b === a) b = (a + 1) % ROLES.length;
-      if (SENT[i]) { k = ["sent back", "#F7E3D9", "#8A3F1C"]; [a, b] = SENT[i]; }
+      // q5 (red team 23 Nov): the roles the show names, in posts that make sense; rows 5 and 7 are "sent back"
+      const ROWS = [["ready", "QA", "Lead"], ["finding", "Red team", "Manager"], ["idea", "Builder", "Manager"], ["answer", "Manager", "Builder"],
+        ["challenge", "Red team", "Builder"], ["sent back", "Lead", "Builder"], ["ready", "Builder", "QA"], ["sent back", "Red team", "Manager"],
+        ["ready", "Manager", "Lead"], ["answer", "Lead", "Chief of staff"], ["finding", "QA", "Builder"]];
+      const rw = ROWS[i % ROWS.length], KC = { "sent back": ["sent back", "#F7E3D9", "#8A3F1C"] }; KIND.forEach((q) => (KC[q[0]] = q));
+      const k = KC[rw[0]], RN = [rw[1], rw[2]], a = 0, b = 1;
       const w1 = 55 + 40 * L.noise(i, 41), w2 = 25 + 45 * L.noise(i, 53);
       const c = PL.card(col, 0, i * PITCH, 1400, 168);
       c.style.borderRadius = "26px"; c.style.padding = "30px 40px";
       c.innerHTML = `<div style="display:flex;align-items:center;gap:30px;font:600 40px/1 'Poppins',sans-serif">
           <span class="pl-chip" style="background:${k[1]};color:${k[2]};min-width:210px;justify-content:center">${k[0]}</span>
-          <span style="color:#111418;font-weight:600">${ROLES[a]}</span>
+          <span style="color:#111418;font-weight:600">${RN[a]}</span>
           <svg viewBox="0 0 40 20" width="52" height="26"><path d="M2 10h32M26 3l8 7-8 7" fill="none" stroke="#9AA0A7" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span style="color:#111418;font-weight:600">${ROLES[b]}</span>
+          <span style="color:#111418;font-weight:600">${RN[b]}</span>
         </div>
         <div style="display:flex;gap:18px;margin-top:26px"><div class="pl-bar" style="width:${w1}%"></div><div class="pl-bar" style="width:${w2}%;background:#EEF0F2"></div></div>`;
     }

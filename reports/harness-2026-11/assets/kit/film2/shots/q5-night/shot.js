@@ -1,9 +1,9 @@
 // q5-night · S and W · lane q5, for s21 "Agents at night" (Operator Harness Show, 23 Nov 2026). A new shot from the kit, no
 // film row. The teams room (B3 east): the operator at the centre of a swarm of six, each agent with an inbox on a post;
 // plain messages (envelopes) pass between them. Night: back out to W, the sky turns navy, the people upstairs go home, the
-// floors work on. Morning: the sky clears, the operator comes back; "staging" (the safe copy) lights and opens, the
-// operator looks; then "production" lights: the operator's go. Last: the operator tests it end to end on the phone.
-// Every frame is pure in t. Rests (for scenes/s21): 4700, 9500, 17200, 24600, 28700, 33600.
+// floors work on. Morning: the sky clears, the operator comes back; "staging" (a test copy on its own number) lights and
+// opens, the operator looks; the operator tests it end to end on the phone; then "production" lights: the operator's go.
+// Every frame is pure in t. Rests (for scenes/s21): 4700, 9500, 17200, 24600, 29200, 33600. v2 (red team): the end-to-end test (step 5) comes before production (step 6).
 (function () { const x = new XMLHttpRequest(); x.open("GET", "../shots/_e/lib.js", false); x.send(); (0, eval)(x.responseText); })();
 (function(){const x=new XMLHttpRequest();x.open("GET","snippets/locator.js",false);x.send();(0,eval)(x.responseText+";window.locator=locator;window.roomRing=roomRing;");})();
 FILM.shot({
@@ -18,7 +18,7 @@ FILM.shot({
     k.each(() => { if (Wb.parts.teams) Wb.parts.teams.visible = false; });
     // ---- times
     const tNight0 = 11600, tNight1 = 13600, tDawn0 = 17600, tDawn1 = 19400;
-    const tStage = 21900, tLook = 24300, tProd = 26300, tPhone = 29000, tCheck1 = 31000, tCheck2 = 31900;
+    const tStage = 21900, tLook = 24300, tPhone = 25500, tCheck1 = 27300, tCheck2 = 28100, tPanelOut = 29700, tProd = 31300; // v2 (red team 23 Nov): the end-to-end test comes before production
     // ---- the two doors on the back wall: staging (the safe copy) and production
     const door = (x, label) => { const d = k.set.part("door2", { label, signW: 1.7, em: 0.24 }); d.position.set(x, y, -5.55); k.scene.add(d); return d; };
     const dS = door(cx - 1.05, "staging"), dP = door(cx + 1.05, "production");
@@ -32,8 +32,8 @@ FILM.shot({
     op.turn(9800, 300, 1.4).walk(10100, 1500, [[cx + 2.6, -2.6], [cx + 3.4, -1.4]], { face: 1.4 });
     op.walk(19600, 1700, [[cx + 2.6, -2.6], [cx - 0.1, -3.6]], { face: -0.9 });
     op.turn(21300, 400, [cx - 1.05, y + 1.2, -5.5]).pose(tLook - 400, "point").pose(tLook + 900, "stand");
-    op.turn(tProd - 700, 400, [cx + 1.05, y + 1.2, -5.5]).pose(tProd - 300, "point").pose(tProd + 1200, "stand");
     op.turn(tPhone - 400, 400, 0.1).pose(tPhone, "phone");
+    op.pose(tProd - 1100, "stand").turn(tProd - 900, 400, [cx + 1.05, y + 1.2, -5.5]).pose(tProd - 300, "point").pose(tProd + 1200, "stand");
     op.fx(tLook + 300, "tick");
     k.each((t) => { const r = op.root || op; r.visible = !(t > 11650 && t < 19550); });
     // ---- the swarm: six agents round the operator, each with an inbox on a post beside it
@@ -83,9 +83,9 @@ FILM.shot({
     const chk = (t1) => `<svg width="52" height="52" viewBox="0 0 52 52" style="opacity:${t1}"><circle cx="26" cy="26" r="24" fill="#F5B301"/><path d="M14 27l8 8 16-17" fill="none" stroke="#001F3F" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
     const panel = document.createElement("div"); panel.style.cssText = "position:absolute;left:1080px;top:230px;width:744px;box-sizing:border-box;padding:34px 40px;border-radius:28px;background:#FFFFFF;box-shadow:0 18px 40px rgba(0,31,63,.16);font-family:'Poppins';color:#001F3F;";
     document.getElementById("ui").appendChild(panel);
-    FILM._post.push((t) => { const v = tw(t, tPhone + 700, tPhone + 1150, "out"); panel.style.visibility = v > 0 ? "visible" : "hidden"; panel.style.opacity = v; panel.style.transform = `translateY(${24 * (1 - v)}px)`;
+    FILM._post.push((t) => { const v = tw(t, tPhone + 700, tPhone + 1150, "out") * (1 - tw(t, tPanelOut, tPanelOut + 300)); panel.style.visibility = v > 0 ? "visible" : "hidden"; panel.style.opacity = v; panel.style.transform = `translateY(${24 * (1 - v)}px)`;
       const c1 = tw(t, tCheck1, tCheck1 + 300), c2 = tw(t, tCheck2, tCheck2 + 300);
-      panel.innerHTML = `<div style="font-family:'Fredoka';font-weight:600;font-size:56px;line-height:1.1;margin-bottom:22px">End to end</div>`
+      panel.innerHTML = `<div style="font-family:'Fredoka';font-weight:600;font-size:56px;line-height:1.1;margin-bottom:22px">End to end, on staging</div>`
         + `<div style="display:flex;align-items:center;gap:22px;font-size:48px;font-weight:500;line-height:1.15;margin:14px 0">${chk(c1)}On WhatsApp, yourself</div>`
         + `<div style="display:flex;align-items:center;gap:22px;font-size:48px;font-weight:500;line-height:1.15;margin:14px 0">${chk(c2)}The browser tests</div>`; });
     k.cue(tCheck1, "tick"); k.cue(tCheck2, "tick");
@@ -100,7 +100,7 @@ FILM.shot({
     k.cam.keys([{ t: 0, view: "W" }, { t: 200, hold: true, drift: false }, { t: 2200, view: ROOM, ease: "io" },
       { t: 5000, hold: true }, { t: 6800, view: ROOM2, ease: "io" }, { t: 10600, hold: true },
       { t: 13000, view: "W", ease: "io" }, { t: 19400, hold: true }, { t: 21600, view: DOORS, ease: "io" },
-      { t: 29000, hold: true }, { t: 30600, view: PHONE, ease: "io" }, { t: D + 1, hold: true }]);
+      { t: 25200, hold: true }, { t: 26800, view: PHONE, ease: "io" }, { t: 29600, hold: true }, { t: 31000, view: DOORS, ease: "io" }, { t: D + 1, hold: true }]);
     if (window.locator) locator(k, { room: "teams", from: 2200, to: 10600, fade: 300 });
     if (window.locator) locator(k, { room: "teams", from: 21600, to: D + 1, fade: 300 });
     return {};

@@ -1,6 +1,6 @@
 {
  "title": "Operator Harness",
- "built_at": "2026-11-23T07:10:06Z",
+ "built_at": "2026-11-23T08:01:22Z",
  "stage": [
   1920,
   1080
@@ -133,7 +133,7 @@
      "press 3: the go live door; a queue at one person's desk",
      "press 4: moves to s06"
     ],
-    "body": "Picture tomorrow morning. Three hundred very talented strangers arrive at Taleemabad, all of them wanting to help.\n(press)\nThey can do almost anything. They know nothing about us, our schools or our rules. And when a task ends, they forget what they learned.\n(press)\nLeave them to it, and this is day one. Two grab the same job while a third waits. One is buried under every manual we own.\n(press)\nOne carries a lesson plan straight through the door marked go live. Then a queue forms at one person's desk, every one of them with a question only that person can answer. This week you ran the one-file setup and installed the harness. That harness is what we built for this morning.\n(press)",
+    "body": "Picture tomorrow morning. Three hundred very talented strangers arrive at Taleemabad, all of them wanting to help.\n(press)\nThey can do almost anything. They know nothing about us, our schools or our rules. And when a task ends, they forget what they learned.\n(press)\nLeave them to it, and this is day one. Two grab the same job while a third waits. One is buried under every manual we own.\n(press)\nOne carries a lesson plan straight through the door marked go live. Then a queue forms at one person's desk, every one of them with a question only that person can answer. This week you ran the one-file setup and installed the harness. That harness is what we built for that morning.\n(press)",
     "first_line": "Picture tomorrow morning."
    }
   },
@@ -158,7 +158,7 @@
      "press 3: the line between the floors; your people above, the agents below",
      "press 4: moves to s07"
     ],
-    "body": "Freeze it there. The strangers are not people. Each one is an AI agent: an AI model with tools, which it uses step by step to finish a task.\n(press)\nThree hundred is a thought experiment. Start with three, and the problems are the same.\n(press)\nSo what would you build so that all of them can help? The same things a good organisation builds for any new colleague. It comes down to five questions. Do they know our rules? Where do we talk to them? How do they find out? Does the work sound like us? What happens when the volume grows?\n(press)\nYour people work above the surface, and the agents work below it. The article calls this a shadow organisation; the team knows it as Rumi. You are its operator: you create the agents, brief them and unblock them. Each part of the harness answers one question, and we take them in order.\n(press)",
+    "body": "Freeze it there. The strangers are not people. Each one is an AI agent: an AI model with tools, which it uses step by step to finish a task.\n(press)\nThree hundred is a thought experiment. Start with three, and the problems are the same.\n(press)\nSo what would you build so that all of them can help? The same things a good organisation builds for any new colleague. It comes down to five questions. Do they know our rules? Where do we talk to them? How do they find out? Does the work sound like us? What happens when the volume grows?\n(press)\nYour people work above the surface, and the agents work below it. The article calls this a shadow organisation. The agents post as Rumi, so the team calls them Rumi too. Each part of the harness answers one of these questions, and we take them in order.\n(press)",
     "first_line": "Freeze it there."
    }
   },
@@ -166,9 +166,9 @@
    "id": "s07",
    "title": "Beads: who is doing what",
    "chapter": "q1",
-   "duration_s": 100,
+   "duration_s": 110,
    "appendix": false,
-   "steps": 5,
+   "steps": 6,
    "transition": "cut",
    "sensitive": false,
    "owner": "q1",
@@ -176,15 +176,16 @@
    "media": [],
    "highlight": null,
    "note": {
-    "planned": "100 s (speaking 100 s, word ceiling 230)",
+    "planned": "110 s (speaking 110 s, word ceiling 253)",
     "cues": [
      "press 1: two agents tug one job until it tears; a third stands idle",
      "press 2: the wall becomes a board of cards; a bead is one card for one job",
-     "press 3: two reach for one card; the first name sticks, the second takes the next",
-     "press 4: every card turns to its record; the count of cards",
-     "press 5: moves to s08"
+     "press 3: the newcomer puts its name on the card",
+     "press 4: a second reaches for the same card, bounces, and takes the next",
+     "press 5: every card turns to its record; the count of cards",
+     "press 6: moves to s08"
     ],
-    "body": "Question one: do they know our rules, who is doing what, and what is off limits? The first thing a team of new colleagues gets wrong is who has which job.\n(press)\nTwo of them grab the same job until it tears, and a third has nothing to do. Every one of them is capable; nobody can see the work.\n(press)\nSo every job gets a card on one shared board. We call the card a bead. You make one with bd create, a title, a priority and a type, the moment you take on any piece of work, before you touch any code. bd ready shows the work nobody is blocked on.\n(press)\nThen you claim it: bd update, the id, dash dash claim. The first name sticks. If someone else already holds the card, your claim bounces and you pick the next one. That is how eight agents racing for one job end with exactly one of them doing it.\n(press)\nEach card keeps its record: who took it, when, and how it closed. There are fifteen thousand six hundred and eighty on our board since January. Work in a worktree of your own for each bead, one branch per card, and close the bead when the change ships.\n(press)\n\n[Appendix: a02 the commands you will type. Press A, the number, Enter.]",
+    "body": "Question one: do they know our rules, who is doing what, and what is off limits? New colleagues first get wrong who has which job.\n(press)\nTwo of them grab the same job until it tears, and a third has nothing to do. Every one of them is capable; nobody can see the work.\n(press)\nSo every job gets a card on one shared board. We call the card a bead. You make one with bd create, a title, a priority and a type, the moment you take on any work. bd ready shows the work nobody is blocked on. This week, before your first bead, run ops doctor: its shared-ledger row must be green. Until it is, create and close nothing.\n(press)\nThen you claim it: bd update, the id, dash dash claim. Your name goes on the card before the work starts, so everyone can see who has it.\n(press)\nIf someone else already holds the card, your claim bounces and you take the next one. That is how eight agents racing for one job end with exactly one of them doing it.\n(press)\nEach card keeps its record: who took it, when, and how it closed. There are fifteen thousand six hundred and eighty on our board since January. Each bead gets its own worktree and branch, and you close it when the change ships.\n(press)\n\n[Appendix: a02 the commands you will type. Press A, the number, Enter.]",
     "first_line": "Question one: do they know our rules, who is doing what, and what is off limits?"
    }
   },
@@ -192,7 +193,7 @@
    "id": "s08",
    "title": "Skills: how we work",
    "chapter": "q1",
-   "duration_s": 100,
+   "duration_s": 90,
    "appendix": false,
    "steps": 5,
    "transition": "cut",
@@ -202,7 +203,7 @@
    "media": [],
    "highlight": null,
    "note": {
-    "planned": "100 s (speaking 100 s, word ceiling 230)",
+    "planned": "90 s (speaking 90 s, word ceiling 207)",
     "cues": [
      "press 1: a tower of binders on the desk; pages spill; a context window",
      "press 2: the desk is cleared; one slim folder; a skill",
@@ -210,7 +211,7 @@
      "press 4: back to the desk and the shelf of folders",
      "press 5: moves to s09"
     ],
-    "body": "Question one has a second half: how do we do things here? Our newcomer has a card, and no idea how we do it.\n(press)\nAnd it can only hold so much at once, like a desk. Pile every manual on it and things fall off the edge. That desk is called a context window.\n(press)\nSo we write down how we work, one kind of job at a time. Each is a folder of plain instructions, called a skill. For a person, it is the induction and the handbook.\n(press)\nTwo kinds of instruction reach every agent. Always on: our rules, in the CLAUDE.md files, read at the start of every session, plus one short line for each skill. On demand: the skill itself, which opens only when a job calls. There are a hundred and twenty-four skills on main.\n(press)\nDay to day, you ask for the job in plain words and the agent picks the skill; you can also call one by name, with a slash. When you have done a job by hand and know it will come back, make it a skill: say make a skill for this, and the skill-authoring skill takes it from there. Skill-lint checks the new skill while it is being written.\n(press)\n\n[Appendix: a03 the skills you use first.]",
+    "body": "Question one has a second half: how do we do things here? Our newcomer has a card, and no idea how we do it.\n(press)\nAnd it can only hold so much at once, like a desk. Pile every manual on it and things fall off the edge. That desk is called a context window.\n(press)\nSo we write down how we work, one kind of job at a time. Each is a folder of plain instructions, called a skill. For a person, it is the induction and the handbook.\n(press)\nTwo kinds of instruction reach every agent. Always on: our rules, in the CLAUDE.md files, read at the start of every session, plus one short line for each skill. On demand: the skill itself, which opens only when a job calls. There are a hundred and twenty-four skills on main.\n(press)\nDay to day, you ask in plain words and the agent picks the skill, or you type its name after a slash. Each time, the session shows which skill it opened, so you can see where its way of working came from.\n(press)\n\n[Appendix: a03 the skills you use first.]",
     "first_line": "Question one has a second half: how do we do things here?"
    }
   },
@@ -254,13 +255,13 @@
    "note": {
     "planned": "100 s (speaking 100 s, word ceiling 230)",
     "cues": [
-     "press 1: three doors; each lights as it is named",
+     "press 1: three doors: go live, skip the tests, send a message; each lights as it is named",
      "press 2: a rail drops in front of each door; the agent bumps it; a hook",
      "press 3: the note: stopped, the reason, the safe way; 72 hooks",
      "press 4: no card, no work: the gate by the board; question one ticks",
      "press 5: moves to s11"
     ],
-    "body": "Skills are advice, and advice gets skipped. Our newcomer is proud of its lesson plans and carries them straight to the door marked go live. It has done good work, and it wants the world to see it.\n(press)\nSome things must never happen without a person. Putting untested work live. Telling a whole region about an outage. Letting internal details slip into a message that leaves the building. Each reaches people outside this room before anyone has checked it.\n(press)\nSo before an action like that, a small piece of code runs, and it can refuse. Each of these is called a hook. For people, it is a sign-off.\n(press)\nWhen a hook stops you, it says why, and it gives you the safe way instead: here, send it for testing first. There are seventy-two hooks on main, and you will meet a few this week. Read the note, and do what it says.\n(press)\nOne guards the board: no claimed bead, no edits. A hook lifts only for a named switch, such as beads claim gate off equals one, kept for a genuinely trivial edit. Every use writes a line to the bypass ledger, and your session banner shows the count. Production needs your fresh go, every time.\n(press)\n\n[Appendix: a06 when a hook stops you.]",
+    "body": "Skills are advice, and advice gets skipped. Our newcomer is proud of its lesson plans and carries them straight to the door marked go live.\n(press)\nSome things must never happen without a person. Work going live without your go. A push with no test evidence behind it. Internal details slipping into a message that leaves the building. Each one can reach people outside this room before anyone has checked it.\n(press)\nSo before an action like that, a small piece of code runs, and it can refuse. Each of these is called a hook. For people, it is a sign-off.\n(press)\nWhen a hook stops you, it says why, and it gives you the safe way instead: here, send it for testing first. There are seventy-two hooks on main, and you will meet a few this week. Read the note, and do what it says.\n(press)\nOne guards the board: no claimed bead, no edits. A hook lifts only for a named switch. Beads claim gate off equals one lifts that one while your ledger is not ready yet, as the start guide says, or when a person has decided to. Every use writes a line to the bypass ledger, and your session banner shows the count.\n(press)\n\n[Appendix: a06 when a hook stops you.]",
     "first_line": "Skills are advice, and advice gets skipped."
    }
   },
@@ -308,7 +309,7 @@
      "press 2: comments on the page; the change is made and resolved",
      "press 3: moves to s13"
     ],
-    "body": "Deep work needs more room than a chat. A plan or a long review does not fit in a thread. Here the agent says where things stand, and the product manager says, let me know when you're done.\n(press)\nLater a link arrives, and it opens a page in Notion: a card on our To-do board, with the plan, the mockups and the open questions. Plans and reviews live there as cards, each with a type and a number, so you can find them again a month later, and so can the agents.\n(press)\nThen you work it the way you would with a colleague in a meeting room. Comment on the part you want changed and mention Rumi. The agent answers on the card and changes that part. Keep the talk on the card, so the reasoning stays with the work.\n(press)",
+    "body": "Deep work needs more room than a chat. A plan or a long review does not fit in a thread. Here the agent says where things stand, and the product manager says, let me know when you're done.\n(press)\nLater a link arrives, and it opens a page in Notion: a card on our To-do board, with the plan, the mockups and the open questions. Plans and reviews live there as cards, so you can find them again a month later. You work the board with your own Notion login; a card written as Rumi goes through the admin.\n(press)\nThen you work it the way you would with a colleague. Comment on the part you want changed and mention Rumi. The agent answers on the card and changes that part. Keep the talk on the card, so the reasoning stays with the work.\n(press)",
     "first_line": "Deep work needs more room than a chat."
    }
   },
@@ -332,8 +333,8 @@
      "press 2: pull out to the building; one name above, many hands below",
      "press 3: moves to s14"
     ],
-    "body": "Finished work lands where the team already keeps it: Docs, Sheets and Slides in the shared drive, with Rumi as the owner, so you always know which files the agent made.\n(press)\nThe agent has its own account, rumi at hellorumi dot ai, so it sends the email too. Ask for a spreadsheet or a deck and it works through our Google skills, and it is never done at the first draft. It takes a picture of the page, reads it, fixes what looks wrong, and looks again.\n(press)\nSo the team sees one colleague in Slack, in Notion and in the inbox. Below the floor, it is as many agents as the job needs, or one alone when one is enough. That answers question two.\n(press)",
-    "first_line": "Finished work lands where the team already keeps it: Docs, Sheets and Slides in the shared drive, with Rumi as the owner, so you always know which files the agent made."
+    "body": "Finished work lands where the team already keeps it: Docs, Sheets and Slides in a shared drive, where anyone on the team can open them and comment.\n(press)\nThe agents on your Mac write Docs, Sheets and Slides into the team's shared drive. Anything sent as Rumi, from rumi at hellorumi dot ai, goes through the admin. Either way the work is never done at the first draft: the agent takes a picture of the page, reads it, fixes what looks wrong, and looks again.\n(press)\nSo the team sees one colleague in Slack, in Notion and in the inbox. Below the floor, it is as many agents as the job needs, or one alone when one is enough. That answers question two.\n(press)",
+    "first_line": "Finished work lands where the team already keeps it: Docs, Sheets and Slides in a shared drive, where anyone on the team can open them and comment."
    }
   },
   {
@@ -407,7 +408,7 @@
      "press 3: one mark becomes a new line in the skill; 157 corrections",
      "press 4: moves to s17"
     ],
-    "body": "Question four: does the work sound like us, and is it good enough? Most of what we know is in people's heads. Nobody wrote it down, so no agent can read it.\n(press)\nSo the first time you do a job with an agent, do it by hand, together, and talk it through: why this activity, why this order, what you would never do. Then ask the agent to write the steps down as a skill. Say, make a skill for this, and the skill-authoring skill takes it from there.\n(press)\nThat is amortisation. You pay to work the job out once, and every later job uses what you wrote. Before a new skill counts, it has to pass the skill lint, which checks it will load.\n(press)\nThen you correct its work, and each correction is a rule you did not know you had. Say, stop this happening again, and the agent-improvement skill writes it in as a numbered rule. Our lesson-plan skill carries a hundred and fifty-seven of them. One tip: before a long session ends, ask the agent to list every place you corrected it.\n(press)\n\n[Appendix: a03 the skills you use first. Press A, the number, Enter.]",
+    "body": "Question four: does the work sound like us, and is it good enough? Most of what we know is in people's heads. Nobody wrote it down, so no agent can read it.\n(press)\nSo the first time you do a job with an agent, do it by hand, together, and talk it through: why this activity, why this order, what you would never do. Then ask the agent to write the steps down as a skill. Say, make a skill for this, and the skill-authoring skill takes it from there.\n(press)\nThat is amortisation. You pay to work the job out once, and every later job uses what you wrote. Before a new skill counts, it has to pass the skill lint, which checks it will load.\n(press)\nThen you correct its work, and each correction is a rule you did not know you had. Say, stop this happening again, and the agent-improvement skill writes the fix into the skill. Our lesson-plan skill numbers its fixes: a hundred and fifty-seven so far. One tip: before a long session ends, ask the agent to list every place you corrected it.\n(press)\n\n[Appendix: a03 the skills you use first. Press A, the number, Enter.]",
     "first_line": "Question four: does the work sound like us, and is it good enough?"
    }
   },
@@ -430,10 +431,10 @@
      "press 1: a page goes through a hatch into a small booth; an eval",
      "press 2: inside the booth, the door to the makers is shut; a blind judge",
      "press 3: the judge's note: a score, a reason, the quoted line",
-     "press 4: people's marks beside the judge's; a bar across the way out; one page goes back, comes again and clears; 1,953 of 2,038",
+     "press 4: people's marks beside the judge's; a bar across the way out; one page goes back, comes again and clears; 1,953 of 2,038 lessons",
      "press 5: moves to s18"
     ],
-    "body": "The second half of question four: is it good enough? Three hundred agents make more than anyone can read. But you have already written down what good looks like, in the skill.\n(press)\nSo a second model marks the work against that standard. A check like this is called an eval; for people, it is an appraisal. Our lesson-plan reviewer marks on a hundred and eighty-four point rubric with eight criteria. To build your own, use the evals skill.\n(press)\nThe judge gets the work and the standard, and nothing else. It never sees the maker's notes or reasons, so nothing can talk it round. We call it a blind judge, like an external examiner.\n(press)\nBeside every score it writes its reason, and quotes the line it means. Read the reasons, not only the scores. When the same reason keeps coming back, the fix goes into the skill, and the next batch is better.\n(press)\nBefore you trust a judge, check it against people's marks on the same work. Then the bar goes up: work under it goes back to its maker, and nothing counts as done until it clears. In one region, one thousand nine hundred and fifty-three of two thousand and thirty-eight lesson plans cleared it.\n(press)",
+    "body": "The second half of question four: is it good enough? Three hundred agents make more than anyone can read. But you have already written down what good looks like, in the skill.\n(press)\nSo a second model marks the work against that standard. A check like this is called an eval; for people, it is an appraisal. Our lesson-plan reviewer, for example, scores on a hundred and eighty-four points and eight criteria. To build your own, use the evals skill.\n(press)\nThe judge gets the work and the standard, and nothing else. It never sees the maker's notes or reasons, so nothing can talk it round. We call it a blind judge, like an external examiner.\n(press)\nBeside every score it writes its reason, and quotes the line it means. Read the reasons, not only the scores. When the same reason keeps coming back, the fix goes into the skill, and the next batch is better.\n(press)\nA judge is checked against people's marks on the same work before we trust it. Then the bar goes up: work under it goes back to its maker, and nothing counts as done until it clears. In one region, one thousand nine hundred and fifty-three of two thousand and thirty-eight lessons cleared a blind judge.\n(press)",
     "first_line": "The second half of question four: is it good enough?"
    }
   },
@@ -476,11 +477,11 @@
    "note": {
     "planned": "80 s (speaking 80 s, word ceiling 184)",
     "cues": [
-     "press 1: a person comes down the stairs, checks the lit places in turn, and the stuck lane flows; \"an operator\"",
+     "press 1: a person comes down the stairs, checks the lit places in turn, and the stuck lane flows; \"an operator, the person who runs the agents\"",
      "press 2: back out to the whole building, \"an operator\" beside the person at the hatch",
      "press 3: moves to s20"
     ],
-    "body": "Question five: what happens when the volume grows? With hundreds of agents at work, some get stuck. One meets a case nobody wrote down, another loops on the same job, and the work behind it stops. Nothing is broken everywhere. One lane is jammed, and from upstairs nobody can see why it stopped.\n(press)\nSomeone has to know where to look. That person is the operator, and from this week the operator is you. You create the agents, you brief them, and you unblock them. When one stalls, you check four places in turn: the judge's score, the code, the data, and the release. Most jams clear at one of those four.\n(press)\nSo the operator is the first role an organisation needs when it brings agents in: on day one, before the first failure, not after it. The rest of this part of the show is about doing that job well while the work keeps growing, by day and by night.\n[Presenter, in your own words: what it felt like the first time you unblocked an agent yourself.]\n(press)",
+    "body": "Question five: what happens when the volume grows? With hundreds of agents at work, some get stuck. One meets a case nobody wrote down, another loops on the same job, and the work behind it stops. One lane is jammed, and from upstairs nobody can see why.\n(press)\nSomeone has to know where to look. That person is the operator, and from this week the operator is you. You create the agents, you brief them, and you unblock them. When one stalls, you check four places in turn: the judge's score, the code, the data, and the release. Most jams clear at one of those four, and the lane starts to flow again.\n(press)\nSo the operator is the first role an organisation needs when it brings agents in: from day one. The rest of this part of the show is about doing that job well while the work keeps growing, by day and by night.\n[Presenter, in your own words: what it felt like the first time you unblocked an agent yourself.]\n(press)",
     "first_line": "Question five: what happens when the volume grows?"
    }
   },
@@ -526,12 +527,12 @@
     "cues": [
      "press 1: envelopes pass from agent to agent and land in each other's inboxes",
      "press 2: back out to the whole building at night; the people upstairs go home; the floors work on",
-     "press 3: morning; back into the room; the staging door lights and opens; the operator looks",
-     "press 4: the production door lights and opens; the agents hop",
-     "press 5: the operator on the phone; the two end-to-end checks tick",
+     "press 3: morning; back into the room; the staging door lights and opens; an agent shows the work; the operator looks",
+     "press 4: the operator tests on the phone; the two end-to-end checks tick",
+     "press 5: the production door lights and opens on the operator's go; the agents hop",
      "press 6: moves to s22"
     ],
-    "body": "Here is how agents work at night. You sit at the centre, and around you is a team of agents, a swarm. You give each one a piece of the work with a clear brief, and it gets on with it.\n(press)\nEach agent has an inbox. They pass each other short, plain messages: this part is done, please check that one. You can read every message, and so can the agent that picks the work up next.\n(press)\nSo you can leave the swarm on overnight. You go offline, the people upstairs go home, and the work goes on, floor by floor. Brief it well before you log off, because the brief is most of your work that night.\n(press)\nIn the morning it shows you what it built, on staging. Staging is a safe copy of the bot, where the swarm can keep working without reaching a single teacher. You open it and look at the work yourself.\n(press)\nWhen you have seen it and you are happy, it goes to production, the real bot that teachers use. That go is yours, and you give it fresh every time, even when you agreed the plan the day before.\n(press)\nAnd one rule with no exceptions. Before anything ships, test it end to end, the way a teacher would meet it: send the messages yourself on WhatsApp, or run the browser tests. Green unit tests do not count as a working bot. If you have not seen it work, it does not ship.\n(press)\n\n[Appendix: a04 how a change reaches production. Press A, the number, Enter.]",
+    "body": "Here is how agents work at night. You sit at the centre, and around you is a team of agents, a swarm. You give each one a piece of the work with a clear brief, and it gets on with it.\n(press)\nEach agent has an inbox. They pass each other short, plain messages: this part is done, please check that one. You can read every message.\n(press)\nSo you can leave the swarm on overnight. You go offline, the people upstairs go home, and the work goes on, floor by floor. Brief it well before you log off, because the brief is most of your work that night.\n(press)\nIn the morning it shows you what it built, on staging. Staging is a test copy of the bot on its own WhatsApp number, so no teacher talks to it. On the main bot it shares the production database, so a database change there reaches production too. You open it and look at the work yourself.\n(press)\nThen one rule with no exceptions. Before anything ships, test it end to end, the way a teacher would meet it: send the messages yourself on WhatsApp, or run the browser tests. Green unit tests do not count as a working bot.\n(press)\nWhen you have seen it work and you are happy, it goes to production, the real bot that teachers use. That go is yours, and you give it fresh every time, even when you agreed the plan the day before.\n(press)\n\n[Appendix: a04 how a change reaches production. Press A, the number, Enter.]",
     "first_line": "Here is how agents work at night."
    }
   },
@@ -558,8 +559,8 @@
      "press 5: back out to the building; the note taker's tile is the one lit thing among the sleepers; \"From reactive to proactive\"",
      "press 6: moves to s23"
     ],
-    "body": "Agents should not run all day, so they sleep until someone needs them. When you tag @Rumi in a Slack channel, or comment to Rumi on a Notion card, that system sends a notice called a webhook. It reaches a small service that never sleeps.\n(press)\nThat service wakes the one agent the request is for. It does the work and answers where it was asked; the rest sleep on. A hook stops an action; a webhook wakes an agent.\n(press)\nNotice one thing about every agent you have met so far. Each one waits to be asked. That kind of agent is called reactive.\n(press)\nThe next step is proactive. Before each of our internal meetings, the note taker gets up by itself. It reads past meetings, the team chat, Notion and our product data, and writes a short brief with a source and a date on every point. It reads only meetings marked public; one-to-ones stay private to their people.\n(press)\nIn the meeting, when it has a point worth making, it raises its hand. Its point appears in the chat, and it speaks only when it is invited.\n(press)\nAn agent that acts before anyone asks is called proactive: it spots a gap and tells you. For us, that move has begun.\n(press)",
-    "first_line": "Agents should not run all day, so they sleep until someone needs them."
+    "body": "The agents that answer the team's questions should not run all day, so they sleep until someone needs them. When you tag @Rumi in a Slack channel, or comment to Rumi on a Notion card, that system sends a notice called a webhook. It reaches a small service that never sleeps.\n(press)\nThat service wakes the one agent the request is for. It does the work and answers where it was asked; the rest sleep on. A hook stops an action; a webhook wakes an agent.\n(press)\nNotice one thing about every agent you have met so far. Each one waits to be asked. That kind of agent is called reactive.\n(press)\nThe next step is proactive. Before each of our internal meetings, the note taker gets up by itself. It reads past meetings, the team chat, Notion and our product data, and writes a short brief with a source and a date on every point. It reads only meetings marked public; one-to-ones stay private to their people.\n(press)\nIn the meeting, when it has a point worth making, it raises its hand. Its point appears in the chat, and it speaks only when it is invited.\n(press)\nAn agent that acts before anyone asks is called proactive: it spots a gap and tells you.\n(press)",
+    "first_line": "The agents that answer the team's questions should not run all day, so they sleep until someone needs them."
    }
   },
   {
@@ -582,11 +583,11 @@
      "press 2: the next card: why, in the teacher's own words",
      "press 3: the next card: what might help, and when",
      "press 4: the last card: if… then…, and what would prove it wrong",
-     "press 5: pull back to the whole board; the lesson-plan example, row by row beside it",
-     "press 6: the row turns over: quizzes at home",
+     "press 5: pull back to the whole board; the lesson-plan example beside it, with what would prove it wrong",
+     "press 6: the row turns over: quizzes at home, with what would prove it wrong",
      "press 7: moves to s24"
     ],
-    "body": "Ship on a hypothesis, not an opinion, and work it out with the full-stack builders in your region, the FSBs.\nA team will often want to ship because someone feels sure. Your job is to ask for a hypothesis instead. The FSBs are the people who build what you ship. You settle each hypothesis with them, and then you make sure the process is kept. A hypothesis has four ingredients.\n(press)\nOne: what you see. The number, and exactly where it is low.\n(press)\nTwo: why you think it happens. The teacher's reason, in their own words. Ask yourself: did a teacher tell us this, or are we guessing?\n(press)\nThree: what might help. The change, and the date teachers get it.\n(press)\nFour: if this, then that, because. One line you can say aloud. Then write down the result that would prove you wrong, before you ship.\n(press)\nHere is one from September. What we saw: lesson plans ran to eleven to sixteen pages. Why: teachers read them on a phone. What might help: pages made for the phone. If we do that, then more plans get used. As phone pages they came down to five to nine.\n(press)\nAnd the quizzes. What we saw: no learning data. Why: we had no way to collect it. What might help: a quiz the teacher sends home. If children take it, then scores come back to us and to the teacher.\n(press)\n\n[Appendix: a07 a sprint goal is a hypothesis. Press A, the number, Enter.]",
+    "body": "Ship on a hypothesis, not an opinion, and work it out with the full-stack builders in your region, the FSBs.\nA team will often want to ship because someone feels sure. Your job is to ask for a hypothesis instead. The FSBs are the people who build what you ship. You settle each hypothesis with them and make sure the process is kept. A hypothesis has four ingredients.\n(press)\nOne: what you see. The number, and where it is low.\n(press)\nTwo: why it happens. The teacher's reason, in their own words. Did a teacher tell us this, or are we guessing?\n(press)\nThree: what might help. The change, and the date teachers get it.\n(press)\nFour: if this, then that, because. Then write down the result that would prove you wrong, before you ship.\n(press)\nHere is one from September. What we saw: lesson plans ran to eleven to sixteen pages. Why: teachers read them on a phone. What might help: pages made for the phone, and they came down to five to nine. If we do that, then more plans get used. We are wrong if the share of teachers making a plan each day does not rise in the RDF, each region's weekly charts.\n(press)\nAnd the quizzes. What we saw: no learning data. Why: we had no way to collect it. What might help: a quiz the teacher sends home. If children take it, then scores come back to us and to the teacher. We are wrong if they do not.\n(press)\n\n[Appendix: a07 a sprint goal is a hypothesis. Press A, the number, Enter.]",
     "first_line": "Ship on a hypothesis, not an opinion, and work it out with the full-stack builders in your region, the FSBs."
    }
   },
@@ -609,12 +610,12 @@
      "press 1: three turn to measure; both columns start to rise",
      "press 2: at scale, twelve in each group; A clears the bar, B stays under it",
      "press 3: the RDF grows out of the agent's laptop",
-     "press 4: chart, full frame: Teach Well, Tanzania, 21 to 27 Oct",
-     "press 5: chart, full frame: Improve, the coaching score over eight weeks",
-     "press 6: back into the laptop: \"Ship it, measure it, prove it.\"",
+     "press 4: chart, full frame: Teach Well, Tanzania, two weeks to 27 Oct",
+     "press 5: chart, full frame: Improve, Tanzania, eight weeks to 27 Oct",
+     "press 6: back into the laptop: the hypothesis and its bar, set before you ship",
      "press 7: moves to s25"
     ],
-    "body": "Prove it. Set the bar before you ship, and the number shows in the RDF, each region's weekly charts.\nYou write the hypothesis with the FSBs, and you write down the result that would prove it wrong. That is the bar, and it goes up first.\n(press)\nThen everyone measures against that hypothesis: you, the FSBs and the field team, all looking at the number you named before you shipped.\n(press)\nWhere you can, run an A/B test: some teachers get the change and some do not, and you compare. Run it at a scale where the difference means something, and set the bar before day one.\n(press)\nAnd the number should show up in the RDF: the same charts, every week, for every region. Getting it there is the main goal of the operator team.\n(press)\nHere is what those charts look like, for Tanzania, twenty-first to twenty-seventh October. Teach Well: the share of teachers who made a lesson plan each day, ward by ward. These are totals; no teacher is named.\n(press)\nImprove: the coaching score over eight weeks, set against what human observers scored. A hypothesis about coaching shows up here.\n(press)\nIn one line: with the FSBs, a hypothesis. Ship it, measure it, prove it.\n(press)\n\n[Appendix: a07 a sprint goal is a hypothesis. Press A, the number, Enter.]",
+    "body": "Prove it. Set the bar before you ship, and the number shows in the RDF.\nYou write the hypothesis with the FSBs, and you write down the result that would prove it wrong. That is the bar, and it goes up first.\n(press)\nThen everyone measures against that hypothesis: you, the FSBs and the field team, all looking at the number you named.\n(press)\nWhere you can, run an A/B test: some teachers get the change and some do not. Run it at a scale where the difference means something, and set the bar before day one.\n(press)\nAnd the number should show up in the RDF: the same charts, every week, for every region. Getting it there is the main goal of the operator team.\n(press)\nHere is what those charts look like, from Tanzania's brief for the week to the twenty-seventh of October. Teach Well, over two weeks: the share of teachers who made a lesson plan each day, ward by ward. These are totals; no teacher is named.\n(press)\nImprove, over eight weeks: the coaching score, against what observers scored. A hypothesis about coaching shows up here.\n(press)\nIn one line: write the hypothesis with the FSBs, and set the bar before you ship.\n(press)\n\n[Appendix: a07 a sprint goal is a hypothesis. Press A, the number, Enter.]",
     "first_line": "Prove it."
    }
   },
@@ -638,7 +639,7 @@
      "press 2: the pull back: the agent below never heard it",
      "press 3: moves to s26"
     ],
-    "body": "Huddles are where you harvest context. Never skip one.\nEvery region has a huddle every day: a short meeting, standing, with the regional manager, the field team, the FSBs and you. It is where you hear what the team is seeing, talk through specific hypotheses, and try other readings of a problem. Things often reach the huddle before they reach any document.\n(press)\nTwo regions have new operators from today: Mahrah in Sindh, and Kamal in Balochistan. Your huddle is the first place you will hear what your region needs.\n(press)\nSkipping a huddle feels harmless on a busy day. It is how an operator falls out of step with the team. Whoever was not in the room did not hear what changed, so keep every one. If you cannot be there, ask for the notes the same day, and read them before you build anything.\n(press)\n\n[Appendix: a05 the rituals calendar. Press A, the number, Enter.]",
+    "body": "Huddles are where you harvest context. Never skip one.\nEvery region has a huddle every day: a short meeting, standing, with the regional manager, the field team, the FSBs and you. It is where you hear what the team is seeing, talk through specific hypotheses, and try other readings of a problem. Things often reach the huddle before they reach any document.\n(press)\nEvery region has an operator in its huddle: Mahrah in Sindh, Kamal in Balochistan, and from this week, you. Your huddle is the first place you will hear what your region needs.\n(press)\nSkipping a huddle feels harmless on a busy day. It is how an operator falls out of step with the team. Whoever was not in the room did not hear what changed, so keep every one. If you cannot be there, ask for the notes the same day.\n(press)\n\n[Appendix: a05 the rituals calendar. Press A, the number, Enter.]",
     "first_line": "Huddles are where you harvest context."
    }
   },
@@ -658,12 +659,12 @@
    "note": {
     "planned": "100 s (speaking 100 s, word ceiling 230)",
     "cues": [
-     "press 1: case: quizzes in WhatsApp's in-app browser",
-     "press 2: case: lesson plans as phone pages",
+     "press 1: case: the quiz in WhatsApp's in-app browser, written up as a skill",
+     "press 2: case: the phone pages, first shown at this meeting",
      "press 3: back into the laptop; the whole building: \"One region learns it; every region gets it.\"",
      "press 4: moves to s27"
     ],
-    "body": "Each week, one operator shows what they built and what they learnt.\nThe weekly operators' meeting is how we share learning across regions, and the operators take it in turns. The first twenty minutes belong to that week's operator: what they built and what they learnt. Then ten minutes of questions. In the last thirty minutes we read the RDF together, region by region. Bring something real: a change you shipped, the number it moved, and what surprised you.\n(press)\nHere is the kind of thing that gets shared. Meta changed its pricing, and our WhatsApp bill jumped. One operator moved the quiz into WhatsApp's in-app browser, a web page that opens inside WhatsApp and sends far fewer paid messages. They wrote it up as a skill so others could copy it, and it is now going to every region.\n(press)\nA second. We used to make lesson plans as images. One operator rebuilt them as web pages for the phone, and eleven to sixteen pages became five to nine. They shared it at this meeting, and the other regions copied it.\n(press)\nThat is what the meeting is for. When one region learns something, every region gets it, and nobody builds the same fix twice.\n(press)\n\n[Appendix: a05 the rituals calendar. Press A, the number, Enter.]",
+    "body": "Each week, one operator shows what they built and what they learnt.\nThe weekly operators' meeting is how we share learning across regions, and the operators take it in turns. The first twenty minutes belong to that week's operator: what they built and what they learnt. Then ten minutes of questions. In the last thirty minutes we read the RDF together, region by region. Bring something real: a change you shipped, the number it moved, and what surprised you.\n(press)\nHere is the kind of thing that gets shared. Meta changed its pricing, and our WhatsApp bill jumped. The quiz that goes home now opens in WhatsApp's in-app browser, a web page that opens inside WhatsApp. One operator wrote the move up as a skill so the others could copy it.\n(press)\nA second. The phone pages you saw a few minutes ago were first shown at this meeting, and the other regions copied them.\n(press)\nThat is what the meeting is for. When one region learns something, every region gets it, and nobody builds the same fix twice. Come with a question for whoever presents, and take one idea back to your own huddle the next morning.\n(press)\n\n[Appendix: a05 the rituals calendar. Press A, the number, Enter.]",
     "first_line": "Each week, one operator shows what they built and what they learnt."
    }
   },
@@ -789,7 +790,7 @@
    "id": "a02",
    "title": "The commands you will type",
    "chapter": "appendix",
-   "duration_s": 30,
+   "duration_s": 35,
    "appendix": true,
    "steps": 1,
    "transition": "cut",
@@ -799,12 +800,12 @@
    "media": [],
    "highlight": null,
    "note": {
-    "planned": "30 s (speaking 23 s, word ceiling 69)",
+    "planned": "35 s (speaking 27 s, word ceiling 80)",
     "cues": [
      "press 1: the end of a02; the next page is a03"
     ],
-    "body": "These are the commands you will type most. Look first with bd ready. Make a card with bd create, take it with bd update, the id, dash dash claim, and close it when the change ships. Your own worktree comes from claude-on-bead. Staging needs no go; production needs a fresh one, every time.\n(press)",
-    "first_line": "These are the commands you will type most."
+    "body": "Start claude from the workspace folder, then run ops slash doctor until it is green. Look first with bd ready, make a card with bd create, take it with bd update, the id, dash dash claim, and close it when the change ships. Claude on bead opens Claude in your own worktree. Staging needs no go; production needs a fresh one, every time.\n(press)",
+    "first_line": "Start claude from the workspace folder, then run ops slash doctor until it is green."
    }
   },
   {
@@ -888,11 +889,11 @@
    "media": [],
    "highlight": null,
    "note": {
-    "planned": "30 s (speaking 21 s, word ceiling 69)",
+    "planned": "30 s (speaking 20 s, word ceiling 69)",
     "cues": [
      "press 1: the end of a06; the next page is a07"
     ],
-    "body": "A hook stops you with a reason, and the reason names the safe way. Read it and take that way. Each gate has a named switch, but only when a person decided, and every use is written to a record. These are the four you will meet first.\n(press)",
+    "body": "A hook stops you with a reason, and the reason names the safe way. Read it and take that way. Each door has a named switch, but only when a person decided, and every use is written to a record. These are the three doors.\n(press)",
     "first_line": "A hook stops you with a reason, and the reason names the safe way."
    }
   },

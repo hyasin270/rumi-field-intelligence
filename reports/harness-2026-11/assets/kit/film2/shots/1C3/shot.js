@@ -473,7 +473,7 @@ FILM.shot({
     const row = "1C3.1", D = k.dur, Y = S1.GY, X = S1.DOORX;
     const tRail = S1.at(k, row, "small piece of code"), tRef = S1.at(k, row, "refuse");
     const Wb = S1.world(k, { board: -1e9, skills: -1e9, gates: -1e9 });
-    const doors = S1.doors2(k, Wb, ["Go live", "Tell a region", "Send a message"]);
+    const doors = S1.doors2(k, Wb, ["Go live", "Skip the tests", "Send a message"]);
     doors.forEach((d, j) => d.open(-1e6, 0.8).close(tRail + j * 120));   // the doors swing shut as the rail comes in; none stays lit (ruling 45 item 2)
     S1.crowd(k, Wb, { fitted: { board: -1e9, skills: -1e9 }, clear: S1.CLR.gates });
     k.cue(tRail, "install");

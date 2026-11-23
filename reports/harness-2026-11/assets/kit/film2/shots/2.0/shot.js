@@ -27,7 +27,7 @@ FILM.shot({
     // frame 0 is 1C5's last frame (rulings 71, 93). Pre-read 2.0_2240 B: the rooms differed. As 1C5 leaves them
     // (v2-shots-b tools/src/1C5.js): the three door2s with ruling 113's signs, rail one green and two and three red, the
     // board's done faces with card 26 "agent 58", and the small gate by the board with its arm up.
-    S1.doors2(k, W, ["Go live", "Tell a region", "Send a message"]);
+    S1.doors2(k, W, ["Go live", "Skip the tests", "Send a message"]);
     const RL = S1.rails(k, W); RL[0].stop(-1e9, { note: false }).go(-1e8); RL[1].stop(-1e9, { note: false }); RL[2].stop(-1e9, { note: false });
     { const board = W.parts.board; for (let i = 0; i < 28; i++) if (![3, 9, 20, 26, 27].includes(i)) S1.doneFace(k, board, i, -1e9);
       if (!FAST20) S1.doneFace(k, board, 26, -1e9, "agent 58"); }   // fast: card 26 stays unclaimed, as 1C5's fast branch leaves it (no fetch drawn; the 2.0 K 40 at 07:34Z showed it done at f000, 1C5/ai_fast f130 does not)   // card 26 since 22:56Z (v2-shots-b 235320)

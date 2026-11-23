@@ -1,10 +1,11 @@
+// q5-5A · lane q5 copy of 5A for s19 (23 Nov): the name card's gloss reads "the person who runs the agents"; row 5A kept.
 // 5A · S to N · v2-shots-e (v2.0 09:15Z, visuals 080638 5A: the operator walks in at most about 35 px a frame (was 50 to 59); the W pin leaves over 200 ms; W-left with its base out of the band, no push, so 5B1 opens on this last frame; k.breathe. v0.2: lead 074149 item 2, visuals 074104 item 7). The wall's four panels are white; one turns
 // red with the same red ring the stuck agent stands in. A person comes in, looks along the wall, finds the red one, walks
 // to that agent and frees it: the agent moves, its ring and the panel go green. Name card clear of the panel. Rest: W.
 (function () { const x = new XMLHttpRequest(); x.open("GET", "../shots/_e/lib.js", false); x.send(); (0, eval)(x.responseText); })();
 (function(){const x=new XMLHttpRequest();x.open("GET","snippets/locator.js",false);x.send();(0,eval)(x.responseText+";window.locator=locator;window.roomRing=roomRing;");})(); // VL 15.76 map and ring
 FILM.shot({
-  id: "5A", type: "S", row: "5A", dur: 14000,
+  id: "q5-5A", type: "S", row: "5A", dur: 14000,
   setup(k) {
     const E = window.SE, D = k.dur, T = THREE, tw = FILM.tw;
     k.breathe(); // VL 15.89 b
@@ -43,7 +44,7 @@ FILM.shot({
     stuck.act(tFree + 300, "wake").fx(tFree + 400, "tick").act(tFree + 900, "hop").walk(tFree + 1400, 2000, [[sA[0], sA[1]], [sA[0] + 0.5, sA[1] + 0.8], [cx + 0.1, -1.4]] /* v1.6 (pre-read 0050 fault 4): stops short of the operator, who steps back */ /* along the clear front, away from the bystanders (pre-read 2355) */);
     k.cue(tFree + 400, "flow");
     // the card lands on the right, clear of the panels
-    k.ui.nameCard(tName, { lineAt: FAST ? 0 : 1100, /* ruling 167 (4) */ name: "an operator", stamp: "For people, a manager", x: 1150, y: 150, t1: FAST ? tB : Math.min(Math.max(tName + 3500 + 250, r2.start + 1400), r2.end) }); /* gone as the camera pulls back (r2.end, 9.57 s) */ /* v1.7 (v2-check 020158, ruling 95): whole for 3.5 s */
+    k.ui.nameCard(tName, { lineAt: FAST ? 0 : 1100, /* ruling 167 (4) */ name: "an operator", stamp: "the person who runs the agents", x: 1150, y: 150, t1: FAST ? tB : Math.min(Math.max(tName + 3500 + 250, r2.start + 1400), r2.end) }); /* gone as the camera pulls back (r2.end, 9.57 s) */ /* v1.7 (v2-check 020158, ruling 95): whole for 3.5 s */
     // rest: pull back to W; the operator at the hatch (east end); the label docks
     const tBack = tB;
     [stuck, ...roomAgents].forEach((a) => a.hide(tBack)); // v2.1 (pre-read 1045): gone across the cut, so in W they do not push the teams room's crowd (kit/crowd.js:137) and 5B1 opens on the same crowd

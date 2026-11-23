@@ -33,8 +33,8 @@ SCREEN.define({
       c.innerHTML = `<div class="pl-h" style="font-size:64px;color:#001F3F">${head}</div><div style="font:500 52px/1.25 'Poppins',sans-serif;color:#001F3F;margin-top:14px">${body}</div>`;
       return c;
     };
-    root._c1 = card("Quizzes in WhatsApp&rsquo;s in-app browser", "Meta&rsquo;s pricing changed and the bill jumped. One operator moved the quiz into a web page inside WhatsApp, wrote it up as a skill, and every region is getting it.");
-    root._c2 = card("Lesson plans as phone pages", "11 to 16 pages became 5 to 9. Shared at this meeting, and copied by the other regions.");
+    root._c1 = card("Quizzes in WhatsApp&rsquo;s in-app browser", "Meta&rsquo;s pricing changed and the bill jumped. The quiz that goes home now opens in WhatsApp&rsquo;s in-app browser.");
+    root._c2 = card("Lesson plans as phone pages", "The phone pages you saw earlier were first shown at this meeting. The other regions copied them.");
   },
   render(root, t, ev) {
     const tw = (a, b) => Math.max(0, Math.min(1, (t - a) / (b - a)));

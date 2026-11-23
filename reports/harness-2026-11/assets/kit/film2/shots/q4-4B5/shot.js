@@ -4,7 +4,7 @@
 // fail stops under it and goes back through the hatch to its maker. In the rest after 4B5.2 the judge's reason goes into the book.
 (function () { const x = new XMLHttpRequest(); x.open("GET", "../shots/_d/lib.js", false); x.send(); (0, eval)(x.responseText); })();
 FILM.shot({
-  id: "4B5", type: "S", row: "4B5", dur: 17570,
+  id: "q4-4B5", type: "S", row: "4B5", dur: 17570,
   setup(k) {
     const S = window.SD, B = S.B3, D = k.dur, y = -9.6, tw = FILM.tw;
     const R1 = S.r(k, "4B5.1", { start: 300, end: 10430 }), R2 = S.r(k, "4B5.2", { start: 10930, end: 15830 });
@@ -59,7 +59,7 @@ FILM.shot({
       FILM._post.push((t) => { const v = tw(t, tEnf - 300, tEnf + 300, "io") * (1 - tw(t, R1.end - 300, R1.end + 300, "io")); els.forEach((e) => { e.style.filter = `opacity(${v})`; }); }); }   // ruling 107 c: no 85
     // ruling 55: the count on "nineteen", whole for 3 s, on its own white chip, touching neither the bar, the way out nor a label
     const tWhole = S.w(k, "4B5.2", "nineteen", R2.start + 1900) + 800, tN = tWhole - 800;   // ruling 69 a: whole for 3 s from about 13.7 s
-    const chip = k.ui.text("count", tN - 300, D + 600, '<div class="sd-count"><div class="n">1,953</div><div class="u">of 2,038 lesson plans · one region</div></div>', { x: 1150, y: 64 });   // ruling 107 c: one count, whole on "nineteen", to the cut
+    const chip = k.ui.text("count", tN - 300, D + 600, '<div class="sd-count"><div class="n">1,953</div><div class="u">of 2,038 lessons · one region, blind-judged</div></div>', { x: 990, y: 64 });   /* q4: the longer unit overran the frame at x 1150; 990 keeps it inside the 96 px line and clear of the booth wall */   // ruling 107 c: one count, whole on "nineteen", to the cut
     const cst = document.createElement("style"); cst.textContent = '.sd-count{background:#fff;border-radius:26px;box-shadow:0 10px 30px rgba(17,20,24,.12);padding:22px 40px 26px}.sd-count .r{font:500 34px "Poppins";color:#3C424B}.sd-count .n{font:600 112px "Poppins";color:#001F3F;line-height:1.05;font-variant-numeric:tabular-nums}.sd-count .u{font:500 36px "Poppins";color:#111418}'; document.head.appendChild(cst);
     // pre-read 2235: the card comes up over 400 ms and is whole on "nineteen"
     FILM._post.push((t) => { const e = document.querySelector(".sd-count"); if (e) e.style.filter = `opacity(${tw(t, tN - 300, tN + 300, "io")})`; });

@@ -506,7 +506,7 @@ FILM.shot({
     const tTr = FAST ? S1.at(k, row, "Remember") - 200 : S1.at(k, row, "Remember");   // option (b): the trace whole in the close shot
     const tPull = FAST ? S1.snapCut(Math.min(tTr + 900, D - 600)) : S1.snapCut(Math.max(S1.after(k, row, "shape") - 50, D - 2400));
     const LAV = { x0: 3.2, x1: 5.4, z0: -3.0, z1: -2.2, y: -3.2 };
-    S1.doors2(k, Wb, ["Go live", "Tell a region", "Send a message"], [-1e9, 1e9, 1e9]); S1.rails(k, Wb, 1e12);   // as 1C1 opens
+    S1.doors2(k, Wb, ["Go live", "Skip the tests", "Send a message"], [-1e9, 1e9, 1e9]); S1.rails(k, Wb, 1e12);   // as 1C1 opens
     S1.boardDone(k, Wb); S1.crowd(k, Wb, { fitted: { board: -1e9, skills: tPull }, clear: S1.CLR.skills.map((c) => Object.assign({ to: tPull }, c)), avoid: [S1.DESK_AVOID, LAV] });
     const N = k.agent({ at: [2.95, -3.2, -2.45], face: 0.8, name: "newcomer" }); N.act(0, "write"); N.hide(tPull);
     S1.part(k, "skillFolder", [Dk.x, Dk.top + 0.01, Dk.z]).open(-1e6);

@@ -476,7 +476,7 @@ FILM.shot({
   setup(k) {
     const row = "1C5.1", D = k.dur, r = k.row(row);
     const Wb = S1.world(k, { board: -1e9, skills: -1e9, gates: -1e9 });
-    S1.doors2(k, Wb, ["Go live", "Tell a region", "Send a message"]);   // shut since 1C3, as 1C4 left them
+    S1.doors2(k, Wb, ["Go live", "Skip the tests", "Send a message"]);   // shut since 1C3, as 1C4 left them
     const RL = S1.rails(k, Wb); RL[0].stop(-1e9, { note: false }).go(-1e8); RL[1].stop(-1e9, { note: false }); RL[2].stop(-1e9, { note: false });
     const tNo0 = S1.at(k, row, "No card"), tStick0 = tNo0 + 2350;
     /* ruling 165 (fast only, D under 6 s; v10 and ai 9.5, op 14.0): the bump on "No card" in S, the turn away, then the cut to

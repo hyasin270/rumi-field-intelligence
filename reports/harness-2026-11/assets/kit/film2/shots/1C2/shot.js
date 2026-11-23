@@ -466,14 +466,14 @@ var S1 = (function () {
 
 // 1C2 · S · one framing (shared with 1C1's landing and 1C3). Three sentences, three doors: each door's sign arrives and the door
 // lights as its sentence starts; each carrier stands at its own door: the newcomer with its plans at "Go live", then an agent with
-// a big envelope at "Tell a region", then one with a small envelope at "Send a message". Nothing stops them yet.
+// a big envelope at "Skip the tests", then one with a small envelope at "Send a message". Nothing stops them yet.
 FILM.shot({
   id: "1C2", type: "S", row: "1C2", dur: 9000,
   setup(k) {
     const row = "1C2.1", D = k.dur, Y = S1.GY, X = S1.DOORX;
     const t1 = S1.at(k, row, "untested"), t2 = S1.at(k, row, "whole region"), t3 = S1.at(k, row, "internal details");
     const Wb = S1.world(k, { board: -1e9, skills: -1e9, gates: -1e9 }); S1.rails(k, Wb, 1e12);   // no rail yet
-    const doors = S1.doors2(k, Wb, ["Go live", "Tell a region", "Send a message"], [-1e9, t2 - 150, t3 - 150]);
+    const doors = S1.doors2(k, Wb, ["Go live", "Skip the tests", "Send a message"], [-1e9, t2 - 150, t3 - 150]);
     S1.crowd(k, Wb, { fitted: { board: -1e9, skills: -1e9 }, clear: S1.CLR.gates });
     doors[0].open(-1e6, 0.8);
     const tEndRow = k.row(row).end;

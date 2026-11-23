@@ -500,7 +500,7 @@ FILM.shot({
   setup(k) {
     const row = "1C4.1", D = k.dur, Y = S1.GY, X = S1.DOORX;
     const Wb = S1.world(k, { board: -1e9, skills: -1e9, gates: -1e9 });
-    const doors = S1.doors2(k, Wb, ["Go live", "Tell a region", "Send a message"]); // the doors are shut since 1C3
+    const doors = S1.doors2(k, Wb, ["Go live", "Skip the tests", "Send a message"]); // the doors are shut since 1C3
     S1.crowd(k, Wb, { fitted: { board: -1e9, skills: -1e9 }, clear: S1.CLR.gates });
     const N = k.agent({ at: [X[0] - 0.33, Y, -3.1], face: 0.3, name: "newcomer" }); N.carry(0, S1.plans(k), { lift: -0.14 });   // as 1C3 left it, turned to us
     k.agent({ at: [X[1] - 0.63, Y, -3.05], face: 0.3, name: "region" }).carry(0, S1.part(k, "envelope", [0, 0, 0], { size: "big" }), { lift: -0.14 });

@@ -499,7 +499,7 @@ FILM.shot({
   setup(k) {
     const row = "1C1.1", D = k.dur, Y = S1.GY;
     const Wb = S1.world(k, { board: -1e9, skills: -1e9, gates: -1e9 }); S1.rails(k, Wb, 1e12);   // no rail yet
-    const doors = S1.doors2(k, Wb, ["Go live", "Tell a region", "Send a message"], [-1e9, 1e9, 1e9]);
+    const doors = S1.doors2(k, Wb, ["Go live", "Skip the tests", "Send a message"], [-1e9, 1e9, 1e9]);
     const tCut = S1.snapCut(1200);
     S1.boardDone(k, Wb); const tShift = (() => { try { const x = new XMLHttpRequest(); x.open("GET", "../timing.json", false); x.send(); const q = (JSON.parse(x.responseText).shots || []).find((r) => r.id === "1B7"); return q ? q.dur * 1000 : 9300; } catch (e) { return 9300; } })();   /* v2-shots-c 10:45Z: the crowd mills on 1B7's clock, so the shared W frame does not jump at the cut (ruling 129) */
     // v2-shots-c 12:00Z (ruling 129, the shared W frame): B1 east as 1B7 leaves it: the desk, the open skill folder, the toned layered
