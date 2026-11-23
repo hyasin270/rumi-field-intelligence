@@ -24,6 +24,8 @@ FILM.shot({
     const dS = door(cx - 1.05, "staging"), dP = door(cx + 1.05, "production");
     dS.light(tStage); dS.open(tStage + 400, 0.7); dP.light(tProd); dP.open(tProd + 400, 0.7);
     k.cue(tStage, "light"); k.cue(tProd, "light");
+    // round 4 (integrator): the team's board, small, between the two doors; the agents post on it (s20 links here)
+    { const tb = k.set.part("board", { cards: [3, 2], cardW: 0.17, cardH: 0.13, gap: 0.04, y: 1.2 }); tb.position.set(cx, y, -5.5); k.scene.add(tb); }
     // ---- the operator, at the centre
     const OP = [cx, y, -3.4];
     const op = k.person({ at: OP, face: 0, blend: 300, settle: 300 });

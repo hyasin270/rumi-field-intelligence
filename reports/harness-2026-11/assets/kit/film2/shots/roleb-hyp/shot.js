@@ -43,10 +43,13 @@ FILM.shot({
     });
     fsb.pose(tTop[2] + 200, "hand-up", { blend: 300 }); fsb.pose(tTop[2] + 1500, "stand", { blend: 300 });
     fsb.pose(tTop[3] + 300, "point", { blend: 300 }); fsb.pose(tTop[3] + 1600, "stand", { blend: 300 });
-    // the examples: the operator goes back to the left end; both point at the bottom row as it goes up
-    op.walk(tLP - 900, 1100, [[-4.0, -1.3]]); op.turn(tLP + 220, 300, 0.95);
-    op.pose(tLP + 400, "point", { blend: 300 }); op.pose(tLP + 1800, "stand", { blend: 300 });
-    fsb.pose(tQZ + 100, "point", { blend: 300 }); fsb.pose(tQZ + 1600, "stand", { blend: 300 });
+    // the examples (round 4): the board sinks away (the scene's panel carries the example); the operator and the FSB meet
+    // in the middle and talk it through, the operator pointing for the lesson plans, the FSB for the quizzes
+    k.each((t) => { const u = tw(t, tLP - 900, tLP - 150, "in"); B.position.y = -3.2 * u; B.visible = u < 0.999; });
+    op.walk(tLP - 900, 1300, [[-1.05, -1.6]]); op.turn(tLP + 420, 300, 1.25);
+    fsb.walk(tLP - 800, 1300, [[1.05, -1.6]]); fsb.turn(tLP + 520, 300, -1.25);
+    op.pose(tLP + 800, "point", { blend: 300 }); op.pose(tLP + 2200, "stand", { blend: 300 });
+    fsb.pose(tQZ + 100, "point", { blend: 300 }); fsb.pose(tQZ + 1600, "stand", { blend: 300 }); op.pose(tQZ + 300, "hand-up", { blend: 300 }); op.pose(tQZ + 1500, "stand", { blend: 300 });
     tTop.forEach((t0) => k.cue(t0, "tick")); k.cue(tLP, "pages"); k.cue(tQZ, "pages");
     const pose = (look, dist, yaw, pitch) => ({ pose: { look, dist, yaw: yaw == null ? -8 : yaw, pitch: pitch == null ? -7 : pitch } });
     const close = (i) => pose([CX[i] + 0.2, 1.42, Z], 9.0, -8, -6);
@@ -64,9 +67,9 @@ FILM.shot({
       { t: tTop[3] - 500, hold: true, drift: false },
       Object.assign({ t: tTop[3] + 600, ease: "io" }, close(3)),
       { t: tLP - 900, hold: true, drift: false },
-      Object.assign({ t: tLP + 1100, ease: "io" }, wideL(28)),
+      Object.assign({ t: tLP + 1100, ease: "io" }, pose([1.8, 0.85, -1.6], 12, -8, -8)),
       { t: tQZ - 300, hold: true, drift: false },
-      Object.assign({ t: tQZ + 1300, ease: "io" }, pose([3.2, 1.28, -2.0], 26.6, -9, -9)),
+      Object.assign({ t: tQZ + 1300, ease: "io" }, pose([1.7, 0.8, -1.6], 11.2, -11, -8)),
       { t: 18601, hold: true },
     ]);
     return { B };

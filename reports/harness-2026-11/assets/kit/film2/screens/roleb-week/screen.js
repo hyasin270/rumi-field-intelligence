@@ -34,7 +34,7 @@ SCREEN.define({
       return c;
     };
     root._c1 = card("Quizzes in WhatsApp&rsquo;s in-app browser", "Meta&rsquo;s pricing changed and the bill jumped. The quiz that goes home now opens in WhatsApp&rsquo;s in-app browser.");
-    root._c2 = card("Lesson plans as phone pages", "The phone pages you saw earlier were first shown at this meeting. The other regions copied them.");
+    root._c2 = card("Lesson plans as phone pages", "The phone pages you saw earlier were first shown at this meeting.");
   },
   render(root, t, ev) {
     const tw = (a, b) => Math.max(0, Math.min(1, (t - a) / (b - a)));

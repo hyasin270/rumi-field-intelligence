@@ -13,7 +13,7 @@ SCREEN.define({
     const hd = (root._hd = L.el("div", "abs", "", pg));
     Object.assign(hd.style, { left: "96px", top: "34px", width: "1728px" });
     hd.innerHTML = `<div class="pl-h" style="font-size:96px;color:#001F3F">The RDF</div>
-      <div style="font:500 52px/1.2 'Poppins',sans-serif;color:#001F3F;margin-top:10px">Each region&rsquo;s weekly charts &middot; Tanzania, 21 to 27 Oct</div>`;
+      <div style="font:500 52px/1.2 'Poppins',sans-serif;color:#001F3F;margin-top:10px">Each region&rsquo;s weekly charts<br>Tanzania, from the weekly brief to 27 Oct</div>`;
     const bar = L.el("div", "abs", "", pg); Object.assign(bar.style, { left: "96px", top: "40px", width: "14px", height: "200px", borderRadius: "7px", background: "#F5B301" });
     bar.style.left = "60px";
     // the title card's three lines (step 1): what the weekly charts are
